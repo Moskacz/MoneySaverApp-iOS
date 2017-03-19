@@ -13,6 +13,7 @@
 		35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97241E7F0860003DBA41 /* Assets.xcassets */; };
 		35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97261E7F0860003DBA41 /* LaunchScreen.storyboard */; };
 		35BB97331E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */; };
+		35BB973F1E7F0D76003DBA41 /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		35BB972E1E7F0860003DBA41 /* MoneySaverApp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MoneySaverApp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySaverApp_iOSTests.swift; sourceTree = "<group>"; };
 		35BB97341E7F0860003DBA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35BB973E1E7F0D76003DBA41 /* RESTClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RESTClient.framework; path = Carthage/Build/iOS/RESTClient.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BB973F1E7F0D76003DBA41 /* RESTClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +65,7 @@
 				35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */,
 				35BB97311E7F0860003DBA41 /* MoneySaverApp-iOSTests */,
 				35BB971B1E7F085F003DBA41 /* Products */,
+				35BB973D1E7F0D76003DBA41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +98,14 @@
 				35BB97341E7F0860003DBA41 /* Info.plist */,
 			);
 			path = "MoneySaverApp-iOSTests";
+			sourceTree = "<group>";
+		};
+		35BB973D1E7F0D76003DBA41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35BB973E1E7F0D76003DBA41 /* RESTClient.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +352,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R77HUFLYN8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "MoneySaverApp-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michal.moskala.MoneySaverApp-iOS";
@@ -353,6 +369,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = R77HUFLYN8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "MoneySaverApp-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michal.moskala.MoneySaverApp-iOS";
