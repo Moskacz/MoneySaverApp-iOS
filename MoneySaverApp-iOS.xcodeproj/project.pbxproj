@@ -13,7 +13,8 @@
 		35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97241E7F0860003DBA41 /* Assets.xcassets */; };
 		35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97261E7F0860003DBA41 /* LaunchScreen.storyboard */; };
 		35BB97331E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */; };
-		35BB973F1E7F0D76003DBA41 /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
+		35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
+		35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,19 @@
 			remoteInfo = "MoneySaverApp-iOS";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		35C233E51E81AAA30095AFFE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35BB973F1E7F0D76003DBA41 /* RESTClient.framework in Frameworks */,
+				35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +132,7 @@
 				35BB97161E7F085F003DBA41 /* Sources */,
 				35BB97171E7F085F003DBA41 /* Frameworks */,
 				35BB97181E7F085F003DBA41 /* Resources */,
+				35C233E51E81AAA30095AFFE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -430,6 +445,7 @@
 				35BB97391E7F0860003DBA41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		35BB973A1E7F0860003DBA41 /* Build configuration list for PBXNativeTarget "MoneySaverApp-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +454,7 @@
 				35BB973C1E7F0860003DBA41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol URLSessionProvider {
+public protocol URLSessionProvider {
     func getSession() -> URLSession
 }

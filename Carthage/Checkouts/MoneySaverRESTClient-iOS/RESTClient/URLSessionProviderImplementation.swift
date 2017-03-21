@@ -8,9 +8,9 @@
 
 import Foundation
 
-class URLSessionProviderImplementation: URLSessionProvider {
+public class URLSessionProviderImplementation: URLSessionProvider {
     
-    func getSession() -> URLSession {
+    public func getSession() -> URLSession {
         let configuration = URLSessionConfiguration.default
         return URLSession(configuration: configuration)
     }

@@ -8,9 +8,9 @@
 
 import Foundation
 
-typealias HTTPRequestCompletion = (Data?, URLResponse?, Error?) -> Void
+public typealias HTTPRequestCompletion = (Data?, URLResponse?, Error?) -> Void
 
-protocol HTTPClient {
+public protocol HTTPClient {
     func performRequest(withParameters parameters: HTTPRequestParameters,
                         completion: @escaping HTTPRequestCompletion)
 }

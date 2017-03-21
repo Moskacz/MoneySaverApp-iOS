@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HTTPRequestParameters {
+public struct HTTPRequestParameters {
     let url: URL
     let method: HTTPMethod
     let parameters: [AnyHashable: Any]?

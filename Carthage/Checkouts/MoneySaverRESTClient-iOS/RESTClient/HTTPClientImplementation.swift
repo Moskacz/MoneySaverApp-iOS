@@ -8,22 +8,22 @@
 
 import Foundation
 
-enum HTTPMethod: String {
+public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
 }
 
-class HTTPClientImplementation: HTTPClient {
+public class HTTPClientImplementation: HTTPClient {
     
-    let session: URLSession
+    private let session: URLSession
     
     init(sessionProvider: URLSessionProvider) {
         self.session = sessionProvider.getSession()
     }
     
-    func performRequest(withParameters parameters: HTTPRequestParameters,
+    public func performRequest(withParameters parameters: HTTPRequestParameters,
                         completion: @escaping HTTPRequestCompletion) {
         let urlRequest = request(withParameters: parameters)
         session.dataTask(with: urlRequest, completionHandler: completion).resume()
