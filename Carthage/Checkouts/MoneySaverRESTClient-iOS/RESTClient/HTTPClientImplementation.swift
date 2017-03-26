@@ -7,12 +7,17 @@
 //
 
 import Foundation
+import RxSwift
 
 public enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
     case delete = "DELETE"
+}
+
+public enum ResponseParsingError: Error {
+    case couldNotParse
 }
 
 public class HTTPClientImplementation: HTTPClient {
@@ -23,10 +28,39 @@ public class HTTPClientImplementation: HTTPClient {
         self.session = sessionProvider.getSession()
     }
     
-    public func performRequest(withParameters parameters: HTTPRequestParameters,
-                        completion: @escaping HTTPRequestCompletion) {
-        let urlRequest = request(withParameters: parameters)
-        session.dataTask(with: urlRequest, completionHandler: completion).resume()
+    public func performRequest(withParameters parameters: HTTPRequestParameters) -> Observable<[AnyHashable: Any]> {
+        return Observable<[AnyHashable: Any]>.create({ (observer: AnyObserver<[AnyHashable: Any]>) -> Disposable in
+            let urlRequest = self.request(withParameters: parameters)
+            let task = self.session.dataTask(with: urlRequest, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+                if let requestError = error {
+                    observer.onError(requestError)
+                    return
+                }
+                
+                if let responseData = data {
+                    do {
+                        let jsonObject = try JSONSerialization.jsonObject(with: responseData, options: .allowFragments)
+                        if let json = jsonObject as? [AnyHashable: Any] {
+                            observer.onNext(json)
+                            observer.onCompleted()
+                        } else {
+                            observer.onError(ResponseParsingError.couldNotParse)
+                        }
+                    } catch {
+                        observer.onError(error)
+                    }
+                } else {
+                    observer.onError(ResponseParsingError.couldNotParse)
+                }
+                
+            })
+            
+            task.resume()
+            
+            return Disposables.create {
+                task.cancel()
+            }
+        })
     }
     
     private func request(withParameters parameters: HTTPRequestParameters) -> URLRequest {

@@ -7,10 +7,8 @@
 //
 
 import Foundation
-
-public typealias HTTPRequestCompletion = (Data?, URLResponse?, Error?) -> Void
+import RxSwift
 
 public protocol HTTPClient {
-    func performRequest(withParameters parameters: HTTPRequestParameters,
-                        completion: @escaping HTTPRequestCompletion)
+    func performRequest(withParameters parameters: HTTPRequestParameters) -> Observable<[AnyHashable: Any]>
 }

@@ -12,6 +12,16 @@
 		35A81B211E79CE9600C79562 /* URLSessionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A81B201E79CE9600C79562 /* URLSessionProvider.swift */; };
 		35A81B231E79CEC400C79562 /* URLSessionProviderImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A81B221E79CEC400C79562 /* URLSessionProviderImplementation.swift */; };
 		35A81B271E79D11900C79562 /* HTTPRequestParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A81B261E79D11900C79562 /* HTTPRequestParameters.swift */; };
+		35C234391E81B01F0095AFFE /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C234381E81B01F0095AFFE /* MoneySaverFoundationiOS.framework */; };
+		35C2343B1E81B0350095AFFE /* MoneySaverFoundationiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35C234381E81B01F0095AFFE /* MoneySaverFoundationiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		35C2343E1E81B05A0095AFFE /* TransactionsRESTClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C2343D1E81B05A0095AFFE /* TransactionsRESTClient.swift */; };
+		35C234421E81B5020095AFFE /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C234411E81B5020095AFFE /* RxSwift.framework */; };
+		35C234431E81B5110095AFFE /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35C234411E81B5020095AFFE /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		35D4BCA91E8452AF006FAF69 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4BCA81E8452AF006FAF69 /* Router.swift */; };
+		35D4BCAB1E84530D006FAF69 /* TransactionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4BCAA1E84530D006FAF69 /* TransactionsRouter.swift */; };
+		35D4BCAD1E8454D3006FAF69 /* TransactionsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4BCAC1E8454D3006FAF69 /* TransactionsRouterTests.swift */; };
+		35D4BCB01E845752006FAF69 /* RESTClientInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D4BCAF1E845752006FAF69 /* RESTClientInterface.swift */; };
+		35D5A05A1E8309CF00E6156F /* TransactionFromRESTResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5A0591E8309CF00E6156F /* TransactionFromRESTResponseMapper.swift */; };
 		35D86C821E787FDE00D74725 /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D86C781E787FDD00D74725 /* RESTClient.framework */; };
 		35D86C871E787FDE00D74725 /* RESTClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D86C861E787FDE00D74725 /* RESTClientTests.swift */; };
 		35D86C891E787FDE00D74725 /* RESTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 35D86C7B1E787FDD00D74725 /* RESTClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,12 +37,35 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		35C2343A1E81B02A0095AFFE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				35C234431E81B5110095AFFE /* RxSwift.framework in CopyFiles */,
+				35C2343B1E81B0350095AFFE /* MoneySaverFoundationiOS.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		35A81B1C1E79C02700C79562 /* HTTPClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		35A81B1E1E79C08300C79562 /* HTTPClientImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPClientImplementation.swift; sourceTree = "<group>"; };
 		35A81B201E79CE9600C79562 /* URLSessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProvider.swift; sourceTree = "<group>"; };
 		35A81B221E79CEC400C79562 /* URLSessionProviderImplementation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionProviderImplementation.swift; sourceTree = "<group>"; };
 		35A81B261E79D11900C79562 /* HTTPRequestParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPRequestParameters.swift; sourceTree = "<group>"; };
+		35C234381E81B01F0095AFFE /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
+		35C2343D1E81B05A0095AFFE /* TransactionsRESTClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRESTClient.swift; sourceTree = "<group>"; };
+		35C2343F1E81B4EF0095AFFE /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		35C234411E81B5020095AFFE /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		35D4BCA81E8452AF006FAF69 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		35D4BCAA1E84530D006FAF69 /* TransactionsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRouter.swift; sourceTree = "<group>"; };
+		35D4BCAC1E8454D3006FAF69 /* TransactionsRouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRouterTests.swift; sourceTree = "<group>"; };
+		35D4BCAF1E845752006FAF69 /* RESTClientInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RESTClientInterface.swift; sourceTree = "<group>"; };
+		35D5A0591E8309CF00E6156F /* TransactionFromRESTResponseMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionFromRESTResponseMapper.swift; sourceTree = "<group>"; };
 		35D86C781E787FDD00D74725 /* RESTClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RESTClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D86C7B1E787FDD00D74725 /* RESTClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RESTClient.h; sourceTree = "<group>"; };
 		35D86C7C1E787FDD00D74725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C234391E81B01F0095AFFE /* MoneySaverFoundationiOS.framework in Frameworks */,
+				35C234421E81B5020095AFFE /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +95,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35C234371E81B01F0095AFFE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				35C234411E81B5020095AFFE /* RxSwift.framework */,
+				35C234381E81B01F0095AFFE /* MoneySaverFoundationiOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35C2343C1E81B04B0095AFFE /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				35C2343D1E81B05A0095AFFE /* TransactionsRESTClient.swift */,
+				35D5A0591E8309CF00E6156F /* TransactionFromRESTResponseMapper.swift */,
+				35D4BCA81E8452AF006FAF69 /* Router.swift */,
+				35D4BCAA1E84530D006FAF69 /* TransactionsRouter.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		35D4BCAE1E845741006FAF69 /* FrameworkInterface */ = {
+			isa = PBXGroup;
+			children = (
+				35D4BCAF1E845752006FAF69 /* RESTClientInterface.swift */,
+			);
+			path = FrameworkInterface;
+			sourceTree = "<group>";
+		};
 		35D86C6E1E787FDD00D74725 = {
 			isa = PBXGroup;
 			children = (
+				35C2343F1E81B4EF0095AFFE /* RxBlocking.framework */,
 				35D86C7A1E787FDD00D74725 /* RESTClient */,
 				35D86C851E787FDE00D74725 /* RESTClientTests */,
 				35D86C791E787FDD00D74725 /* Products */,
+				35C234371E81B01F0095AFFE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +146,8 @@
 		35D86C7A1E787FDD00D74725 /* RESTClient */ = {
 			isa = PBXGroup;
 			children = (
+				35D4BCAE1E845741006FAF69 /* FrameworkInterface */,
+				35C2343C1E81B04B0095AFFE /* Transactions */,
 				35D86C7B1E787FDD00D74725 /* RESTClient.h */,
 				35D86C7C1E787FDD00D74725 /* Info.plist */,
 				35A81B1C1E79C02700C79562 /* HTTPClient.swift */,
@@ -97,6 +164,7 @@
 			children = (
 				35D86C861E787FDE00D74725 /* RESTClientTests.swift */,
 				35D86C881E787FDE00D74725 /* Info.plist */,
+				35D4BCAC1E8454D3006FAF69 /* TransactionsRouterTests.swift */,
 			);
 			path = RESTClientTests;
 			sourceTree = "<group>";
@@ -123,6 +191,7 @@
 				35D86C741E787FDD00D74725 /* Frameworks */,
 				35D86C751E787FDD00D74725 /* Headers */,
 				35D86C761E787FDD00D74725 /* Resources */,
+				35C2343A1E81B02A0095AFFE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -214,9 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35D4BCA91E8452AF006FAF69 /* Router.swift in Sources */,
+				35D5A05A1E8309CF00E6156F /* TransactionFromRESTResponseMapper.swift in Sources */,
 				35A81B1F1E79C08300C79562 /* HTTPClientImplementation.swift in Sources */,
+				35C2343E1E81B05A0095AFFE /* TransactionsRESTClient.swift in Sources */,
 				35A81B231E79CEC400C79562 /* URLSessionProviderImplementation.swift in Sources */,
+				35D4BCB01E845752006FAF69 /* RESTClientInterface.swift in Sources */,
 				35A81B271E79D11900C79562 /* HTTPRequestParameters.swift in Sources */,
+				35D4BCAB1E84530D006FAF69 /* TransactionsRouter.swift in Sources */,
 				35A81B1D1E79C02700C79562 /* HTTPClient.swift in Sources */,
 				35A81B211E79CE9600C79562 /* URLSessionProvider.swift in Sources */,
 			);
@@ -227,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35D86C871E787FDE00D74725 /* RESTClientTests.swift in Sources */,
+				35D4BCAD1E8454D3006FAF69 /* TransactionsRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +425,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RESTClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -371,6 +450,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RESTClient/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
