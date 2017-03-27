@@ -12,11 +12,17 @@
 		35B5CACB1E883D7600D1990E /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B5CACC1E883D7B00D1990E /* MoneySaverFoundationiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB971D1E7F085F003DBA41 /* AppDelegate.swift */; };
-		35BB97201E7F085F003DBA41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB971F1E7F085F003DBA41 /* ViewController.swift */; };
 		35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97211E7F0860003DBA41 /* Main.storyboard */; };
 		35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97241E7F0860003DBA41 /* Assets.xcassets */; };
 		35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97261E7F0860003DBA41 /* LaunchScreen.storyboard */; };
 		35BB97331E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */; };
+		35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DDD1E89751A00095FE2 /* TransactionsModel.swift */; };
+		35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DDF1E89766900095FE2 /* TransactionsListViewController.swift */; };
+		35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */; };
+		35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE41E89780D00095FE2 /* Observable+Additions.swift */; };
+		35C09DE81E8979B700095FE2 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */; };
+		35C09DE91E8979B700095FE2 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */; };
+		35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */; };
 		35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
 		35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -51,7 +57,6 @@
 		35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BB971D1E7F085F003DBA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35BB971F1E7F085F003DBA41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		35BB97221E7F0860003DBA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35BB97241E7F0860003DBA41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35BB97271E7F0860003DBA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +65,13 @@
 		35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySaverApp_iOSTests.swift; sourceTree = "<group>"; };
 		35BB97341E7F0860003DBA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35BB973E1E7F0D76003DBA41 /* RESTClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RESTClient.framework; path = Carthage/Build/iOS/RESTClient.framework; sourceTree = "<group>"; };
+		35C09DDD1E89751A00095FE2 /* TransactionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsModel.swift; sourceTree = "<group>"; };
+		35C09DDF1E89766900095FE2 /* TransactionsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListViewController.swift; sourceTree = "<group>"; };
+		35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
+		35C09DE41E89780D00095FE2 /* Observable+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Additions.swift"; sourceTree = "<group>"; };
+		35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +117,9 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35C09DE31E8977F500095FE2 /* Extensions */,
+				35C09DDC1E8974F800095FE2 /* Transactions */,
 				35BB971D1E7F085F003DBA41 /* AppDelegate.swift */,
-				35BB971F1E7F085F003DBA41 /* ViewController.swift */,
 				35BB97211E7F0860003DBA41 /* Main.storyboard */,
 				35BB97241E7F0860003DBA41 /* Assets.xcassets */,
 				35BB97261E7F0860003DBA41 /* LaunchScreen.storyboard */,
@@ -132,6 +145,27 @@
 				35BB973E1E7F0D76003DBA41 /* RESTClient.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		35C09DDC1E8974F800095FE2 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				35C09DDD1E89751A00095FE2 /* TransactionsModel.swift */,
+				35C09DDF1E89766900095FE2 /* TransactionsListViewController.swift */,
+				35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */,
+				35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */,
+				35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		35C09DE31E8977F500095FE2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35C09DE41E89780D00095FE2 /* Observable+Additions.swift */,
+				35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +256,7 @@
 			files = (
 				35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */,
 				35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */,
+				35C09DE91E8979B700095FE2 /* TransactionTableViewCell.xib in Resources */,
 				35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,8 +275,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35BB97201E7F085F003DBA41 /* ViewController.swift in Sources */,
+				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
+				35C09DE81E8979B700095FE2 /* TransactionTableViewCell.swift in Sources */,
+				35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */,
+				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
+				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
+				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
