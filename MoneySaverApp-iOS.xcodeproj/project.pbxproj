@@ -23,6 +23,7 @@
 		35C09DE81E8979B700095FE2 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */; };
 		35C09DE91E8979B700095FE2 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */; };
 		35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */; };
+		35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */; };
 		35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
 		35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
+		35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */,
 				35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */,
 				35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */,
+				35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
+				35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
