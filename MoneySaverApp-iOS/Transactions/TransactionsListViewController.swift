@@ -21,6 +21,8 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         setupTableView()
         fetchData()
+        let coreDataStack = CoreDataStackImplementation()
+        print(coreDataStack.getViewContext())
     }
     
     private func setupTableView() {

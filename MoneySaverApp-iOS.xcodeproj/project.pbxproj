@@ -26,6 +26,7 @@
 		35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */; };
 		35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
 		35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35C9FEEC1E8C23A90092D5E3 /* CoreData */,
 				35C09DE31E8977F500095FE2 /* Extensions */,
 				35C09DDC1E8974F800095FE2 /* Transactions */,
 				35BB971D1E7F085F003DBA41 /* AppDelegate.swift */,
@@ -169,6 +172,14 @@
 				35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35C9FEEC1E8C23A90092D5E3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +296,7 @@
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
+				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
 				35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
