@@ -26,6 +26,11 @@
 		35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */; };
 		35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; };
 		35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35BB973E1E7F0D76003DBA41 /* RESTClient.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */; };
+		35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */; };
+		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
+		35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */; };
+		35C9FF031E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FF011E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +79,11 @@
 		35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 		35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewController.swift; sourceTree = "<group>"; };
+		35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		35C9FEF01E8C276A0092D5E3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		35C9FEF21E8C279D0092D5E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		35C9FF011E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */,
 				35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */,
 				35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */,
 				35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */,
@@ -119,6 +130,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35C9FEEC1E8C23A90092D5E3 /* CoreData */,
 				35C09DE31E8977F500095FE2 /* Extensions */,
 				35C09DDC1E8974F800095FE2 /* Transactions */,
 				35BB971D1E7F085F003DBA41 /* AppDelegate.swift */,
@@ -142,6 +154,7 @@
 		35BB973D1E7F0D76003DBA41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35C9FEF21E8C279D0092D5E3 /* CoreData.framework */,
 				35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */,
 				35B5CAC71E883D5500D1990E /* RxSwift.framework */,
 				35BB973E1E7F0D76003DBA41 /* RESTClient.framework */,
@@ -169,6 +182,17 @@
 				35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35C9FEEC1E8C23A90092D5E3 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */,
+				35C9FF011E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift */,
+				35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */,
+				35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,12 +303,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
+				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
+				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35C09DE81E8979B700095FE2 /* TransactionTableViewCell.swift in Sources */,
 				35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */,
+				35C9FF031E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
+				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
 				35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -513,6 +541,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				35C9FEF01E8C276A0092D5E3 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 35C9FEF01E8C276A0092D5E3 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 35BB97121E7F085F003DBA41 /* Project object */;
 }
