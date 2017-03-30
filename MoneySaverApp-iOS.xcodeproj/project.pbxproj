@@ -31,8 +31,6 @@
 		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
 		35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */; };
 		35C9FF031E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FF011E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift */; };
-		35F011D61E8D7B03006A2BC2 /* Cleanse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F011D51E8D7B03006A2BC2 /* Cleanse.framework */; };
-		35F011D71E8D88DF006A2BC2 /* Cleanse.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35F011D51E8D7B03006A2BC2 /* Cleanse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +50,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				35F011D71E8D88DF006A2BC2 /* Cleanse.framework in CopyFiles */,
 				35B5CACC1E883D7B00D1990E /* MoneySaverFoundationiOS.framework in CopyFiles */,
 				35B5CACB1E883D7600D1990E /* RxSwift.framework in CopyFiles */,
 				35C233E61E81AAC20095AFFE /* RESTClient.framework in CopyFiles */,
@@ -95,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F011D61E8D7B03006A2BC2 /* Cleanse.framework in Frameworks */,
 				35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */,
 				35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */,
 				35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */,
