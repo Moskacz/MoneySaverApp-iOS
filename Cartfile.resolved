@@ -1,3 +1,4 @@
 github "Moskacz/MoneySaverFoundationiOS" "4c7f3fc51be76f2512e7eba0d29447c998ddb8f1"
 github "Moskacz/MoneySaverRESTClient-iOS" "e5e30af00a613baf998e5448c79ac37f6dbff89b"
 github "ReactiveX/RxSwift" "3.3.1"
+github "square/Cleanse" "299e57e27d0e35e12dd1f62964306deff2d7de8c"
