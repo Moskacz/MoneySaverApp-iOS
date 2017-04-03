@@ -22,7 +22,7 @@ class TransactionsListViewModel {
     func fetchData() -> Observable<Void> {
         return transactionsModel.getTransactions().do(onNext: { [weak self] (transactions: [Transaction]) in
             self?.transactions = transactions
-        }).mapToVoid()
+        }).mapToVoid().observeOn(MainScheduler.instance)
     }
     
     func transactionsCount() -> Int {
