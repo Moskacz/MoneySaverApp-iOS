@@ -12,9 +12,14 @@ import Dip
 extension DependencyContainer {
     
     static func createContainer() -> DependencyContainer {
-        return DependencyContainer(configBlock: { (container: DependencyContainer) in
-            
-        })
+        let assemblers: [ContainerAssembly] = [NetworkingLayerAssembler(), DataLayerAssembler(), ModelsAssembler(), ViewModelsAssembler()]
+        
+        let container = DependencyContainer()
+        for assembler in assemblers {
+            assembler.assembly(container: container)
+        }
+        
+        return container
     }
     
 }
