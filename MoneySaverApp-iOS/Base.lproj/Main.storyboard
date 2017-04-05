@@ -49,7 +49,7 @@
         <!--Add Transaction View Controller-->
         <scene sceneID="g3Y-nx-kZn">
             <objects>
-                <viewController id="ze7-cu-UEi" customClass="AddTransactionViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTransactionViewController" id="ze7-cu-UEi" customClass="AddTransactionViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FXE-yh-DuT"/>
                         <viewControllerLayoutGuide type="bottom" id="8yo-6d-sK5"/>
@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxw-cl-01x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="142"/>
+            <point key="canvasLocation" x="932" y="281"/>
         </scene>
     </scenes>
 </document>

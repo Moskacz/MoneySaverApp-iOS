@@ -19,9 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        dependencyContainer = DependencyContainer.createContainer()
-        rootFlowController = RootFlowController(applicationDelegate: self, storyboard: UIStoryboard.getMain())
+        let diContainer = DependencyContainer.createContainer()
+        rootFlowController = RootFlowController(applicationDelegate: self,
+                                                storyboard: UIStoryboard.getMain(),
+                                                dependencyContainer: diContainer)
         rootFlowController?.startFlow()
+        dependencyContainer = diContainer
         
         
 //        if let navController = window?.rootViewController as? UINavigationController {

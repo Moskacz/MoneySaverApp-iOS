@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import Dip
 
 class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
     private let storyboard: UIStoryboard
+    private let dependencyContainer: DependencyContainer
     
-    init(applicationDelegate: AppDelegate?, storyboard: UIStoryboard) {
+    init(applicationDelegate: AppDelegate?, storyboard: UIStoryboard, dependencyContainer: DependencyContainer) {
         self.applicationDelegate = applicationDelegate
         self.storyboard = storyboard
+        self.dependencyContainer = dependencyContainer
     }
     
     func startFlow() {
@@ -24,6 +27,7 @@ class RootFlowController: FlowController {
     
     private func setupRootFlowController() {
         let transactionsListVC: TransactionsListViewController = storyboard.instantiateTypeViewController(withIdentifier: TransactionsListViewController.storyboardId)
+        transactionsListVC.viewModel = try! dependencyContainer.resolve()
         let navController = UINavigationController(rootViewController: transactionsListVC)
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = navController
