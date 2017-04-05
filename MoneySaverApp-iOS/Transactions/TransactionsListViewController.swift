@@ -11,6 +11,8 @@ import RxSwift
 
 class TransactionsListViewController: UIViewController, UITableViewDataSource {
     
+    static let storyboardId = "TransactionsListViewController"
+    
     @IBOutlet weak var tableView: UITableView!
     var viewModel: TransactionsListViewModel!
     
@@ -21,8 +23,6 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         setupTableView()
         fetchData()
-        let coreDataStack = CoreDataStackImplementation()
-        print(coreDataStack.getViewContext())
     }
     
     private func setupTableView() {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F601E9564F3002ED5D7 /* FlowController.swift */; };
+		350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F621E956578002ED5D7 /* RootFlowController.swift */; };
+		350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */; };
 		352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
 		352B030B1E92BD1B001B99CB /* Dip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */; };
@@ -68,6 +71,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350F0F601E9564F3002ED5D7 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
+		350F0F621E956578002ED5D7 /* RootFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
+		350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additions.swift"; sourceTree = "<group>"; };
 		352B03091E92BD0A001B99CB /* Dip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dip.framework; path = Carthage/Build/iOS/Dip.framework; sourceTree = "<group>"; };
 		352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainerConfigurator.swift; sourceTree = "<group>"; };
 		352B030F1E92BF20001B99CB /* ContainerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerAssembly.swift; sourceTree = "<group>"; };
@@ -126,6 +132,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350F0F5F1E9564C8002ED5D7 /* FlowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				350F0F601E9564F3002ED5D7 /* FlowController.swift */,
+				350F0F621E956578002ED5D7 /* RootFlowController.swift */,
+			);
+			path = FlowControllers;
+			sourceTree = "<group>";
+		};
 		352B030C1E92BDB9001B99CB /* DependencyContainers */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +176,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				350F0F5F1E9564C8002ED5D7 /* FlowControllers */,
 				352B030C1E92BDB9001B99CB /* DependencyContainers */,
 				35C9FEEC1E8C23A90092D5E3 /* CoreData */,
 				35C09DE31E8977F500095FE2 /* Extensions */,
@@ -214,6 +230,7 @@
 			children = (
 				35C09DE41E89780D00095FE2 /* Observable+Additions.swift */,
 				35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */,
+				350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -338,6 +355,7 @@
 			files = (
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
 				352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */,
+				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
@@ -354,6 +372,8 @@
 				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
 				35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */,
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
+				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
+				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
