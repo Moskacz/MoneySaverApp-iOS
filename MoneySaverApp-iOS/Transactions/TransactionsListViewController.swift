@@ -11,6 +11,8 @@ import RxSwift
 
 class TransactionsListViewController: UIViewController, UITableViewDataSource {
     
+    static let storyboardId = "TransactionsListViewController"
+    
     @IBOutlet weak var tableView: UITableView!
     var viewModel: TransactionsListViewModel!
     
