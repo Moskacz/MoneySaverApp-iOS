@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F601E9564F3002ED5D7 /* FlowController.swift */; };
 		352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
 		352B030B1E92BD1B001B99CB /* Dip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350F0F601E9564F3002ED5D7 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		352B03091E92BD0A001B99CB /* Dip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dip.framework; path = Carthage/Build/iOS/Dip.framework; sourceTree = "<group>"; };
 		352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainerConfigurator.swift; sourceTree = "<group>"; };
 		352B030F1E92BF20001B99CB /* ContainerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerAssembly.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		350F0F5F1E9564C8002ED5D7 /* FlowControllers */ = {
+			isa = PBXGroup;
+			children = (
+				350F0F601E9564F3002ED5D7 /* FlowController.swift */,
+			);
+			path = FlowControllers;
+			sourceTree = "<group>";
+		};
 		352B030C1E92BDB9001B99CB /* DependencyContainers */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +171,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				350F0F5F1E9564C8002ED5D7 /* FlowControllers */,
 				352B030C1E92BDB9001B99CB /* DependencyContainers */,
 				35C9FEEC1E8C23A90092D5E3 /* CoreData */,
 				35C09DE31E8977F500095FE2 /* Extensions */,
@@ -354,6 +365,7 @@
 				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
 				35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */,
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
+				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
