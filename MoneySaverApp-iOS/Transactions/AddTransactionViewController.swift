@@ -10,6 +10,8 @@ import UIKit
 
 class AddTransactionViewController: UIViewController {
     
+    static let storyboardId = "AddTransactionViewController"
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
 }

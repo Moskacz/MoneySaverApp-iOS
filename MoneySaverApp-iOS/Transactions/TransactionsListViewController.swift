@@ -18,17 +18,36 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
     
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
     private let disposeBag = DisposeBag()
+    var addTransactionTapCallback: ((Void) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        setupViews()
         fetchData()
+    }
+    
+    // MARK: Initial setup
+    
+    private func setupViews() {
+        setupTableView()
+        setupNavigationItems()
     }
     
     private func setupTableView() {
         let cellNib = UINib(nibName: "TransactionTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
     }
+    
+    private func setupNavigationItems() {
+        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTransactionButtonTapped))
+        navigationItem.rightBarButtonItem = addItem
+    }
+    
+    func addTransactionButtonTapped() {
+        addTransactionTapCallback?()
+    }
+    
+    // MARK: fetching
     
     private func fetchData() {
         viewModel.fetchData().subscribe(onNext: { [weak self] (_) in
