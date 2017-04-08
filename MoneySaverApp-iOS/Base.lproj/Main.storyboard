@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJT-tv-2rK">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-dI-fI8">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
@@ -162,7 +162,7 @@
                             <constraint firstItem="fJT-tv-2rK" firstAttribute="leading" secondItem="MYE-Sh-Lu0" secondAttribute="leading" id="H3z-a6-7EU"/>
                             <constraint firstItem="8yo-6d-sK5" firstAttribute="top" secondItem="fJT-tv-2rK" secondAttribute="bottom" id="IKb-oE-Ejn"/>
                             <constraint firstAttribute="trailing" secondItem="fJT-tv-2rK" secondAttribute="trailing" id="JxG-me-eG9"/>
-                            <constraint firstItem="fJT-tv-2rK" firstAttribute="top" secondItem="FXE-yh-DuT" secondAttribute="bottom" id="uTU-Ha-saM"/>
+                            <constraint firstItem="fJT-tv-2rK" firstAttribute="top" secondItem="MYE-Sh-Lu0" secondAttribute="top" id="saD-un-BO0"/>
                         </constraints>
                     </view>
                     <connections>
