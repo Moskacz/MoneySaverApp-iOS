@@ -43,7 +43,10 @@ class RootFlowController: FlowController {
     
     private func pushAddTransactionViewController() {
         let viewController: AddTransactionViewController = storyboard.instantiateTypeViewController(withIdentifier: AddTransactionViewController.storyboardId)
-        navigationController?.pushViewController(viewController, animated: true)
+        viewController.transactionAddedCallback = {
+            _ = self.navigationController?.popViewController(animated: true)
+        }
         
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }
