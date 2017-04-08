@@ -15,5 +15,9 @@ struct ViewModelsAssembler: ContainerAssembly {
         container.register {
             TransactionsListViewModel(transactionsModel: $0) as TransactionsListViewModel
         }
+        
+        container.register {
+            AddTransactionViewModel(transactionsModel: $0, mapper: $1) as AddTransactionViewModel
+        }
     }
 }

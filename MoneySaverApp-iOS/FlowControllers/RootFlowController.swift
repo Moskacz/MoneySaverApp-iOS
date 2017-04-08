@@ -43,6 +43,7 @@ class RootFlowController: FlowController {
     
     private func pushAddTransactionViewController() {
         let viewController: AddTransactionViewController = storyboard.instantiateTypeViewController(withIdentifier: AddTransactionViewController.storyboardId)
+        viewController.viewModel = try! dependencyContainer.resolve()
         viewController.transactionAddedCallback = {
             _ = self.navigationController?.popViewController(animated: true)
         }

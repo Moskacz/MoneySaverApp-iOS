@@ -16,10 +16,12 @@ class AddTransactionViewController: UIViewController {
     @IBOutlet weak var valueTextField: UITextField!
     
     var transactionAddedCallback: ((Void) -> Void)?
+    var viewModel: AddTransactionViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        viewModel.category = nil
     }
     
     private func setupViews() {
