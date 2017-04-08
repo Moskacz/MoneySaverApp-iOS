@@ -18,6 +18,7 @@
 		352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03131E92C087001B99CB /* DataLayerAssembler.swift */; };
 		352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03151E92C44B001B99CB /* ModelsAssembler.swift */; };
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
+		358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* AddTransactionViewModel.swift */; };
 		35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; };
 		35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; };
 		35B5CACB1E883D7600D1990E /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -81,6 +82,7 @@
 		352B03131E92C087001B99CB /* DataLayerAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayerAssembler.swift; sourceTree = "<group>"; };
 		352B03151E92C44B001B99CB /* ModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAssembler.swift; sourceTree = "<group>"; };
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
+		358894731E992DE500ACF06C /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		35B5CAC71E883D5500D1990E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +223,7 @@
 				35C09DE61E8979B700095FE2 /* TransactionTableViewCell.swift */,
 				35C09DE71E8979B700095FE2 /* TransactionTableViewCell.xib */,
 				35C09DEC1E89802900095FE2 /* AddTransactionViewController.swift */,
+				358894731E992DE500ACF06C /* AddTransactionViewModel.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
+				358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35C09DE81E8979B700095FE2 /* TransactionTableViewCell.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
