@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import MoneySaverFoundationiOS
 import RxSwift
 
 struct AddTransactionFormData {
-    let title: String?
-    let category: String?
-    let value: String?
+    let title: String
+    let category: String
+    let value: NSDecimalNumber
 }
 
 enum AddTransactionFormError: Error {
@@ -23,29 +24,41 @@ enum AddTransactionFormError: Error {
 class AddTransactionViewModel {
     
     private let transactionsModel: TransactionsModel
+    private let mapper: Mapper<AddTransactionFormData, [AnyHashable: Any]>
     
-    init(transactionsModel: TransactionsModel) {
+    var title: String? = nil
+    var category: String? = nil
+    var value: String? = nil
+    
+    init(transactionsModel: TransactionsModel, mapper: Mapper<AddTransactionFormData, [AnyHashable: Any]>) {
         self.transactionsModel = transactionsModel
+        self.mapper = mapper
     }
     
     func addTransaction(withData data: AddTransactionFormData) -> Observable<Void> {
         do {
-            try validate(data: data)
-            
-            return Observable.empty()
+            let formData = try createDataObject()
+            let json = try mapper.map(fromType: formData)
+            return transactionsModel.addTransaction(withParameters: json).mapToVoid().observeOn(MainScheduler.instance)
         } catch {
             return Observable.error(error)
         }
     }
     
-    private func validate(data: AddTransactionFormData) throws {
-        guard data.title != nil, data.category != nil, let value = data.value else {
+    private func createDataObject() throws -> AddTransactionFormData {
+        guard let transactionTitle = title,
+            let transactionCategory = category,
+            let transactionValue = value else {
             throw AddTransactionFormError.missingData
         }
         
-        let decimalValue = NSDecimalNumber(string: value, locale: Locale.current)
+        let decimalValue = NSDecimalNumber(string: transactionValue, locale: Locale.current)
         if decimalValue == NSDecimalNumber.notANumber {
             throw AddTransactionFormError.invalidValueFormat
         }
+        
+        return AddTransactionFormData(title: transactionTitle,
+                                      category: transactionCategory,
+                                      value: decimalValue)
     }
 }
