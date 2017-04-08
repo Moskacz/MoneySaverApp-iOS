@@ -13,6 +13,7 @@ import MoneySaverFoundationiOS
 
 protocol TransactionsModel {
     func getTransactions() -> Observable<[Transaction]>
+    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Transaction>
 }
 
 class TransactionsModelImplementation: TransactionsModel {
@@ -25,5 +26,9 @@ class TransactionsModelImplementation: TransactionsModel {
     
     func getTransactions() -> Observable<[Transaction]> {
         return restClient.getTransactions()
+    }
+    
+    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Transaction> {
+        return restClient.putTransaction(withIdentifier: "", parameters: parameters)
     }
 }

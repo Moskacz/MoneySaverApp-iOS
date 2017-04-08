@@ -22,9 +22,16 @@ enum AddTransactionFormError: Error {
 
 class AddTransactionViewModel {
     
+    private let transactionsModel: TransactionsModel
+    
+    init(transactionsModel: TransactionsModel) {
+        self.transactionsModel = transactionsModel
+    }
+    
     func addTransaction(withData data: AddTransactionFormData) -> Observable<Void> {
         do {
             try validate(data: data)
+            
             return Observable.empty()
         } catch {
             return Observable.error(error)
