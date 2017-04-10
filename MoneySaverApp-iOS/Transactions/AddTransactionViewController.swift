@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import RxSwift
 
 class AddTransactionViewController: UIViewController {
     
     static let storyboardId = "AddTransactionViewController"
     
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!
     
+    private let disposeBag = DisposeBag()
     var transactionAddedCallback: ((Void) -> Void)?
     var viewModel: AddTransactionViewModel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +34,17 @@ class AddTransactionViewController: UIViewController {
     }
     
     func doneButtonTapped() {
-        transactionAddedCallback?()
+        setDataOnViewModel()
+        viewModel.addTransaction().subscribe(onNext: { [weak self] in
+            self?.transactionAddedCallback?()
+        }, onError: { (error: Error) in
+            
+        }).addDisposableTo(disposeBag)
+    }
+    
+    private func setDataOnViewModel() {
+        viewModel.title = titleTextField.text
+        viewModel.category = categoryTextField.text
+        viewModel.value = valueTextField.text
     }
 }

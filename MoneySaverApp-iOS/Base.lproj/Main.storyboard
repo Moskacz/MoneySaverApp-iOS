@@ -166,6 +166,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryTextField" destination="gOl-0g-lb1" id="EmV-om-inG"/>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
                         <outlet property="valueTextField" destination="NtE-lG-S22" id="PlH-oo-L3d"/>
                     </connections>

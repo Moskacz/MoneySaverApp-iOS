@@ -35,7 +35,7 @@ class AddTransactionViewModel {
         self.mapper = mapper
     }
     
-    func addTransaction(withData data: AddTransactionFormData) -> Observable<Void> {
+    func addTransaction() -> Observable<Void> {
         do {
             let formData = try createDataObject()
             let json = try mapper.map(fromType: formData)
