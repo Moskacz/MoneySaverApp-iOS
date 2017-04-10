@@ -31,8 +31,8 @@ class TransactionsRouterTests: XCTestCase {
     }
     
     func test_postPath() {
-        let path = sut.postURL(entityID: "fakeId")
-        let expectedURL = URL(string: "https://myserver:3000/transactions/fakeId")!
+        let path = sut.postURL()
+        let expectedURL = URL(string: "https://myserver:3000/transactions")!
         XCTAssert(path == expectedURL)
     }
     

@@ -21,9 +21,9 @@ class TransactionsRouter: Router {
         return baseURL.appendingPathComponent(pathComponent, isDirectory: false)
     }
     
-    func postURL(entityID identifier: String) -> URL {
-        let url = baseURL.appendingPathComponent(pathComponent, isDirectory: true)
-        return url.appendingPathComponent(identifier, isDirectory: false)
+    func postURL() -> URL {
+        let url = baseURL.appendingPathComponent(pathComponent, isDirectory: false)
+        return url
     }
     
     func putURL(entityID identifier: String) -> URL {

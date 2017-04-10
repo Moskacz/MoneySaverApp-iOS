@@ -21,7 +21,8 @@ This project tries to be consistent with [ReactiveX.io](http://reactivex.io/). T
 1. [UI layer tips](#ui-layer-tips)
 1. [Making HTTP requests](#making-http-requests)
 1. [RxDataSources](#rxdatasources)
-1. [Driver](Units.md#driver-unit)
+1. [Driver](Traits.md#driver)
+1. [Traits: Driver, Single, Maybe, Completable](Traits.md)
 1. [Examples](Examples.md)
 
 # Observables aka Sequences
@@ -112,6 +113,7 @@ There is one additional way an observed sequence can terminate. When we are done
 Here is an example with the `interval` operator.
 
 ```swift
+let scheduler = SerialDispatchQueueScheduler(qos: .default)
 let subscription = Observable<Int>.interval(0.3, scheduler: scheduler)
     .subscribe { event in
         print(event)
@@ -120,7 +122,6 @@ let subscription = Observable<Int>.interval(0.3, scheduler: scheduler)
 Thread.sleep(forTimeInterval: 2.0)
 
 subscription.dispose()
-
 ```
 
 This will print:
@@ -290,7 +291,7 @@ Let's create a function which creates a sequence that returns one element upon s
 *This is the actual implementation*
 
 ```swift
-func myJust<E>(element: E) -> Observable<E> {
+func myJust<E>(_ element: E) -> Observable<E> {
     return Observable.create { observer in
         observer.on(.next(element))
         observer.on(.completed)
@@ -323,7 +324,7 @@ Lets now create an observable that returns elements from an array.
 *This is the actual implementation*
 
 ```swift
-func myFrom<E>(sequence: [E]) -> Observable<E> {
+func myFrom<E>(_ sequence: [E]) -> Observable<E> {
     return Observable.create { observer in
         for element in sequence {
             observer.on(.next(element))

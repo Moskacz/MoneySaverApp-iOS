@@ -61,8 +61,8 @@ class PartialUpdatesViewController : ViewController {
         // I guess you can maybe try some tricks with timeout, hard to tell :( That's on Apple side.
 
         if generateCustomSize {
-            let nSections = UIApplication.isInUITest ? 10 : 10
-            let nItems = UIApplication.isInUITest ? 20 : 100
+            let nSections = UIApplication.isInUITest ? 5 : 10
+            let nItems = UIApplication.isInUITest ? 10 : 100
 
             var sections = [AnimatableSectionModel<String, Int>]()
 
@@ -86,11 +86,11 @@ class PartialUpdatesViewController : ViewController {
         skinTableViewDataSource(reloadDataSource)
 
         self.sections.asObservable()
-            .bindTo(partialUpdatesTableViewOutlet.rx.items(dataSource: tvAnimatedDataSource))
+            .bind(to: partialUpdatesTableViewOutlet.rx.items(dataSource: tvAnimatedDataSource))
             .disposed(by: disposeBag)
 
         self.sections.asObservable()
-            .bindTo(reloadTableViewOutlet.rx.items(dataSource: reloadDataSource))
+            .bind(to: reloadTableViewOutlet.rx.items(dataSource: reloadDataSource))
             .disposed(by: disposeBag)
 
         // Collection view logic works, but when clicking fast because of internal bugs
@@ -110,13 +110,13 @@ class PartialUpdatesViewController : ViewController {
             skinCollectionViewDataSource(cvAnimatedDataSource)
 
             updates
-                .bindTo(partialUpdatesCollectionViewOutlet.rx.itemsWithDataSource(cvAnimatedDataSource))
+                .bind(to: partialUpdatesCollectionViewOutlet.rx.itemsWithDataSource(cvAnimatedDataSource))
                 .disposed(by: disposeBag)
         #else
             let cvReloadDataSource = RxCollectionViewSectionedReloadDataSource<NumberSection>()
             skinCollectionViewDataSource(cvReloadDataSource)
             self.sections.asObservable()
-                .bindTo(partialUpdatesCollectionViewOutlet.rx.items(dataSource: cvReloadDataSource))
+                .bind(to: partialUpdatesCollectionViewOutlet.rx.items(dataSource: cvReloadDataSource))
                 .disposed(by: disposeBag)
         #endif
 
@@ -124,14 +124,14 @@ class PartialUpdatesViewController : ViewController {
 
         partialUpdatesCollectionViewOutlet.rx.itemSelected
             .subscribe(onNext: { [weak self] i in
-                print("Let me guess, it's .... It's \(self?.generator.sections[i.section].items[i.item]), isn't it? Yeah, I've got it.")
+                print("Let me guess, it's .... It's \(String(describing: self?.generator.sections[i.section].items[i.item])), isn't it? Yeah, I've got it.")
             })
             .disposed(by: disposeBag)
 
         Observable.of(partialUpdatesTableViewOutlet.rx.itemSelected, reloadTableViewOutlet.rx.itemSelected)
             .merge()
             .subscribe(onNext: { [weak self] i in
-                print("I have a feeling it's .... \(self?.generator.sections[i.section].items[i.item])?")
+                print("I have a feeling it's .... \(String(describing: self?.generator.sections[i.section].items[i.item]))?")
             })
             .disposed(by: disposeBag)
     }

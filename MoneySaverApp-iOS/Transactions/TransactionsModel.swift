@@ -29,6 +29,6 @@ class TransactionsModelImplementation: TransactionsModel {
     }
     
     func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Transaction> {
-        return restClient.putTransaction(withIdentifier: "", parameters: parameters)
+        return restClient.postTransaction(withParameters: parameters)
     }
 }

@@ -12,7 +12,7 @@ import RxSwift
 
 public protocol TransactionsRESTClient {
     func getTransactions() -> Observable<[Transaction]>
-    func postTransaction(withIdentifier identifier: String, parameters: [AnyHashable: Any]) -> Observable<Transaction>
+    func postTransaction(withParameters  parameters: [AnyHashable: Any]) -> Observable<Transaction>
     func putTransaction(withIdentifier identifier: String, parameters: [AnyHashable: Any]) -> Observable<Transaction>
     func deleteTransaction(withIdentifier identifier: String) -> Observable<Void>
 }
@@ -45,8 +45,8 @@ public class TransactionsRESTClientImplementation: TransactionsRESTClient {
         })
     }
     
-    public func postTransaction(withIdentifier identifier: String, parameters: [AnyHashable : Any]) -> Observable<Transaction> {
-        let url = router.postURL(entityID: identifier)
+    public func postTransaction(withParameters parameters: [AnyHashable : Any]) -> Observable<Transaction> {
+        let url = router.postURL()
         let requestParameters = HTTPRequestParameters(url: url, method: .post, parameters: parameters)
         return httpClient.performRequest(withParameters: requestParameters).flatMap({ (json: [AnyHashable : Any]) -> Observable<Transaction> in
             do {

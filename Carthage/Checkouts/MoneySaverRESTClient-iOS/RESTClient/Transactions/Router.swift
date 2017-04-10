@@ -10,7 +10,7 @@ import Foundation
 
 protocol Router {
     func getAllURL() -> URL
-    func postURL(entityID identifier: String) -> URL
+    func postURL() -> URL
     func putURL(entityID identifier: String) -> URL
     func deleteURL(entityID identifier: String) -> URL
 }
