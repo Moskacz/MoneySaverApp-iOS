@@ -14,15 +14,22 @@ class TransactionsListViewModel {
     
     private let transactionsModel: TransactionsModel
     private var transactions: [Transaction]?
+    private let disposeBag = DisposeBag()
+    private var collectionUpdater: CollectionUpdater?
     
     init(transactionsModel: TransactionsModel) {
         self.transactionsModel = transactionsModel
     }
     
-    func fetchData() -> Observable<Void> {
-        return transactionsModel.getTransactions().do(onNext: { [weak self] (transactions: [Transaction]) in
+    func attach(updater: CollectionUpdater) {
+        collectionUpdater = updater
+    }
+    
+    func fetchData() {
+        transactionsModel.getTransactions().subscribe(onNext: { [weak self] (transactions: [Transaction]) in
             self?.transactions = transactions
-        }).mapToVoid().observeOn(MainScheduler.instance)
+            self?.collectionUpdater?.endUpdates()
+        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
     }
     
     func transactionsCount() -> Int {
@@ -36,4 +43,6 @@ class TransactionsListViewModel {
     func transaction(atIndex index: Int) -> Transaction {
         return transactions![index]
     }
+    
+
 }

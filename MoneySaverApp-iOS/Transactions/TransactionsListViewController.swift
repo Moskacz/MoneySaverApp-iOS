@@ -23,7 +23,8 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        fetchData()
+        viewModel.attach(updater: ReloadTableViewCollectionUpdater(tableView: tableView))
+        viewModel.fetchData()
     }
     
     // MARK: Initial setup
@@ -36,6 +37,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
     private func setupTableView() {
         let cellNib = UINib(nibName: "TransactionTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
+        tableView.tableFooterView = UIView()
     }
     
     private func setupNavigationItems() {
@@ -45,14 +47,6 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
     
     func addTransactionButtonTapped() {
         addTransactionTapCallback?()
-    }
-    
-    // MARK: fetching
-    
-    private func fetchData() {
-        viewModel.fetchData().subscribe(onNext: { [weak self] (_) in
-            self?.tableView.reloadData()
-        }).addDisposableTo(disposeBag)
     }
     
     // MARK: UITableViewDataSource
