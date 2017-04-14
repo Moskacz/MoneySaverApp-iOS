@@ -19,7 +19,7 @@ class CoreDataStackImplementation: CoreDataStack {
     private lazy var persistantContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores { (storeDescription: NSPersistentStoreDescription, error: Error?) in
-            if let loadError = error as? NSError {
+            if let loadError = error as NSError? {
                 print(loadError)
             }
         }
