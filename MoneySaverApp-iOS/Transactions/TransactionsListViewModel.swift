@@ -16,8 +16,10 @@ class TransactionsListViewModel {
     private let transactionsModel: TransactionsModel
     private var transactions: [TransactionManagedObject]?
     private let disposeBag = DisposeBag()
+    
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
+    private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     
     init(transactionsModel: TransactionsModel) {
         self.transactionsModel = transactionsModel
@@ -46,8 +48,18 @@ class TransactionsListViewModel {
     
     // MARK: Private
     
-    func createFRC() {
+    private func createCollectionUpdateHandler() {
+        guard let updater = collectionUpdater else {
+            return
+        }
+        
+        collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
+    }
+    
+    private func createFRC() {
         transactionsFRC = transactionsModel.getRepository().allDataFRC()
+        transactionsFRC?.delegate = collectionUpdateHandler
+        
         do {
             try transactionsFRC?.performFetch()
             transactions = transactionsFRC?.fetchedObjects
