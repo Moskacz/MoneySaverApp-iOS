@@ -9,13 +9,15 @@
 import Foundation
 import RxSwift
 import MoneySaverFoundationiOS
+import CoreData
 
 class TransactionsListViewModel {
     
     private let transactionsModel: TransactionsModel
-    private var transactions: [Transaction]?
+    private var transactions: [TransactionManagedObject]?
     private let disposeBag = DisposeBag()
     private var collectionUpdater: CollectionUpdater?
+    private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     
     init(transactionsModel: TransactionsModel) {
         self.transactionsModel = transactionsModel
@@ -23,13 +25,11 @@ class TransactionsListViewModel {
     
     func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
+        createFRC()
     }
     
-    func fetchData() {
-        transactionsModel.getTransactions().subscribe(onNext: { [weak self] (transactions: [Transaction]) in
-            self?.transactions = transactions
-            self?.collectionUpdater?.endUpdates()
-        }, onError: nil, onCompleted: nil, onDisposed: nil).addDisposableTo(disposeBag)
+    func refreshData() {
+        transactionsModel.refreshData().subscribe().addDisposableTo(disposeBag)
     }
     
     func transactionsCount() -> Int {
@@ -40,9 +40,19 @@ class TransactionsListViewModel {
         return data.count
     }
     
-    func transaction(atIndex index: Int) -> Transaction {
+    func transaction(atIndex index: Int) -> TransactionManagedObject {
         return transactions![index]
     }
     
-
+    // MARK: Private
+    
+    func createFRC() {
+        transactionsFRC = transactionsModel.getRepository().allDataFRC()
+        do {
+            try transactionsFRC?.performFetch()
+            transactions = transactionsFRC?.fetchedObjects
+        } catch {
+            print(error)
+        }
+    }
 }

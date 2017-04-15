@@ -12,23 +12,32 @@ import RESTClient
 import MoneySaverFoundationiOS
 
 protocol TransactionsModel {
-    func getTransactions() -> Observable<[Transaction]>
-    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Transaction>
+    func getRepository() -> TransactionsRepository
+    func refreshData() -> Observable<Void>
+    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Void>
 }
 
 class TransactionsModelImplementation: TransactionsModel {
     
-    let restClient: TransactionsRESTClient
+    private let restClient: TransactionsRESTClient
+    private let repository: TransactionsRepository
     
-    init(restClient: TransactionsRESTClient) {
+    init(restClient: TransactionsRESTClient, repository: TransactionsRepository) {
         self.restClient = restClient
+        self.repository = repository
     }
     
-    func getTransactions() -> Observable<[Transaction]> {
-        return restClient.getTransactions()
+    func getRepository() -> TransactionsRepository {
+        return repository
     }
     
-    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Transaction> {
-        return restClient.postTransaction(withParameters: parameters)
+    func refreshData() -> Observable<Void> {
+        return restClient.getTransactions().do(onNext: { [weak self] (transactions: [Transaction]) in
+            self?.repository.update(withTransactions: transactions)
+        }).mapToVoid()
+    }
+    
+    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Void> {
+        return restClient.postTransaction(withParameters: parameters).mapToVoid()
     }
 }

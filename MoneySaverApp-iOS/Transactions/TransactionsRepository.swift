@@ -12,6 +12,7 @@ import MoneySaverFoundationiOS
 
 protocol TransactionsRepository {
     func update(withTransactions transactions: [Transaction])
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject>
 }
 
 class TransactionsRepositoryImplementation: TransactionsRepository {
@@ -34,6 +35,17 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             }
         }
     }
+    
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
+        let fetchRequest = allDataFetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+        return NSFetchedResultsController(fetchRequest: fetchRequest,
+                                          managedObjectContext: stack.getViewContext(),
+                                          sectionNameKeyPath: nil,
+                                          cacheName: nil)
+    }
+    
+    // MARK: private
     
     private func getAllData(inContext context: NSManagedObjectContext) -> [TransactionManagedObject]? {
         let fetchRequest = allDataFetchRequest()

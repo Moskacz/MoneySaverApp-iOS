@@ -13,7 +13,7 @@ struct ModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register {
-            TransactionsModelImplementation(restClient: $0) as TransactionsModel
+            TransactionsModelImplementation(restClient: $0, repository: $1) as TransactionsModel
         }
     }
 }

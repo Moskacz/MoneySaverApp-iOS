@@ -15,5 +15,9 @@ struct DataLayerAssembler: ContainerAssembly {
         container.register {
             CoreDataStackImplementation() as CoreDataStack
         }
+        
+        container.register {
+            TransactionsRepositoryImplementation(stack: $0) as TransactionsRepository
+        }
     }
 }
