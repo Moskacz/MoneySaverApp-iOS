@@ -9,7 +9,6 @@
 import Foundation
 import CoreData
 
-@objc(TransactionManagedObject)
 public class TransactionManagedObject: NSManagedObject {
     
     static let entityName = "TransactionManagedObject"
