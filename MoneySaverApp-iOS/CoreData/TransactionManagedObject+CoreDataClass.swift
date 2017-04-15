@@ -11,5 +11,11 @@ import CoreData
 
 @objc(TransactionManagedObject)
 public class TransactionManagedObject: NSManagedObject {
-
+    
+    static let entityName = "TransactionManagedObject"
+    
+    class func insertNew(inContext context: NSManagedObjectContext) -> TransactionManagedObject {
+        return NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! TransactionManagedObject
+    }
+    
 }
