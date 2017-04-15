@@ -26,16 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         rootFlowController?.startFlow()
         dependencyContainer = diContainer
         
-        
-//        if let navController = window?.rootViewController as? UINavigationController {
-//            if let transactionsListVC = navController.viewControllers.first as? TransactionsListViewController {
-//                let baseURL = URL(string: "http://localhost:3000")!
-//                let transactionsRestClient = RESTClientInterface(baseURL: baseURL).transactionsRESTClient()
-//                let transactionsModel = TransactionsModelImplementation(restClient: transactionsRestClient)
-//                transactionsListVC.viewModel = TransactionsListViewModel(transactionsModel: transactionsModel)
-//            }
-//        }
-        
         return true
     }
 
