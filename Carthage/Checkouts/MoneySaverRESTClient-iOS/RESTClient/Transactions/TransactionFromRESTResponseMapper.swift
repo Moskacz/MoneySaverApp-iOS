@@ -12,14 +12,19 @@ import MoneySaverFoundationiOS
 class TransactionFromRESTResponseMapper: Mapper<[AnyHashable:Any], Transaction> {
     
     override func map(fromType type: [AnyHashable : Any]) throws -> Transaction {
-        guard let title = type["title"] as? String,
+        guard
+            let identifier = type["_id"] as? String,
+            let title = type["title"] as? String,
             let value = type["value"] as? Double,
-            let category = type["category"] as? String else {
+            let category = type["category"] as? String,
+            let creationTimeInterval = type["creationTimeInterval"] as? TimeInterval else {
                 throw MappingError.couldNotParse
         }
         
-        return Transaction(title: title,
+        return Transaction(identifier: identifier,
+                           title: title,
                            value: NSDecimalNumber(value: value),
-                           category: category)
+                           category: category,
+                           creationTimeInterval: creationTimeInterval)
     }
 }

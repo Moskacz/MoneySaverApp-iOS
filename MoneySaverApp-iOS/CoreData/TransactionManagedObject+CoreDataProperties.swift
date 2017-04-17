@@ -2,7 +2,7 @@
 //  TransactionManagedObject+CoreDataProperties.swift
 //  MoneySaverApp-iOS
 //
-//  Created by Michał Moskała on 29.03.2017.
+//  Created by Michał Moskała on 17.04.2017.
 //  Copyright © 2017 Michal Moskala. All rights reserved.
 //
 
@@ -13,11 +13,13 @@ import CoreData
 extension TransactionManagedObject {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<TransactionManagedObject> {
-        return NSFetchRequest<TransactionManagedObject>(entityName: "TransactionManagedObject");
+        return NSFetchRequest<TransactionManagedObject>(entityName: "TransactionManagedObject")
     }
 
-    @NSManaged public var value: NSDecimalNumber?
     @NSManaged public var category: String?
     @NSManaged public var title: String?
+    @NSManaged public var value: NSDecimalNumber?
+    @NSManaged public var identifier: String?
+    @NSManaged public var creationTimeInterval: Double
 
 }

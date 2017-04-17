@@ -26,8 +26,20 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     func update(withTransactions transactions: [Transaction]) {
         let context = stack.getBackgroundContext()
         context.perform {
-            self.deleteAllEntities(inContext: context)
-            self.createNewEntities(basedOnTransactions: transactions, inContext: context)
+            
+            if let storedData = self.getAllData(inContext: context) {
+                if let transactionsToDelete = self.filtered(transactions: storedData,
+                                                            notIncludedInData: transactions) {
+                    self.delete(transactions: transactionsToDelete,
+                                fromContext: context)
+                }
+                self.updateOrCreateNewEntities(basedOnTransactions: transactions,
+                                               storedTransactions: storedData,
+                                               inContext: context)
+            } else {
+                self.createNewEntities(basedOnTransactions: transactions, inContext: context)
+            }
+
             do {
                 try context.save()
             } catch {
@@ -60,22 +72,53 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         return TransactionManagedObject.fetchRequest()
     }
     
-    private func deleteAllEntities(inContext context: NSManagedObjectContext) {
-        guard let storedEntities = getAllData(inContext: context) else {
-            return
+    private func filtered(transactions: [TransactionManagedObject],
+                          notIncludedInData data: [Transaction]) -> [TransactionManagedObject]? {
+        return transactions.filter { (storedTransaction: TransactionManagedObject) in
+            let matchingTransaction = data.first(where: { (transaction: Transaction) -> Bool in
+                return transaction.identifier == storedTransaction.identifier
+            })
+            return matchingTransaction == nil
         }
-        
-        for entity in storedEntities {
-            context.delete(entity)
+    }
+    
+    private func delete(transactions: [TransactionManagedObject], fromContext context: NSManagedObjectContext) {
+        for transaction in transactions {
+            context.delete(transaction)
+        }
+    }
+    
+    private func updateOrCreateNewEntities(basedOnTransactions transactions: [Transaction],
+                                           storedTransactions: [TransactionManagedObject],
+                                           inContext context: NSManagedObjectContext) {
+        for transaction in transactions {
+            
+            let transactionEntity: TransactionManagedObject
+            let matchingEntity = storedTransactions.first(where: { (storedTransaction: TransactionManagedObject) -> Bool in
+                storedTransaction.identifier == transaction.identifier
+            })
+            
+            if let entity = matchingEntity {
+                transactionEntity = entity
+            } else {
+                transactionEntity = TransactionManagedObject.insertNew(inContext: context)
+            }
+            
+            updateProperties(ofTransactionEntity: transactionEntity, withTransaction: transaction)
         }
     }
     
     private func createNewEntities(basedOnTransactions transactions: [Transaction], inContext context: NSManagedObjectContext) {
         for transaction in transactions {
             let entity = TransactionManagedObject.insertNew(inContext: context)
-            entity.title = transaction.title
-            entity.category = transaction.category
-            entity.value = transaction.value
+            updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
         }
+    }
+    
+    private func updateProperties(ofTransactionEntity transactionEntity: TransactionManagedObject,
+                                  withTransaction transaction: Transaction) {
+        transactionEntity.title = transaction.title
+        transactionEntity.category = transaction.category
+        transactionEntity.value = transaction.value
     }
 }
