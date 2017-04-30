@@ -51,6 +51,7 @@
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
+		35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2D1EB636E90083C57F /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		35EA1A261EB632A70083C57F /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
+		35EA1A2D1EB636E90083C57F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		35F011D51E8D7B03006A2BC2 /* Cleanse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cleanse.framework; path = Carthage/Build/iOS/Cleanse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,6 +205,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35EA1A2C1EB636DF0083C57F /* Brand */,
 				35D1DE721EA1221800284EA0 /* TableView */,
 				350F0F5F1E9564C8002ED5D7 /* FlowControllers */,
 				352B030C1E92BDB9001B99CB /* DependencyContainers */,
@@ -295,6 +298,14 @@
 				35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		35EA1A2C1EB636DF0083C57F /* Brand */ = {
+			isa = PBXGroup;
+			children = (
+				35EA1A2D1EB636E90083C57F /* Theme.swift */,
+			);
+			path = Brand;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +431,7 @@
 				35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */,
 				35C9FF031E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
+				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,

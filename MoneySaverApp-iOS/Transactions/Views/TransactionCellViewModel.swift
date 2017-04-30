@@ -6,11 +6,12 @@
 //  Copyright © 2017 Michal Moskala. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol TransactionCellViewModel {
     func amountText() -> String?
     func descriptionText() -> String?
+    func backgroundColor() -> UIColor
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -27,6 +28,11 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     
     func descriptionText() -> String? {
         return transaction.title
+    }
+    
+    func backgroundColor() -> UIColor {
+        let value = transaction.value?.doubleValue ?? 0.0
+        return value > 0 ? Theme.greenColor : Theme.redColor
     }
     
 }
