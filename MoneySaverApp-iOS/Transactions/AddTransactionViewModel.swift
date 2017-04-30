@@ -14,6 +14,7 @@ struct AddTransactionFormData {
     let title: String
     let category: String
     let value: NSDecimalNumber
+    let creationTimeStamp: TimeInterval
 }
 
 enum AddTransactionFormError: Error {
@@ -39,7 +40,7 @@ class AddTransactionViewModel {
         do {
             let formData = try createDataObject()
             let json = try mapper.map(fromType: formData)
-            return transactionsModel.addTransaction(withParameters: json).mapToVoid().observeOn(MainScheduler.instance)
+            return transactionsModel.addTransaction(withParameters: json)
         } catch {
             return Observable.error(error)
         }
@@ -59,6 +60,7 @@ class AddTransactionViewModel {
         
         return AddTransactionFormData(title: transactionTitle,
                                       category: transactionCategory,
-                                      value: decimalValue)
+                                      value: decimalValue,
+                                      creationTimeStamp: NSDate().timeIntervalSince1970)
     }
 }

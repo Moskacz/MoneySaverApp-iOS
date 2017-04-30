@@ -16,6 +16,7 @@ class AddTransactionFormDataToJSONMapper: Mapper<AddTransactionFormData, [AnyHas
         parameters["title"] = type.title
         parameters["category"] = type.category
         parameters["value"] = type.value
+        parameters["creationTimeInterval"] = type.creationTimeStamp
         return parameters
     }
 }

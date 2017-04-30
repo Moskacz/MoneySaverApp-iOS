@@ -36,7 +36,7 @@ class AddTransactionViewController: UIViewController {
         viewModel.addTransaction().subscribe(onNext: { [weak self] in
             self?.transactionAddedCallback?()
         }, onError: { (error: Error) in
-            
+            print(error)
         }).addDisposableTo(disposeBag)
     }
     
