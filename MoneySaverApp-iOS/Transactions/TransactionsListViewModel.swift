@@ -42,8 +42,9 @@ class TransactionsListViewModel {
         return data.count
     }
     
-    func transaction(atIndex index: Int) -> TransactionManagedObject {
-        return transactions![index]
+    func transactionCellViewModel(atIndex index: Int) -> TransactionCellViewModel {
+        let transaction = transactions![index]
+        return TransactionCellViewModelImplementation(transaction: transaction)
     }
     
     // MARK: Private

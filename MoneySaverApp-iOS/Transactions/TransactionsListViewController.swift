@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class TransactionsListViewController: UIViewController, UITableViewDataSource {
+class TransactionsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     static let storyboardId = "TransactionsListViewController"
     
@@ -35,7 +35,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
     }
     
     private func setupTableView() {
-        let cellNib = UINib(nibName: "TransactionTableViewCell", bundle: nil)
+        let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView.tableFooterView = UIView()
     }
@@ -56,9 +56,15 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TransactionTableViewCell = tableView.dequeueTypedCell(withIdentifier: transactionCellIdentifier)
-        let transaction = viewModel.transaction(atIndex: indexPath.row)
-        cell.titleLabel.text = transaction.title
+        let cell: TransactionCell = tableView.dequeueTypedCell(withIdentifier: transactionCellIdentifier)
+        let cellViewModel = viewModel.transactionCellViewModel(atIndex: indexPath.row)
+        cell.update(withViewModel: cellViewModel)
         return cell
+    }
+    
+    // MARK: UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74.0
     }
 }
