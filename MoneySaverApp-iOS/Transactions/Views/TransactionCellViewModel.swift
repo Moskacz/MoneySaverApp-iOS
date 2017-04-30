@@ -9,8 +9,8 @@
 import Foundation
 
 protocol TransactionCellViewModel {
-    func amountText() -> String
-    func descriptionText() -> String
+    func amountText() -> String?
+    func descriptionText() -> String?
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -21,12 +21,12 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
         self.transaction = transaction
     }
     
-    func amountText() -> String {
-        return "-28291 $"
+    func amountText() -> String? {
+        return transaction.value?.stringValue
     }
     
-    func descriptionText() -> String {
-        return "20/01/2017 (obiad)"
+    func descriptionText() -> String? {
+        return transaction.title
     }
     
 }
