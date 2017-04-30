@@ -66,6 +66,8 @@ public class HTTPClientImplementation: HTTPClient {
     private func request(withParameters parameters: HTTPRequestParameters) -> URLRequest {
         var request = URLRequest(url: parameters.url)
         request.httpMethod = parameters.method.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         if let parameters = parameters.parameters {
             do {

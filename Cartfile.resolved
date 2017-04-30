@@ -1,4 +1,4 @@
 github "AliSoftware/Dip" "5.1"
 github "Moskacz/MoneySaverFoundationiOS" "deaf59176b676767264290eed5b7d35d693020d9"
-github "Moskacz/MoneySaverRESTClient-iOS" "42c8e3af9550b6eac60477a893c098e66e9fa18b"
+github "Moskacz/MoneySaverRESTClient-iOS" "8b14a9208d8fe1f45c2e405992208e8d62932710"
 github "ReactiveX/RxSwift" "3.4.0"

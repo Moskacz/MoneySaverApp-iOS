@@ -40,7 +40,7 @@ class AddTransactionViewModel {
         do {
             let formData = try createDataObject()
             let json = try mapper.map(fromType: formData)
-            return transactionsModel.addTransaction(withParameters: json)
+            return transactionsModel.addTransaction(withParameters: json).observeOn(MainScheduler.instance)
         } catch {
             return Observable.error(error)
         }
