@@ -83,6 +83,7 @@
 		350F0F601E9564F3002ED5D7 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		350F0F621E956578002ED5D7 /* RootFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
 		350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additions.swift"; sourceTree = "<group>"; };
+		351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MoneySaverApp-iOS.entitlements"; sourceTree = "<group>"; };
 		352B03091E92BD0A001B99CB /* Dip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dip.framework; path = Carthage/Build/iOS/Dip.framework; sourceTree = "<group>"; };
 		352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainerConfigurator.swift; sourceTree = "<group>"; };
 		352B030F1E92BF20001B99CB /* ContainerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerAssembly.swift; sourceTree = "<group>"; };
@@ -203,6 +204,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */,
 				35EA1A2C1EB636DF0083C57F /* Brand */,
 				35D1DE721EA1221800284EA0 /* TableView */,
 				350F0F5F1E9564C8002ED5D7 /* FlowControllers */,
@@ -358,6 +360,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = R77HUFLYN8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					35BB972D1E7F0860003DBA41 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -578,6 +585,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MoneySaverApp-iOS/MoneySaverApp-iOS.entitlements";
 				DEVELOPMENT_TEAM = R77HUFLYN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -595,6 +603,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "MoneySaverApp-iOS/MoneySaverApp-iOS.entitlements";
 				DEVELOPMENT_TEAM = R77HUFLYN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
