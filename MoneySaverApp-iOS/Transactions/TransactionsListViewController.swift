@@ -23,7 +23,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        viewModel.attach(updater: ReloadTableViewCollectionUpdater(tableView: tableView))
+        viewModel.attach(updater: TableViewCollectionUpdater(tableView: tableView))
         viewModel.refreshData()
     }
     

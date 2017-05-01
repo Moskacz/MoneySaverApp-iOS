@@ -12,6 +12,7 @@ import MoneySaverFoundationiOS
 
 protocol TransactionsRepository {
     func update(withTransactions transactions: [Transaction])
+    func add(transaction: Transaction)
     func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject>
 }
 
@@ -23,10 +24,17 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         self.stack = stack
     }
     
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
+        let fetchRequest = allDataFetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: true)]
+        return NSFetchedResultsController(fetchRequest: fetchRequest,
+                                          managedObjectContext: stack.getViewContext(),
+                                          sectionNameKeyPath: nil,
+                                          cacheName: nil)
+    }
+    
     func update(withTransactions transactions: [Transaction]) {
-        let context = stack.getBackgroundContext()
-        context.perform {
-            
+        stack.performBackgroundTask { (context: NSManagedObjectContext) in
             if let storedData = self.getAllData(inContext: context) {
                 if let transactionsToDelete = self.filtered(transactions: storedData,
                                                             notIncludedInData: transactions) {
@@ -39,7 +47,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             } else {
                 self.createNewEntities(basedOnTransactions: transactions, inContext: context)
             }
-
+            
             do {
                 try context.save()
             } catch {
@@ -48,13 +56,18 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         }
     }
     
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
-        let fetchRequest = allDataFetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-        return NSFetchedResultsController(fetchRequest: fetchRequest,
-                                          managedObjectContext: stack.getViewContext(),
-                                          sectionNameKeyPath: nil,
-                                          cacheName: nil)
+    func add(transaction: Transaction) {
+        let context = stack.getViewContext()
+        context.perform {
+            let entity = TransactionManagedObject.insertNew(inContext: context)
+            self.updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
+        }
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
     }
     
     // MARK: private
@@ -117,8 +130,10 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     
     private func updateProperties(ofTransactionEntity transactionEntity: TransactionManagedObject,
                                   withTransaction transaction: Transaction) {
+        transactionEntity.identifier = transaction.identifier
         transactionEntity.title = transaction.title
         transactionEntity.category = transaction.category
         transactionEntity.value = transaction.value
+        transactionEntity.creationTimeInterval = transaction.creationTimeInterval
     }
 }

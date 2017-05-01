@@ -41,4 +41,8 @@ class TableViewCollectionUpdater: CollectionUpdater {
     func endUpdates() {
         tableView?.endUpdates()
     }
+    
+    func reloadAll() {
+        tableView?.reloadData()
+    }
 }

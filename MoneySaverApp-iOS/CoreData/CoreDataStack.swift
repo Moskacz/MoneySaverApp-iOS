@@ -11,7 +11,7 @@ import CoreData
 
 protocol CoreDataStack {
     func getViewContext() -> NSManagedObjectContext
-    func getBackgroundContext() -> NSManagedObjectContext
+    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void)
 }
 
 class CoreDataStackImplementation: CoreDataStack {
@@ -23,6 +23,7 @@ class CoreDataStackImplementation: CoreDataStack {
                 print(loadError)
             }
         }
+        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
     
@@ -32,8 +33,8 @@ class CoreDataStackImplementation: CoreDataStack {
         return persistantContainer.viewContext
     }
     
-    func getBackgroundContext() -> NSManagedObjectContext {
-        return persistantContainer.newBackgroundContext()
+    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) {
+        persistantContainer.performBackgroundTask(block)
     }
     
 }

@@ -12,7 +12,7 @@ import Dip
 struct ModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        container.register {
+        container.register(.singleton) {
             TransactionsModelImplementation(restClient: $0, repository: $1) as TransactionsModel
         }
     }

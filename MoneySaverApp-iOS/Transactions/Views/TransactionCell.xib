@@ -41,6 +41,7 @@
                     <constraint firstAttribute="bottom" secondItem="pNM-yw-Uia" secondAttribute="bottom" constant="8" id="tTl-xK-EeZ"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="amoutLabel" destination="Pbu-LK-iQw" id="YiY-Sk-peZ"/>
                 <outlet property="descriptionLabel" destination="pNM-yw-Uia" id="wvH-zz-HZb"/>

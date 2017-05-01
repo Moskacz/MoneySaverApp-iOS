@@ -32,12 +32,14 @@ class TransactionsModelImplementation: TransactionsModel {
     }
     
     func refreshData() -> Observable<Void> {
-        return restClient.getTransactions().do(onNext: { [weak self] (transactions: [Transaction]) in
-            self?.repository.update(withTransactions: transactions)
+        return restClient.getTransactions().do(onNext: { (transactions: [Transaction]) in
+            self.repository.update(withTransactions: transactions)
         }).mapToVoid()
     }
     
     func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Void> {
-        return restClient.postTransaction(withParameters: parameters).mapToVoid()
+        return restClient.postTransaction(withParameters: parameters).do(onNext: { (transaction: Transaction) in
+            self.repository.add(transaction: transaction)
+        }).mapToVoid()
     }
 }

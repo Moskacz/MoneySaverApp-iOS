@@ -16,4 +16,5 @@ protocol CollectionUpdater {
     func move(from fromIndexPath: IndexPath, to toIndexPath: IndexPath)
     func reload(at indexPaths: [IndexPath])
     func endUpdates()
+    func reloadAll()
 }

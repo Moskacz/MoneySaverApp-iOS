@@ -11,10 +11,9 @@ import RxSwift
 import MoneySaverFoundationiOS
 import CoreData
 
-class TransactionsListViewModel {
+class TransactionsListViewModel{
     
     private let transactionsModel: TransactionsModel
-    private var transactions: [TransactionManagedObject]?
     private let disposeBag = DisposeBag()
     
     private var collectionUpdater: CollectionUpdater?
@@ -27,6 +26,7 @@ class TransactionsListViewModel {
     
     func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
+        createCollectionUpdateHandler()
         createFRC()
     }
     
@@ -35,15 +35,11 @@ class TransactionsListViewModel {
     }
     
     func transactionsCount() -> Int {
-        guard let data = transactions else {
-            return 0
-        }
-        
-        return data.count
+        return transactionsFRC?.fetchedObjects?.count ?? 0
     }
     
     func transactionCellViewModel(atIndex index: Int) -> TransactionCellViewModel {
-        let transaction = transactions![index]
+        let transaction = transactionsFRC!.fetchedObjects![index]
         return TransactionCellViewModelImplementation(transaction: transaction)
     }
     
@@ -63,7 +59,7 @@ class TransactionsListViewModel {
         
         do {
             try transactionsFRC?.performFetch()
-            transactions = transactionsFRC?.fetchedObjects
+            collectionUpdater?.reloadAll()
         } catch {
             print(error)
         }
