@@ -31,18 +31,12 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     
     private func setupViews() {
         setupTableView()
-        setupNavigationItems()
     }
     
     private func setupTableView() {
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView.tableFooterView = UIView()
-    }
-    
-    private func setupNavigationItems() {
-        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTransactionButtonTapped))
-        navigationItem.rightBarButtonItem = addItem
     }
     
     func addTransactionButtonTapped() {
@@ -66,5 +60,12 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 74.0
+    }
+}
+
+extension TransactionsListViewController: BarButtonProvider {
+    
+    func barButton() -> UIBarButtonItem {
+        return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTransactionButtonTapped))
     }
 }

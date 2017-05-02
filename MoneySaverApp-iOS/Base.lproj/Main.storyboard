@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Dashboard Tab Bar Controller-->
         <scene sceneID="GXt-s1-VsA">
             <objects>
-                <tabBarController storyboardIdentifier="DashboardTabBarController" id="Qqq-TG-USa" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="DashboardTabBarController" id="Qqq-TG-USa" customClass="DashboardTabBarController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="VzS-b5-aJH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

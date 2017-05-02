@@ -47,6 +47,8 @@
 		35D1DE7A1EA124A900284EA0 /* CollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
 		35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */; };
+		35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */; };
+		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
@@ -121,6 +123,8 @@
 		35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionUpdateHandler.swift; sourceTree = "<group>"; };
+		35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonProvider.swift; sourceTree = "<group>"; };
+		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		35EA1A261EB632A70083C57F /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35D740081EB8AF140028DD92 /* Dashboard */,
+				35D740051EB8AECB0028DD92 /* Commons */,
 				351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */,
 				35EA1A2C1EB636DF0083C57F /* Brand */,
 				35D1DE721EA1221800284EA0 /* TableView */,
@@ -287,6 +293,22 @@
 				35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		35D740051EB8AECB0028DD92 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		35D740081EB8AF140028DD92 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */,
+			);
+			path = Dashboard;
 			sourceTree = "<group>";
 		};
 		35EA1A251EB6329C0083C57F /* Views */ = {
@@ -437,6 +459,7 @@
 				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
+				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
@@ -447,6 +470,7 @@
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
 				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
+				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
 				35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 			);

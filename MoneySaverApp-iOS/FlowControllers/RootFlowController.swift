@@ -27,7 +27,7 @@ class RootFlowController: FlowController {
     }
     
     private func setupRootFlowController() {
-        let tabBarVC: UITabBarController = storyboard.instantiateTypeViewController(withIdentifier: "DashboardTabBarController")
+        let tabBarVC: DashboardTabBarController = storyboard.instantiateTypeViewController(withIdentifier: DashboardTabBarController.storyboardId)
         
         if let viewControllers = tabBarVC.viewControllers {
             for viewController in viewControllers {
