@@ -11,7 +11,7 @@ import UIKit
 protocol TransactionCellViewModel {
     func amountText() -> String?
     func descriptionText() -> String?
-    func backgroundColor() -> UIColor
+    func tintColor() -> UIColor
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -30,7 +30,7 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
         return transaction.title
     }
     
-    func backgroundColor() -> UIColor {
+    func tintColor() -> UIColor {
         let value = transaction.value?.doubleValue ?? 0.0
         return value > 0 ? Theme.greenColor : Theme.redColor
     }

@@ -14,7 +14,7 @@ struct NetworkingLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register {
-            RESTClientInterface(baseURL: URL(string: "http://localhost:3000")!).transactionsRESTClient() as TransactionsRESTClient
+            RESTClientInterface(baseURL: URL(string: "http://192.168.1.3:3000")!).transactionsRESTClient() as TransactionsRESTClient
         }
     }
 }

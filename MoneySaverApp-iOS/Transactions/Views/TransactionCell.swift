@@ -15,8 +15,9 @@ class TransactionCell: UITableViewCell {
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
         amoutLabel.text = viewModel.amountText()
+        amoutLabel.textColor = viewModel.tintColor()
         descriptionLabel.text = viewModel.descriptionText()
-        contentView.backgroundColor = viewModel.backgroundColor()
+        descriptionLabel.textColor = viewModel.tintColor()
     }
     
 }
