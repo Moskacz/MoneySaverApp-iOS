@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transactions List View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="GXt-s1-VsA">
+            <objects>
+                <tabBarController storyboardIdentifier="DashboardTabBarController" id="Qqq-TG-USa" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="VzS-b5-aJH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="3Vt-ay-NTm"/>
+                        <segue destination="HjK-vy-iya" kind="relationship" relationship="viewControllers" id="zrW-Ku-Fpl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TZz-GD-O0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-514" y="-230"/>
+        </scene>
+        <!--Transactions-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TransactionsListViewController" id="BYZ-38-t0r" customClass="TransactionsListViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T8p-hX-HO6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="QKN-Sd-osX"/>
@@ -38,14 +56,34 @@
                             <constraint firstAttribute="trailing" secondItem="T8p-hX-HO6" secondAttribute="trailing" id="7sd-5T-XkQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="IDi-u6-fku"/>
+                    <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
+                    <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
                     <connections>
                         <outlet property="tableView" destination="T8p-hX-HO6" id="EJe-VK-XQc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="-561"/>
+            <point key="canvasLocation" x="697" y="-563"/>
+        </scene>
+        <!--Categories-->
+        <scene sceneID="mXu-b8-MzX">
+            <objects>
+                <viewController id="HjK-vy-iya" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RjK-4Z-Sbf"/>
+                        <viewControllerLayoutGuide type="bottom" id="mWh-PA-cpJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2rY-YC-iOs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Categories" id="zUe-k6-T4X"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdP-Ih-6H1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="112"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="g3Y-nx-kZn">
@@ -174,7 +212,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxw-cl-01x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="932" y="281"/>
+            <point key="canvasLocation" x="1431" y="-564"/>
         </scene>
     </scenes>
 </document>

@@ -27,18 +27,29 @@ class RootFlowController: FlowController {
     }
     
     private func setupRootFlowController() {
-        let transactionsListVC: TransactionsListViewController = storyboard.instantiateTypeViewController(withIdentifier: TransactionsListViewController.storyboardId)
-        transactionsListVC.addTransactionTapCallback = {
-            self.pushAddTransactionViewController()
-        }
-        transactionsListVC.viewModel = try! dependencyContainer.resolve()
+        let tabBarVC: UITabBarController = storyboard.instantiateTypeViewController(withIdentifier: "DashboardTabBarController")
         
-        let navController = UINavigationController(rootViewController: transactionsListVC)
+        if let viewControllers = tabBarVC.viewControllers {
+            for viewController in viewControllers {
+                if let transactionsListVC = viewController as? TransactionsListViewController {
+                    configure(transactionsListViewController: transactionsListVC)
+                }
+            }
+        }
+        
+        let navController = UINavigationController(rootViewController: tabBarVC)
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = navController
         applicationDelegate?.window = window
         applicationDelegate?.window?.makeKeyAndVisible()
         self.navigationController = navController
+    }
+    
+    private func configure(transactionsListViewController viewController: TransactionsListViewController) {
+        viewController.addTransactionTapCallback = {
+            self.pushAddTransactionViewController()
+        }
+        viewController.viewModel = try! dependencyContainer.resolve()
     }
     
     private func pushAddTransactionViewController() {
