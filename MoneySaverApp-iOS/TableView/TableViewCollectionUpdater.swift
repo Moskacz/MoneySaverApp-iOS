@@ -31,7 +31,8 @@ class TableViewCollectionUpdater: CollectionUpdater {
     }
     
     func move(from fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-        tableView?.moveRow(at: fromIndexPath, to: toIndexPath)
+        tableView?.deleteRows(at: [fromIndexPath], with: .automatic)
+        tableView?.insertRows(at: [toIndexPath], with: .automatic)
     }
     
     func reload(at indexPaths: [IndexPath]) {
