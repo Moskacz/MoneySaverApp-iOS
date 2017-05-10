@@ -40,7 +40,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="231-Il-7nh">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="150" width="375" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SwD-VZ-p7M">
                                     <size key="itemSize" width="50" height="50"/>
@@ -63,11 +63,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="jJa-U7-bIw"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-XF-5YJ">
+                                <rect key="frame" x="149.5" y="84" width="76.5" height="31.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="231-Il-7nh" secondAttribute="trailing" id="2Rj-a3-God"/>
-                            <constraint firstItem="231-Il-7nh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QgS-nS-fDC"/>
+                            <constraint firstItem="Q31-XF-5YJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="IDv-17-atG"/>
+                            <constraint firstItem="231-Il-7nh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="QgS-nS-fDC"/>
+                            <constraint firstItem="Q31-XF-5YJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R0m-bN-G6T"/>
                             <constraint firstItem="231-Il-7nh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f6m-IG-aae"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="231-Il-7nh" secondAttribute="bottom" id="gEA-iQ-VyZ"/>
                         </constraints>
@@ -76,6 +84,7 @@
                     <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
                     <connections>
                         <outlet property="collectionView" destination="231-Il-7nh" id="m1y-Ce-1Hm"/>
+                        <outlet property="titleLabel" destination="Q31-XF-5YJ" id="Wda-IG-hhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

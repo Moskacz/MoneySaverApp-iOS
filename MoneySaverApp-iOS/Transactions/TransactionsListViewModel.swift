@@ -64,4 +64,8 @@ class TransactionsListViewModel{
             print(error)
         }
     }
+    
+    func transactionsSum() -> Observable<String?> {
+        return Observable.of("10", "20", "30").delay(3.0, scheduler: MainScheduler.instance)
+    }
 }
