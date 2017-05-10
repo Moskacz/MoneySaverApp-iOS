@@ -9,11 +9,11 @@
 import UIKit
 import RxSwift
 
-class TransactionsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TransactionsListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     static let storyboardId = "TransactionsListViewController"
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var viewModel: TransactionsListViewModel!
     
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
@@ -23,7 +23,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        viewModel.attach(updater: TableViewCollectionUpdater(tableView: tableView))
+        viewModel.attach(updater: CollectionViewUpdater(collectionView: collectionView))
         viewModel.refreshData()
     }
     
@@ -35,31 +35,34 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     
     private func setupTableView() {
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
-        tableView.tableFooterView = UIView()
+        collectionView.register(cellNib, forCellWithReuseIdentifier: transactionCellIdentifier)
     }
     
     func addTransactionButtonTapped() {
         addTransactionTapCallback?()
     }
     
-    // MARK: UITableViewDataSource
+    // MARK: UICollectionViewDataSource
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.transactionsCount()
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TransactionCell = tableView.dequeueTypedCell(withIdentifier: transactionCellIdentifier)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: TransactionCell = collectionView.dequeueTypedCell(withIdentifier: transactionCellIdentifier, forIndexPath: indexPath)
         let cellViewModel = viewModel.transactionCellViewModel(atIndex: indexPath.row)
         cell.update(withViewModel: cellViewModel)
         return cell
     }
     
-    // MARK: UITableViewDelegate
+    // MARK: UICollectionViewDelegate
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 74.0
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("did select")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100.0, height: 100.0)
     }
 }
 
