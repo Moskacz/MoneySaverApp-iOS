@@ -70,7 +70,6 @@ class TransactionsListViewModel{
     func transactionsSum() -> Observable<String?> {
         return transactionsComputingModel.sumOfAllTransactionsObservable().map({ (sum: NSDecimalNumber) -> String in
             return "\(sum)"
-        })
-        
+        }).observeOn(MainScheduler.instance)
     }
 }

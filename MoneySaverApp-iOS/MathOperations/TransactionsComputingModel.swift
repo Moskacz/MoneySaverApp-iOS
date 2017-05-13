@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import RxSwift
+import RxCocoa
 
 protocol TransactionsComputingModel {
     func sumOfAllTransactionsObservable() -> Observable<NSDecimalNumber>
@@ -17,19 +18,21 @@ protocol TransactionsComputingModel {
 class TransactionsComputingModelImpl: TransactionsComputingModel {
 
     private let coreDataStack: CoreDataStack
-    private var fetchedResultsController: NSFetchedResultsController<NSDictionary>?
-    private var sumOfAllTransactionsVariable = Variable<NSDecimalNumber>(NSDecimalNumber(string: "0"))
+    private let notificationCenter: NotificationCenter
     
-    init(coreDataStack: CoreDataStack) {
+    init(coreDataStack: CoreDataStack, notificationCenter: NotificationCenter) {
         self.coreDataStack = coreDataStack
+        self.notificationCenter = notificationCenter
     }
     
     func sumOfAllTransactionsObservable() -> Observable<NSDecimalNumber> {
-        let value = totalValueOfSavedTransactions()
-        return Observable.just(value ?? NSDecimalNumber.notANumber)
+        let notificationName = Notification.Name.NSManagedObjectContextDidSave
+        return notificationCenter.rx.notification(notificationName).map { (_) -> NSDecimalNumber in
+            return self.totalValueOfSavedTransactions()
+        }.startWith(totalValueOfSavedTransactions())
     }
     
-    private func totalValueOfSavedTransactions() -> NSDecimalNumber? {
+    private func totalValueOfSavedTransactions() -> NSDecimalNumber {
         let expressionDesc = NSExpressionDescription()
         expressionDesc.expression = NSExpression(forFunction: "sum:", arguments: [NSExpression(forKeyPath: "value")])
         expressionDesc.name = "totalValue"
@@ -41,12 +44,13 @@ class TransactionsComputingModelImpl: TransactionsComputingModel {
         
         do {
             let results = try coreDataStack.getViewContext().fetch(fetchRequest)
-            if let result = results.first {
-                return result["totalValue"] as? NSDecimalNumber
+            if let result = results.first, let totalValue = result["totalValue"] as? NSDecimalNumber {
+                return totalValue
+            } else {
+                return NSDecimalNumber(value: 0.0)
             }
-            return nil
         } catch {
-            return nil
+            return NSDecimalNumber(value: 0.0)
         }
     }
 }
