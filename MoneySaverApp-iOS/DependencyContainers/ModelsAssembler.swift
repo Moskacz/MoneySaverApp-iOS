@@ -15,5 +15,9 @@ struct ModelsAssembler: ContainerAssembly {
         container.register(.singleton) {
             TransactionsModelImplementation(restClient: $0, repository: $1) as TransactionsModel
         }
+        
+        container.register {
+            TransactionsComputingModelImpl(coreDataStack: $0) as TransactionsComputingModel
+        }
     }
 }
