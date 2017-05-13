@@ -8,12 +8,15 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class TransactionsListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     static let storyboardId = "TransactionsListViewController"
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var viewModel: TransactionsListViewModel!
     
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
@@ -31,6 +34,7 @@ class TransactionsListViewController: UIViewController, UICollectionViewDataSour
     
     private func setupViews() {
         setupTableView()
+        viewModel.transactionsSum().bind(to: titleLabel.rx.text).addDisposableTo(disposeBag)
     }
     
     private func setupTableView() {

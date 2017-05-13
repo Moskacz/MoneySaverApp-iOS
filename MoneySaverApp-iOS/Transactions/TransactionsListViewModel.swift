@@ -14,14 +14,16 @@ import CoreData
 class TransactionsListViewModel{
     
     private let transactionsModel: TransactionsModel
+    private let transactionsComputingModel: TransactionsComputingModel
     private let disposeBag = DisposeBag()
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     
-    init(transactionsModel: TransactionsModel) {
+    init(transactionsModel: TransactionsModel, transactionsComputingModel: TransactionsComputingModel) {
         self.transactionsModel = transactionsModel
+        self.transactionsComputingModel = transactionsComputingModel
     }
     
     func attach(updater: CollectionUpdater) {
@@ -63,5 +65,11 @@ class TransactionsListViewModel{
         } catch {
             print(error)
         }
+    }
+    
+    func transactionsSum() -> Observable<String?> {
+        return transactionsComputingModel.sumOfAllTransactionsObservable().map({ (sum: NSDecimalNumber) -> String in
+            return "\(sum)"
+        }).observeOn(MainScheduler.instance)
     }
 }

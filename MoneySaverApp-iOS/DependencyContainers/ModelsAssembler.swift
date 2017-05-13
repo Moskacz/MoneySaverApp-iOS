@@ -13,7 +13,15 @@ struct ModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register(.singleton) {
+            NotificationCenter.default as NotificationCenter
+        }
+        
+        container.register(.singleton) {
             TransactionsModelImplementation(restClient: $0, repository: $1) as TransactionsModel
+        }
+        
+        container.register {
+            TransactionsComputingModelImpl(coreDataStack: $0, notificationCenter: $1) as TransactionsComputingModel
         }
     }
 }
