@@ -22,6 +22,9 @@
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
 		359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */; };
+		35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */; };
+		35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACE1EC8BFBB007E3A53 /* Logger.swift */; };
+		35B35AD11EC8C00B007E3A53 /* SwiftyBeaverLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */; };
 		35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; };
 		35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; };
 		35B5CACB1E883D7600D1990E /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -103,6 +106,9 @@
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
 		359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
+		35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsAssembler.swift; sourceTree = "<group>"; };
+		35B35ACE1EC8BFBB007E3A53 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverLogger.swift; sourceTree = "<group>"; };
 		35B5CAC71E883D5500D1990E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
 		35B8D0721EC766D400A96C00 /* TransactionsComputingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsComputingModel.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 				352B03151E92C44B001B99CB /* ModelsAssembler.swift */,
 				352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */,
 				358894781E994A1C00ACF06C /* MappersAssembler.swift */,
+				35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */,
 			);
 			path = DependencyContainers;
 			sourceTree = "<group>";
@@ -195,6 +202,15 @@
 				358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		35B35ACD1EC8BFAD007E3A53 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				35B35ACE1EC8BFBB007E3A53 /* Logger.swift */,
+				35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */,
+			);
+			path = Logging;
 			sourceTree = "<group>";
 		};
 		35B8D0711EC766B400A96C00 /* MathOperations */ = {
@@ -227,6 +243,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35B35ACD1EC8BFAD007E3A53 /* Logging */,
 				35B8D0711EC766B400A96C00 /* MathOperations */,
 				35D740081EB8AF140028DD92 /* Dashboard */,
 				35D740051EB8AECB0028DD92 /* Commons */,
@@ -470,6 +487,7 @@
 				352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */,
 				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
+				35B35AD11EC8C00B007E3A53 /* SwiftyBeaverLogger.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingModel.swift in Sources */,
 				358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */,
@@ -490,6 +508,7 @@
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 				358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */,
+				35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */,
 				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
 				35C09DED1E89802900095FE2 /* AddTransactionViewController.swift in Sources */,
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
@@ -498,6 +517,7 @@
 				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
 				35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
+				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,
 				35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
