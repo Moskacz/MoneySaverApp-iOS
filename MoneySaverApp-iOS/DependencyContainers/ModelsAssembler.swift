@@ -21,7 +21,9 @@ struct ModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            TransactionsComputingModelImpl(coreDataStack: $0, notificationCenter: $1) as TransactionsComputingModel
+            TransactionsComputingModelImpl(coreDataStack: $0,
+                                           notificationCenter: $1,
+                                           logger: $2) as TransactionsComputingModel
         }
     }
 }

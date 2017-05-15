@@ -16,7 +16,8 @@ extension DependencyContainer {
                                                DataLayerAssembler(),
                                                ModelsAssembler(),
                                                ViewModelsAssembler(),
-                                               MappersAssembler()]
+                                               MappersAssembler(),
+                                               UtilsAssebler()]
         
         let container = DependencyContainer()
         for assembler in assemblers {
