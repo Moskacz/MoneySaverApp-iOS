@@ -15,15 +15,19 @@ class TransactionsListViewModel{
     
     private let transactionsModel: TransactionsModel
     private let transactionsComputingModel: TransactionsComputingModel
+    private let logger: Logger
     private let disposeBag = DisposeBag()
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     
-    init(transactionsModel: TransactionsModel, transactionsComputingModel: TransactionsComputingModel) {
+    init(transactionsModel: TransactionsModel,
+         transactionsComputingModel: TransactionsComputingModel,
+         logger: Logger) {
         self.transactionsModel = transactionsModel
         self.transactionsComputingModel = transactionsComputingModel
+        self.logger = logger
     }
     
     func attach(updater: CollectionUpdater) {
@@ -63,7 +67,7 @@ class TransactionsListViewModel{
             try transactionsFRC?.performFetch()
             collectionUpdater?.reloadAll()
         } catch {
-            print(error)
+            logger.log(withLevel: .error, message: error.localizedDescription)
         }
     }
     

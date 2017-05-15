@@ -25,6 +25,8 @@
 		35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */; };
 		35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACE1EC8BFBB007E3A53 /* Logger.swift */; };
 		35B35AD11EC8C00B007E3A53 /* SwiftyBeaverLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */; };
+		35B35AD31EC8C184007E3A53 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B35AD21EC8C184007E3A53 /* SwiftyBeaver.framework */; };
+		35B35AD41EC8C192007E3A53 /* SwiftyBeaver.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B35AD21EC8C184007E3A53 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; };
 		35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; };
 		35B5CACB1E883D7600D1990E /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				35B35AD41EC8C192007E3A53 /* SwiftyBeaver.framework in CopyFiles */,
 				35E6F1E01EC38A01007667BB /* RxCocoa.framework in CopyFiles */,
 				352B030B1E92BD1B001B99CB /* Dip.framework in CopyFiles */,
 				35B5CACC1E883D7B00D1990E /* MoneySaverFoundationiOS.framework in CopyFiles */,
@@ -109,6 +112,7 @@
 		35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsAssembler.swift; sourceTree = "<group>"; };
 		35B35ACE1EC8BFBB007E3A53 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverLogger.swift; sourceTree = "<group>"; };
+		35B35AD21EC8C184007E3A53 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		35B5CAC71E883D5500D1990E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
 		35B8D0721EC766D400A96C00 /* TransactionsComputingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsComputingModel.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */,
 				35C233E41E81AA350095AFFE /* RESTClient.framework in Frameworks */,
 				352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */,
+				35B35AD31EC8C184007E3A53 /* SwiftyBeaver.framework in Frameworks */,
 				35E6F1DF1EC389F1007667BB /* RxCocoa.framework in Frameworks */,
 				35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */,
 				35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */,
@@ -276,6 +281,7 @@
 		35BB973D1E7F0D76003DBA41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35B35AD21EC8C184007E3A53 /* SwiftyBeaver.framework */,
 				35E6F1DE1EC389F1007667BB /* RxCocoa.framework */,
 				352B03091E92BD0A001B99CB /* Dip.framework */,
 				35F011D51E8D7B03006A2BC2 /* Cleanse.framework */,

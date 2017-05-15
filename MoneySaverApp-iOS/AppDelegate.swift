@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var dependencyContainer: DependencyContainer?
     var rootFlowController: FlowController?
+    var logger: Logger?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                 dependencyContainer: diContainer)
         rootFlowController?.startFlow()
         dependencyContainer = diContainer
+        logger = try? diContainer.resolve()
+        
+        logger?.log(withLevel: .info, message: "didFinishLaunchingWithOptions")
         
         return true
     }

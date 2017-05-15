@@ -12,6 +12,8 @@ import Dip
 class UtilsAssebler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        
+        container.register(.singleton) {
+            SwiftyBeaverLogger() as Logger
+        }
     }
 }

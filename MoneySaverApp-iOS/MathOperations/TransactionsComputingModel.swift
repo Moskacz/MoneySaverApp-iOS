@@ -19,10 +19,14 @@ class TransactionsComputingModelImpl: TransactionsComputingModel {
 
     private let coreDataStack: CoreDataStack
     private let notificationCenter: NotificationCenter
+    private let logger: Logger
     
-    init(coreDataStack: CoreDataStack, notificationCenter: NotificationCenter) {
+    init(coreDataStack: CoreDataStack,
+         notificationCenter: NotificationCenter,
+         logger: Logger) {
         self.coreDataStack = coreDataStack
         self.notificationCenter = notificationCenter
+        self.logger = logger
     }
     
     func sumOfAllTransactionsObservable() -> Observable<NSDecimalNumber> {
@@ -50,6 +54,7 @@ class TransactionsComputingModelImpl: TransactionsComputingModel {
                 return NSDecimalNumber(value: 0.0)
             }
         } catch {
+            logger.log(withLevel: .error, message: error.localizedDescription)
             return NSDecimalNumber(value: 0.0)
         }
     }
