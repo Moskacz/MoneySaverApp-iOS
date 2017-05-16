@@ -16,6 +16,9 @@ class SwiftyBeaverLogger: Logger {
     init() {
         logger = SwiftyBeaver.self
         logger.addDestination(ConsoleDestination())
+        logger.addDestination(SBPlatformDestination(appID: "YbnMOP",
+                                                    appSecret: "wsbqxukaDcm2wgff378NLtZvmtO5nzdg",
+                                                    encryptionKey: "sxcujuxeybfJf0xraajchgmosv0Jcjnf"))
     }
     
     func log(withLevel level: LogLevel, message: String) {
