@@ -48,6 +48,7 @@ class TransactionsComputingModelImpl: TransactionsComputingModel {
         
         do {
             let results = try coreDataStack.getViewContext().fetch(fetchRequest)
+            logger.log(withLevel: .info, message: "TransactionsComputingModel - core data context registered objects count \(coreDataStack.getViewContext().registeredObjects.count)")
             if let result = results.first, let totalValue = result["totalValue"] as? NSDecimalNumber {
                 return totalValue
             } else {

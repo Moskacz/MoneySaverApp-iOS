@@ -21,10 +21,14 @@ class TransactionsModelImplementation: TransactionsModel {
     
     private let restClient: TransactionsRESTClient
     private let repository: TransactionsRepository
+    private let logger: Logger
     
-    init(restClient: TransactionsRESTClient, repository: TransactionsRepository) {
+    init(restClient: TransactionsRESTClient,
+         repository: TransactionsRepository,
+         logger: Logger) {
         self.restClient = restClient
         self.repository = repository
+        self.logger = logger
     }
     
     func getRepository() -> TransactionsRepository {
@@ -40,6 +44,8 @@ class TransactionsModelImplementation: TransactionsModel {
     func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Void> {
         return restClient.postTransaction(withParameters: parameters).do(onNext: { (transaction: Transaction) in
             self.repository.add(transaction: transaction)
+        }, onError: { [weak self] (error: Error) in
+            self?.logger.log(withLevel: .error, message: error.localizedDescription)
         }).mapToVoid()
     }
 }
