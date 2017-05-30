@@ -42,55 +42,39 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="money_saver_background" translatesAutoresizingMaskIntoConstraints="NO" id="vUh-Kv-da4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="231-Il-7nh">
-                                <rect key="frame" x="0.0" y="150" width="375" height="468"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SwD-VZ-p7M">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="transactionCell" id="Z6z-ht-4Cs">
-                                        <rect key="frame" x="10" y="10" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="KMG-bt-3ey"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jJa-U7-bIw"/>
-                                </connections>
-                            </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-XF-5YJ">
                                 <rect key="frame" x="149.5" y="84" width="76.5" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
+                                <rect key="frame" x="0.0" y="170" width="375" height="448"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hUW-SR-27q"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="231-Il-7nh" secondAttribute="trailing" id="2Rj-a3-God"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="00H-Wh-Vbq"/>
                             <constraint firstAttribute="bottom" secondItem="vUh-Kv-da4" secondAttribute="bottom" id="5ub-nz-x1M"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
                             <constraint firstItem="vUh-Kv-da4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7K5-s2-8hr"/>
+                            <constraint firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
                             <constraint firstItem="Q31-XF-5YJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="IDv-17-atG"/>
                             <constraint firstAttribute="trailing" secondItem="vUh-Kv-da4" secondAttribute="trailing" id="Ncr-l0-pXO"/>
                             <constraint firstItem="vUh-Kv-da4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Oj2-Pa-awN"/>
-                            <constraint firstItem="231-Il-7nh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="QgS-nS-fDC"/>
                             <constraint firstItem="Q31-XF-5YJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R0m-bN-G6T"/>
-                            <constraint firstItem="231-Il-7nh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="f6m-IG-aae"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="231-Il-7nh" secondAttribute="bottom" id="gEA-iQ-VyZ"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="gXK-FU-onc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
                     <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
                     <connections>
-                        <outlet property="collectionView" destination="231-Il-7nh" id="m1y-Ce-1Hm"/>
+                        <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
                         <outlet property="titleLabel" destination="Q31-XF-5YJ" id="Wda-IG-hhc"/>
                     </connections>
                 </viewController>

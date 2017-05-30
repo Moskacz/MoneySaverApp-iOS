@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionCell: UICollectionViewCell {
+class TransactionCell: UITableViewCell {
     
     @IBOutlet weak var amoutLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

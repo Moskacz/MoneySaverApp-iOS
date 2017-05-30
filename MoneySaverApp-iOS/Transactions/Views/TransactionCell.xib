@@ -11,43 +11,40 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="center" id="oSX-pR-75Z" customClass="TransactionCell" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="169" height="111"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="169" height="111"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="PIR-9w-rNQ" customClass="TransactionCell" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="403" height="66"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PIR-9w-rNQ" id="C23-If-It5">
+                <rect key="frame" x="0.0" y="0.0" width="403" height="65.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-200 $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9Y-Nz-yq8">
-                        <rect key="frame" x="8" y="8" width="153" height="66"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="20/02/2015 (obiad)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ADg-nf-kQd">
-                        <rect key="frame" x="8" y="82" width="153" height="21"/>
+                        <rect key="frame" x="8" y="36.5" width="387" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-200 $" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9Y-Nz-yq8">
+                        <rect key="frame" x="8" y="8" width="387" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
-            </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="j9Y-Nz-yq8" firstAttribute="top" secondItem="oSX-pR-75Z" secondAttribute="top" constant="8" id="435-Tw-YrU"/>
-                <constraint firstItem="ADg-nf-kQd" firstAttribute="top" secondItem="j9Y-Nz-yq8" secondAttribute="bottom" constant="8" id="6oy-ii-Cjq"/>
-                <constraint firstAttribute="trailing" secondItem="ADg-nf-kQd" secondAttribute="trailing" constant="8" id="6tf-sj-PZp"/>
-                <constraint firstAttribute="bottom" secondItem="ADg-nf-kQd" secondAttribute="bottom" constant="8" id="Bnb-sH-jRZ"/>
-                <constraint firstItem="j9Y-Nz-yq8" firstAttribute="leading" secondItem="oSX-pR-75Z" secondAttribute="leading" constant="8" id="HAr-8s-bYL"/>
-                <constraint firstAttribute="trailing" secondItem="j9Y-Nz-yq8" secondAttribute="trailing" constant="8" id="MkA-Vd-zVr"/>
-                <constraint firstItem="ADg-nf-kQd" firstAttribute="leading" secondItem="oSX-pR-75Z" secondAttribute="leading" constant="8" id="moR-H6-pQT"/>
-            </constraints>
-            <size key="customSize" width="169" height="111"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="ADg-nf-kQd" secondAttribute="trailing" constant="8" id="6WT-JT-bqk"/>
+                    <constraint firstItem="j9Y-Nz-yq8" firstAttribute="leading" secondItem="C23-If-It5" secondAttribute="leading" constant="8" id="ICR-rs-Aip"/>
+                    <constraint firstItem="j9Y-Nz-yq8" firstAttribute="top" secondItem="C23-If-It5" secondAttribute="top" constant="8" id="ek1-T2-ciK"/>
+                    <constraint firstAttribute="trailing" secondItem="j9Y-Nz-yq8" secondAttribute="trailing" constant="8" id="hD4-dV-ep1"/>
+                    <constraint firstItem="ADg-nf-kQd" firstAttribute="leading" secondItem="C23-If-It5" secondAttribute="leading" constant="8" id="oNh-n8-To7"/>
+                    <constraint firstAttribute="bottom" secondItem="ADg-nf-kQd" secondAttribute="bottom" constant="8" id="vpP-lW-zoT"/>
+                </constraints>
+            </tableViewCellContentView>
             <connections>
-                <outlet property="amoutLabel" destination="j9Y-Nz-yq8" id="cPD-SN-wqV"/>
-                <outlet property="descriptionLabel" destination="ADg-nf-kQd" id="6gp-hY-poc"/>
+                <outlet property="amoutLabel" destination="j9Y-Nz-yq8" id="UHf-dR-B0K"/>
+                <outlet property="descriptionLabel" destination="ADg-nf-kQd" id="Rse-Fd-Ttg"/>
             </connections>
-            <point key="canvasLocation" x="-108" y="-13"/>
-        </collectionViewCell>
+            <point key="canvasLocation" x="-81.5" y="-199.5"/>
+        </tableViewCell>
     </objects>
 </document>
