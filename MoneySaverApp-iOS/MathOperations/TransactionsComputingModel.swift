@@ -30,10 +30,10 @@ class TransactionsComputingModelImpl: TransactionsComputingModel {
     }
     
     func sumOfAllTransactionsObservable() -> Observable<NSDecimalNumber> {
-        let notificationName = Notification.Name.NSManagedObjectContextDidSave
-        return notificationCenter.rx.notification(notificationName).map { (_) -> NSDecimalNumber in
+        let notificationName = Notification.Name.NSManagedObjectContextObjectsDidChange
+        return notificationCenter.rx.notification(notificationName, object: coreDataStack.getViewContext()).map({ (_) -> NSDecimalNumber in
             return self.totalValueOfSavedTransactions()
-        }.startWith(totalValueOfSavedTransactions())
+        }).startWith(totalValueOfSavedTransactions())
     }
     
     private func totalValueOfSavedTransactions() -> NSDecimalNumber {

@@ -57,16 +57,15 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     }
     
     func add(transaction: Transaction) {
-        let context = stack.getViewContext()
-        context.perform {
+        stack.performBackgroundTask { (context: NSManagedObjectContext) in
             let entity = TransactionManagedObject.insertNew(inContext: context)
             self.updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
-        }
-        
-        do {
-            try context.save()
-        } catch {
-            print(error)
+            
+            do {
+                try context.save()
+            } catch {
+                print(error)
+            }
         }
     }
     
