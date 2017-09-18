@@ -1,2 +1,2 @@
 github "Moskacz/MoneySaverFoundationiOS" "master"
-github "ReactiveX/RxSwift" ~> 3.0
+github "ReactiveX/RxSwift" "swift4.0"

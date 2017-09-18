@@ -21,7 +21,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
     private let disposeBag = DisposeBag()
-    var addTransactionTapCallback: ((Void) -> Void)?
+    var addTransactionTapCallback: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
         tableView.tableFooterView = UIView()
     }
     
-    func addTransactionButtonTapped() {
+    @objc func addTransactionButtonTapped() {
         addTransactionTapCallback?()
     }
     

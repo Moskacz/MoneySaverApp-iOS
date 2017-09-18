@@ -18,7 +18,7 @@ class AddTransactionViewController: UIViewController {
     @IBOutlet weak var valueTextField: UITextField!
     
     private let disposeBag = DisposeBag()
-    var transactionAddedCallback: ((Void) -> Void)?
+    var transactionAddedCallback: (() -> Void)?
     var viewModel: AddTransactionViewModel!
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class AddTransactionViewController: UIViewController {
         navigationItem.rightBarButtonItem = doneButton
     }
     
-    func doneButtonTapped() {
+    @objc func doneButtonTapped() {
         setDataOnViewModel()
         viewModel.addTransaction().subscribe(onNext: { [weak self] in
             self?.transactionAddedCallback?()
