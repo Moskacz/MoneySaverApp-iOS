@@ -63,6 +63,7 @@
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
 		35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2D1EB636E90083C57F /* Theme.swift */; };
+		35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB3D071F7195BD00BCB79C /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
 		35EA1A2D1EB636E90083C57F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		35EB3D071F7195BD00BCB79C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		35F011D51E8D7B03006A2BC2 /* Cleanse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cleanse.framework; path = Carthage/Build/iOS/Cleanse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */,
 				35B35AD31EC8C184007E3A53 /* SwiftyBeaver.framework in Frameworks */,
 				35E6F1DF1EC389F1007667BB /* RxCocoa.framework in Frameworks */,
+				35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */,
 				35B5CAC81E883D5500D1990E /* RxSwift.framework in Frameworks */,
 				35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */,
 			);
@@ -281,6 +284,7 @@
 		35BB973D1E7F0D76003DBA41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35EB3D071F7195BD00BCB79C /* CloudKit.framework */,
 				35B35AD21EC8C184007E3A53 /* SwiftyBeaver.framework */,
 				35E6F1DE1EC389F1007667BB /* RxCocoa.framework */,
 				352B03091E92BD0A001B99CB /* Dip.framework */,
@@ -431,6 +435,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -684,8 +691,9 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "MoneySaverApp-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.michal.moskala.MoneySaverApp-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.michal.moskala.moneySaverApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
@@ -703,8 +711,9 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "MoneySaverApp-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.michal.moskala.MoneySaverApp-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = com.michal.moskala.moneySaverApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;

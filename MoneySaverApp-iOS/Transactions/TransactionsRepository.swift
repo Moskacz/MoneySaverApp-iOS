@@ -58,7 +58,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     
     func add(transaction: Transaction) {
         stack.performBackgroundTask { (context: NSManagedObjectContext) in
-            let entity = TransactionManagedObject.insertNew(inContext: context)
+            let entity = TransactionManagedObject.createEntity(inContext: context)
             self.updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
             
             do {
@@ -113,7 +113,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             if let entity = matchingEntity {
                 transactionEntity = entity
             } else {
-                transactionEntity = TransactionManagedObject.insertNew(inContext: context)
+                transactionEntity = TransactionManagedObject.createEntity(inContext: context)
             }
             
             updateProperties(ofTransactionEntity: transactionEntity, withTransaction: transaction)
@@ -122,7 +122,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     
     private func createNewEntities(basedOnTransactions transactions: [Transaction], inContext context: NSManagedObjectContext) {
         for transaction in transactions {
-            let entity = TransactionManagedObject.insertNew(inContext: context)
+            let entity = TransactionManagedObject.createEntity(inContext: context)
             updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
         }
     }

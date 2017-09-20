@@ -7,31 +7,32 @@
 //
 
 import UIKit
+import MoneySaverFoundationiOS
 
 protocol TransactionCellViewModel {
-    func amountText() -> String?
-    func descriptionText() -> String?
+    func amountText() -> String
+    func descriptionText() -> String
     func tintColor() -> UIColor
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
     
-    private let transaction: TransactionManagedObject
+    private let transaction: Transaction
     
-    init(transaction: TransactionManagedObject) {
+    init(transaction: Transaction) {
         self.transaction = transaction
     }
     
-    func amountText() -> String? {
-        return transaction.value?.stringValue
+    func amountText() -> String {
+        return transaction.value.stringValue
     }
     
-    func descriptionText() -> String? {
+    func descriptionText() -> String {
         return transaction.title
     }
     
     func tintColor() -> UIColor {
-        let value = transaction.value?.doubleValue ?? 0.0
+        let value = transaction.value.doubleValue
         return value > 0 ? Theme.greenColor : Theme.redColor
     }
     

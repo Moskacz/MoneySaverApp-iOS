@@ -9,12 +9,14 @@
 import Foundation
 import CoreData
 
+
 public class TransactionManagedObject: NSManagedObject {
     
-    static let entityName = "TransactionManagedObject"
-    
-    class func insertNew(inContext context: NSManagedObjectContext) -> TransactionManagedObject {
-        return NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! TransactionManagedObject
+    class var entityName: String {
+        return "TransactionManagedObject"
     }
     
+    class func createEntity(inContext context: NSManagedObjectContext) -> TransactionManagedObject {
+        return NSEntityDescription.insertNewObject(forEntityName: TransactionManagedObject.entityName, into: context) as! TransactionManagedObject
+    }
 }

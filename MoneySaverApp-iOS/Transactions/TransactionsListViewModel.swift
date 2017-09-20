@@ -41,12 +41,11 @@ class TransactionsListViewModel{
     }
     
     func transactionsCount() -> Int {
-        return transactionsFRC?.fetchedObjects?.count ?? 0
+        return 0
     }
     
     func transactionCellViewModel(atIndex index: Int) -> TransactionCellViewModel {
-        let transaction = transactionsFRC!.fetchedObjects![index]
-        return TransactionCellViewModelImplementation(transaction: transaction)
+        fatalError()
     }
     
     // MARK: Private
