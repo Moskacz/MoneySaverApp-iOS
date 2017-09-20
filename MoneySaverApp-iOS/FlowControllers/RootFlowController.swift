@@ -47,18 +47,24 @@ class RootFlowController: FlowController {
     
     private func configure(transactionsListViewController viewController: TransactionsListViewController) {
         viewController.addTransactionTapCallback = {
-            self.pushAddTransactionViewController()
+            self.presendAddTransactionViewController()
         }
         viewController.viewModel = try! dependencyContainer.resolve()
     }
     
-    private func pushAddTransactionViewController() {
+    private func presendAddTransactionViewController() {
         let viewController: AddTransactionViewController = storyboard.instantiateTypeViewController(withIdentifier: AddTransactionViewController.storyboardId)
         viewController.viewModel = try! dependencyContainer.resolve()
-        viewController.transactionAddedCallback = {
-            _ = self.navigationController?.popViewController(animated: true)
+        
+        viewController.cancelButtonTapCallback = {
+            self.navigationController?.dismiss(animated: true, completion: nil)
         }
         
-        navigationController?.pushViewController(viewController, animated: true)
+        viewController.transactionAddedCallback = {
+            self.navigationController?.dismiss(animated: true, completion: nil)
+        }
+        
+        let navControlloer = UINavigationController(rootViewController: viewController)
+        navigationController?.present(navControlloer, animated: true, completion: nil)
     }
 }

@@ -18,7 +18,8 @@ class AddTransactionViewController: UIViewController {
     @IBOutlet weak var valueTextField: UITextField!
     
     private let disposeBag = DisposeBag()
-    var transactionAddedCallback: (() -> Void)?
+    var transactionAddedCallback: (() -> Void) = {}
+    var cancelButtonTapCallback: (() -> Void) = {}
     var viewModel: AddTransactionViewModel!
     
     override func viewDidLoad() {
@@ -29,15 +30,22 @@ class AddTransactionViewController: UIViewController {
     private func setupViews() {
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
         navigationItem.rightBarButtonItem = doneButton
+        
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
+        navigationItem.leftBarButtonItem = cancelButton
     }
     
     @objc func doneButtonTapped() {
         setDataOnViewModel()
         viewModel.addTransaction().subscribe(onNext: { [weak self] in
-            self?.transactionAddedCallback?()
+            self?.transactionAddedCallback()
         }, onError: { (error: Error) in
             print(error)
         }).addDisposableTo(disposeBag)
+    }
+    
+    @objc func cancelButtonTapped() {
+        cancelButtonTapCallback()
     }
     
     private func setDataOnViewModel() {
