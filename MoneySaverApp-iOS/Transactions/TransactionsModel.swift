@@ -14,7 +14,7 @@ import MoneySaverFoundationiOS
 protocol TransactionsModel {
     func getRepository() -> TransactionsRepository
     func refreshData() -> Observable<Void>
-    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Void>
+    func addTransaction(withData data: AddTransactionFormData)
 }
 
 class TransactionsModelImplementation: TransactionsModel {
@@ -41,11 +41,13 @@ class TransactionsModelImplementation: TransactionsModel {
         }).mapToVoid()
     }
     
-    func addTransaction(withParameters parameters: [AnyHashable: Any]) -> Observable<Void> {
-        return restClient.postTransaction(withParameters: parameters).do(onNext: { (transaction: Transaction) in
-            self.repository.add(transaction: transaction)
-        }, onError: { [weak self] (error: Error) in
-            self?.logger.log(withLevel: .error, message: error.localizedDescription)
-        }).mapToVoid()
+    func addTransaction(withData data: AddTransactionFormData) {
+        let transaction = Transaction(identifier: UUID().uuidString,
+                                      title: data.title,
+                                      value: data.value,
+                                      category: data.category,
+                                      creationTimeInterval: data.creationTimeStamp)
+        repository.add(transaction: transaction)
     }
+    
 }

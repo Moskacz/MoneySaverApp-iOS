@@ -17,9 +17,9 @@ protocol TransactionCellViewModel {
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
     
-    private let transaction: Transaction
+    private let transaction: TransactionManagedObject
     
-    init(transaction: Transaction) {
+    init(transaction: TransactionManagedObject) {
         self.transaction = transaction
     }
     
