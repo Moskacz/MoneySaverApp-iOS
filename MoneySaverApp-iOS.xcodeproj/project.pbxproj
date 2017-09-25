@@ -18,6 +18,8 @@
 		352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03131E92C087001B99CB /* DataLayerAssembler.swift */; };
 		352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03151E92C44B001B99CB /* ModelsAssembler.swift */; };
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
+		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
+		355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */; };
 		358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* AddTransactionViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -106,6 +108,8 @@
 		352B03131E92C087001B99CB /* DataLayerAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayerAssembler.swift; sourceTree = "<group>"; };
 		352B03151E92C44B001B99CB /* ModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAssembler.swift; sourceTree = "<group>"; };
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
+		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
+		355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsCloudKitClient.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -268,6 +272,8 @@
 				35BB97241E7F0860003DBA41 /* Assets.xcassets */,
 				35BB97261E7F0860003DBA41 /* LaunchScreen.storyboard */,
 				35BB97291E7F0860003DBA41 /* Info.plist */,
+				355509C61F7831F20007FEF1 /* SynchronizationService.swift */,
+				355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */,
 			);
 			path = "MoneySaverApp-iOS";
 			sourceTree = "<group>";
@@ -508,6 +514,7 @@
 				358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
+				355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */,
@@ -520,6 +527,7 @@
 				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
+				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 				358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */,

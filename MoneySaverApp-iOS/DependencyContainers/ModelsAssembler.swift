@@ -17,7 +17,7 @@ struct ModelsAssembler: ContainerAssembly {
         }
         
         container.register(.singleton) {
-            TransactionsModelImplementation(restClient: $0,
+            TransactionsModelImplementation(serverInterface: $0,
                                             repository: $1,
                                             logger: $2) as TransactionsModel
         }

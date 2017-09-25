@@ -36,10 +36,6 @@ class TransactionsListViewModel{
         createFRC()
     }
     
-    func refreshData() {
-        transactionsModel.refreshData().subscribe().addDisposableTo(disposeBag)
-    }
-    
     func transactionsCount() -> Int {
         return transactionsFRC?.fetchedObjects?.count ?? 0
     }

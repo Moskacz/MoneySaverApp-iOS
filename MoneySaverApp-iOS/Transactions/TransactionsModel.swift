@@ -13,32 +13,25 @@ import MoneySaverFoundationiOS
 
 protocol TransactionsModel {
     func getRepository() -> TransactionsRepository
-    func refreshData() -> Observable<Void>
     func addTransaction(withData data: AddTransactionFormData)
 }
 
 class TransactionsModelImplementation: TransactionsModel {
     
-    private let restClient: TransactionsRESTClient
+    private let serverInterface: TransactionsServerInterface
     private let repository: TransactionsRepository
     private let logger: Logger
     
-    init(restClient: TransactionsRESTClient,
+    init(serverInterface: TransactionsServerInterface,
          repository: TransactionsRepository,
          logger: Logger) {
-        self.restClient = restClient
+        self.serverInterface = serverInterface
         self.repository = repository
         self.logger = logger
     }
     
     func getRepository() -> TransactionsRepository {
         return repository
-    }
-    
-    func refreshData() -> Observable<Void> {
-        return restClient.getTransactions().do(onNext: { (transactions: [Transaction]) in
-            self.repository.update(withTransactions: transactions)
-        }).mapToVoid()
     }
     
     func addTransaction(withData data: AddTransactionFormData) {
@@ -48,6 +41,7 @@ class TransactionsModelImplementation: TransactionsModel {
                                       category: data.category,
                                       creationTimeInterval: data.creationTimeStamp)
         repository.add(transaction: transaction)
+        serverInterface.saveTransaction(transaction: transaction)
     }
     
 }

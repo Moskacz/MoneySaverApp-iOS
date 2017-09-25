@@ -27,7 +27,6 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
         super.viewDidLoad()
         setupViews()
         viewModel.attach(updater: TableViewCollectionUpdater(tableView: tableView))
-        viewModel.refreshData()
     }
     
     // MARK: Initial setup
