@@ -23,6 +23,9 @@
 		355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */; };
 		355509CD1F7ABF7E0007FEF1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */; };
 		355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CE1F7AC1730007FEF1 /* UIViewController+Additions.swift */; };
+		355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */; };
+		355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */; };
+		355509D41F7AC8080007FEF1 /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
 		358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* AddTransactionViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -41,7 +44,6 @@
 		35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97211E7F0860003DBA41 /* Main.storyboard */; };
 		35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97241E7F0860003DBA41 /* Assets.xcassets */; };
 		35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97261E7F0860003DBA41 /* LaunchScreen.storyboard */; };
-		35BB97331E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */; };
 		35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DDD1E89751A00095FE2 /* TransactionsModel.swift */; };
 		35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DDF1E89766900095FE2 /* TransactionsListViewController.swift */; };
 		35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */; };
@@ -116,6 +118,8 @@
 		355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
 		355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		355509CE1F7AC1730007FEF1 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
+		355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerAdditionsTests.swift; sourceTree = "<group>"; };
+		355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowControllerTests.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -134,7 +138,6 @@
 		35BB97271E7F0860003DBA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35BB97291E7F0860003DBA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35BB972E1E7F0860003DBA41 /* MoneySaverApp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MoneySaverApp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneySaverApp_iOSTests.swift; sourceTree = "<group>"; };
 		35BB97341E7F0860003DBA41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35BB973E1E7F0D76003DBA41 /* RESTClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RESTClient.framework; path = Carthage/Build/iOS/RESTClient.framework; sourceTree = "<group>"; };
 		35C09DDD1E89751A00095FE2 /* TransactionsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsModel.swift; sourceTree = "<group>"; };
@@ -184,6 +187,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355509D41F7AC8080007FEF1 /* Dip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,8 +293,9 @@
 		35BB97311E7F0860003DBA41 /* MoneySaverApp-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				35BB97321E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift */,
 				35BB97341E7F0860003DBA41 /* Info.plist */,
+				355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */,
+				355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -561,7 +566,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35BB97331E7F0860003DBA41 /* MoneySaverApp_iOSTests.swift in Sources */,
+				355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */,
+				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -691,7 +697,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -705,6 +711,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MoneySaverApp-iOS/MoneySaverApp-iOS.entitlements";
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = R77HUFLYN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -725,6 +732,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "MoneySaverApp-iOS/MoneySaverApp-iOS.entitlements";
+				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = R77HUFLYN8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -745,11 +753,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = R77HUFLYN8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "MoneySaverApp-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michal.moskala.MoneySaverApp-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MoneySaverApp-iOS.app/MoneySaverApp-iOS";
@@ -761,7 +775,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = R77HUFLYN8;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "MoneySaverApp-iOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.michal.moskala.MoneySaverApp-iOSTests";

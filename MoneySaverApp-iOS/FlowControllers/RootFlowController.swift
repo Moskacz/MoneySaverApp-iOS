@@ -16,7 +16,9 @@ class RootFlowController: FlowController {
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
     
-    init(applicationDelegate: AppDelegate?, storyboard: UIStoryboard, dependencyContainer: DependencyContainer) {
+    init(applicationDelegate: AppDelegate?,
+         storyboard: UIStoryboard,
+         dependencyContainer: DependencyContainer) {
         self.applicationDelegate = applicationDelegate
         self.storyboard = storyboard
         self.dependencyContainer = dependencyContainer
