@@ -20,6 +20,8 @@
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
 		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
 		355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */; };
+		355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */; };
+		355509CD1F7ABF7E0007FEF1 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */; };
 		358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* AddTransactionViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -110,6 +112,8 @@
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
 		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsCloudKitClient.swift; sourceTree = "<group>"; };
+		355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
+		355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* AddTransactionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -274,6 +278,8 @@
 				35BB97291E7F0860003DBA41 /* Info.plist */,
 				355509C61F7831F20007FEF1 /* SynchronizationService.swift */,
 				355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */,
+				355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */,
+				355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */,
 			);
 			path = "MoneySaverApp-iOS";
 			sourceTree = "<group>";
@@ -506,11 +512,13 @@
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
 				352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */,
+				355509CD1F7ABF7E0007FEF1 /* StatsViewController.swift in Sources */,
 				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
 				35B35AD11EC8C00B007E3A53 /* SwiftyBeaverLogger.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingModel.swift in Sources */,
+				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
 				358894741E992DE500ACF06C /* AddTransactionViewModel.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
