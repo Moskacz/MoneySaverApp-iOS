@@ -14,5 +14,6 @@ class StatsViewController: UIViewController {
         get {
             return UITabBarItem(title: "Stats", image: nil, selectedImage: nil)
         }
+        set {}
     }
 }

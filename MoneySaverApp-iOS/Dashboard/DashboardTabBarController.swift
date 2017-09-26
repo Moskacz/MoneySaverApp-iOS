@@ -10,8 +10,6 @@ import UIKit
 
 class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate {
     
-    static let storyboardId = "DashboardTabBarController"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self

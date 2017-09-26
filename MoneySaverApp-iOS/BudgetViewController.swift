@@ -14,5 +14,7 @@ class BudgetViewController: UIViewController {
         get {
             return UITabBarItem(title: "Budget", image: nil, selectedImage: nil)
         }
+        set {}
     }
+    
 }

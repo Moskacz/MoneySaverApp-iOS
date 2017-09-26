@@ -11,8 +11,6 @@ import RxSwift
 
 class AddTransactionViewController: UIViewController {
     
-    static let storyboardId = "AddTransactionViewController"
-    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var valueTextField: UITextField!

@@ -8,24 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Dashboard Tab Bar Controller-->
-        <scene sceneID="GXt-s1-VsA">
-            <objects>
-                <tabBarController storyboardIdentifier="DashboardTabBarController" id="Qqq-TG-USa" customClass="DashboardTabBarController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="VzS-b5-aJH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="3Vt-ay-NTm"/>
-                        <segue destination="HjK-vy-iya" kind="relationship" relationship="viewControllers" id="zrW-Ku-Fpl"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="TZz-GD-O0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-514" y="-230"/>
-        </scene>
         <!--Transactions-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -45,7 +27,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="170" width="375" height="448"/>
+                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
@@ -74,24 +56,41 @@
             </objects>
             <point key="canvasLocation" x="697" y="-563"/>
         </scene>
-        <!--Categories-->
-        <scene sceneID="mXu-b8-MzX">
+        <!--Budget View Controller-->
+        <scene sceneID="hAf-CF-dEB">
             <objects>
-                <viewController id="HjK-vy-iya" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BudgetViewController" id="Heo-ED-jna" customClass="BudgetViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RjK-4Z-Sbf"/>
-                        <viewControllerLayoutGuide type="bottom" id="mWh-PA-cpJ"/>
+                        <viewControllerLayoutGuide type="top" id="Sme-UO-yNz"/>
+                        <viewControllerLayoutGuide type="bottom" id="tiP-ya-9H5"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2rY-YC-iOs">
+                    <view key="view" contentMode="scaleToFill" id="YIB-b5-9lt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.81088837942325842" blue="0.44950911477957656" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Categories" id="zUe-k6-T4X"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kdP-Ih-6H1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ifx-eI-JqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="697" y="112"/>
+        </scene>
+        <!--Stats View Controller-->
+        <scene sceneID="w4n-yi-Kzf">
+            <objects>
+                <viewController storyboardIdentifier="StatsViewController" id="sgP-KY-TrS" customClass="StatsViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ltz-zu-eVj"/>
+                        <viewControllerLayoutGuide type="bottom" id="bE2-7o-tSS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pw2-NB-9ng">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.47852167489413588" green="0.83253869288472859" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V1z-DT-gOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1430" y="112"/>
         </scene>
         <!--Add Transaction View Controller-->
         <scene sceneID="g3Y-nx-kZn">

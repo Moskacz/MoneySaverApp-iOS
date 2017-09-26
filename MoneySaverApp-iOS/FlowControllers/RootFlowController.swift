@@ -27,15 +27,10 @@ class RootFlowController: FlowController {
     }
     
     private func setupRootFlowController() {
-        let tabBarVC: DashboardTabBarController = storyboard.instantiateTypeViewController(withIdentifier: DashboardTabBarController.storyboardId)
-        
-        if let viewControllers = tabBarVC.viewControllers {
-            for viewController in viewControllers {
-                if let transactionsListVC = viewController as? TransactionsListViewController {
-                    configure(transactionsListViewController: transactionsListVC)
-                }
-            }
-        }
+        let tabBarVC = DashboardTabBarController()
+        tabBarVC.viewControllers = [transactionsListViewController(),
+                                    budgetViewController(),
+                                    statsViewController()]
         
         let navController = UINavigationController(rootViewController: tabBarVC)
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -45,15 +40,30 @@ class RootFlowController: FlowController {
         self.navigationController = navController
     }
     
-    private func configure(transactionsListViewController viewController: TransactionsListViewController) {
+    private func transactionsListViewController() -> TransactionsListViewController {
+        let viewController: TransactionsListViewController = storyboard.instantiateTypeViewController(withIdentifier: TransactionsListViewController.defaultStoryboardIdentifier)
+        
+        viewController.viewModel = try! dependencyContainer.resolve()
+        
         viewController.addTransactionTapCallback = {
             self.presendAddTransactionViewController()
         }
-        viewController.viewModel = try! dependencyContainer.resolve()
+        
+        return viewController
+    }
+    
+    private func budgetViewController() -> BudgetViewController {
+        let viewController: BudgetViewController = storyboard.instantiateTypeViewController(withIdentifier: BudgetViewController.defaultStoryboardIdentifier)
+        return viewController
+    }
+    
+    private func statsViewController() -> StatsViewController {
+        let viewController: StatsViewController = storyboard.instantiateTypeViewController(withIdentifier: StatsViewController.defaultStoryboardIdentifier)
+        return viewController
     }
     
     private func presendAddTransactionViewController() {
-        let viewController: AddTransactionViewController = storyboard.instantiateTypeViewController(withIdentifier: AddTransactionViewController.storyboardId)
+        let viewController: AddTransactionViewController = storyboard.instantiateTypeViewController(withIdentifier: AddTransactionViewController.defaultStoryboardIdentifier)
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.cancelButtonTapCallback = {

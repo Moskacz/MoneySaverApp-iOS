@@ -12,8 +12,6 @@ import RxCocoa
 
 class TransactionsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    static let storyboardId = "TransactionsListViewController"
-    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
