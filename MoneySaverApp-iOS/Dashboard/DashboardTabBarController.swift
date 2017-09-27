@@ -14,6 +14,23 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
         super.viewDidLoad()
         self.delegate = self
         setupNavigationItem(withViewController: viewControllers?.first)
+        addNewTransactionButton()
+    }
+    
+    private func addNewTransactionButton() {
+        let button = UIButton()
+        button.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+        button.setTitle("New", for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(button)
+        let buttonSize: CGFloat = 60.0
+        button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        button.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        button.layer.cornerRadius = buttonSize / 2.0
+        button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                         constant: -8.0).isActive = true
+        button.bottomAnchor.constraint(equalTo: tabBar.topAnchor,
+                                       constant: -8.0).isActive = true
     }
     
     func tabBarController(_ tabBarController: UITabBarController,
