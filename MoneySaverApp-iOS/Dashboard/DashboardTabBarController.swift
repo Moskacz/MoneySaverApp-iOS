@@ -10,6 +10,8 @@ import UIKit
 
 class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate {
     
+    var newTransactionButtonTapCallback: (() -> ()) = {}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -30,6 +32,11 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
                                          constant: -8.0).isActive = true
         button.bottomAnchor.constraint(equalTo: tabBar.topAnchor,
                                        constant: -8.0).isActive = true
+        button.addTarget(self, action: #selector(newTransactionButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func newTransactionButtonTapped(sender: UIButton) {
+        newTransactionButtonTapCallback()
     }
     
 }

@@ -40,10 +40,6 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
         tableView.tableFooterView = UIView()
     }
     
-    @objc func addTransactionButtonTapped() {
-        addTransactionTapCallback?()
-    }
-    
     // MARK: UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,11 +65,4 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
         return viewModel.transactionsCount()
     }
     
-}
-
-extension TransactionsListViewController: BarButtonProvider {
-    
-    func barButton() -> UIBarButtonItem {
-        return UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTransactionButtonTapped))
-    }
 }

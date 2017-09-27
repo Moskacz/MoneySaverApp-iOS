@@ -34,6 +34,10 @@ class RootFlowController: FlowController {
                                     budgetViewController(),
                                     statsViewController()]
         
+        tabBarVC.newTransactionButtonTapCallback = {
+            self.presendAddTransactionViewController()
+        }
+        
         let navController = UINavigationController(rootViewController: tabBarVC)
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = navController
@@ -46,11 +50,6 @@ class RootFlowController: FlowController {
         let viewController: TransactionsListViewController = storyboard.instantiateTypeViewController(withIdentifier: TransactionsListViewController.defaultStoryboardIdentifier)
         
         viewController.viewModel = try! dependencyContainer.resolve()
-        
-        viewController.addTransactionTapCallback = {
-            self.presendAddTransactionViewController()
-        }
-        
         return viewController
     }
     
