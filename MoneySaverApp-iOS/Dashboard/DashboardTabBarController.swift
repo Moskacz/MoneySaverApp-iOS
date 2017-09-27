@@ -13,7 +13,6 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        setupNavigationItem(withViewController: viewControllers?.first)
         addNewTransactionButton()
     }
     
@@ -33,17 +32,4 @@ class DashboardTabBarController: UITabBarController, UITabBarControllerDelegate 
                                        constant: -8.0).isActive = true
     }
     
-    func tabBarController(_ tabBarController: UITabBarController,
-                          didSelect viewController: UIViewController) {
-        setupNavigationItem(withViewController: viewController)
-    }
-    
-    private func setupNavigationItem(withViewController viewController: UIViewController?) {
-        guard let buttonProvider = viewController as? BarButtonProvider else {
-            navigationItem.rightBarButtonItem = nil
-            return
-        }
-        
-        navigationItem.rightBarButtonItem = buttonProvider.barButton()
-    }
 }
