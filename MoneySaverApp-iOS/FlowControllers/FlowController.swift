@@ -10,4 +10,5 @@ import Foundation
 
 protocol FlowController {
     func startFlow()
+    var animatedTransitions: Bool { get set }
 }

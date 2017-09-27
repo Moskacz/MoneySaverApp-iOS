@@ -39,4 +39,40 @@ class RootFlowControllerTests: XCTestCase {
         XCTAssertTrue(tabBar.viewControllers![2] is StatsViewController)
     }
     
+    func test_whenAddNewButtonTapped_thenAddTransactionViewControllerEmbeddedInNavController_shouldBePresented() {
+        sut.animatedTransitions = false
+        sut.startFlow()
+        let navBar = appDelegate.window!.rootViewController as! UINavigationController
+        let tabBar = navBar.viewControllers.first as! DashboardTabBarController
+        tabBar.newTransactionButtonTapCallback()
+        let presentedNavBar = navBar.presentedViewController as! UINavigationController
+        XCTAssert(presentedNavBar.viewControllers[0] is AddTransactionViewController)
+    }
+    
+    func test_whenTransactionAdded_thenAddTransactionVCShouldBeDismissed() {
+        sut.animatedTransitions = false
+        sut.startFlow()
+        let navBar = appDelegate.window!.rootViewController as! UINavigationController
+        let tabBar = navBar.viewControllers.first as! DashboardTabBarController
+        tabBar.newTransactionButtonTapCallback()
+        let presentedNavBar = navBar.presentedViewController as! UINavigationController
+        let addTransactionVC = presentedNavBar.viewControllers[0] as! AddTransactionViewController
+        addTransactionVC.transactionAddedCallback()
+        expectation(for: NSPredicate(format: "presentedViewController == nil"), evaluatedWith: navBar, handler: nil)
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
+    
+    func test_whenUserCancelsAddingNewTransaction_thenAddTransactionVCShouldBeDismissed() {
+        sut.animatedTransitions = false
+        sut.startFlow()
+        let navBar = appDelegate.window!.rootViewController as! UINavigationController
+        let tabBar = navBar.viewControllers.first as! DashboardTabBarController
+        tabBar.newTransactionButtonTapCallback()
+        let presentedNavBar = navBar.presentedViewController as! UINavigationController
+        let addTransactionVC = presentedNavBar.viewControllers[0] as! AddTransactionViewController
+        addTransactionVC.cancelButtonTapped()
+        expectation(for: NSPredicate(format: "presentedViewController == nil"), evaluatedWith: navBar, handler: nil)
+        waitForExpectations(timeout: 1.0, handler: nil)
+    }
+    
 }

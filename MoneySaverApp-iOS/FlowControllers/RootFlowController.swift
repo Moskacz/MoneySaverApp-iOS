@@ -16,6 +16,8 @@ class RootFlowController: FlowController {
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
     
+    var animatedTransitions: Bool = true
+    
     init(applicationDelegate: AppDelegate?,
          storyboard: UIStoryboard,
          dependencyContainer: DependencyContainer) {
@@ -68,14 +70,14 @@ class RootFlowController: FlowController {
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.cancelButtonTapCallback = {
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
         viewController.transactionAddedCallback = {
-            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
         let navControlloer = UINavigationController(rootViewController: viewController)
-        navigationController?.present(navControlloer, animated: true, completion: nil)
+        navigationController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
     }
 }
