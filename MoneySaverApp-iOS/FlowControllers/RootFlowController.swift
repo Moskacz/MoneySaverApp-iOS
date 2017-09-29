@@ -15,6 +15,7 @@ class RootFlowController: FlowController {
     private weak var navigationController: UINavigationController?
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
+    private let presentationManager = CardStylePresentationManager()
     
     var animatedTransitions: Bool = true
     
@@ -78,6 +79,8 @@ class RootFlowController: FlowController {
         }
         
         let navControlloer = UINavigationController(rootViewController: viewController)
+        navControlloer.modalPresentationStyle = .custom
+        navControlloer.transitioningDelegate = presentationManager
         navigationController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
     }
 }
