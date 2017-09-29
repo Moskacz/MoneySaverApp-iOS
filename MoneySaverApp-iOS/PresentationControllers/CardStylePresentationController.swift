@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import MoneySaverFoundationiOS
 
 class CardStylePresentationController: UIPresentationController {
+    
+    
     
     override var frameOfPresentedViewInContainerView: CGRect {
         guard var containerViewFrame = containerView?.frame else { return CGRect.zero }
         containerViewFrame.size.height *= 0.8
+        containerViewFrame.origin.y += containerViewFrame.size.height * 0.2
         return containerViewFrame
     }
     
@@ -26,5 +30,20 @@ class CardStylePresentationController: UIPresentationController {
         return CGSize(width: parentSize.width, height: parentSize.height * 0.8)
     }
     
+    private func dimmingView() -> UIView {
+        let dimmingView = UIView()
+        dimmingView.translatesAutoresizingMaskIntoConstraints = false
+        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        dimmingView.alpha = 0.0
+        return dimmingView
+    }
+    
+    override func presentationTransitionWillBegin() {
+        super.presentationTransitionWillBegin()
+        let backgroundView = dimmingView()
+        containerView?.insertSubview(backgroundView, at: 0)
+        
+        
+    }
     
 }

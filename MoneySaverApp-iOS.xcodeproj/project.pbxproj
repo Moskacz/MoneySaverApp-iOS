@@ -32,6 +32,7 @@
 		359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */; };
 		35B296D81F7EBEEA004A3E32 /* CardStylePresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D71F7EBEEA004A3E32 /* CardStylePresentationManager.swift */; };
 		35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */; };
+		35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */; };
 		35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */; };
 		35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACE1EC8BFBB007E3A53 /* Logger.swift */; };
 		35B35AD11EC8C00B007E3A53 /* SwiftyBeaverLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */; };
@@ -128,6 +129,7 @@
 		359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
 		35B296D71F7EBEEA004A3E32 /* CardStylePresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationManager.swift; sourceTree = "<group>"; };
 		35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationController.swift; sourceTree = "<group>"; };
+		35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsAssembler.swift; sourceTree = "<group>"; };
 		35B35ACE1EC8BFBB007E3A53 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		35B35AD01EC8C00B007E3A53 /* SwiftyBeaverLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyBeaverLogger.swift; sourceTree = "<group>"; };
@@ -353,6 +355,7 @@
 				350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */,
 				35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */,
 				355509CE1F7AC1730007FEF1 /* UIViewController+Additions.swift */,
+				35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
+				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				35C09DE51E89780D00095FE2 /* Observable+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 				358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */,
