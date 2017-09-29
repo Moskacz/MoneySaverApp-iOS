@@ -11,13 +11,14 @@ import MoneySaverFoundationiOS
 
 class CardStylePresentationController: UIPresentationController {
     
-    
+    private weak var dimmingView: UIView?
     
     override var frameOfPresentedViewInContainerView: CGRect {
-        guard var containerViewFrame = containerView?.frame else { return CGRect.zero }
-        containerViewFrame.size.height *= 0.8
-        containerViewFrame.origin.y += containerViewFrame.size.height * 0.2
-        return containerViewFrame
+        guard let containerFrame = containerView?.frame else { return CGRect.zero }
+        let origin = CGPoint(x: containerFrame.origin.x, y: containerFrame.height * 0.1)
+        let frameSize = size(forChildContentContainer: presentedViewController,
+                             withParentContainerSize: containerFrame.size)
+        return CGRect(origin: origin, size: frameSize)
     }
     
     override func containerViewWillLayoutSubviews() {
@@ -27,10 +28,10 @@ class CardStylePresentationController: UIPresentationController {
     
     override func size(forChildContentContainer container: UIContentContainer,
                        withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSize(width: parentSize.width, height: parentSize.height * 0.8)
+        return CGSize(width: parentSize.width , height: parentSize.height * 0.9)
     }
     
-    private func dimmingView() -> UIView {
+    private func createDimmingView() -> UIView {
         let dimmingView = UIView()
         dimmingView.translatesAutoresizingMaskIntoConstraints = false
         dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
@@ -40,10 +41,31 @@ class CardStylePresentationController: UIPresentationController {
     
     override func presentationTransitionWillBegin() {
         super.presentationTransitionWillBegin()
-        let backgroundView = dimmingView()
-        containerView?.insertSubview(backgroundView, at: 0)
+        let view = createDimmingView()
+        containerView?.insertSubview(view, at: 0)
+        view.matchParent()
+        self.dimmingView = view
         
+        guard let coordinator = presentedViewController.transitionCoordinator else {
+            dimmingView?.alpha = 1.0
+            return
+        }
         
+        coordinator.animate(alongsideTransition: { (_) in
+            self.dimmingView?.alpha = 1.0
+        }, completion: nil)
+    }
+    
+    override func dismissalTransitionWillBegin() {
+        super.dismissalTransitionWillBegin()
+        guard let coordinator = presentedViewController.transitionCoordinator else {
+            dimmingView?.alpha = 0.0
+            return
+        }
+        
+        coordinator.animate(alongsideTransition: { (_) in
+            self.dimmingView?.alpha = 0.0
+        }, completion: nil)
     }
     
 }
