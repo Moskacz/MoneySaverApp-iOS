@@ -58,6 +58,8 @@ class CardStylePresentationController: UIPresentationController {
     private func setupPropertiesForPresentedState() {
         dimmingView?.alpha = 1.0
         presentingViewController.view.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        setupCorner(radius: 8.0, onLayer: presentingViewController.view.layer)
+        setupCorner(radius: 8.0, onLayer: presentedView?.layer)
     }
     
     override func dismissalTransitionWillBegin() {
@@ -74,6 +76,13 @@ class CardStylePresentationController: UIPresentationController {
     private func setupPropertiesForDismissedState() {
         dimmingView?.alpha = 0.0
         presentingViewController.view.transform = CGAffineTransform.identity
+        setupCorner(radius: 0, onLayer: presentingViewController.view.layer)
+        setupCorner(radius: 0, onLayer: presentedView?.layer)
+    }
+    
+    private func setupCorner(radius: CGFloat, onLayer layer: CALayer?) {
+        layer?.masksToBounds = radius > 0
+        layer?.cornerRadius = radius
     }
     
 }
