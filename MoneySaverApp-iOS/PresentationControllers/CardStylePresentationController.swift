@@ -46,26 +46,34 @@ class CardStylePresentationController: UIPresentationController {
         view.matchParent()
         self.dimmingView = view
         
-        guard let coordinator = presentedViewController.transitionCoordinator else {
-            dimmingView?.alpha = 1.0
-            return
-        }
+        let animationQueued = presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (_) in
+            self.setupPropertiesForPresentedState()
+        }, completion: nil) ?? false
         
-        coordinator.animate(alongsideTransition: { (_) in
-            self.dimmingView?.alpha = 1.0
-        }, completion: nil)
+        if !animationQueued {
+            setupPropertiesForPresentedState()
+        }
+    }
+    
+    private func setupPropertiesForPresentedState() {
+        dimmingView?.alpha = 1.0
+        presentingViewController.view.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
     }
     
     override func dismissalTransitionWillBegin() {
         super.dismissalTransitionWillBegin()
-        guard let coordinator = presentedViewController.transitionCoordinator else {
-            dimmingView?.alpha = 0.0
-            return
-        }
+        let animationQueued = presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (_) in
+            self.setupPropertiesForDismissedState()
+        }, completion: nil) ?? false
         
-        coordinator.animate(alongsideTransition: { (_) in
-            self.dimmingView?.alpha = 0.0
-        }, completion: nil)
+        if !animationQueued {
+            self.setupPropertiesForDismissedState()
+        }
+    }
+    
+    private func setupPropertiesForDismissedState() {
+        dimmingView?.alpha = 0.0
+        presentingViewController.view.transform = CGAffineTransform.identity
     }
     
 }
