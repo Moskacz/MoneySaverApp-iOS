@@ -88,7 +88,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
                           notIncludedInData data: [Transaction]) -> [TransactionManagedObject]? {
         return transactions.filter { (storedTransaction: TransactionManagedObject) in
             let matchingTransaction = data.first(where: { (transaction: Transaction) -> Bool in
-                return transaction.identifier == storedTransaction.identifier
+                return transaction.identifier.uuidString == storedTransaction.identifier
             })
             return matchingTransaction == nil
         }
@@ -107,7 +107,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             
             let transactionEntity: TransactionManagedObject
             let matchingEntity = storedTransactions.first(where: { (storedTransaction: TransactionManagedObject) -> Bool in
-                storedTransaction.identifier == transaction.identifier
+                storedTransaction.identifier == transaction.identifier.uuidString
             })
             
             if let entity = matchingEntity {
@@ -129,9 +129,8 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     
     private func updateProperties(ofTransactionEntity transactionEntity: TransactionManagedObject,
                                   withTransaction transaction: Transaction) {
-        transactionEntity.identifier = transaction.identifier
+        transactionEntity.identifier = transaction.identifier.uuidString
         transactionEntity.title = transaction.title
-        transactionEntity.category = transaction.category
         transactionEntity.value = transaction.value
         transactionEntity.creationTimeInterval = transaction.creationTimeInterval
     }

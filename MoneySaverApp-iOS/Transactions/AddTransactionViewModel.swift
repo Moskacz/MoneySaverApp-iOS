@@ -12,9 +12,9 @@ import RxSwift
 
 struct AddTransactionFormData {
     let title: String
-    let category: String
     let value: NSDecimalNumber
     let creationTimeStamp: TimeInterval
+    let category: TransactionCategory
 }
 
 enum AddTransactionFormError: Error {
@@ -28,7 +28,7 @@ class AddTransactionViewModel {
     private let mapper: Mapper<AddTransactionFormData, [AnyHashable: Any]>
     
     var title: String? = nil
-    var category: String? = nil
+    var category: TransactionCategory? = nil
     var value: String? = nil
     
     init(transactionsModel: TransactionsModel, mapper: Mapper<AddTransactionFormData, [AnyHashable: Any]>) {
@@ -59,8 +59,8 @@ class AddTransactionViewModel {
         }
         
         return AddTransactionFormData(title: transactionTitle,
-                                      category: transactionCategory,
                                       value: decimalValue,
-                                      creationTimeStamp: NSDate().timeIntervalSince1970)
+                                      creationTimeStamp: NSDate().timeIntervalSince1970,
+                                      category: transactionCategory)
     }
 }

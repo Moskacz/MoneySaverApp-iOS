@@ -9,21 +9,21 @@
 import Foundation
 
 public struct Transaction {
-    public let identifier: String
+    public let identifier: UUID
     public let title: String
     public let value: NSDecimalNumber
-    public let category: String
     public let creationTimeInterval: TimeInterval
+    public let category: TransactionCategory
     
-    public init(identifier: String,
+    public init(identifier: UUID,
                 title: String,
                 value: NSDecimalNumber,
-                category: String,
-                creationTimeInterval: TimeInterval) {
+                creationTimeInterval: TimeInterval,
+                category: TransactionCategory) {
         self.identifier = identifier
         self.title = title
         self.value = value
-        self.category = category
         self.creationTimeInterval = creationTimeInterval
+        self.category = category
     }
 }

@@ -22,7 +22,6 @@ class TransactionsCloudKitServerInterface: TransactionsServerInterface {
         let record = CKRecord(recordType: "Transaction")
         record["title"] = transaction.title as NSString
         record["value"] = transaction.value
-        record["category"] = transaction.category as NSString
         record["creationTimeInterval"] = NSNumber(value: transaction.creationTimeInterval)
         database.save(record) { (record: CKRecord?, error: Error?) in
             print(record as Any)

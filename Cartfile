@@ -1,4 +1,3 @@
-github "Moskacz/MoneySaverRESTClient-iOS" "master"
 github "Moskacz/MoneySaverFoundationiOS" "master"
-github "AliSoftware/Dip" "swift4"
+github "AliSoftware/Dip" "release/6.0"
 github "SwiftyBeaver/SwiftyBeaver"

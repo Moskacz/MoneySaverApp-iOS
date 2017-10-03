@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35BE340E1F82B5810085B5F2 /* TransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE340D1F82B5810085B5F2 /* TransactionCategory.swift */; };
+		35BE34101F82B73E0085B5F2 /* RGBColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE340F1F82B73E0085B5F2 /* RGBColor.swift */; };
+		35BE34121F82BB3E0085B5F2 /* RGBColorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BE34111F82BB3E0085B5F2 /* RGBColorTests.swift */; };
 		35C234211E81AC200095AFFE /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C234171E81AC200095AFFE /* MoneySaverFoundationiOS.framework */; };
 		35C234261E81AC200095AFFE /* MoneySaverFoundationiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C234251E81AC200095AFFE /* MoneySaverFoundationiOSTests.swift */; };
 		35C234281E81AC200095AFFE /* MoneySaverFoundationiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C2341A1E81AC200095AFFE /* MoneySaverFoundationiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +29,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		35BE340D1F82B5810085B5F2 /* TransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategory.swift; sourceTree = "<group>"; };
+		35BE340F1F82B73E0085B5F2 /* RGBColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColor.swift; sourceTree = "<group>"; };
+		35BE34111F82BB3E0085B5F2 /* RGBColorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBColorTests.swift; sourceTree = "<group>"; };
 		35C234171E81AC200095AFFE /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MoneySaverFoundationiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35C2341A1E81AC200095AFFE /* MoneySaverFoundationiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoneySaverFoundationiOS.h; sourceTree = "<group>"; };
 		35C2341B1E81AC200095AFFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +88,8 @@
 				35C234311E81AD1A0095AFFE /* Transaction.swift */,
 				35C234331E81AD4A0095AFFE /* MapperType.swift */,
 				35C234351E81AD800095AFFE /* Mapper.swift */,
+				35BE340D1F82B5810085B5F2 /* TransactionCategory.swift */,
+				35BE340F1F82B73E0085B5F2 /* RGBColor.swift */,
 			);
 			path = MoneySaverFoundationiOS;
 			sourceTree = "<group>";
@@ -91,6 +99,7 @@
 			children = (
 				35C234251E81AC200095AFFE /* MoneySaverFoundationiOSTests.swift */,
 				35C234271E81AC200095AFFE /* Info.plist */,
+				35BE34111F82BB3E0085B5F2 /* RGBColorTests.swift */,
 			);
 			path = MoneySaverFoundationiOSTests;
 			sourceTree = "<group>";
@@ -208,6 +217,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35BE340E1F82B5810085B5F2 /* TransactionCategory.swift in Sources */,
+				35BE34101F82B73E0085B5F2 /* RGBColor.swift in Sources */,
 				35C234341E81AD4A0095AFFE /* MapperType.swift in Sources */,
 				35C234361E81AD800095AFFE /* Mapper.swift in Sources */,
 				35C234321E81AD1A0095AFFE /* Transaction.swift in Sources */,
@@ -219,6 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35C234261E81AC200095AFFE /* MoneySaverFoundationiOSTests.swift in Sources */,
+				35BE34121F82BB3E0085B5F2 /* RGBColorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

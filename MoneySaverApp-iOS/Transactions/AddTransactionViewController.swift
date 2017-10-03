@@ -48,7 +48,6 @@ class AddTransactionViewController: UIViewController {
     
     private func setDataOnViewModel() {
         viewModel.title = titleTextField.text
-        viewModel.category = categoryTextField.text
         viewModel.value = valueTextField.text
     }
 }

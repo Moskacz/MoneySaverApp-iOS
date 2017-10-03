@@ -35,11 +35,11 @@ class TransactionsModelImplementation: TransactionsModel {
     }
     
     func addTransaction(withData data: AddTransactionFormData) {
-        let transaction = Transaction(identifier: UUID().uuidString,
+        let transaction = Transaction(identifier: UUID(),
                                       title: data.title,
                                       value: data.value,
-                                      category: data.category,
-                                      creationTimeInterval: data.creationTimeStamp)
+                                      creationTimeInterval: data.creationTimeStamp,
+                                      category: data.category)
         repository.add(transaction: transaction)
         serverInterface.saveTransaction(transaction: transaction)
     }
