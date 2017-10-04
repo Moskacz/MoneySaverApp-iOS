@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="TransactionCategoryManagedObject" representedClassName="TransactionCategoryManagedObject" syncable="YES">
+        <attribute name="backgroundColorAlphaComponent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="backgroundColorBlueComponent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="backgroundColorGreenComponent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="backgroundColorRedComponent" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="icon" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="transactions" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionManagedObject" inverseName="category" inverseEntity="TransactionManagedObject" syncable="YES"/>
+    </entity>
     <entity name="TransactionManagedObject" representedClassName=".TransactionManagedObject" syncable="YES">
-        <attribute name="category" attributeType="String" syncable="YES"/>
         <attribute name="creationTimeInterval" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="identifier" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <attribute name="value" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionCategoryManagedObject" inverseName="transactions" inverseEntity="TransactionCategoryManagedObject" syncable="YES"/>
     </entity>
     <elements>
+        <element name="TransactionCategoryManagedObject" positionX="-63" positionY="18" width="128" height="165"/>
         <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
