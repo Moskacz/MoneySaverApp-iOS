@@ -12,7 +12,5 @@ import CoreData
 
 public class TransactionManagedObject: NSManagedObject {
     
-    class func createEntity(inContext context: NSManagedObjectContext) -> TransactionManagedObject {
-        return NSEntityDescription.insertNewObject(forEntityName: TransactionManagedObject.entityName, into: context) as! TransactionManagedObject
-    }
+    
 }

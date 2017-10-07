@@ -15,7 +15,12 @@ extension NSManagedObject {
         return String(describing: self)
     }
     
-    class func createEntity<T>(inContext context: NSManagedObjectContext) -> T {
+    class func createEntity(inContext context: NSManagedObjectContext) -> Self {
+        return createEntityHelper(inContext: context)
+    }
+    
+    private class func createEntityHelper<T>(inContext context: NSManagedObjectContext) -> T {
         return NSEntityDescription.insertNewObject(forEntityName: entityName, into: context) as! T
     }
+    
 }
