@@ -10,16 +10,6 @@ import UIKit
 
 class TransactionCategoryPickerView: UIView {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
     public var categorySelectedCallback = {}
     
     lazy var collectionView: UICollectionView = {
@@ -29,6 +19,12 @@ class TransactionCategoryPickerView: UIView {
         collection.register(cell: TransactionCategoryCollectionViewCell.self)
         return collection
     }()
+    
+    var viewModel: TransactionCategoryPickerViewModel? {
+        didSet {
+            setup()
+        }
+    }
 
     private func setup() {
         collectionView.dataSource = self
@@ -38,17 +34,16 @@ class TransactionCategoryPickerView: UIView {
 
 extension TransactionCategoryPickerView: UICollectionViewDataSource {
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        guard let model = viewModel else { return 0 }
+        return model.numberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let model = viewModel else { fatalError("should not happen") }
         let cell: TransactionCategoryCollectionViewCell = collectionView.dequeueCell(forIndexPath: indexPath)
+        cell.update(viewModel: model.itemCellViewModel())
         return cell
     }
 }

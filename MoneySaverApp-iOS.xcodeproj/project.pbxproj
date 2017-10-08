@@ -14,6 +14,7 @@
 		3523249D1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249C1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift */; };
 		352324A11F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352324A01F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
+		352324A51F8AA7A9007C4FF5 /* TransactionCategoryPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A41F8AA7A9007C4FF5 /* TransactionCategoryPickerViewModel.swift */; };
 		352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
 		352B030B1E92BD1B001B99CB /* Dip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */; };
@@ -120,6 +121,7 @@
 		3523249C1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryPickerView.swift; sourceTree = "<group>"; };
 		352324A01F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		352324A41F8AA7A9007C4FF5 /* TransactionCategoryPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryPickerViewModel.swift; sourceTree = "<group>"; };
 		352B03091E92BD0A001B99CB /* Dip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dip.framework; path = Carthage/Build/iOS/Dip.framework; sourceTree = "<group>"; };
 		352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependencyContainerConfigurator.swift; sourceTree = "<group>"; };
 		352B030F1E92BF20001B99CB /* ContainerAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerAssembly.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				3523249C1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift */,
 				352324A01F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib */,
 				352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */,
+				352324A41F8AA7A9007C4FF5 /* TransactionCategoryPickerViewModel.swift */,
 			);
 			path = TransactionCategory;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				3599F5DB1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */,
 				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
+				352324A51F8AA7A9007C4FF5 /* TransactionCategoryPickerViewModel.swift in Sources */,
 				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
 				35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
