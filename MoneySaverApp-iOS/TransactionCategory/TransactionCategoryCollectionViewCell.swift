@@ -52,7 +52,9 @@ class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = bounds.width * 0.5
+        if let iconView = icon {
+            iconView.layer.cornerRadius = 15
+        }
     }
 }
 

@@ -10,7 +10,7 @@
 		350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F601E9564F3002ED5D7 /* FlowController.swift */; };
 		350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F621E956578002ED5D7 /* RootFlowController.swift */; };
 		350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */; };
-		3523249B1F88F7CF007C4FF5 /* TransactionCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249A1F88F7CF007C4FF5 /* TransactionCategoryService.swift */; };
+		3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */; };
 		3523249D1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249C1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift */; };
 		352324A11F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 352324A01F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
@@ -117,7 +117,7 @@
 		350F0F621E956578002ED5D7 /* RootFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
 		350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additions.swift"; sourceTree = "<group>"; };
 		351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MoneySaverApp-iOS.entitlements"; sourceTree = "<group>"; };
-		3523249A1F88F7CF007C4FF5 /* TransactionCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryService.swift; sourceTree = "<group>"; };
+		3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryRepository.swift; sourceTree = "<group>"; };
 		3523249C1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryPickerView.swift; sourceTree = "<group>"; };
 		352324A01F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		353DF8551F84011700EF6F70 /* TransactionCategory */ = {
 			isa = PBXGroup;
 			children = (
-				3523249A1F88F7CF007C4FF5 /* TransactionCategoryService.swift */,
+				3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */,
 				3523249C1F8A873D007C4FF5 /* TransactionCategoryPickerView.swift */,
 				352324A01F8A89C7007C4FF5 /* TransactionCategoryCollectionViewCell.xib */,
 				352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */,
@@ -575,7 +575,7 @@
 				355509CD1F7ABF7E0007FEF1 /* StatsViewController.swift in Sources */,
 				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
-				3523249B1F88F7CF007C4FF5 /* TransactionCategoryService.swift in Sources */,
+				3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */,
 				35B35AD11EC8C00B007E3A53 /* SwiftyBeaverLogger.swift in Sources */,
 				3599F5DA1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,

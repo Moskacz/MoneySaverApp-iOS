@@ -11,9 +11,9 @@ import RxSwift
 
 class AddTransactionViewController: UIViewController {
     
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var categoryTextField: UITextField!
-    @IBOutlet weak var valueTextField: UITextField!
+    @IBOutlet weak var titleTextField: UITextField?
+    @IBOutlet weak var valueTextField: UITextField?
+    @IBOutlet weak var categoryPicker: TransactionCategoryPickerView?
     
     private let disposeBag = DisposeBag()
     var transactionAddedCallback: (() -> Void) = {}
@@ -31,6 +31,8 @@ class AddTransactionViewController: UIViewController {
         
         let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
+        
+        categoryPicker?.viewModel = TransactionCategoryPickerViewModel()
     }
     
     @objc func doneButtonTapped() {
@@ -47,7 +49,7 @@ class AddTransactionViewController: UIViewController {
     }
     
     private func setDataOnViewModel() {
-        viewModel.title = titleTextField.text
-        viewModel.value = valueTextField.text
+        viewModel.title = titleTextField?.text
+        viewModel.value = valueTextField?.text
     }
 }

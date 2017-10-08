@@ -13,7 +13,11 @@ class TransactionCategoryPickerView: UIView {
     public var categorySelectedCallback = {}
     
     lazy var collectionView: UICollectionView = {
-        let collection = UICollectionView()
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = UICollectionViewScrollDirection.horizontal
+        let collection = UICollectionView(frame: self.bounds,
+                                          collectionViewLayout: layout)
+        collection.backgroundColor = UIColor.white
         self.addSubview(collection)
         collection.matchParent()
         collection.register(cell: TransactionCategoryCollectionViewCell.self)
@@ -46,11 +50,18 @@ extension TransactionCategoryPickerView: UICollectionViewDataSource {
         cell.update(viewModel: model.itemCellViewModel())
         return cell
     }
+    
 }
 
-extension TransactionCategoryPickerView: UICollectionViewDelegate {
+extension TransactionCategoryPickerView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         categorySelectedCallback()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 80, height: collectionView.bounds.height)
     }
 }
