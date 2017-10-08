@@ -12,4 +12,5 @@ import CoreData
 
 public class TransactionCategoryManagedObject: NSManagedObject {
 
+    class var nameAttributeName: String { return "name" }
 }

@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import CoreData
 import MoneySaverFoundationiOS
 
 protocol TransactionCategoryRepository {
     func createEntity(forCategory category: TransactionCategory)
+    func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
 }
 
 class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
@@ -38,6 +40,16 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
         entity.backgroundColorBlueComponent = Float(rgbColor.blue)
         entity.backgroundColorAlphaComponent = Float(rgbColor.alpha)
         entity.icon = UIImagePNGRepresentation(category.icon) as NSData?
+    }
+    
+    func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject> {
+        let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: TransactionCategoryManagedObject.nameAttributeName, ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        return NSFetchedResultsController(fetchRequest: fetchRequest,
+                                          managedObjectContext: stack.getViewContext(),
+                                          sectionNameKeyPath: nil,
+                                          cacheName: nil)
     }
     
 }
