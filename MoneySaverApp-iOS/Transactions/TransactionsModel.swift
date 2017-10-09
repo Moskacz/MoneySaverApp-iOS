@@ -13,7 +13,6 @@ import MoneySaverFoundationiOS
 
 protocol TransactionsModel {
     func getRepository() -> TransactionsRepository
-    func addTransaction(withData data: AddTransactionFormData)
 }
 
 class TransactionsModelImplementation: TransactionsModel {
@@ -33,15 +32,6 @@ class TransactionsModelImplementation: TransactionsModel {
     func getRepository() -> TransactionsRepository {
         return repository
     }
-    
-    func addTransaction(withData data: AddTransactionFormData) {
-        let transaction = Transaction(identifier: UUID(),
-                                      title: data.title,
-                                      value: data.value,
-                                      creationTimeInterval: data.creationTimeStamp,
-                                      category: data.category)
-        repository.add(transaction: transaction)
-        serverInterface.saveTransaction(transaction: transaction)
-    }
+
     
 }

@@ -13,8 +13,6 @@ import Dip
 struct MappersAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        container.register {
-            AddTransactionFormDataToJSONMapper() as Mapper<AddTransactionFormData, [AnyHashable: Any]>
-        }
+        
     }
 }

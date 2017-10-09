@@ -21,7 +21,7 @@ class TransactionDataViewController: UIViewController {
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
-    var viewModel: AddTransactionViewModel!
+    var viewModel: TransactionDataViewModel?
     
     private let disposeBag = DisposeBag()
     
@@ -44,16 +44,10 @@ class TransactionDataViewController: UIViewController {
     }
     
     @objc func nextButtonTapped() {
-        setDataOnViewModel()
         dataEnteredCallback(TransactionData(title: "", value: NSDecimalNumber(string: "10")))
     }
     
     @objc func cancelButtonTapped() {
         cancelButtonTapCallback()
-    }
-    
-    private func setDataOnViewModel() {
-        viewModel.title = titleTextField?.text
-        viewModel.value = valueTextField?.text
     }
 }
