@@ -44,10 +44,21 @@ class TransactionDataViewController: UIViewController {
     }
     
     @objc func nextButtonTapped() {
-        dataEnteredCallback(TransactionData(title: "", value: NSDecimalNumber(string: "10")))
+        guard let model = viewModel else { return }
+        do {
+            let data = try model.dataWith(name: titleTextField?.text,
+                                          value: valueTextField?.text)
+            dataEnteredCallback(data)
+        } catch {
+            handle(error: error)
+        }
     }
     
     @objc func cancelButtonTapped() {
         cancelButtonTapCallback()
+    }
+    
+    private func handle(error: Error) {
+        
     }
 }
