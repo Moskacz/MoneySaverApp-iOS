@@ -45,7 +45,7 @@ class TransactionDataViewController: UIViewController {
     
     @objc func nextButtonTapped() {
         setDataOnViewModel()
-        
+        dataEnteredCallback(TransactionData(title: "", value: NSDecimalNumber(string: "10")))
     }
     
     @objc func cancelButtonTapped() {

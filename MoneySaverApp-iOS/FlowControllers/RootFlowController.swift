@@ -38,7 +38,7 @@ class RootFlowController: FlowController {
                                     statsViewController()]
         
         tabBarVC.newTransactionButtonTapCallback = {
-            self.presendAddTransactionViewController()
+            self.presentTransactionDataViewController()
         }
         
         let navController = UINavigationController(rootViewController: tabBarVC)
@@ -66,7 +66,7 @@ class RootFlowController: FlowController {
         return viewController
     }
     
-    private func presendAddTransactionViewController() {
+    private func presentTransactionDataViewController() {
         let viewController: TransactionDataViewController = storyboard.instantiateFromStoryboard()
         viewController.viewModel = try! dependencyContainer.resolve()
         
@@ -74,13 +74,20 @@ class RootFlowController: FlowController {
             self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
-        viewController.dataEnteredCallback = { (data: TransactionData) in
-            
+        viewController.dataEnteredCallback = { [unowned viewController] (data: TransactionData) in
+            guard let navController = viewController.navigationController else { return }
+            self.pushTransactionCategoriesCollection(navigationController: navController)
         }
         
         let navControlloer = UINavigationController(rootViewController: viewController)
         navControlloer.modalPresentationStyle = .custom
         navControlloer.transitioningDelegate = presentationManager
         navigationController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
+    }
+    
+    private func pushTransactionCategoriesCollection(navigationController: UINavigationController) {
+        let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiateFromStoryboard()
+        viewController.viewModel = try! dependencyContainer.resolve()
+        navigationController.pushViewController(viewController, animated: animatedTransitions)
     }
 }

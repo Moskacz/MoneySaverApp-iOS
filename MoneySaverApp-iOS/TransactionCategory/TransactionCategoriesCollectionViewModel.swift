@@ -11,7 +11,7 @@ import Foundation
 class TransactionCategoriesCollectionViewModel {
     
     func numberOfItems() -> Int {
-        return 5
+        return 50
     }
     
     func itemCellViewModel() -> TransactionCategoryCellViewModel {
