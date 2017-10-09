@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -92,10 +93,10 @@
             </objects>
             <point key="canvasLocation" x="1430" y="112"/>
         </scene>
-        <!--Add Transaction View Controller-->
+        <!--Transaction Data View Controller-->
         <scene sceneID="g3Y-nx-kZn">
             <objects>
-                <viewController storyboardIdentifier="AddTransactionViewController" id="ze7-cu-UEi" customClass="AddTransactionViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionDataViewController" id="ze7-cu-UEi" customClass="TransactionDataViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FXE-yh-DuT"/>
                         <viewControllerLayoutGuide type="bottom" id="8yo-6d-sK5"/>
@@ -108,7 +109,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-dI-fI8">
-                                        <rect key="frame" x="16" y="16" width="343" height="261"/>
+                                        <rect key="frame" x="16" y="16" width="343" height="154"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="18l-sp-skm">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="17"/>
@@ -140,19 +141,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmF-f2-vT1">
-                                                <rect key="frame" x="0.0" y="164" width="343" height="17"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTu-FK-6KQ" customClass="TransactionCategoryPickerView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="191" width="343" height="70"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="iYb-Pe-MXX"/>
-                                                </constraints>
-                                            </view>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -174,7 +162,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="categoryPicker" destination="ZTu-FK-6KQ" id="4sU-vw-fhA"/>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
                         <outlet property="valueTextField" destination="NtE-lG-S22" id="PlH-oo-L3d"/>
                     </connections>
@@ -182,6 +169,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oxw-cl-01x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1431" y="-564"/>
+        </scene>
+        <!--Transaction Categories Collection View Controller-->
+        <scene sceneID="Oho-rC-yd5">
+            <objects>
+                <collectionViewController storyboardIdentifier="TransactionCategoriesCollectionViewController" id="YSI-xd-c65" customClass="TransactionCategoriesCollectionViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="m36-7P-leq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XMi-5a-1JK">
+                            <size key="itemSize" width="149" height="116"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TransactionCategoryCollectionViewCell" id="6ka-Ic-Hl1" customClass="TransactionCategoryCollectionViewCell" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="149" height="116"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="149" height="116"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVb-wX-Q02">
+                                            <rect key="frame" x="0.0" y="99" width="149" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3mS-4h-j1z">
+                                            <rect key="frame" x="33" y="0.0" width="83" height="83"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="3mS-4h-j1z" secondAttribute="height" id="BAQ-Hj-q41"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZVb-wX-Q02" secondAttribute="bottom" id="1OF-eU-nTm"/>
+                                    <constraint firstItem="3mS-4h-j1z" firstAttribute="centerX" secondItem="6ka-Ic-Hl1" secondAttribute="centerX" id="5Xw-qm-1Yw"/>
+                                    <constraint firstItem="3mS-4h-j1z" firstAttribute="top" secondItem="6ka-Ic-Hl1" secondAttribute="top" id="Jat-lJ-YDb"/>
+                                    <constraint firstItem="ZVb-wX-Q02" firstAttribute="top" secondItem="3mS-4h-j1z" secondAttribute="bottom" constant="16" id="Oq2-Nx-Cha"/>
+                                    <constraint firstItem="ZVb-wX-Q02" firstAttribute="leading" secondItem="6ka-Ic-Hl1" secondAttribute="leading" id="taW-m7-tp9"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZVb-wX-Q02" secondAttribute="trailing" id="veI-Wc-M8n"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="icon" destination="3mS-4h-j1z" id="toi-sp-RuE"/>
+                                    <outlet property="label" destination="ZVb-wX-Q02" id="XIS-BY-mDh"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="YSI-xd-c65" id="Lu6-ve-KSR"/>
+                            <outlet property="delegate" destination="YSI-xd-c65" id="7nk-po-b8G"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bke-gd-ZG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2141.5999999999999" y="-563.56821589205401"/>
         </scene>
     </scenes>
 </document>

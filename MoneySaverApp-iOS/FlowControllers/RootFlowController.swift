@@ -67,15 +67,15 @@ class RootFlowController: FlowController {
     }
     
     private func presendAddTransactionViewController() {
-        let viewController: AddTransactionViewController = storyboard.instantiateTypeViewController(withIdentifier: AddTransactionViewController.defaultStoryboardIdentifier)
+        let viewController: TransactionDataViewController = storyboard.instantiateFromStoryboard()
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.cancelButtonTapCallback = {
             self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
-        viewController.transactionAddedCallback = {
-            self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
+        viewController.dataEnteredCallback = { (data: TransactionData) in
+            
         }
         
         let navControlloer = UINavigationController(rootViewController: viewController)

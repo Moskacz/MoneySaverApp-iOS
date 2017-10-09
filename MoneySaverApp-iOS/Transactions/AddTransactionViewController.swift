@@ -9,16 +9,21 @@
 import UIKit
 import RxSwift
 
-class AddTransactionViewController: UIViewController {
+struct TransactionData {
+    let title: String
+    let value: NSDecimalNumber
+}
+
+class TransactionDataViewController: UIViewController {
     
-    @IBOutlet weak var titleTextField: UITextField?
-    @IBOutlet weak var valueTextField: UITextField?
-    @IBOutlet weak var categoryPicker: TransactionCategoryPickerView?
+    @IBOutlet private weak var titleTextField: UITextField?
+    @IBOutlet private weak var valueTextField: UITextField?
+    
+    var dataEnteredCallback: (TransactionData) -> Void = { _ in }
+    var cancelButtonTapCallback: () -> Void = {}
+    var viewModel: AddTransactionViewModel!
     
     private let disposeBag = DisposeBag()
-    var transactionAddedCallback: (() -> Void) = {}
-    var cancelButtonTapCallback: (() -> Void) = {}
-    var viewModel: AddTransactionViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,22 +31,21 @@ class AddTransactionViewController: UIViewController {
     }
     
     private func setupViews() {
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
-        navigationItem.rightBarButtonItem = doneButton
+        let nextButton = UIBarButtonItem(title: "Next",
+                                         style: .done,
+                                         target: self,
+                                         action: #selector(nextButtonTapped))
+        navigationItem.rightBarButtonItem = nextButton
         
-        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                           target: self,
+                                           action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
-        
-        categoryPicker?.viewModel = TransactionCategoryPickerViewModel()
     }
     
-    @objc func doneButtonTapped() {
+    @objc func nextButtonTapped() {
         setDataOnViewModel()
-        viewModel.addTransaction().subscribe(onNext: { [weak self] in
-            self?.transactionAddedCallback()
-        }, onError: { (error: Error) in
-            print(error)
-        }).addDisposableTo(disposeBag)
+        
     }
     
     @objc func cancelButtonTapped() {
