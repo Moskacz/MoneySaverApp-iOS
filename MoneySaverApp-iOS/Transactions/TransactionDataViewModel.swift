@@ -19,14 +19,8 @@ enum TransactionDataFormError: Error {
 
 class TransactionDataViewModel {
     
-    private let transactionsModel: TransactionsModel
-    
     var transactionTitle: String? = nil
     var transactionValue: String? = nil
-    
-    init(transactionsModel: TransactionsModel) {
-        self.transactionsModel = transactionsModel
-    }
     
     func data() throws -> TransactionData {
         guard let title = transactionTitle, !title.isEmpty else {

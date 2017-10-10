@@ -19,7 +19,7 @@ struct ViewModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            TransactionDataViewModel(transactionsModel: $0)
+            TransactionDataViewModel()
         }
         
         container.register {

@@ -74,6 +74,7 @@
 		35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */; };
 		35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
+		35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */; };
 		35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */; };
 		35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */; };
 		35E6F1DF1EC389F1007667BB /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E6F1DE1EC389F1007667BB /* RxCocoa.framework */; };
@@ -180,6 +181,7 @@
 		35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionUpdateHandler.swift; sourceTree = "<group>"; };
 		35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonProvider.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
+		35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModelTests.swift; sourceTree = "<group>"; };
 		35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdater.swift; sourceTree = "<group>"; };
 		35E6F1DE1EC389F1007667BB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				35BB97341E7F0860003DBA41 /* Info.plist */,
 				355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */,
 				355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */,
+				35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 			files = (
 				355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */,
 				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
+				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
