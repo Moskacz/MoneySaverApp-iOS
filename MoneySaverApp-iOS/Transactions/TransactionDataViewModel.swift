@@ -29,7 +29,7 @@ class TransactionDataViewModel {
     }
     
     func data() throws -> TransactionData {
-        guard let title = transactionValue else {
+        guard let title = transactionTitle, !title.isEmpty else {
             throw TransactionDataFormError.missingTitle
         }
         guard let value = transactionValue else {

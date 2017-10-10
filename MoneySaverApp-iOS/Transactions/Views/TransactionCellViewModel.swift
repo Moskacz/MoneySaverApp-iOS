@@ -32,8 +32,7 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     }
     
     func tintColor() -> UIColor {
-        let value = transaction.value.doubleValue
-        return value > 0 ? Theme.greenColor : Theme.redColor
+        return UIColor.red
     }
     
 }

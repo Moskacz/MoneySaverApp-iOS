@@ -70,9 +70,18 @@ class TransactionDataViewController: UIViewController {
     
     private func handle(error: TransactionDataFormError) {
         switch error {
-        case .missingTitle: break
-        case .missingValue: break
-        case .invalidValue: break
+        case .missingTitle:
+            showIncorrect(field: titleTextField)
+        case .missingValue, .invalidValue:
+            showIncorrect(field: valueTextField)
         }
+    }
+    
+    private func showIncorrect(field: UITextField?) {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.autoreverse], animations: {
+            field?.backgroundColor = Theme.errorColor
+        }, completion: { (_) in
+            field?.backgroundColor = UIColor.white
+        })
     }
 }
