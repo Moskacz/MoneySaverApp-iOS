@@ -11,31 +11,34 @@ import MoneySaverFoundationiOS
 import RxSwift
 
 enum TransactionDataFormError: Error {
-    case missingData
-    case invalidValueFormat
+    case missingTitle
+    case missingValue
+    case invalidValue
+    
 }
 
 class TransactionDataViewModel {
     
     private let transactionsModel: TransactionsModel
     
+    var transactionTitle: String? = nil
+    var transactionValue: String? = nil
+    
     init(transactionsModel: TransactionsModel) {
         self.transactionsModel = transactionsModel
     }
     
-    func dataWith(name: String?, value: String?) throws -> TransactionData {
-        guard
-            let transactionName = name,
-            !transactionName.isEmpty,
-            let transactionValueString = value else {
-                throw BaseError.emptyData
+    func data() throws -> TransactionData {
+        guard let title = transactionValue else {
+            throw TransactionDataFormError.missingTitle
+        }
+        guard let value = transactionValue else {
+            throw TransactionDataFormError.missingValue
+        }
+        guard let decimalValue = Decimal(string: value) else {
+            throw TransactionDataFormError.invalidValue
         }
         
-        let transactionValue = NSDecimalNumber(string: transactionValueString)
-        guard transactionValue != NSDecimalNumber.notANumber else {
-            throw BaseError.invalidData
-        }
-        
-        return TransactionData(title: transactionName, value: transactionValue)
+        return TransactionData(title: title, value: decimalValue)
     }
 }

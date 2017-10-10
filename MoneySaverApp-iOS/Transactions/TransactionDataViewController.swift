@@ -11,7 +11,7 @@ import RxSwift
 
 struct TransactionData {
     let title: String
-    let value: NSDecimalNumber
+    let value: Decimal
 }
 
 class TransactionDataViewController: UIViewController {
@@ -45,9 +45,9 @@ class TransactionDataViewController: UIViewController {
     
     @objc func nextButtonTapped() {
         guard let model = viewModel else { return }
+        passDataToViewModel()
         do {
-            let data = try model.dataWith(name: titleTextField?.text,
-                                          value: valueTextField?.text)
+            let data = try model.data()
             dataEnteredCallback(data)
         } catch {
             handle(error: error)
@@ -58,7 +58,21 @@ class TransactionDataViewController: UIViewController {
         cancelButtonTapCallback()
     }
     
+    private func passDataToViewModel() {
+        viewModel?.transactionTitle = titleTextField?.text
+        viewModel?.transactionValue = valueTextField?.text
+    }
+    
     private func handle(error: Error) {
-        
+        guard let formError = error as? TransactionDataFormError else { return }
+        handle(error: formError)
+    }
+    
+    private func handle(error: TransactionDataFormError) {
+        switch error {
+        case .missingTitle: break
+        case .missingValue: break
+        case .invalidValue: break
+        }
     }
 }
