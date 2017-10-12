@@ -35,6 +35,7 @@
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
+		358FCF021F8D4EB900A06FEA /* InitialDataPrefiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358FCF011F8D4EB900A06FEA /* InitialDataPrefiller.swift */; };
 		3599F5DA1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F5D81F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift */; };
 		3599F5DB1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F5D91F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataProperties.swift */; };
 		3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */; };
@@ -142,6 +143,7 @@
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
+		358FCF011F8D4EB900A06FEA /* InitialDataPrefiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialDataPrefiller.swift; sourceTree = "<group>"; };
 		3599F5D81F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategoryManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3599F5D91F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategoryManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Additions.swift"; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */,
 				355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */,
 				355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */,
+				358FCF011F8D4EB900A06FEA /* InitialDataPrefiller.swift */,
 			);
 			path = "MoneySaverApp-iOS";
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
+				358FCF021F8D4EB900A06FEA /* InitialDataPrefiller.swift in Sources */,
 				35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */,
 				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,

@@ -13,11 +13,19 @@ struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register {
-            CoreDataStackImplementation() as CoreDataStack
+            CoreDataStackImplementation(dataPrefiller: $0) as CoreDataStack
         }
         
         container.register {
             TransactionsRepositoryImplementation(stack: $0) as TransactionsRepository
+        }
+        
+        container.register {
+            TransactionCategoryRepositoryImpl(stack: $0) as TransactionCategoryRepository
+        }
+        
+        container.register {
+            InitialDataPrefillerImpl(repository: $0) as InitialDataPrefiller
         }
     }
 }

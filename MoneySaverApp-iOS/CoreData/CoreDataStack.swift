@@ -16,14 +16,21 @@ protocol CoreDataStack {
 
 class CoreDataStackImplementation: CoreDataStack {
     
+    private let dataPrefiller: InitialDataPrefiller
+    
+    init(dataPrefiller: InitialDataPrefiller) {
+        self.dataPrefiller = dataPrefiller
+    }
+    
     private lazy var persistantContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataModel")
-        container.loadPersistentStores { (storeDescription: NSPersistentStoreDescription, error: Error?) in
+        container.loadPersistentStores { [unowned container] (storeDescription: NSPersistentStoreDescription, error: Error?) in
             if let loadError = error as NSError? {
                 print(loadError)
             }
+            container.viewContext.automaticallyMergesChangesFromParent = true
+            self.dataPrefiller.prefillIfNeeded()
         }
-        container.viewContext.automaticallyMergesChangesFromParent = true
         return container
     }()
     

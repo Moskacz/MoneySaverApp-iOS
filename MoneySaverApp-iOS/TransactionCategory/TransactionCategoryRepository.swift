@@ -11,7 +11,7 @@ import CoreData
 import MoneySaverFoundationiOS
 
 protocol TransactionCategoryRepository {
-    func createEntity(forCategory category: TransactionCategory)
+    func createEntities(forCategories categories: [TransactionCategory])
     func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
 }
 
@@ -21,6 +21,15 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
     
     init(stack: CoreDataStack) {
         self.stack = stack
+    }
+    
+    func createEntities(forCategories categories: [TransactionCategory]) {
+        stack.performBackgroundTask { (context) in
+            for category in categories {
+                let entity = TransactionCategoryManagedObject.createEntity(inContext: context)
+                self.updateProperties(ofEntity: entity, withCategory: category)
+            }
+        }
     }
     
     func createEntity(forCategory category: TransactionCategory) {
