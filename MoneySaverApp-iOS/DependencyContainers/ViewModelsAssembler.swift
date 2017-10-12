@@ -23,7 +23,7 @@ struct ViewModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            TransactionCategoriesCollectionViewModel()
+            TransactionCategoriesCollectionViewModel(repository: $0, logger: $1)
         }
     }
 }
