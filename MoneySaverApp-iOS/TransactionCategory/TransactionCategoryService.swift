@@ -33,6 +33,15 @@ class TransactionCategoryServiceImpl: TransactionCategoryService {
     }
     
     private func initialCategories() -> [TransactionCategory] {
-        return [TransactionCategory(identifier: UUID(), name: "Test", icon: UIImage(), backgroundColor: UIColor.green)]
+        return [TransactionCategory(identifier: UUID(), name: "Animals", icon: #imageLiteral(resourceName: "animals"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Bills", icon: #imageLiteral(resourceName: "bills"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Car", icon: #imageLiteral(resourceName: "car"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Chemistry", icon:#imageLiteral(resourceName: "chemistry"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Clothes", icon: #imageLiteral(resourceName: "clothes"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Cosmetics", icon: #imageLiteral(resourceName: "cosmetics"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Educations", icon: #imageLiteral(resourceName: "education"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Equipment", icon: #imageLiteral(resourceName: "equipment"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Groceries", icon: #imageLiteral(resourceName: "groceries"), backgroundColor: UIColor.white),
+                TransactionCategory(identifier: UUID(), name: "Health", icon: #imageLiteral(resourceName: "health"), backgroundColor: UIColor.white),]
     }
 }
