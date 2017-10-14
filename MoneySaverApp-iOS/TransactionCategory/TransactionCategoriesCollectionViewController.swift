@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionCategoriesCollectionViewController: UICollectionViewController {
+class TransactionCategoriesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     var viewModel: TransactionCategoriesCollectionViewModel? {
         didSet {
@@ -42,5 +42,11 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController 
         return cell
     }
     
+    // MARK: UICollectionViewDelegate
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width * 0.3 - 8
+        return CGSize(width: width, height: width)
+    }
     
 }
