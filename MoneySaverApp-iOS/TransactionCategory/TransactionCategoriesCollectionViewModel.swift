@@ -11,25 +11,25 @@ import CoreData
 
 class TransactionCategoriesCollectionViewModel {
     
-    private let repository: TransactionCategoryRepository
+    private let service: TransactionCategoryService
     private let logger: Logger
     
     private var collectionUpdater: CollectionUpdater?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     private var categoriesFRC: NSFetchedResultsController<TransactionCategoryManagedObject>?
     
-    init(repository: TransactionCategoryRepository, logger: Logger) {
-        self.repository = repository
+    init(service: TransactionCategoryService, logger: Logger) {
+        self.service = service
         self.logger = logger
     }
     
-    func attach(updater: CollectionUpdater, logger: Logger) {
+    func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
         createUpdateHandler()
     }
     
     func loadData() {
-        categoriesFRC = repository.allEntitiesFRC()
+        categoriesFRC = service.allEntitiesFRC
         categoriesFRC?.delegate = collectionUpdateHandler
         
         do {

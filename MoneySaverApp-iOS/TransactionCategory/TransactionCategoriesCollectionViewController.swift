@@ -10,7 +10,22 @@ import UIKit
 
 class TransactionCategoriesCollectionViewController: UICollectionViewController {
     
-    var viewModel: TransactionCategoriesCollectionViewModel?
+    var viewModel: TransactionCategoriesCollectionViewModel? {
+        didSet {
+            bindViewModel()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bindViewModel()
+    }
+    
+    private func bindViewModel() {
+        guard let model = viewModel, let collection = collectionView else { return }
+        model.attach(updater: CollectionViewUpdater(collectionView: collection))
+        model.loadData()
+    }
     
     // MARK: UICollectionViewDataSource
     

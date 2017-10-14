@@ -15,14 +15,10 @@ protocol InitialDataPrefiller {
 
 class InitialDataPrefillerImpl: InitialDataPrefiller {
     
-    private let repository: TransactionCategoryRepository
-    
-    init(repository: TransactionCategoryRepository) {
-        self.repository = repository
-    }
+
     
     func prefillIfNeeded() {
-        repository.createEntities(forCategories: initialCategories())
+        
     }
     
     private func initialCategories() -> [TransactionCategory] {

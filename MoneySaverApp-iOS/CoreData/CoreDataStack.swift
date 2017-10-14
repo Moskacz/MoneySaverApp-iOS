@@ -16,12 +16,6 @@ protocol CoreDataStack {
 
 class CoreDataStackImplementation: CoreDataStack {
     
-    private let dataPrefiller: InitialDataPrefiller
-    
-    init(dataPrefiller: InitialDataPrefiller) {
-        self.dataPrefiller = dataPrefiller
-    }
-    
     private lazy var persistantContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores { [unowned container] (storeDescription: NSPersistentStoreDescription, error: Error?) in
@@ -29,7 +23,6 @@ class CoreDataStackImplementation: CoreDataStack {
                 print(loadError)
             }
             container.viewContext.automaticallyMergesChangesFromParent = true
-            self.dataPrefiller.prefillIfNeeded()
         }
         return container
     }()
@@ -43,5 +36,4 @@ class CoreDataStackImplementation: CoreDataStack {
     func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) {
         persistantContainer.performBackgroundTask(block)
     }
-    
 }

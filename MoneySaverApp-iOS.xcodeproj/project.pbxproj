@@ -51,6 +51,7 @@
 		35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; };
 		35B5CACB1E883D7600D1990E /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC71E883D5500D1990E /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B5CACC1E883D7B00D1990E /* MoneySaverFoundationiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */; };
 		35B8D0731EC766D400A96C00 /* TransactionsComputingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8D0721EC766D400A96C00 /* TransactionsComputingModel.swift */; };
 		35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB971D1E7F085F003DBA41 /* AppDelegate.swift */; };
 		35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97211E7F0860003DBA41 /* Main.storyboard */; };
@@ -155,6 +156,7 @@
 		35B35AD21EC8C184007E3A53 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/iOS/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		35B5CAC71E883D5500D1990E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
+		35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryService.swift; sourceTree = "<group>"; };
 		35B8D0721EC766D400A96C00 /* TransactionsComputingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsComputingModel.swift; sourceTree = "<group>"; };
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BB971D1E7F085F003DBA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */,
 				356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */,
 				356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */,
+				35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */,
 			);
 			path = TransactionCategory;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				35C09DDE1E89751A00095FE2 /* TransactionsModel.swift in Sources */,
 				35C9FF031E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataProperties.swift in Sources */,
+				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
 				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,

@@ -11,6 +11,7 @@ import CoreData
 import MoneySaverFoundationiOS
 
 protocol TransactionCategoryRepository {
+    func countOfEntities() -> Int
     func createEntities(forCategories categories: [TransactionCategory])
     func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
 }
@@ -18,9 +19,21 @@ protocol TransactionCategoryRepository {
 class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
     
     private let stack: CoreDataStack
+    private let logger: Logger
     
-    init(stack: CoreDataStack) {
+    init(stack: CoreDataStack, logger: Logger) {
         self.stack = stack
+        self.logger = logger
+    }
+    
+    func countOfEntities() -> Int {
+        let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
+        do {
+            return try stack.getViewContext().count(for: fetchRequest)
+        } catch {
+            logger.log(withLevel: .error, message: error.localizedDescription)
+            return 0
+        }
     }
     
     func createEntities(forCategories categories: [TransactionCategory]) {
@@ -29,13 +42,14 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
                 let entity = TransactionCategoryManagedObject.createEntity(inContext: context)
                 self.updateProperties(ofEntity: entity, withCategory: category)
             }
-        }
-    }
-    
-    func createEntity(forCategory category: TransactionCategory) {
-        stack.performBackgroundTask { (context) in
-            let entity = TransactionCategoryManagedObject.createEntity(inContext: context)
-            self.updateProperties(ofEntity: entity, withCategory: category)
+            
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    self.logger.log(withLevel: .error, message: error.localizedDescription)
+                }
+            }
         }
     }
     

@@ -41,6 +41,6 @@ class CollectionViewUpdater: CollectionUpdater {
     }
     
     func reloadAll() {
-        
+        collectionView?.reloadData()
     }
 }

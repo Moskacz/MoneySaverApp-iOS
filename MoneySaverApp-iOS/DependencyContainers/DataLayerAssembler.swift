@@ -12,20 +12,24 @@ import Dip
 struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        container.register {
-            CoreDataStackImplementation(dataPrefiller: $0) as CoreDataStack
+        container.register(.singleton) {
+            CoreDataStackImplementation() as CoreDataStack
         }
         
-        container.register {
+        container.register(.singleton) {
             TransactionsRepositoryImplementation(stack: $0) as TransactionsRepository
         }
         
-        container.register {
-            TransactionCategoryRepositoryImpl(stack: $0) as TransactionCategoryRepository
+        container.register(.singleton) {
+            TransactionCategoryRepositoryImpl(stack: $0, logger: $1) as TransactionCategoryRepository
         }
         
         container.register {
-            InitialDataPrefillerImpl(repository: $0) as InitialDataPrefiller
+            InitialDataPrefillerImpl() as InitialDataPrefiller
+        }
+        
+        container.register(.singleton) {
+            TransactionCategoryServiceImpl(repository: $0) as TransactionCategoryService
         }
     }
 }
