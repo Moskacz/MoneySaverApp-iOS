@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol TransactionCategoryCellViewModel {
-    func categoryName() -> String?
-    func categoryIcon() -> UIImage?
-    func backgroundColor() -> UIColor?
-}
-
-class TransactionCategoryCellViewModelImpl: TransactionCategoryCellViewModel {
+class TransactionCategoryCellViewModelImpl: TransactionCategoryViewModel {
     
     private let category: TransactionCategoryManagedObject
     
@@ -22,40 +16,22 @@ class TransactionCategoryCellViewModelImpl: TransactionCategoryCellViewModel {
         self.category = category
     }
     
-    func categoryName() -> String? {
+    func transactionName() -> String? {
         return category.name
     }
     
-    func categoryIcon() -> UIImage? {
+    func transactionIcon() -> UIImage? {
         guard let imageData = category.icon else { return nil }
         return UIImage(data: imageData as Data)
-    }
-    
-    func backgroundColor() -> UIColor? {
-        return UIColor.white
-        return UIColor(red: CGFloat(category.backgroundColorRedComponent),
-                       green: CGFloat(category.backgroundColorGreenComponent),
-                       blue: CGFloat(category.backgroundColorBlueComponent),
-                       alpha: CGFloat(category.backgroundColorAlphaComponent))
     }
 }
 
 class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet private weak var label: UILabel?
-    @IBOutlet private weak var icon: UIImageView?
+    @IBOutlet private weak var transactionCategoryView: TransactionCategoryView?
     
-    func update(viewModel: TransactionCategoryCellViewModel) {
-        label?.text = viewModel.categoryName()
-        icon?.backgroundColor = viewModel.backgroundColor()
-        icon?.image = viewModel.categoryIcon()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if let iconView = icon {
-            iconView.layer.cornerRadius = 15
-        }
+    func update(withViewModel viewModel: TransactionCategoryViewModel) {
+        transactionCategoryView?.update(withViewModel: viewModel)
     }
 }
 

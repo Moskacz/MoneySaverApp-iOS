@@ -38,7 +38,7 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let model = viewModel else { fatalError("should not happen") }
         let cell: TransactionCategoryCollectionViewCell = collectionView.dequeueCell(forIndexPath: indexPath)
-        cell.update(viewModel: model.itemCellViewModel(forIndexPath: indexPath))
+        cell.update(withViewModel: model.itemCellViewModel(forIndexPath: indexPath))
         return cell
     }
     

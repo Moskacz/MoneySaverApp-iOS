@@ -11,10 +11,18 @@ import UIKit
 extension UIView {
     
     func matchParent(edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
-        pinToParentTop(constant: edgeInsets.top)
-        pinToParentBottom(constant: edgeInsets.bottom)
-        pinToParentLeading(constant: edgeInsets.left)
-        pinToParentTrailing(constant: edgeInsets.right)
+        matchParentHorizontally(edges: edgeInsets)
+        matchParentVertically(edges: edgeInsets)
+    }
+    
+    func matchParentHorizontally(edges: UIEdgeInsets = UIEdgeInsets.zero) {
+        pinToParentLeading(constant: edges.left)
+        pinToParentTrailing(constant: edges.right)
+    }
+    
+    func matchParentVertically(edges: UIEdgeInsets = UIEdgeInsets.zero) {
+        pinToParentTop(constant: edges.top)
+        pinToParentBottom(constant: edges.bottom)
     }
     
     func pinToParentLeading(constant: CGFloat = 0.0) {
