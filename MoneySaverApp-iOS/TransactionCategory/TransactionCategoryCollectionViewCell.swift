@@ -24,6 +24,14 @@ class TransactionCategoryCellViewModelImpl: TransactionCategoryViewModel {
         guard let imageData = category.icon else { return nil }
         return UIImage(data: imageData as Data)
     }
+    
+    func backgroundColor() -> UIColor? {
+        let r = CGFloat(category.backgroundColorRedComponent)
+        let g = CGFloat(category.backgroundColorGreenComponent)
+        let b = CGFloat(category.backgroundColorBlueComponent)
+        let a = CGFloat(category.backgroundColorAlphaComponent)
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
 }
 
 class TransactionCategoryCollectionViewCell: UICollectionViewCell {

@@ -58,7 +58,7 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
         entity.identifier = category.identifier
         entity.name = category.name
         let rgbColor = RGBAColor(color: category.backgroundColor)
-        entity.backgroundColorGreenComponent = Float(rgbColor.red)
+        entity.backgroundColorRedComponent = Float(rgbColor.red)
         entity.backgroundColorGreenComponent = Float(rgbColor.green)
         entity.backgroundColorBlueComponent = Float(rgbColor.blue)
         entity.backgroundColorAlphaComponent = Float(rgbColor.alpha)

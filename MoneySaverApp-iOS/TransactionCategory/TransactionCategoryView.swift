@@ -11,11 +11,13 @@ import UIKit
 protocol TransactionCategoryViewModel {
     func transactionName() -> String?
     func transactionIcon() -> UIImage?
+    func backgroundColor() -> UIColor?
 }
 
 class TransactionCategoryView: UIView {
     
     private weak var categoryNameLabel: UILabel?
+    private weak var categoryIconContainerView: UIView?
     private weak var categoryIconImageView: UIImageView?
     
     override init(frame: CGRect) {
@@ -32,6 +34,7 @@ class TransactionCategoryView: UIView {
     
     private func setupView() {
         addLabel()
+        addContainerView()
         addImageView()
     }
     
@@ -47,15 +50,26 @@ class TransactionCategoryView: UIView {
         self.categoryNameLabel = label
     }
     
-    private func addImageView() {
+    private func addContainerView() {
         guard let label = categoryNameLabel else { return }
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 4
+        addSubview(view)
+        view.matchParentHorizontally()
+        view.pinToParentTop()
+        view.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -8).isActive = true
+        self.categoryIconContainerView = view
+    }
+    
+    private func addImageView() {
+        guard let containverView = categoryIconContainerView else { return }
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(imageView)
-        imageView.pinToParentTop()
-        imageView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -8).isActive = true
+        containverView.addSubview(imageView)
+        imageView.matchParentVertically(edges: UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0))
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: containverView.centerXAnchor).isActive = true
         self.categoryIconImageView = imageView
     }
     
@@ -64,5 +78,6 @@ class TransactionCategoryView: UIView {
     public func update(withViewModel viewModel: TransactionCategoryViewModel) {
         categoryNameLabel?.text = viewModel.transactionName()
         categoryIconImageView?.image = viewModel.transactionIcon()
+        categoryIconContainerView?.backgroundColor = viewModel.backgroundColor()
     }
 }
