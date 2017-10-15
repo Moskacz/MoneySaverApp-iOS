@@ -39,9 +39,11 @@ class TransactionCategoryView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
+        label.textAlignment = .center
         addSubview(label)
         label.matchParentHorizontally()
         label.pinToParentBottom()
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         self.categoryNameLabel = label
     }
     
@@ -51,9 +53,9 @@ class TransactionCategoryView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(imageView)
         imageView.pinToParentTop()
-        imageView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: 8).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -8).isActive = true
         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         self.categoryIconImageView = imageView
     }
     
