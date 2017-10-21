@@ -11,21 +11,21 @@ import CoreData
 import RxSwift
 import RxCocoa
 
-protocol TransactionsComputingModel  {
-    var delegate: TransactionsComputingModelDelegate? { get set }
+protocol TransactionsComputingService  {
+    var delegate: TransactionsComputingServiceDelegate? { get set }
 }
 
-protocol TransactionsComputingModelDelegate: class {
+protocol TransactionsComputingServiceDelegate: class {
     func sumUpdated(value: Decimal)
 }
 
-class TransactionsComputingModelImpl: TransactionsComputingModel {
+class TransactionsComputingServiceImpl: TransactionsComputingService {
 
     private let coreDataStack: CoreDataStack
     private let notificationCenter: NotificationCenter
     private let logger: Logger
     
-    weak var delegate: TransactionsComputingModelDelegate? {
+    weak var delegate: TransactionsComputingServiceDelegate? {
         didSet {
             startComputation()
         }

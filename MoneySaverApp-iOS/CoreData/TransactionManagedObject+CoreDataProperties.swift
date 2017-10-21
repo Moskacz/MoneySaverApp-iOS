@@ -2,7 +2,7 @@
 //  TransactionManagedObject+CoreDataProperties.swift
 //  MoneySaverApp-iOS
 //
-//  Created by Michal Moskala on 03.10.2017.
+//  Created by Michal Moskala on 21.10.2017.
 //  Copyright © 2017 Michal Moskala. All rights reserved.
 //
 //
@@ -18,9 +18,8 @@ extension TransactionManagedObject {
     }
 
     @NSManaged public var creationTimeInterval: Double
-    @NSManaged public var identifier: UUID
-    @NSManaged public var title: String
-    @NSManaged public var value: NSDecimalNumber
-    @NSManaged public var category: TransactionCategoryManagedObject
+    @NSManaged public var title: String?
+    @NSManaged public var value: NSDecimalNumber?
+    @NSManaged public var category: TransactionCategoryManagedObject?
 
 }

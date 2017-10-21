@@ -2,7 +2,7 @@
 //  TransactionCategoryManagedObject+CoreDataProperties.swift
 //  MoneySaverApp-iOS
 //
-//  Created by Michal Moskala on 07.10.2017.
+//  Created by Michal Moskala on 21.10.2017.
 //  Copyright © 2017 Michal Moskala. All rights reserved.
 //
 //
@@ -17,12 +17,7 @@ extension TransactionCategoryManagedObject {
         return NSFetchRequest<TransactionCategoryManagedObject>(entityName: "TransactionCategoryManagedObject")
     }
 
-    @NSManaged public var backgroundColorAlphaComponent: Float
-    @NSManaged public var backgroundColorBlueComponent: Float
-    @NSManaged public var backgroundColorGreenComponent: Float
-    @NSManaged public var backgroundColorRedComponent: Float
     @NSManaged public var icon: NSData?
-    @NSManaged public var identifier: UUID?
     @NSManaged public var name: String?
     @NSManaged public var transactions: TransactionManagedObject?
 

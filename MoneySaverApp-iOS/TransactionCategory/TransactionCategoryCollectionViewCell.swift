@@ -30,11 +30,7 @@ class TransactionCategoryCellViewModelImpl: TransactionCategoryCellViewModel {
     }
     
     func backgroundColor() -> UIColor? {
-        let r = CGFloat(category.backgroundColorRedComponent)
-        let g = CGFloat(category.backgroundColorGreenComponent)
-        let b = CGFloat(category.backgroundColorBlueComponent)
-        let a = CGFloat(category.backgroundColorAlphaComponent)
-        return UIColor(red: r, green: g, blue: b, alpha: a)
+        return UIColor.orange
     }
 }
 

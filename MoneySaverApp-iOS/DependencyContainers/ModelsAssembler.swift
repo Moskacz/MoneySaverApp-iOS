@@ -17,15 +17,15 @@ struct ModelsAssembler: ContainerAssembly {
         }
         
         container.register(.singleton) {
-            TransactionsModelImplementation(serverInterface: $0,
-                                            repository: $1,
-                                            logger: $2) as TransactionsModel
+            TransactionsServiceImpl(serverInterface: $0,
+                                    repository: $1,
+                                    logger: $2) as TransactionsService
         }
         
         container.register {
-            TransactionsComputingModelImpl(coreDataStack: $0,
-                                           notificationCenter: $1,
-                                           logger: $2) as TransactionsComputingModel
+            TransactionsComputingServiceImpl(coreDataStack: $0,
+                                             notificationCenter: $1,
+                                             logger: $2) as TransactionsComputingService
         }
     }
 }

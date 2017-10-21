@@ -11,11 +11,12 @@ import RxSwift
 import RESTClient
 import MoneySaverFoundationiOS
 
-protocol TransactionsModel {
+protocol TransactionsService {
     func getRepository() -> TransactionsRepository
+    func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
 }
 
-class TransactionsModelImplementation: TransactionsModel {
+class TransactionsServiceImpl: TransactionsService {
     
     private let serverInterface: TransactionsServerInterface
     private let repository: TransactionsRepository
@@ -32,6 +33,8 @@ class TransactionsModelImplementation: TransactionsModel {
     func getRepository() -> TransactionsRepository {
         return repository
     }
-
     
+    func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
+        repository.addTransaction(data: data, category: category)
+    }
 }

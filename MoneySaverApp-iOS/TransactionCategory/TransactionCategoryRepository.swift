@@ -60,13 +60,7 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
     
     private func updateProperties(ofEntity entity: TransactionCategoryManagedObject,
                                   withCategory category: TransactionCategory) {
-        entity.identifier = category.identifier
         entity.name = category.name
-        let rgbColor = RGBAColor(color: category.backgroundColor)
-        entity.backgroundColorRedComponent = Float(rgbColor.red)
-        entity.backgroundColorGreenComponent = Float(rgbColor.green)
-        entity.backgroundColorBlueComponent = Float(rgbColor.blue)
-        entity.backgroundColorAlphaComponent = Float(rgbColor.alpha)
         entity.icon = UIImagePNGRepresentation(category.icon) as NSData?
     }
     

@@ -13,8 +13,8 @@ import CoreData
 
 class TransactionsListViewModel {
     
-    private let transactionsModel: TransactionsModel
-    private let transactionsComputingModel: TransactionsComputingModel
+    private let transactionsService: TransactionsService
+    private let transactionsComputingService: TransactionsComputingService
     private let logger: Logger
     private let disposeBag = DisposeBag()
     
@@ -22,11 +22,11 @@ class TransactionsListViewModel {
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     
-    init(transactionsModel: TransactionsModel,
-         transactionsComputingModel: TransactionsComputingModel,
+    init(transactionsService: TransactionsService,
+         transactionsComputingService: TransactionsComputingService,
          logger: Logger) {
-        self.transactionsModel = transactionsModel
-        self.transactionsComputingModel = transactionsComputingModel
+        self.transactionsService = transactionsService
+        self.transactionsComputingService = transactionsComputingService
         self.logger = logger
     }
     
@@ -56,8 +56,8 @@ class TransactionsListViewModel {
     }
     
     private func createFRC() {
-        transactionsModel.getRepository().allDataFRC { [weak self] (frc) in
-            self?.transactionsFRC? = frc
+        transactionsService.getRepository().allDataFRC { [weak self] (frc) in
+            self?.transactionsFRC = frc
             self?.transactionsFRC?.delegate = self?.collectionUpdateHandler
             do {
                 try self?.transactionsFRC?.performFetch()

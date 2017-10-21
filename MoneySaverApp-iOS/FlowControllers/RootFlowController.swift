@@ -15,16 +15,19 @@ class RootFlowController: FlowController {
     private weak var navigationController: UINavigationController?
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
+    private let transactionsService: TransactionsService
     private let presentationManager = CardStylePresentationManager()
     
     var animatedTransitions: Bool = true
     
     init(applicationDelegate: AppDelegate?,
          storyboard: UIStoryboard,
-         dependencyContainer: DependencyContainer) {
+         dependencyContainer: DependencyContainer,
+         transactionsService: TransactionsService) {
         self.applicationDelegate = applicationDelegate
         self.storyboard = storyboard
         self.dependencyContainer = dependencyContainer
+        self.transactionsService = transactionsService
     }
     
     func startFlow() {
@@ -76,7 +79,7 @@ class RootFlowController: FlowController {
         
         viewController.dataEnteredCallback = { [unowned viewController] (data: TransactionData) in
             guard let navController = viewController.navigationController else { return }
-            self.pushTransactionCategoriesCollection(navigationController: navController)
+            self.pushTransactionCategoriesCollection(navigationController: navController, data: data)
         }
         
         let navControlloer = UINavigationController(rootViewController: viewController)
@@ -85,10 +88,14 @@ class RootFlowController: FlowController {
         navigationController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
     }
     
-    private func pushTransactionCategoriesCollection(navigationController: UINavigationController) {
+    private func pushTransactionCategoriesCollection(navigationController: UINavigationController, data: TransactionData) {
         let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiateFromStoryboard()
         viewController.viewModel = try! dependencyContainer.resolve()
         
+        viewController.categorySelectedCallback = { category in
+            self.transactionsService.addTransaction(data: data, category: category)
+            self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
+        }
         
         navigationController.pushViewController(viewController, animated: animatedTransitions)
     }

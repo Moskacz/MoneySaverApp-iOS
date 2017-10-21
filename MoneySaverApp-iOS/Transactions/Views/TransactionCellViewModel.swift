@@ -24,11 +24,11 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     }
     
     func amountText() -> String {
-        return transaction.value.stringValue
+        return transaction.value?.stringValue ?? ""
     }
     
     func descriptionText() -> String {
-        return transaction.title
+        return transaction.title ?? ""
     }
     
     func tintColor() -> UIColor {

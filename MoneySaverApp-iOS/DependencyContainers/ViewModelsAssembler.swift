@@ -13,8 +13,8 @@ struct ViewModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register {
-            TransactionsListViewModel(transactionsModel: $0,
-                                      transactionsComputingModel: $1,
+            TransactionsListViewModel(transactionsService: $0,
+                                      transactionsComputingService: $1,
                                       logger: $2) as TransactionsListViewModel
         }
         
