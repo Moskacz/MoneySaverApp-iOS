@@ -11,9 +11,9 @@ import CoreData
 import MoneySaverFoundationiOS
 
 protocol TransactionCategoryRepository {
-    func countOfEntities() -> Int
+    func countOfEntities(completion: @escaping ((Int) -> Void))
     func createEntities(forCategories categories: [TransactionCategory])
-    func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
+    func allEntitiesFRC(completion: @escaping ((NSFetchedResultsController<TransactionCategoryManagedObject>) -> Void))
 }
 
 class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
@@ -26,28 +26,33 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
         self.logger = logger
     }
     
-    func countOfEntities() -> Int {
-        let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
-        do {
-            return try stack.getViewContext().count(for: fetchRequest)
-        } catch {
-            logger.log(withLevel: .error, message: error.localizedDescription)
-            return 0
+    func countOfEntities(completion: @escaping ((Int) -> Void)) {
+        stack.getViewContext { (context) in
+            let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
+            do {
+                let count = try context.count(for: fetchRequest)
+                completion(count)
+            } catch {
+                self.logger.log(withLevel: .error, message: error.localizedDescription)
+                return completion(0)
+            }
         }
     }
     
     func createEntities(forCategories categories: [TransactionCategory]) {
-        stack.performBackgroundTask { (context) in
-            for category in categories {
-                let entity = TransactionCategoryManagedObject.createEntity(inContext: context)
-                self.updateProperties(ofEntity: entity, withCategory: category)
-            }
-            
-            if context.hasChanges {
-                do {
-                    try context.save()
-                } catch {
-                    self.logger.log(withLevel: .error, message: error.localizedDescription)
+        stack.getViewContext { (context) in
+            context.perform {
+                for category in categories {
+                    let entity = TransactionCategoryManagedObject.createEntity(inContext: context)
+                    self.updateProperties(ofEntity: entity, withCategory: category)
+                }
+                
+                if context.hasChanges {
+                    do {
+                        try context.save()
+                    } catch {
+                        self.logger.log(withLevel: .error, message: error.localizedDescription)
+                    }
                 }
             }
         }
@@ -65,14 +70,16 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
         entity.icon = UIImagePNGRepresentation(category.icon) as NSData?
     }
     
-    func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject> {
-        let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: TransactionCategoryManagedObject.nameAttributeName, ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        return NSFetchedResultsController(fetchRequest: fetchRequest,
-                                          managedObjectContext: stack.getViewContext(),
-                                          sectionNameKeyPath: nil,
-                                          cacheName: nil)
+    func allEntitiesFRC(completion: @escaping ((NSFetchedResultsController<TransactionCategoryManagedObject>) -> Void)) {
+        return stack.getViewContext(completion: { (context) in
+            let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
+            let sortDescriptor = NSSortDescriptor(key: TransactionCategoryManagedObject.nameAttributeName, ascending: true)
+            fetchRequest.sortDescriptors = [sortDescriptor]
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                 managedObjectContext: context,
+                                                 sectionNameKeyPath: nil,
+                                                 cacheName: nil)
+            completion(frc)
+        })
     }
-    
 }

@@ -13,11 +13,11 @@ struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register(.singleton) {
-            CoreDataStackImplementation() as CoreDataStack
+            CoreDataStackImplementation(logger: $0) as CoreDataStack
         }
         
         container.register(.singleton) {
-            TransactionsRepositoryImplementation(stack: $0) as TransactionsRepository
+            TransactionsRepositoryImplementation(stack: $0, logger: $1) as TransactionsRepository
         }
         
         container.register(.singleton) {

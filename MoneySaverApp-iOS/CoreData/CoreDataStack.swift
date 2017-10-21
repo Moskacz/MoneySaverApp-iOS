@@ -10,30 +10,44 @@ import Foundation
 import CoreData
 
 protocol CoreDataStack {
-    func getViewContext() -> NSManagedObjectContext
-    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void)
+    func getViewContext(completion: @escaping ((NSManagedObjectContext) -> Void))
 }
 
 class CoreDataStackImplementation: CoreDataStack {
     
-    private lazy var persistantContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "DataModel")
-        container.loadPersistentStores { [unowned container] (storeDescription: NSPersistentStoreDescription, error: Error?) in
+    private let persistentContainer: NSPersistentContainer
+    private let logger: Logger
+    private var persistentContainerLoaded = false
+    private var completionBlocks = [((NSManagedObjectContext) -> Void)]()
+    
+    init(logger: Logger) {
+        self.logger = logger
+        self.persistentContainer = NSPersistentContainer(name: "DataModel")
+        self.persistentContainer.loadPersistentStores { [weak self] (_, error) in
             if let loadError = error as NSError? {
-                print(loadError)
+                self?.logger.log(withLevel: .error, message: loadError.localizedDescription)
+            } else {
+                self?.persistentContainerLoaded = true
+                if let context = self?.persistentContainer.viewContext {
+                    self?.callCompletionBlocks(context)
+                }
             }
-            container.viewContext.automaticallyMergesChangesFromParent = true
         }
-        return container
-    }()
+    }
     
     // MARK: CoreDataStack
     
-    func getViewContext() -> NSManagedObjectContext {
-        return persistantContainer.viewContext
+    func getViewContext(completion: @escaping ((NSManagedObjectContext) -> Void)) {
+        if persistentContainerLoaded {
+            completion(persistentContainer.viewContext)
+        } else {
+            completionBlocks.append(completion)
+        }
     }
     
-    func performBackgroundTask(_ block: @escaping (NSManagedObjectContext) -> Void) {
-        persistantContainer.performBackgroundTask(block)
+    private func callCompletionBlocks(_ context: NSManagedObjectContext) {
+        for block in completionBlocks {
+            block(context)
+        }
     }
 }

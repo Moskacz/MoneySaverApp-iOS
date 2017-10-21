@@ -11,7 +11,7 @@ import RxSwift
 import MoneySaverFoundationiOS
 import CoreData
 
-class TransactionsListViewModel{
+class TransactionsListViewModel {
     
     private let transactionsModel: TransactionsModel
     private let transactionsComputingModel: TransactionsComputingModel
@@ -56,20 +56,20 @@ class TransactionsListViewModel{
     }
     
     private func createFRC() {
-        transactionsFRC = transactionsModel.getRepository().allDataFRC()
-        transactionsFRC?.delegate = collectionUpdateHandler
-        
-        do {
-            try transactionsFRC?.performFetch()
-            collectionUpdater?.reloadAll()
-        } catch {
-            logger.log(withLevel: .error, message: error.localizedDescription)
+        transactionsModel.getRepository().allDataFRC { [weak self] (frc) in
+            self?.transactionsFRC? = frc
+            self?.transactionsFRC?.delegate = self?.collectionUpdateHandler
+            do {
+                try self?.transactionsFRC?.performFetch()
+                self?.collectionUpdater?.reloadAll()
+            } catch {
+                self?.logger.log(withLevel: .error, message: error.localizedDescription)
+            }
+            
         }
     }
     
     func transactionsSum() -> Observable<String?> {
-        return transactionsComputingModel.sumOfAllTransactionsObservable().map({ (sum: NSDecimalNumber) -> String in
-            return "\(sum)"
-        }).observeOn(MainScheduler.instance)
+        return Observable.just(nil)
     }
 }

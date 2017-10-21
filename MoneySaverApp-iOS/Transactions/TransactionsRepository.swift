@@ -11,60 +11,68 @@ import CoreData
 import MoneySaverFoundationiOS
 
 protocol TransactionsRepository {
-    func update(withTransactions transactions: [Transaction])
     func add(transaction: Transaction)
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject>
+    func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void))
 }
 
 class TransactionsRepositoryImplementation: TransactionsRepository {
     
     private let stack: CoreDataStack
+    private let logger: Logger
     
-    init(stack: CoreDataStack) {
+    init(stack: CoreDataStack, logger: Logger) {
         self.stack = stack
+        self.logger = logger
     }
     
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
-        let fetchRequest = allDataFetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: true)]
-        return NSFetchedResultsController(fetchRequest: fetchRequest,
-                                          managedObjectContext: stack.getViewContext(),
-                                          sectionNameKeyPath: nil,
-                                          cacheName: nil)
-    }
-    
-    func update(withTransactions transactions: [Transaction]) {
-        stack.performBackgroundTask { (context: NSManagedObjectContext) in
-            if let storedData = self.getAllData(inContext: context) {
-                if let transactionsToDelete = self.filtered(transactions: storedData,
-                                                            notIncludedInData: transactions) {
-                    self.delete(transactions: transactionsToDelete,
-                                fromContext: context)
-                }
-                self.updateOrCreateNewEntities(basedOnTransactions: transactions,
-                                               storedTransactions: storedData,
-                                               inContext: context)
-            } else {
-                self.createNewEntities(basedOnTransactions: transactions, inContext: context)
-            }
-            
-            do {
-                try context.save()
-            } catch {
-                print(error)
-            }
+    func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void)) {
+        stack.getViewContext { (context) in
+            let fetchRequest = self.allDataFetchRequest()
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: true)]
+            let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                 managedObjectContext: context,
+                                                 sectionNameKeyPath: nil,
+                                                 cacheName: nil)
+            completion(frc)
         }
     }
     
+//    func update(withTransactions transactions: [Transaction]) {
+//        stack.getViewContext { (context) in
+//            context.perform {
+//                if let storedData = self.getAllData(inContext: context) {
+//                    if let transactionsToDelete = self.filtered(transactions: storedData,
+//                                                                notIncludedInData: transactions) {
+//                        self.delete(transactions: transactionsToDelete,
+//                                    fromContext: context)
+//                    }
+//                    self.updateOrCreateNewEntities(basedOnTransactions: transactions,
+//                                                   storedTransactions: storedData,
+//                                                   inContext: context)
+//                } else {
+//                    self.createNewEntities(basedOnTransactions: transactions, inContext: context)
+//                }
+//
+//                do {
+//                    try context.save()
+//                } catch {
+//                    print(error)
+//                }
+//            }
+//        }
+//    }
+    
     func add(transaction: Transaction) {
-        stack.performBackgroundTask { (context: NSManagedObjectContext) in
-            let entity = TransactionManagedObject.createEntity(inContext: context)
-            self.updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
-            
-            do {
-                try context.save()
-            } catch {
-                print(error)
+        stack.getViewContext { (context) in
+            context.perform {
+                let entity = TransactionManagedObject.createEntity(inContext: context)
+                self.updateProperties(ofTransactionEntity: entity, withTransaction: transaction)
+                
+                do {
+                    try context.save()
+                } catch {
+                    self.logger.log(withLevel: .error, message: error.localizedDescription)
+                }
             }
         }
     }
