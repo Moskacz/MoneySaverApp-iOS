@@ -8,32 +8,6 @@
 
 import UIKit
 
-protocol TransactionCategoryCellViewModel: TransactionCategoryViewModel {
-    var category: TransactionCategoryManagedObject { get }
-}
-
-class TransactionCategoryCellViewModelImpl: TransactionCategoryCellViewModel {
-    
-    let category: TransactionCategoryManagedObject
-    
-    init(category: TransactionCategoryManagedObject) {
-        self.category = category
-    }
-    
-    func transactionName() -> String? {
-        return category.name
-    }
-    
-    func transactionIcon() -> UIImage? {
-        guard let imageData = category.icon else { return nil }
-        return UIImage(data: imageData as Data)
-    }
-    
-    func backgroundColor() -> UIColor? {
-        return UIColor.orange
-    }
-}
-
 class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet private weak var transactionCategoryView: TransactionCategoryView?

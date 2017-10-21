@@ -10,14 +10,16 @@ import UIKit
 
 class TransactionCell: UITableViewCell {
     
-    @IBOutlet weak var amoutLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var amoutLabel: UILabel?
+    @IBOutlet private weak var descriptionLabel: UILabel?
+    @IBOutlet private weak var categoryView: TransactionCategoryView?
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
-        amoutLabel.text = viewModel.amountText()
-        amoutLabel.textColor = viewModel.tintColor()
-        descriptionLabel.text = viewModel.descriptionText()
-        descriptionLabel.textColor = viewModel.tintColor()
+        amoutLabel?.text = viewModel.titleText()
+        descriptionLabel?.text = viewModel.descriptionText()
+        if let categoryViewModel = viewModel.categoryViewModel() {
+            categoryView?.update(withViewModel: categoryViewModel)
+        }
     }
     
 }

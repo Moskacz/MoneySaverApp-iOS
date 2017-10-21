@@ -10,9 +10,9 @@ import UIKit
 import MoneySaverFoundationiOS
 
 protocol TransactionCellViewModel {
-    func amountText() -> String
-    func descriptionText() -> String
-    func tintColor() -> UIColor
+    func titleText() -> String?
+    func descriptionText() -> String?
+    func categoryViewModel() -> TransactionCategoryViewModel?
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -23,16 +23,16 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
         self.transaction = transaction
     }
     
-    func amountText() -> String {
-        return transaction.value?.stringValue ?? ""
+    func titleText() -> String? {
+        return transaction.value?.stringValue
     }
     
-    func descriptionText() -> String {
-        return transaction.title ?? ""
+    func descriptionText() -> String? {
+        return transaction.title
     }
     
-    func tintColor() -> UIColor {
-        return UIColor.red
+    func categoryViewModel() -> TransactionCategoryViewModel? {
+        guard let category = transaction.category else { return nil }
+        return TransactionCategoryViewModelImpl(category: category)
     }
-    
 }

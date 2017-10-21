@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol TransactionCategoryViewModel {
-    func transactionName() -> String?
-    func transactionIcon() -> UIImage?
-    func backgroundColor() -> UIColor?
-}
-
 class TransactionCategoryView: UIView {
     
     private weak var categoryNameLabel: UILabel?
