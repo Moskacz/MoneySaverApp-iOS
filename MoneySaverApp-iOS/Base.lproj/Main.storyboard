@@ -20,14 +20,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-XF-5YJ">
-                                <rect key="frame" x="149.5" y="84" width="76.5" height="31.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-XF-5YJ">
+                                <rect key="frame" x="168.5" y="44" width="39" height="31.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="170" width="375" height="497"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="567.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
@@ -40,9 +39,9 @@
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="00H-Wh-Vbq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
                             <constraint firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="Q31-XF-5YJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="64" id="IDv-17-atG"/>
+                            <constraint firstItem="Q31-XF-5YJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="IDv-17-atG"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="Q31-XF-5YJ" secondAttribute="bottom" constant="24" id="IfU-Lz-Y37"/>
                             <constraint firstItem="Q31-XF-5YJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R0m-bN-G6T"/>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="150" id="gXK-FU-onc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>

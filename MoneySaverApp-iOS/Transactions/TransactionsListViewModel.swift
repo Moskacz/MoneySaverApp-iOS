@@ -11,16 +11,26 @@ import RxSwift
 import MoneySaverFoundationiOS
 import CoreData
 
+protocol TransactionsListViewModelDelegate: class {
+    func sumOfTransactionsUpdated(value: Decimal)
+}
+
 class TransactionsListViewModel {
     
     private let transactionsService: TransactionsService
-    private let transactionsComputingService: TransactionsComputingService
+    private var transactionsComputingService: TransactionsComputingService
     private let logger: Logger
     private let disposeBag = DisposeBag()
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
+    
+    weak var delegate: TransactionsListViewModelDelegate? {
+        didSet {
+            self.transactionsComputingService.delegate = self
+        }
+    }
     
     init(transactionsService: TransactionsService,
          transactionsComputingService: TransactionsComputingService,
@@ -71,5 +81,12 @@ class TransactionsListViewModel {
     
     func transactionsSum() -> Observable<String?> {
         return Observable.just(nil)
+    }
+}
+
+extension TransactionsListViewModel: TransactionsComputingServiceDelegate {
+    
+    func sumUpdated(value: Decimal) {
+        delegate?.sumOfTransactionsUpdated(value: value)
     }
 }

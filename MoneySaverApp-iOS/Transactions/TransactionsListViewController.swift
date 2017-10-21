@@ -23,15 +23,9 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        viewModel.attach(updater: TableViewCollectionUpdater(tableView: tableView))
-    }
-    
-    // MARK: Initial setup
-    
-    private func setupViews() {
         setupTableView()
-        viewModel.transactionsSum().bind(to: titleLabel.rx.text).addDisposableTo(disposeBag)
+        viewModel.attach(updater: TableViewCollectionUpdater(tableView: tableView))
+        viewModel.delegate = self
     }
     
     private func setupTableView() {
@@ -65,4 +59,10 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
         return viewModel.transactionsCount()
     }
     
+}
+
+extension TransactionsListViewController: TransactionsListViewModelDelegate {
+    func sumOfTransactionsUpdated(value: Decimal) {
+        titleLabel.text = "\(value)"
+    }
 }

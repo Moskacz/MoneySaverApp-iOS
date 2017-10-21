@@ -44,6 +44,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
                 transaction.value = data.value as NSDecimalNumber
                 transaction.title = data.title
                 transaction.category = category
+                transaction.creationTimeInterval = Date().timeIntervalSince1970
                 self?.saveContextIfNeeded(context)
             }
         }

@@ -41,9 +41,9 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private func startComputation() {
         coreDataStack.getViewContext { (context) in
+            self.setupNotificationsObservers(forContext: context)
             self.delegate?.sumUpdated(value: self.totalValueOfSavedTransactions(inContext: context))
         }
-        
     }
     
     private func setupNotificationsObservers(forContext context: NSManagedObjectContext) {
