@@ -88,6 +88,8 @@ class RootFlowController: FlowController {
     private func pushTransactionCategoriesCollection(navigationController: UINavigationController) {
         let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiateFromStoryboard()
         viewController.viewModel = try! dependencyContainer.resolve()
+        
+        
         navigationController.pushViewController(viewController, animated: animatedTransitions)
     }
 }

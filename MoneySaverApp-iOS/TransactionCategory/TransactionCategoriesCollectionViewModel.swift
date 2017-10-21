@@ -51,7 +51,7 @@ class TransactionCategoriesCollectionViewModel {
         return categoriesFRC?.fetchedObjects?.count ?? 0
     }
     
-    func itemCellViewModel(forIndexPath path: IndexPath) -> TransactionCategoryViewModel {
+    func itemCellViewModel(forIndexPath path: IndexPath) -> TransactionCategoryCellViewModel {
         guard let object = categoriesFRC?.fetchedObjects?[path.row] else {
             fatalError("should not be called")
         }

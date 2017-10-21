@@ -8,9 +8,13 @@
 
 import UIKit
 
-class TransactionCategoryCellViewModelImpl: TransactionCategoryViewModel {
+protocol TransactionCategoryCellViewModel: TransactionCategoryViewModel {
+    var category: TransactionCategoryManagedObject { get }
+}
+
+class TransactionCategoryCellViewModelImpl: TransactionCategoryCellViewModel {
     
-    private let category: TransactionCategoryManagedObject
+    let category: TransactionCategoryManagedObject
     
     init(category: TransactionCategoryManagedObject) {
         self.category = category

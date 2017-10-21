@@ -16,6 +16,8 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
         }
     }
     
+    var categorySelectedCallback: ((TransactionCategoryManagedObject) -> Void) = { _ in }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
@@ -47,6 +49,12 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.bounds.width * 0.3 - 8
         return CGSize(width: width, height: width)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let model = viewModel else { return }
+        let cellViewModel = model.itemCellViewModel(forIndexPath: indexPath)
+        categorySelectedCallback(cellViewModel.category)
     }
     
 }
