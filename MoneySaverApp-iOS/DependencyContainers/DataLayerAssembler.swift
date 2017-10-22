@@ -24,10 +24,6 @@ struct DataLayerAssembler: ContainerAssembly {
             TransactionCategoryRepositoryImpl(stack: $0, logger: $1) as TransactionCategoryRepository
         }
         
-        container.register {
-            InitialDataPrefillerImpl() as InitialDataPrefiller
-        }
-        
         container.register(.singleton) {
             TransactionCategoryServiceImpl(repository: $0) as TransactionCategoryService
         }
