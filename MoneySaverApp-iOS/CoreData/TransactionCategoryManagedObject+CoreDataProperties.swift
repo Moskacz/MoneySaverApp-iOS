@@ -2,7 +2,7 @@
 //  TransactionCategoryManagedObject+CoreDataProperties.swift
 //  MoneySaverApp-iOS
 //
-//  Created by Michal Moskala on 21.10.2017.
+//  Created by Michal Moskala on 22.10.2017.
 //  Copyright © 2017 Michal Moskala. All rights reserved.
 //
 //
