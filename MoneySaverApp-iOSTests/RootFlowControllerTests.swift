@@ -21,7 +21,8 @@ class RootFlowControllerTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         sut = RootFlowController(applicationDelegate: appDelegate,
                                  storyboard: storyboard,
-                                 dependencyContainer: DependencyContainer.createContainer())
+                                 dependencyContainer: DependencyContainer.createContainer(),
+                                 transactionsService: FakeTransactionsService())
     }
     
     override func tearDown() {

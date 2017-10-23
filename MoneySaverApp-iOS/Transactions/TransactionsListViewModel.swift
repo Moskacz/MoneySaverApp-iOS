@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RxSwift
 import MoneySaverFoundationiOS
 import CoreData
 
@@ -20,7 +19,6 @@ class TransactionsListViewModel {
     private let transactionsService: TransactionsService
     private var transactionsComputingService: TransactionsComputingService
     private let logger: Logger
-    private let disposeBag = DisposeBag()
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
@@ -77,10 +75,6 @@ class TransactionsListViewModel {
             }
             
         }
-    }
-    
-    func transactionsSum() -> Observable<String?> {
-        return Observable.just(nil)
     }
 }
 

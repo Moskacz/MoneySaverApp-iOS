@@ -8,8 +8,6 @@
 
 import Foundation
 import CoreData
-import RxSwift
-import RxCocoa
 
 protocol TransactionsComputingService  {
     var delegate: TransactionsComputingServiceDelegate? { get set }

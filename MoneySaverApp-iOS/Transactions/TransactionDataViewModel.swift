@@ -8,7 +8,6 @@
 
 import Foundation
 import MoneySaverFoundationiOS
-import RxSwift
 
 enum TransactionDataFormError: Error {
     case missingTitle

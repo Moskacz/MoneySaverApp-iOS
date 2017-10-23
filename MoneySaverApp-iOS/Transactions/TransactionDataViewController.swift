@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxSwift
 
 struct TransactionData {
     let title: String
@@ -22,8 +21,6 @@ class TransactionDataViewController: UIViewController {
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
     var viewModel: TransactionDataViewModel?
-    
-    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import RxSwift
-import RxCocoa
 
 class TransactionsListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -18,7 +16,6 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     var viewModel: TransactionsListViewModel!
     
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
-    private let disposeBag = DisposeBag()
     var addTransactionTapCallback: (() -> Void)?
     
     override func viewDidLoad() {
