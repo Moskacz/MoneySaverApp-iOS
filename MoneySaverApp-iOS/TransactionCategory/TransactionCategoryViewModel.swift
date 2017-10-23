@@ -36,3 +36,10 @@ class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
         return UIColor.orange
     }
 }
+
+class TransactionCategorySimpleViewModelImpl: TransactionCategoryViewModelImpl {
+    
+    override func transactionName() -> String? {
+        return nil
+    }
+}

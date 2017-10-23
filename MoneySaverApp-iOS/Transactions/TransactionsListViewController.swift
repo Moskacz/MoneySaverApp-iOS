@@ -47,7 +47,7 @@ class TransactionsListViewController: UIViewController, UITableViewDataSource, U
     // MARK: UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return TransactionCell.defaultHeight
     }
     
     // MARK: UICollectionViewDataSource

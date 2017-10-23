@@ -11,8 +11,8 @@ import UIKit
 class TransactionCategoryView: UIView {
     
     private weak var categoryNameLabel: UILabel?
-    private weak var categoryIconContainerView: UIView?
     private weak var categoryIconImageView: UIImageView?
+    private weak var stackView: UIStackView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,51 +27,72 @@ class TransactionCategoryView: UIView {
     // MARK: Setup
     
     private func setupView() {
-        addLabel()
-        addContainerView()
-        addImageView()
+        setupStackView()
     }
     
-    private func addLabel() {
+    private func setupStackView() {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+        stackView.matchParent()
+        self.stackView = stackView
+    }
+    
+    private func addLabel(text: String?) {
+        guard text != nil else {
+            removeFromStackView(view: categoryNameLabel)
+            return
+        }
+        
+        guard categoryNameLabel == nil else {
+            categoryNameLabel?.text = text
+            return
+        }
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
         label.textAlignment = .center
+        label.text = text
         addSubview(label)
-        label.matchParentHorizontally()
-        label.pinToParentBottom()
         label.setContentCompressionResistancePriority(.required, for: .vertical)
         self.categoryNameLabel = label
+        stackView?.addArrangedSubview(label)
     }
     
-    private func addContainerView() {
-        guard let label = categoryNameLabel else { return }
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 4
-        addSubview(view)
-        view.matchParentHorizontally()
-        view.pinToParentTop()
-        view.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -8).isActive = true
-        self.categoryIconContainerView = view
-    }
-    
-    private func addImageView() {
-        guard let containverView = categoryIconContainerView else { return }
+    private func addImageView(image: UIImage?, backgroundColor: UIColor?) {
+        guard categoryIconImageView == nil else {
+            categoryIconImageView?.image = image
+            return
+        }
+        
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        containverView.addSubview(imageView)
-        imageView.matchParentVertically(edges: UIEdgeInsets(top: 4, left: 0, bottom: -4, right: 0))
-        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: containverView.centerXAnchor).isActive = true
+        imageView.tintColor = UIColor.white
+        imageView.image = image
+        imageView.backgroundColor = backgroundColor
+        imageView.layer.cornerRadius = 8
         self.categoryIconImageView = imageView
+        stackView?.addArrangedSubview(imageView)
+    }
+    
+    private func removeFromStackView(view: UIView?) {
+        guard let viewToRemove = view else { return }
+        stackView?.removeArrangedSubview(viewToRemove)
+        viewToRemove.removeFromSuperview()
     }
     
     // MARK: Upadting
     
     public func update(withViewModel viewModel: TransactionCategoryViewModel) {
-        categoryNameLabel?.text = viewModel.transactionName()
-        categoryIconImageView?.image = viewModel.transactionIcon()
-        categoryIconContainerView?.backgroundColor = viewModel.backgroundColor()
+        addImageView(image: viewModel.transactionIcon()?.withRenderingMode(.alwaysTemplate),
+                     backgroundColor: viewModel.backgroundColor())
+        addLabel(text: viewModel.transactionName())
     }
 }
+
+

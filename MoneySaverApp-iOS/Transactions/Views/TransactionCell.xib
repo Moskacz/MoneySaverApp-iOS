@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,23 +18,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F0Q-h0-fE4" customClass="TransactionCategoryView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-                        <rect key="frame" x="332.5" y="4" width="66.5" height="66.5"/>
+                        <rect key="frame" x="344" y="10" width="55" height="55"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="F0Q-h0-fE4" secondAttribute="height" id="Tzm-lY-w5C"/>
+                            <constraint firstAttribute="height" constant="55" id="2v7-Py-PUq"/>
+                            <constraint firstAttribute="width" constant="55" id="sZC-9b-wSl"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-iC-oS6">
-                        <rect key="frame" x="16" y="4" width="308.5" height="66.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="6tb-iC-oS6">
+                        <rect key="frame" x="16" y="14.5" width="320" height="45.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-120$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ym-6t-Aa8">
-                                <rect key="frame" x="0.0" y="0.0" width="308.5" height="36.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obiad 10/10/2010" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3jo-2i-LKW">
-                                <rect key="frame" x="0.0" y="36.5" width="308.5" height="30"/>
+                                <rect key="frame" x="0.0" y="28.5" width="320" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -45,12 +45,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="F0Q-h0-fE4" firstAttribute="leading" secondItem="6tb-iC-oS6" secondAttribute="trailing" constant="8" id="2dn-Rz-Qhg"/>
+                    <constraint firstItem="F0Q-h0-fE4" firstAttribute="centerY" secondItem="C23-If-It5" secondAttribute="centerY" id="2w1-5P-H1G"/>
                     <constraint firstItem="6tb-iC-oS6" firstAttribute="leading" secondItem="C23-If-It5" secondAttribute="leading" constant="16" id="CXD-Et-nQa"/>
-                    <constraint firstItem="6tb-iC-oS6" firstAttribute="top" secondItem="C23-If-It5" secondAttribute="top" constant="4" id="DdN-wH-qEj"/>
                     <constraint firstAttribute="trailing" secondItem="F0Q-h0-fE4" secondAttribute="trailing" constant="16" id="N3C-rs-KdI"/>
-                    <constraint firstAttribute="bottom" secondItem="6tb-iC-oS6" secondAttribute="bottom" constant="4" id="U9b-MY-Ooj"/>
-                    <constraint firstAttribute="bottom" secondItem="F0Q-h0-fE4" secondAttribute="bottom" constant="4" id="jwI-vy-efP"/>
-                    <constraint firstItem="F0Q-h0-fE4" firstAttribute="top" secondItem="C23-If-It5" secondAttribute="top" constant="4" id="vmS-pI-ZJS"/>
+                    <constraint firstItem="6tb-iC-oS6" firstAttribute="centerY" secondItem="C23-If-It5" secondAttribute="centerY" id="mcJ-jT-PsV"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

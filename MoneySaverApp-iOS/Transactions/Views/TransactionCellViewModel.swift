@@ -33,6 +33,6 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     
     func categoryViewModel() -> TransactionCategoryViewModel? {
         guard let category = transaction.category else { return nil }
-        return TransactionCategoryViewModelImpl(category: category)
+        return TransactionCategorySimpleViewModelImpl(category: category)
     }
 }

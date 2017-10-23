@@ -13,3 +13,9 @@ extension UITableView {
         return dequeueReusableCell(withIdentifier: identifier) as! T
     }
 }
+
+extension UITableViewCell {
+    static var defaultHeight: CGFloat {
+        return 68
+    }
+}
