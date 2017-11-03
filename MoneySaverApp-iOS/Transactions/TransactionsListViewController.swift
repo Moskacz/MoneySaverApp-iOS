@@ -10,6 +10,7 @@ import UIKit
 
 class TransactionsListViewController: UIViewController {
     
+    @IBOutlet private weak var dateIntervalsPickerView: DateIntervalPickerView?
     @IBOutlet private weak var tableView: UITableView?
     var viewModel: TransactionsListViewModel?
     

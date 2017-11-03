@@ -18,43 +18,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="152" width="375" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hUW-SR-27q"/>
                                 </connections>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mUg-Np-zhL">
-                                <rect key="frame" x="0.0" y="36" width="375" height="64"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-f9-ZV4" customClass="DateIntervalPickerView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="36" width="375" height="100"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-6V-dDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L5p-R9-bVi">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="FZ1-f9-ZV4" id="rT4-SP-Upq"/>
+                                            <outlet property="delegate" destination="FZ1-f9-ZV4" id="TbC-UC-pFg"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="64" id="VJa-iA-9hC"/>
+                                    <constraint firstAttribute="bottom" secondItem="aUm-6V-dDy" secondAttribute="bottom" id="73h-l3-H6c"/>
+                                    <constraint firstItem="aUm-6V-dDy" firstAttribute="leading" secondItem="FZ1-f9-ZV4" secondAttribute="leading" id="cOd-tv-7I5"/>
+                                    <constraint firstAttribute="height" constant="100" id="eD7-hl-ORQ"/>
+                                    <constraint firstItem="aUm-6V-dDy" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="top" id="qcz-wb-YGS"/>
+                                    <constraint firstAttribute="trailing" secondItem="aUm-6V-dDy" secondAttribute="trailing" id="ujh-GL-YPu"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fKP-fm-0X2">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
+                                <connections>
+                                    <outlet property="dateIntervalsCollectionView" destination="aUm-6V-dDy" id="BO7-eg-LKt"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
-                            <constraint firstItem="mUg-Np-zhL" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="BEP-A8-gVq"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="mUg-Np-zhL" secondAttribute="bottom" constant="16" id="U5b-qG-DZ4"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="mUg-Np-zhL" secondAttribute="trailing" id="czg-TM-xWN"/>
-                            <constraint firstItem="mUg-Np-zhL" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="x0M-Rm-ciC"/>
+                            <constraint firstItem="FZ1-f9-ZV4" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="Gzh-jP-Uny"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="bottom" constant="16" id="IvU-0D-7H3"/>
+                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="FZ1-f9-ZV4" secondAttribute="trailing" id="MMX-ay-1vG"/>
+                            <constraint firstItem="FZ1-f9-ZV4" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="S3x-hF-34O"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
                     <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
                     <connections>
+                        <outlet property="dateIntervalsPickerView" destination="FZ1-f9-ZV4" id="C6g-wY-TQc"/>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
                     </connections>
                 </viewController>
