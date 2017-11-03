@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,61 +13,64 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TransactionsListViewController" id="BYZ-38-t0r" customClass="TransactionsListViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-XF-5YJ">
-                                <rect key="frame" x="168.5" y="44" width="39" height="31.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="567.5"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hUW-SR-27q"/>
                                 </connections>
                             </tableView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mUg-Np-zhL">
+                                <rect key="frame" x="0.0" y="36" width="375" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="VJa-iA-9hC"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fKP-fm-0X2">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="00H-Wh-Vbq"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
-                            <constraint firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="Q31-XF-5YJ" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="IDv-17-atG"/>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="Q31-XF-5YJ" secondAttribute="bottom" constant="24" id="IfU-Lz-Y37"/>
-                            <constraint firstItem="Q31-XF-5YJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="R0m-bN-G6T"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
+                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
+                            <constraint firstItem="mUg-Np-zhL" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="BEP-A8-gVq"/>
+                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="mUg-Np-zhL" secondAttribute="bottom" constant="16" id="U5b-qG-DZ4"/>
+                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="mUg-Np-zhL" secondAttribute="trailing" id="czg-TM-xWN"/>
+                            <constraint firstItem="mUg-Np-zhL" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="x0M-Rm-ciC"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
                     <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
                     <connections>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
-                        <outlet property="titleLabel" destination="Q31-XF-5YJ" id="Wda-IG-hhc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="-563"/>
+            <point key="canvasLocation" x="696.79999999999995" y="-563.56821589205401"/>
         </scene>
         <!--Budget View Controller-->
         <scene sceneID="hAf-CF-dEB">
             <objects>
                 <viewController storyboardIdentifier="BudgetViewController" id="Heo-ED-jna" customClass="BudgetViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sme-UO-yNz"/>
-                        <viewControllerLayoutGuide type="bottom" id="tiP-ya-9H5"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YIB-b5-9lt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.81088837942325842" blue="0.44950911477957656" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="LGe-DS-nCM"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifx-eI-JqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,14 +81,11 @@
         <scene sceneID="w4n-yi-Kzf">
             <objects>
                 <viewController storyboardIdentifier="StatsViewController" id="sgP-KY-TrS" customClass="StatsViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ltz-zu-eVj"/>
-                        <viewControllerLayoutGuide type="bottom" id="bE2-7o-tSS"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pw2-NB-9ng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.47852167489413588" green="0.83253869288472859" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="lfA-Xb-vSK"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1z-DT-gOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -95,10 +96,6 @@
         <scene sceneID="g3Y-nx-kZn">
             <objects>
                 <viewController storyboardIdentifier="TransactionDataViewController" id="ze7-cu-UEi" customClass="TransactionDataViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="FXE-yh-DuT"/>
-                        <viewControllerLayoutGuide type="bottom" id="8yo-6d-sK5"/>
-                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MYE-Sh-Lu0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,11 +150,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fJT-tv-2rK" firstAttribute="leading" secondItem="MYE-Sh-Lu0" secondAttribute="leading" id="H3z-a6-7EU"/>
-                            <constraint firstItem="8yo-6d-sK5" firstAttribute="top" secondItem="fJT-tv-2rK" secondAttribute="bottom" id="IKb-oE-Ejn"/>
-                            <constraint firstAttribute="trailing" secondItem="fJT-tv-2rK" secondAttribute="trailing" id="JxG-me-eG9"/>
+                            <constraint firstItem="fJT-tv-2rK" firstAttribute="leading" secondItem="X2P-eZ-UOH" secondAttribute="leading" id="H3z-a6-7EU"/>
+                            <constraint firstItem="X2P-eZ-UOH" firstAttribute="bottom" secondItem="fJT-tv-2rK" secondAttribute="bottom" id="IKb-oE-Ejn"/>
+                            <constraint firstItem="X2P-eZ-UOH" firstAttribute="trailing" secondItem="fJT-tv-2rK" secondAttribute="trailing" id="JxG-me-eG9"/>
                             <constraint firstItem="fJT-tv-2rK" firstAttribute="top" secondItem="MYE-Sh-Lu0" secondAttribute="top" id="saD-un-BO0"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="X2P-eZ-UOH"/>
                     </view>
                     <connections>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
