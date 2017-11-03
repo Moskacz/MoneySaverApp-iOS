@@ -19,9 +19,14 @@ class TransactionsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDateIntervalsPicker()
         setupTableView()
         viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
         viewModel?.delegate = self
+    }
+    
+    private func setupDateIntervalsPicker() {
+        dateIntervalsPickerView?.viewModel = viewModel?.dateIntervalsPickerViewModel()
     }
     
     private func setupTableView() {

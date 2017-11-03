@@ -12,31 +12,51 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="muc-GC-sVn" customClass="DateIntervalCell" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="194" height="217"/>
+            <rect key="frame" x="0.0" y="0.0" width="267" height="220"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                <rect key="frame" x="0.0" y="0.0" width="194" height="217"/>
+                <rect key="frame" x="0.0" y="0.0" width="267" height="220"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhn-2V-aag">
-                        <rect key="frame" x="8" y="8" width="178" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-qc-GFw">
+                        <rect key="frame" x="8" y="8" width="226" height="151"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="257" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhn-2V-aag">
+                                <rect key="frame" x="0.0" y="0.0" width="251" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="240$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-Dz-MeH">
+                                <rect key="frame" x="0.0" y="28.5" width="251" height="150.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="259" text="1.10 - 7.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUO-bR-HHV">
+                                <rect key="frame" x="0.0" y="187" width="251" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="fhn-2V-aag" firstAttribute="leading" secondItem="muc-GC-sVn" secondAttribute="leading" constant="8" id="EtP-Za-G6B"/>
-                <constraint firstItem="fhn-2V-aag" firstAttribute="top" secondItem="muc-GC-sVn" secondAttribute="top" constant="8" id="SHU-we-Z2j"/>
-                <constraint firstAttribute="trailing" secondItem="fhn-2V-aag" secondAttribute="trailing" constant="8" id="ZoJ-ta-Q7Y"/>
+                <constraint firstItem="Gnv-qc-GFw" firstAttribute="leading" secondItem="muc-GC-sVn" secondAttribute="leading" constant="8" id="OKO-Vp-9Hr"/>
+                <constraint firstAttribute="trailing" secondItem="Gnv-qc-GFw" secondAttribute="trailing" constant="8" id="fwB-Rm-bne"/>
+                <constraint firstItem="Gnv-qc-GFw" firstAttribute="top" secondItem="muc-GC-sVn" secondAttribute="top" constant="8" id="tzo-Q3-uVv"/>
+                <constraint firstAttribute="bottom" secondItem="Gnv-qc-GFw" secondAttribute="bottom" constant="8" id="v1J-4U-ubo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="7Ko-JV-qHb"/>
-            <size key="customSize" width="194" height="217"/>
+            <size key="customSize" width="267" height="220"/>
             <connections>
+                <outlet property="descriptionLabel" destination="TUO-bR-HHV" id="hE3-Fj-prt"/>
+                <outlet property="sumLabel" destination="Pi1-Dz-MeH" id="tD3-2W-1cU"/>
                 <outlet property="titleLabel" destination="fhn-2V-aag" id="YNt-B4-bu1"/>
             </connections>
-            <point key="canvasLocation" x="577" y="656.5"/>
+            <point key="canvasLocation" x="422" y="619"/>
         </collectionViewCell>
     </objects>
 </document>

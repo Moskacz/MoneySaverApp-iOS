@@ -11,6 +11,7 @@ import UIKit
 class DateIntervalPickerView: UIView {
     
     @IBOutlet private weak var dateIntervalsCollectionView: UICollectionView?
+    var viewModel: DateIntervalPickerViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,18 +25,17 @@ class DateIntervalPickerView: UIView {
 }
 
 extension DateIntervalPickerView: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return viewModel?.numberOfIntervals() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let model = viewModel else { fatalError() }
         let cell: DateIntervalCell = collectionView.dequeueCell(forIndexPath: indexPath)
+        cell.update(withViewModel: model.cellViewModel(forIndexPath: indexPath))
         return cell
     }
 }

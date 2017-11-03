@@ -38,6 +38,10 @@ class TransactionsListViewModel {
         self.logger = logger
     }
     
+    func dateIntervalsPickerViewModel() -> DateIntervalPickerViewModel {
+        return DateIntervalPickerViewModel()
+    }
+    
     func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
         createCollectionUpdateHandler()
@@ -76,6 +80,8 @@ class TransactionsListViewModel {
             
         }
     }
+    
+    
 }
 
 extension TransactionsListViewModel: TransactionsComputingServiceDelegate {
