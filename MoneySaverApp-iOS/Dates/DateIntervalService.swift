@@ -9,10 +9,19 @@
 import Foundation
 
 protocol DateIntervalService {
-    func todayDateInterval() -> DateInterval?
-    func thisWeekDateInterval() -> DateInterval?
-    func thisMonthDateInterval() -> DateInterval?
-    func thisYearDateInterval() -> DateInterval?
+    func dateInterval(forLabel label: DateIntervalLabel) -> DateInterval?
+}
+
+enum DateIntervalLabel {
+    case today
+    case currentWeek
+    case currentMonth
+    case currentYear
+}
+
+struct LabeledDateInterval {
+    let dateInterval: DateInterval
+    let label: DateIntervalLabel
 }
 
 class DateIntervalServiceImpl: DateIntervalService {
@@ -23,23 +32,19 @@ class DateIntervalServiceImpl: DateIntervalService {
     init(calendar: Calendar = Calendar.current,
          dateProvider: CurrentDateProvider = CurrentDateProviderImpl()) {
         self.calendar = calendar
-        
         self.dateProvider = dateProvider
     }
     
-    func todayDateInterval() -> DateInterval? {
-        return calendar.dateInterval(of: .day, for: dateProvider.currentDate())
-    }
-    
-    func thisWeekDateInterval() -> DateInterval? {
-        return calendar.dateInterval(of: .weekOfMonth, for: dateProvider.currentDate())
-    }
-    
-    func thisMonthDateInterval() -> DateInterval? {
-        return calendar.dateInterval(of: .month, for: dateProvider.currentDate())
-    }
-    
-    func thisYearDateInterval() -> DateInterval? {
-        return calendar.dateInterval(of: .year, for: dateProvider.currentDate())
+    func dateInterval(forLabel label: DateIntervalLabel) -> DateInterval? {
+        switch label {
+        case .today:
+            return calendar.dateInterval(of: .day, for: dateProvider.currentDate())
+        case .currentWeek:
+            return calendar.dateInterval(of: .weekOfMonth, for: dateProvider.currentDate())
+        case .currentMonth:
+            return calendar.dateInterval(of: .month, for: dateProvider.currentDate())
+        case .currentYear:
+            return calendar.dateInterval(of: .year, for: dateProvider.currentDate())
+        }
     }
 }

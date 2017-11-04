@@ -39,7 +39,7 @@ class TransactionsListViewModel {
     }
     
     func dateIntervalsPickerViewModel() -> DateIntervalPickerViewModel {
-        return DateIntervalPickerViewModel()
+        return DateIntervalPickerViewModel(dateIntervalService: DateIntervalServiceImpl())
     }
     
     func attach(updater: CollectionUpdater) {

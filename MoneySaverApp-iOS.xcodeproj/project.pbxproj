@@ -74,6 +74,7 @@
 		35CCD4FE1FAE170900BD308E /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD4FD1FAE170900BD308E /* CurrentDateProvider.swift */; };
 		35CCD5001FAE1A6C00BD308E /* FakeCurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD4FF1FAE1A6C00BD308E /* FakeCurrentDateProvider.swift */; };
 		35CCD5021FAE1AB200BD308E /* DateIntervalServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */; };
+		35CCD5041FAE228500BD308E /* DateIntervalCellViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5031FAE228500BD308E /* DateIntervalCellViewModelImpl.swift */; };
 		35D1DE7A1EA124A900284EA0 /* CollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
 		35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */; };
@@ -188,6 +189,7 @@
 		35CCD4FD1FAE170900BD308E /* CurrentDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateProvider.swift; sourceTree = "<group>"; };
 		35CCD4FF1FAE1A6C00BD308E /* FakeCurrentDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCurrentDateProvider.swift; sourceTree = "<group>"; };
 		35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalServiceTests.swift; sourceTree = "<group>"; };
+		35CCD5031FAE228500BD308E /* DateIntervalCellViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalCellViewModelImpl.swift; sourceTree = "<group>"; };
 		35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionUpdateHandler.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				35D7C4191FACA6660052BAD6 /* DateIntervalPickerViewModel.swift */,
 				35CCD4FB1FAE14E500BD308E /* DateIntervalService.swift */,
 				35CCD4FD1FAE170900BD308E /* CurrentDateProvider.swift */,
+				35CCD5031FAE228500BD308E /* DateIntervalCellViewModelImpl.swift */,
 			);
 			path = Dates;
 			sourceTree = "<group>";
@@ -678,6 +681,7 @@
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,
 				356D0EAE1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift in Sources */,
+				35CCD5041FAE228500BD308E /* DateIntervalCellViewModelImpl.swift in Sources */,
 				35D7C4181FAC9CE90052BAD6 /* DateIntervalCell.swift in Sources */,
 				35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */,
 				356D0EB11F8C00E700378362 /* Errors.swift in Sources */,
