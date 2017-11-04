@@ -17,10 +17,10 @@ class DateIntervalPickerViewModel {
     }
     
     private lazy var viewModels: [DateIntervalCellViewModel] = {
-        let intervals: [DateIntervalLabel] = [.today, .currentWeek, .currentMonth, .currentYear]
-        return intervals.flatMap { (label) -> LabeledDateInterval? in
-            guard let interval = self.dateIntervalService.dateInterval(forLabel: label) else { return nil }
-            return LabeledDateInterval(dateInterval: interval, label: label)
+        let intervals: [DateIntervalType] = [.today, .currentWeek, .currentMonth, .currentYear]
+        return intervals.flatMap { (type) -> TypedDateInterval? in
+            guard let interval = self.dateIntervalService.dateInterval(forType: type) else { return nil }
+            return TypedDateInterval(dateInterval: interval, type: type)
         }.map {
             return DateIntervalCellViewModelImpl(dateInterval: $0, sum: Decimal(0))
         }

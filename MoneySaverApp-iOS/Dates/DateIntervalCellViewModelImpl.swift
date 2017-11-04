@@ -10,16 +10,16 @@ import Foundation
 
 class DateIntervalCellViewModelImpl: DateIntervalCellViewModel {
     
-    private let dateInterval: LabeledDateInterval
+    private let dateInterval: TypedDateInterval
     private let sum: Decimal
 
-    init(dateInterval: LabeledDateInterval, sum: Decimal) {
+    init(dateInterval: TypedDateInterval, sum: Decimal) {
         self.dateInterval = dateInterval
         self.sum = sum
     }
     
     func intervalTitle() -> String? {
-        switch dateInterval.label {
+        switch dateInterval.type {
         case .today:
             return "Today"
         case .currentWeek:

@@ -9,19 +9,19 @@
 import Foundation
 
 protocol DateIntervalService {
-    func dateInterval(forLabel label: DateIntervalLabel) -> DateInterval?
+    func dateInterval(forType type: DateIntervalType) -> DateInterval?
 }
 
-enum DateIntervalLabel {
+enum DateIntervalType {
     case today
     case currentWeek
     case currentMonth
     case currentYear
 }
 
-struct LabeledDateInterval {
+struct TypedDateInterval {
     let dateInterval: DateInterval
-    let label: DateIntervalLabel
+    let type: DateIntervalType
 }
 
 class DateIntervalServiceImpl: DateIntervalService {
@@ -35,8 +35,8 @@ class DateIntervalServiceImpl: DateIntervalService {
         self.dateProvider = dateProvider
     }
     
-    func dateInterval(forLabel label: DateIntervalLabel) -> DateInterval? {
-        switch label {
+    func dateInterval(forType type: DateIntervalType) -> DateInterval? {
+        switch type {
         case .today:
             return calendar.dateInterval(of: .day, for: dateProvider.currentDate())
         case .currentWeek:

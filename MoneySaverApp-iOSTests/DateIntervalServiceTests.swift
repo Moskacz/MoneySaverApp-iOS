@@ -29,7 +29,7 @@ class DateIntervalServiceTests: XCTestCase {
     }
     
     func test_calculateTodayDateInterval() {
-        let dateInterval = sut.dateInterval(forLabel: .today)!
+        let dateInterval = sut.dateInterval(forType: .today)!
         // 11.04.2017 00:00:00 GMT
         let startDate = Date(timeIntervalSince1970: 1509753600)
         // 12.04.2017 00:00:00 GMT
@@ -39,7 +39,7 @@ class DateIntervalServiceTests: XCTestCase {
     }
     
     func test_calculateThisWeekDateInterval() {
-        let dateInterval = sut.dateInterval(forLabel: .currentWeek)!
+        let dateInterval = sut.dateInterval(forType: .currentWeek)!
         // 29.10.2017 00:00:00 GMT
         let startDate = Date(timeIntervalSince1970: 1509235200)
         // 5.12.2017 00:00:00 GMT
@@ -49,7 +49,7 @@ class DateIntervalServiceTests: XCTestCase {
     }
     
     func test_calculateThisMonthDateInterval() {
-        let dateInterval = sut.dateInterval(forLabel: .currentMonth)!
+        let dateInterval = sut.dateInterval(forType: .currentMonth)!
         // 1.11.2017 00:00:00 GMT
         let startDate = Date(timeIntervalSince1970: 1509494400)
         // 1.12.2017 00:00:00 GMT
@@ -59,7 +59,7 @@ class DateIntervalServiceTests: XCTestCase {
     }
     
     func test_calculateThisYearDateInterval() {
-        let dateInterval = sut.dateInterval(forLabel: .currentYear)!
+        let dateInterval = sut.dateInterval(forType: .currentYear)!
         // 01.01.2017 00:00:00 GMT
         let startDate = Date(timeIntervalSince1970: 1483228800)
         // 01.01.2018 00:00:00 GMT
