@@ -22,7 +22,8 @@ class DateIntervalPickerViewModel {
             guard let interval = self.dateIntervalService.dateInterval(forType: type) else { return nil }
             return TypedDateInterval(dateInterval: interval, type: type)
         }.map {
-            return DateIntervalCellViewModelImpl(dateInterval: $0, sum: Decimal(0))
+            return DateIntervalCellViewModelImpl(dateInterval: $0,
+                                                 sum: Decimal(0))
         }
     }()
     

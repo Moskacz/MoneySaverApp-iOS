@@ -32,7 +32,16 @@ class DateIntervalCellViewModelImpl: DateIntervalCellViewModel {
     }
     
     func intervalDescription() -> String? {
-        return nil
+        switch dateInterval.type {
+        case .today, .currentWeek:
+            return nil
+        case .currentMonth:
+            let formatter = DateFormatters.formatter(forType: .monthOnly)
+            return formatter.string(from: dateInterval.dateInterval.start)
+        case .currentYear:
+            let formatter = DateFormatters.formatter(forType: .yearOnly)
+            return formatter.string(from: dateInterval.dateInterval.start)
+        }
     }
     
     func transactionsSum() -> String? {
