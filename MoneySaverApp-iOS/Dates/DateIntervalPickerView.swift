@@ -11,7 +11,12 @@ import UIKit
 class DateIntervalPickerView: UIView {
     
     @IBOutlet private weak var dateIntervalsCollectionView: UICollectionView?
-    var viewModel: DateIntervalPickerViewModel?
+    
+    var viewModel: DateIntervalPickerViewModel? {
+        didSet {
+            viewModel?.delegate = self
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,6 +56,12 @@ extension DateIntervalPickerView: UICollectionViewDelegateFlowLayout {
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let size = collectionView.bounds.height
         return CGSize(width: size, height: size)
+    }
+}
+
+extension DateIntervalPickerView: DateIntervalPickerViewModelDelegate {
+    func reloadView() {
+        dateIntervalsCollectionView?.reloadData()
     }
 }
 

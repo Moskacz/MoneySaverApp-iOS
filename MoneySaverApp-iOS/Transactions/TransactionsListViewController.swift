@@ -23,7 +23,6 @@ class TransactionsListViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
-        viewModel?.delegate = self
     }
     
     private func setupViews() {
@@ -60,14 +59,5 @@ extension TransactionsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TransactionCell.defaultHeight
-    }
-}
-
-// MARK: UICollectionViewDelegate
-
-// MARK: TransactionsListViewModelDelegatee
-extension TransactionsListViewController: TransactionsListViewModelDelegate {
-    func sumOfTransactionsUpdated(value: Decimal) {
-        
     }
 }

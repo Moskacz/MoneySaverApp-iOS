@@ -10,10 +10,6 @@ import Foundation
 import MoneySaverFoundationiOS
 import CoreData
 
-protocol TransactionsListViewModelDelegate: class {
-    func sumOfTransactionsUpdated(value: Decimal)
-}
-
 class TransactionsListViewModel {
     
     private let transactionsService: TransactionsService
@@ -24,12 +20,6 @@ class TransactionsListViewModel {
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     
-    weak var delegate: TransactionsListViewModelDelegate? {
-        didSet {
-            self.transactionsComputingService.delegate = self
-        }
-    }
-    
     init(transactionsService: TransactionsService,
          transactionsComputingService: TransactionsComputingService,
          logger: Logger) {
@@ -39,7 +29,8 @@ class TransactionsListViewModel {
     }
     
     func dateIntervalsPickerViewModel() -> DateIntervalPickerViewModel {
-        return DateIntervalPickerViewModel(dateIntervalService: DateIntervalServiceImpl())
+        return DateIntervalPickerViewModel(dateIntervalService: DateIntervalServiceImpl(),
+                                           computingService: transactionsComputingService)
     }
     
     func attach(updater: CollectionUpdater) {
@@ -79,14 +70,5 @@ class TransactionsListViewModel {
             }
             
         }
-    }
-    
-    
-}
-
-extension TransactionsListViewModel: TransactionsComputingServiceDelegate {
-    
-    func sumUpdated(value: Decimal) {
-        delegate?.sumOfTransactionsUpdated(value: value)
     }
 }
