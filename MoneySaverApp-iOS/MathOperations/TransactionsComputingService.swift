@@ -17,6 +17,13 @@ protocol TransactionsComputingServiceDelegate: class {
     func sumUpdated(value: Decimal)
 }
 
+struct CompoundTransactionsSum {
+    let todaySum: Decimal
+    let weekSum: Decimal
+    let monthSum: Decimal
+    let yearSum: Decimal
+}
+
 class TransactionsComputingServiceImpl: TransactionsComputingService {
 
     private let coreDataStack: CoreDataStack
@@ -59,6 +66,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         
         let fetchRequest: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: "TransactionManagedObject")
         fetchRequest.propertiesToFetch = [expressionDesc]
+        
         fetchRequest.resultType = NSFetchRequestResultType.dictionaryResultType
         
         do {

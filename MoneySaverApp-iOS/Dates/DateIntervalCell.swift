@@ -26,10 +26,7 @@ class DateIntervalCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        layer.cornerRadius = 4
-        layer.masksToBounds = true
-        layer.borderWidth = 1
-        layer.borderColor = UIColor.black.cgColor
+        layer.cornerRadius = 16
     }
     
     func update(withViewModel viewModel: DateIntervalCellViewModel) {

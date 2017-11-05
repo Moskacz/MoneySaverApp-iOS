@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK: AutoLayout
 extension UIView {
     
     func matchParent(edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
@@ -43,5 +44,14 @@ extension UIView {
     func pinToParentBottom(constant: CGFloat = 0.0) {
         guard let parent = superview else { return }
         bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: constant).isActive = true
+    }
+}
+
+// MARK: Effects
+extension UIView {
+    func addBottomShadow() {
+        layer.shadowOffset = CGSize(width: 1.0, height: 4.0)
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
     }
 }

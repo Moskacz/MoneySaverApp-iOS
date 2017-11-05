@@ -28,8 +28,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-f9-ZV4" customClass="DateIntervalPickerView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="36" width="375" height="100"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-6V-dDy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-6V-dDy">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L5p-R9-bVi">
                                             <size key="itemSize" width="50" height="50"/>
@@ -46,7 +46,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="aUm-6V-dDy" secondAttribute="bottom" id="73h-l3-H6c"/>
+                                    <constraint firstAttribute="bottom" secondItem="aUm-6V-dDy" secondAttribute="bottom" constant="8" id="73h-l3-H6c"/>
                                     <constraint firstItem="aUm-6V-dDy" firstAttribute="leading" secondItem="FZ1-f9-ZV4" secondAttribute="leading" id="cOd-tv-7I5"/>
                                     <constraint firstAttribute="height" constant="100" id="eD7-hl-ORQ"/>
                                     <constraint firstItem="aUm-6V-dDy" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="top" id="qcz-wb-YGS"/>
@@ -56,22 +56,46 @@
                                     <outlet property="dateIntervalsCollectionView" destination="aUm-6V-dDy" id="BO7-eg-LKt"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arH-jR-Oww">
+                                <rect key="frame" x="307" y="591" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.44705882352941173" green="1" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="XYe-la-rES"/>
+                                    <constraint firstAttribute="height" constant="60" id="ecR-FW-Ie1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="newTransactionButtonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="72q-K4-CKu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
+                            <constraint firstItem="arH-jR-Oww" firstAttribute="trailing" secondItem="mAZ-8P-wKp" secondAttribute="trailing" constant="-8" id="Coo-zV-MZ4"/>
                             <constraint firstItem="FZ1-f9-ZV4" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="Gzh-jP-Uny"/>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="bottom" constant="16" id="IvU-0D-7H3"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="FZ1-f9-ZV4" secondAttribute="trailing" id="MMX-ay-1vG"/>
                             <constraint firstItem="FZ1-f9-ZV4" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="S3x-hF-34O"/>
+                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="bottom" secondItem="arH-jR-Oww" secondAttribute="bottom" constant="16" id="jgL-qD-tU8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
                     <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
                     <connections>
+                        <outlet property="addTransactionButton" destination="arH-jR-Oww" id="ds9-D6-5Xg"/>
                         <outlet property="dateIntervalsPickerView" destination="FZ1-f9-ZV4" id="C6g-wY-TQc"/>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
                     </connections>

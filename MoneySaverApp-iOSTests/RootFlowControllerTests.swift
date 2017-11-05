@@ -45,7 +45,8 @@ class RootFlowControllerTests: XCTestCase {
         sut.startFlow()
         let navBar = appDelegate.window!.rootViewController as! UINavigationController
         let tabBar = navBar.viewControllers.first as! DashboardTabBarController
-        tabBar.newTransactionButtonTapCallback()
+        let transactionsListVC = tabBar.viewControllers?.first as! TransactionsListViewController
+        transactionsListVC.newTransactionButtonTapCallback()
         let presentedNavBar = navBar.presentedViewController as! UINavigationController
         XCTAssert(presentedNavBar.viewControllers[0] is TransactionDataViewController)
     }
@@ -55,7 +56,8 @@ class RootFlowControllerTests: XCTestCase {
         sut.startFlow()
         let navBar = appDelegate.window!.rootViewController as! UINavigationController
         let tabBar = navBar.viewControllers.first as! DashboardTabBarController
-        tabBar.newTransactionButtonTapCallback()
+        let transactionsListVC = tabBar.viewControllers?.first as! TransactionsListViewController
+        transactionsListVC.newTransactionButtonTapCallback()
         let presentedNavBar = navBar.presentedViewController as! UINavigationController
         let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
         addTransactionVC.dataEnteredCallback(TransactionData(title: "", value: Decimal()))
@@ -67,7 +69,8 @@ class RootFlowControllerTests: XCTestCase {
         sut.startFlow()
         let navBar = appDelegate.window!.rootViewController as! UINavigationController
         let tabBar = navBar.viewControllers.first as! DashboardTabBarController
-        tabBar.newTransactionButtonTapCallback()
+        let transactionsListVC = tabBar.viewControllers?.first as! TransactionsListViewController
+        transactionsListVC.newTransactionButtonTapCallback()
         let presentedNavBar = navBar.presentedViewController as! UINavigationController
         let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
         addTransactionVC.cancelButtonTapped()
