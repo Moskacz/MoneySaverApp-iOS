@@ -71,7 +71,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
                     <navigationItem key="navigationItem" title="Title" id="X2f-ay-Lty">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2f5-0C-pHa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2f5-0C-pHa">
                             <connections>
                                 <action selector="addNewTransactionButtonTapped:" destination="BYZ-38-t0r" id="XBZ-gd-HBp"/>
                             </connections>
@@ -151,15 +151,33 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-lG-S22">
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-qw-R69">
                                                 <rect key="frame" x="0.0" y="109" width="343" height="45"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="45" id="47O-Gj-xXk"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
+                                                <subviews>
+                                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-it-5JI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="90" height="46"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="90" id="3fx-IP-nNU"/>
+                                                        </constraints>
+                                                        <segments>
+                                                            <segment title="-"/>
+                                                            <segment title="+"/>
+                                                        </segments>
+                                                        <connections>
+                                                            <action selector="transactionValueSignChanged:" destination="ze7-cu-UEi" eventType="valueChanged" id="WAE-SV-d8e"/>
+                                                        </connections>
+                                                    </segmentedControl>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-lG-S22">
+                                                        <rect key="frame" x="106" y="0.0" width="237" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="47O-Gj-xXk"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -183,6 +201,7 @@
                     </view>
                     <connections>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
+                        <outlet property="valueSignSegmentedControl" destination="HeW-it-5JI" id="8EW-3W-eLF"/>
                         <outlet property="valueTextField" destination="NtE-lG-S22" id="PlH-oo-L3d"/>
                     </connections>
                 </viewController>

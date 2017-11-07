@@ -13,10 +13,25 @@ struct TransactionData {
     let value: Decimal
 }
 
+enum TransactionValueSign: Int {
+    case minus
+    case plus
+    
+    func charRepresentation() -> Character? {
+        switch self {
+        case .plus:
+            return nil
+        case .minus:
+            return Character("-")
+        }
+    }
+}
+
 class TransactionDataViewController: UIViewController {
     
     @IBOutlet private weak var titleTextField: UITextField?
     @IBOutlet private weak var valueTextField: UITextField?
+    @IBOutlet private weak var valueSignSegmentedControl: UISegmentedControl?
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
@@ -25,6 +40,7 @@ class TransactionDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        setupInitialData()
     }
     
     private func setupViews() {
@@ -38,6 +54,13 @@ class TransactionDataViewController: UIViewController {
                                            target: self,
                                            action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
+    }
+    
+    private func setupInitialData() {
+        guard
+            let selectedSignIndex = valueSignSegmentedControl?.selectedSegmentIndex,
+            let sign = TransactionValueSign(rawValue: selectedSignIndex) else { return }
+        setupValueField(withSign: sign)
     }
     
     @objc func nextButtonTapped() {
@@ -80,5 +103,30 @@ class TransactionDataViewController: UIViewController {
         }, completion: { (_) in
             field?.backgroundColor = UIColor.white
         })
+    }
+    
+    // MARK: Transaction value sign
+    
+    @IBAction func transactionValueSignChanged(_ sender: UISegmentedControl) {
+        guard let sign = TransactionValueSign(rawValue: sender.selectedSegmentIndex) else { return }
+        setupValueField(withSign: sign)
+    }
+    
+    private func setupValueField(withSign sign: TransactionValueSign) {
+        removeCurrentValueSign()
+        guard let signChar = sign.charRepresentation() else { return }
+        var text = valueTextField?.text ?? ""
+        text.insert(signChar, at: text.startIndex)
+        valueTextField?.text = text
+    }
+    
+    private func removeCurrentValueSign() {
+        guard
+            let firstChar = valueTextField?.text?.first,
+            !Character.decimalChars().contains(firstChar) else { return }
+        
+        var text = valueTextField?.text ?? ""
+        text = String(text.dropFirst())
+        valueTextField?.text = text
     }
 }
