@@ -12,7 +12,6 @@ class TransactionsListViewController: UIViewController {
     
     @IBOutlet private weak var dateIntervalsPickerView: DateIntervalPickerView?
     @IBOutlet private weak var tableView: UITableView?
-    @IBOutlet private weak var addTransactionButton: UIButton?
     
     var viewModel: TransactionsListViewModel?
     
@@ -26,14 +25,13 @@ class TransactionsListViewController: UIViewController {
     }
     
     private func setupViews() {
-        addTransactionButton?.addBottomShadow()
         dateIntervalsPickerView?.viewModel = viewModel?.dateIntervalsPickerViewModel()
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.tableFooterView = UIView()
     }
     
-    @IBAction func newTransactionButtonTapped(sender: UIButton) {
+    @IBAction func addNewTransactionButtonTapped(_ sender: UIBarButtonItem) {
         newTransactionButtonTapCallback()
     }
 }

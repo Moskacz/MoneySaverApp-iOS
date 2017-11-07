@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transactions-->
+        <!--Title-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TransactionsListViewController" id="BYZ-38-t0r" customClass="TransactionsListViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -56,46 +56,28 @@
                                     <outlet property="dateIntervalsCollectionView" destination="aUm-6V-dDy" id="BO7-eg-LKt"/>
                                 </connections>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arH-jR-Oww">
-                                <rect key="frame" x="307" y="591" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.44705882352941173" green="1" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="XYe-la-rES"/>
-                                    <constraint firstAttribute="height" constant="60" id="ecR-FW-Ie1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="4"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="newTransactionButtonTappedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="72q-K4-CKu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="6NZ-2t-uXj"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="arH-jR-Oww" firstAttribute="trailing" secondItem="mAZ-8P-wKp" secondAttribute="trailing" constant="-8" id="Coo-zV-MZ4"/>
                             <constraint firstItem="FZ1-f9-ZV4" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="Gzh-jP-Uny"/>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="bottom" constant="16" id="IvU-0D-7H3"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="FZ1-f9-ZV4" secondAttribute="trailing" id="MMX-ay-1vG"/>
                             <constraint firstItem="FZ1-f9-ZV4" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="S3x-hF-34O"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="bottom" secondItem="arH-jR-Oww" secondAttribute="bottom" constant="16" id="jgL-qD-tU8"/>
+                            <constraint firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="iEt-Yn-6Cf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
-                    <navigationItem key="navigationItem" title="Transactions" id="IDi-u6-fku"/>
+                    <navigationItem key="navigationItem" title="Title" id="X2f-ay-Lty">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2f5-0C-pHa">
+                            <connections>
+                                <action selector="addNewTransactionButtonTapped:" destination="BYZ-38-t0r" id="XBZ-gd-HBp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="addTransactionButton" destination="arH-jR-Oww" id="ds9-D6-5Xg"/>
                         <outlet property="dateIntervalsPickerView" destination="FZ1-f9-ZV4" id="C6g-wY-TQc"/>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
                     </connections>

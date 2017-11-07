@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RESTClient
 import MoneySaverFoundationiOS
 
 protocol TransactionsService {

@@ -8,7 +8,6 @@
 
 import Foundation
 import Dip
-import RESTClient
 
 struct NetworkingLayerAssembler: ContainerAssembly {
     

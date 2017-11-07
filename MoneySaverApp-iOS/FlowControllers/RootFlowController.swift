@@ -12,7 +12,7 @@ import Dip
 class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
-    private weak var navigationController: UINavigationController?
+    private weak var tabBarController: UITabBarController?
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
     private let transactionsService: TransactionsService
@@ -36,16 +36,20 @@ class RootFlowController: FlowController {
     
     private func setupRootFlowController() {
         let tabBarVC = DashboardTabBarController()
-        tabBarVC.viewControllers = [transactionsListViewController(),
-                                    budgetViewController(),
-                                    statsViewController()]
+        let transactionsNavController = UINavigationController(rootViewController: transactionsListViewController())
+        let budgetNavController = UINavigationController(rootViewController: budgetViewController())
+        let statsNavController = UINavigationController(rootViewController: statsViewController())
         
-        let navController = UINavigationController(rootViewController: tabBarVC)
+        tabBarVC.viewControllers = [transactionsNavController,
+                                    budgetNavController,
+                                    statsNavController]
+        tabBarVC.setupItemsTitles()
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
-        window.rootViewController = navController
+        window.rootViewController = tabBarVC
         applicationDelegate?.window = window
         applicationDelegate?.window?.makeKeyAndVisible()
-        self.navigationController = navController
+        self.tabBarController = tabBarVC
     }
     
     private func transactionsListViewController() -> TransactionsListViewController {
@@ -74,7 +78,7 @@ class RootFlowController: FlowController {
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.cancelButtonTapCallback = {
-            self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
+            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
         viewController.dataEnteredCallback = { [unowned viewController] (data: TransactionData) in
@@ -85,7 +89,7 @@ class RootFlowController: FlowController {
         let navControlloer = UINavigationController(rootViewController: viewController)
         navControlloer.modalPresentationStyle = .custom
         navControlloer.transitioningDelegate = presentationManager
-        navigationController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
+        tabBarController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
     }
     
     private func pushTransactionCategoriesCollection(navigationController: UINavigationController, data: TransactionData) {
@@ -94,7 +98,7 @@ class RootFlowController: FlowController {
         
         viewController.categorySelectedCallback = { category in
             self.transactionsService.addTransaction(data: data, category: category)
-            self.navigationController?.dismiss(animated: self.animatedTransitions, completion: nil)
+            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
         navigationController.pushViewController(viewController, animated: animatedTransitions)
