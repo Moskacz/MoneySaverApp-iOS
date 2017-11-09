@@ -44,7 +44,7 @@ class TransactionDataViewController: UIViewController {
     }
     
     private func setupViews() {
-        let nextButton = UIBarButtonItem(title: "Next",
+        let nextButton = UIBarButtonItem(title: "Add",
                                          style: .done,
                                          target: self,
                                          action: #selector(nextButtonTapped))
