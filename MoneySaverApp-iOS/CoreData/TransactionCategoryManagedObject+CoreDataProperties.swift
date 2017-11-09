@@ -2,7 +2,7 @@
 //  TransactionCategoryManagedObject+CoreDataProperties.swift
 //  MoneySaverApp-iOS
 //
-//  Created by Michal Moskala on 22.10.2017.
+//  Created by Michal Moskala on 09.11.2017.
 //  Copyright © 2017 Michal Moskala. All rights reserved.
 //
 //
@@ -19,6 +19,7 @@ extension TransactionCategoryManagedObject {
 
     @NSManaged public var icon: NSData?
     @NSManaged public var name: String?
+    @NSManaged public var color: NSData?
     @NSManaged public var transactions: NSSet?
 
 }

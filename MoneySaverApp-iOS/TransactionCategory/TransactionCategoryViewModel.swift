@@ -33,7 +33,8 @@ class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
     }
     
     func backgroundColor() -> UIColor? {
-        return UIColor.orange
+        guard let data = category.color else { return nil }
+        return UIColor.color(fromData: data as Data)
     }
 }
 

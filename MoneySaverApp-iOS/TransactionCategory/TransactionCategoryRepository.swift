@@ -62,6 +62,7 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
                                   withCategory category: TransactionCategory) {
         entity.name = category.name
         entity.icon = UIImagePNGRepresentation(category.icon) as NSData?
+        entity.color = category.backgroundColor.encode() as NSData
     }
     
     func allEntitiesFRC(completion: @escaping ((NSFetchedResultsController<TransactionCategoryManagedObject>) -> Void)) {
