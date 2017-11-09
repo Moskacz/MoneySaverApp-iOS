@@ -43,9 +43,14 @@ class TransactionsListViewModel {
         return transactionsFRC?.fetchedObjects?.count ?? 0
     }
     
-    func transactionCellViewModel(atIndex index: Int) -> TransactionCellViewModel {
-        let transaction = transactionsFRC!.fetchedObjects![index]
+    func transactionCellViewModel(atPath path: IndexPath) -> TransactionCellViewModel {
+        guard let transaction = transactionsFRC?.object(at: path) else { fatalError() }
         return TransactionCellViewModelImplementation(transaction: transaction)
+    }
+    
+    func deleteTransaction(atPath path: IndexPath) {
+        guard let transaction = transactionsFRC?.object(at: path) else { return }
+        transactionsService.remove(transaction: transaction)
     }
     
     // MARK: Private

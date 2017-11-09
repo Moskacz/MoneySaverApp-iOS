@@ -12,6 +12,7 @@ import MoneySaverFoundationiOS
 protocol TransactionsService {
     func getRepository() -> TransactionsRepository
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
+    func remove(transaction: TransactionManagedObject)
 }
 
 class TransactionsServiceImpl: TransactionsService {
@@ -34,5 +35,9 @@ class TransactionsServiceImpl: TransactionsService {
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
         repository.addTransaction(data: data, category: category)
+    }
+    
+    func remove(transaction: TransactionManagedObject) {
+        repository.remove(transaction: transaction)
     }
 }

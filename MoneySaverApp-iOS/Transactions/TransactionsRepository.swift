@@ -13,6 +13,7 @@ import MoneySaverFoundationiOS
 protocol TransactionsRepository {
     func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void))
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
+    func remove(transaction: TransactionManagedObject)
 }
 
 class TransactionsRepositoryImplementation: TransactionsRepository {
@@ -47,6 +48,13 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
                 transaction.creationTimeInterval = Date().timeIntervalSince1970
                 self?.saveContextIfNeeded(context)
             }
+        }
+    }
+    
+    func remove(transaction: TransactionManagedObject) {
+        stack.getViewContext { [weak self] (context) in
+            context.delete(transaction)
+            self?.saveContextIfNeeded(context)
         }
     }
     
