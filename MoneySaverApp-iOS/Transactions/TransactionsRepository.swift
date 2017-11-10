@@ -29,7 +29,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void)) {
         stack.getViewContext { (context) in
             let fetchRequest: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: true)]
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: false)]
             let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                  managedObjectContext: context,
                                                  sectionNameKeyPath: nil,
