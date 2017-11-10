@@ -23,13 +23,11 @@ class DateIntervalPickerViewModel {
         self.dateIntervalService = dateIntervalService
         self.computingService = computingService
         self.computingService.delegate = self
-        computeViewModels()
+        createInitialViewModels()
     }
     
-    private func computeViewModels() {
-        computingService.transactionsSum { [weak self] (sum) in
-            self?.createViewModels(transactionSum: sum)
-        }
+    private func createInitialViewModels() {
+        createViewModels(transactionSum: computingService.transactionsSum())
     }
     
     private func createViewModels(transactionSum: CompoundTransactionsSum) {

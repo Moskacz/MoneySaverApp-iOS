@@ -15,4 +15,5 @@ class DashboardTabBarController: UITabBarController {
         tabBar.items?[1].title = "Budget"
         tabBar.items?[2].title = "Stats"
     }
+    
 }

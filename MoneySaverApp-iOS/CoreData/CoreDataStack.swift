@@ -9,45 +9,36 @@
 import Foundation
 import CoreData
 
-protocol CoreDataStack {
-    func getViewContext(completion: @escaping ((NSManagedObjectContext) -> Void))
+protocol CoreDataStack: class {
+    var isLoaded: Bool { get }
+    func loadStores(completion: @escaping (() -> Void))
+    func getViewContext() -> NSManagedObjectContext
 }
 
 class CoreDataStackImplementation: CoreDataStack {
     
     private let persistentContainer: NSPersistentContainer
     private let logger: Logger
-    private var persistentContainerLoaded = false
-    private var completionBlocks = [((NSManagedObjectContext) -> Void)]()
+    var isLoaded: Bool = false
     
     init(logger: Logger) {
         self.logger = logger
         self.persistentContainer = NSPersistentContainer(name: "DataModel")
-        self.persistentContainer.loadPersistentStores { [weak self] (_, error) in
+    }
+    
+    func loadStores(completion: @escaping (() -> Void)) {
+        persistentContainer.loadPersistentStores { [weak self] (_, error) in
             if let loadError = error as NSError? {
                 self?.logger.log(withLevel: .error, message: loadError.localizedDescription)
-            } else {
-                self?.persistentContainerLoaded = true
-                if let context = self?.persistentContainer.viewContext {
-                    self?.callCompletionBlocks(context)
-                }
             }
+            self?.isLoaded = true
+            completion()
         }
     }
     
     // MARK: CoreDataStack
     
-    func getViewContext(completion: @escaping ((NSManagedObjectContext) -> Void)) {
-        if persistentContainerLoaded {
-            completion(persistentContainer.viewContext)
-        } else {
-            completionBlocks.append(completion)
-        }
-    }
-    
-    private func callCompletionBlocks(_ context: NSManagedObjectContext) {
-        for block in completionBlocks {
-            block(context)
-        }
+    func getViewContext() -> NSManagedObjectContext {
+        return persistentContainer.viewContext
     }
 }

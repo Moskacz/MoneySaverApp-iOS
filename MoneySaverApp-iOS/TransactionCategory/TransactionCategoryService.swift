@@ -11,7 +11,7 @@ import MoneySaverFoundationiOS
 import CoreData
 
 protocol TransactionCategoryService {
-    func allEntitiesFRC(completion: @escaping ((NSFetchedResultsController<TransactionCategoryManagedObject>) -> Void))
+    func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
 }
 
 class TransactionCategoryServiceImpl: TransactionCategoryService {
@@ -23,16 +23,15 @@ class TransactionCategoryServiceImpl: TransactionCategoryService {
         prefillDataIfNeeded()
     }
     
-    func allEntitiesFRC(completion: @escaping ((NSFetchedResultsController<TransactionCategoryManagedObject>) -> Void)) {
-        return repository.allEntitiesFRC(completion: completion)
+    func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject> {
+        return repository.allEntitiesFRC()
     }
     
     private func prefillDataIfNeeded() {
-        repository.countOfEntities { [weak self] (count) in
-            guard count == 0 else { return }
-            let categories = self?.initialCategories() ?? []
-            self?.repository.createEntities(forCategories: categories)
+        guard repository.countOfEntities() == 0 else {
+            return
         }
+        repository.createEntities(forCategories: initialCategories())
     }
     
     private func initialCategories() -> [TransactionCategory] {

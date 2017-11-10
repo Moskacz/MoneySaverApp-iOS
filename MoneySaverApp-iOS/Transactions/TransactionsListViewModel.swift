@@ -64,16 +64,13 @@ class TransactionsListViewModel {
     }
     
     private func createFRC() {
-        transactionsService.getRepository().allDataFRC { [weak self] (frc) in
-            self?.transactionsFRC = frc
-            self?.transactionsFRC?.delegate = self?.collectionUpdateHandler
-            do {
-                try self?.transactionsFRC?.performFetch()
-                self?.collectionUpdater?.reloadAll()
-            } catch {
-                self?.logger.log(withLevel: .error, message: error.localizedDescription)
-            }
-            
+        transactionsFRC = transactionsService.getRepository().allDataFRC()
+        transactionsFRC?.delegate = collectionUpdateHandler
+        do {
+            try transactionsFRC?.performFetch()
+            collectionUpdater?.reloadAll()
+        } catch {
+            logger.log(withLevel: .error, message: error.localizedDescription)
         }
     }
 }

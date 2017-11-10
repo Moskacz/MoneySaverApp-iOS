@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let diContainer = DependencyContainer.createContainer()
         rootFlowController = RootFlowController(applicationDelegate: self,
                                                 storyboard: UIStoryboard.getMain(),
-                                                dependencyContainer: diContainer,
-                                                transactionsService: try! diContainer.resolve())
+                                                dependencyContainer: diContainer)
         rootFlowController?.startFlow()
         dependencyContainer = diContainer
         logger = try? diContainer.resolve()

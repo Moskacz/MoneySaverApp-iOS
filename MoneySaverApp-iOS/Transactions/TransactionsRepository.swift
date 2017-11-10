@@ -11,54 +11,47 @@ import CoreData
 import MoneySaverFoundationiOS
 
 protocol TransactionsRepository {
-    func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void))
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject>
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
 }
 
 class TransactionsRepositoryImplementation: TransactionsRepository {
     
-    private let stack: CoreDataStack
+    private let context: NSManagedObjectContext
     private let logger: Logger
     
-    init(stack: CoreDataStack, logger: Logger) {
-        self.stack = stack
+    init(context: NSManagedObjectContext, logger: Logger) {
+        self.context = context
         self.logger = logger
     }
     
-    func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void)) {
-        stack.getViewContext { (context) in
-            let fetchRequest: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: false)]
-            let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                 managedObjectContext: context,
-                                                 sectionNameKeyPath: nil,
-                                                 cacheName: nil)
-            completion(frc)
-        }
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
+        let fetchRequest: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: false)]
+        return NSFetchedResultsController(fetchRequest: fetchRequest,
+                                          managedObjectContext: context,
+                                          sectionNameKeyPath: nil,
+                                          cacheName: nil)
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
-        stack.getViewContext { [weak self] (context) in
-            context.perform {
-                let transaction = TransactionManagedObject.createEntity(inContext: context)
-                transaction.value = data.value as NSDecimalNumber
-                transaction.title = data.title
-                transaction.category = category
-                transaction.creationTimeInterval = Date().timeIntervalSince1970
-                self?.saveContextIfNeeded(context)
-            }
+        context.perform {
+            let transaction = TransactionManagedObject.createEntity(inContext: self.context)
+            transaction.value = data.value as NSDecimalNumber
+            transaction.title = data.title
+            transaction.category = category
+            transaction.creationTimeInterval = Date().timeIntervalSince1970
+            self.saveContextIfNeeded()
         }
     }
     
     func remove(transaction: TransactionManagedObject) {
-        stack.getViewContext { [weak self] (context) in
-            context.delete(transaction)
-            self?.saveContextIfNeeded(context)
-        }
+        context.delete(transaction)
+        saveContextIfNeeded()
     }
     
-    private func saveContextIfNeeded(_ context: NSManagedObjectContext) {
+    private func saveContextIfNeeded() {
         guard context.hasChanges else { return }
         do {
             try context.save()

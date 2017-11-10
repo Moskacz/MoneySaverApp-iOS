@@ -13,7 +13,13 @@ class TransactionsListViewController: UIViewController {
     @IBOutlet private weak var dateIntervalsPickerView: DateIntervalPickerView?
     @IBOutlet private weak var tableView: UITableView?
     
-    var viewModel: TransactionsListViewModel?
+    var viewModel: TransactionsListViewModel? {
+        didSet {
+            if isViewLoaded {
+                bindViewModel()
+            }
+        }
+    }
     
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
     var newTransactionButtonTapCallback: (() -> ()) = {}
@@ -21,7 +27,7 @@ class TransactionsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
+        bindViewModel()
     }
     
     private func setupViews() {
@@ -29,6 +35,10 @@ class TransactionsListViewController: UIViewController {
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.tableFooterView = UIView()
+    }
+    
+    private func bindViewModel() {
+        viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
     }
     
     @IBAction func addNewTransactionButtonTapped(_ sender: UIBarButtonItem) {

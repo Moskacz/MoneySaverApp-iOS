@@ -17,11 +17,11 @@ struct DataLayerAssembler: ContainerAssembly {
         }
         
         container.register(.singleton) {
-            TransactionsRepositoryImplementation(stack: $0, logger: $1) as TransactionsRepository
+            TransactionsRepositoryImplementation(context: $0, logger: $1) as TransactionsRepository
         }
         
         container.register(.singleton) {
-            TransactionCategoryRepositoryImpl(stack: $0, logger: $1) as TransactionCategoryRepository
+            TransactionCategoryRepositoryImpl(context: $0, logger: $1) as TransactionCategoryRepository
         }
         
         container.register(.singleton) {

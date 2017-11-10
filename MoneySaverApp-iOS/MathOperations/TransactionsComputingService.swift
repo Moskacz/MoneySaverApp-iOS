@@ -11,7 +11,7 @@ import CoreData
 
 protocol TransactionsComputingService  {
     var delegate: TransactionsComputingServiceDelegate? { get set }
-    func transactionsSum(sum: @escaping (CompoundTransactionsSum) -> Void)
+    func transactionsSum() -> CompoundTransactionsSum
 }
 
 protocol TransactionsComputingServiceDelegate: class {
@@ -44,18 +44,18 @@ struct CompoundTransactionsSum {
 
 class TransactionsComputingServiceImpl: TransactionsComputingService {
 
-    private let coreDataStack: CoreDataStack
+    private let context: NSManagedObjectContext
     private let notificationCenter: NotificationCenter
     private let dateIntervalService: DateIntervalService
     private let logger: Logger
     
     weak var delegate: TransactionsComputingServiceDelegate?
     
-    init(coreDataStack: CoreDataStack,
+    init(context: NSManagedObjectContext,
          notificationCenter: NotificationCenter,
          dateIntervalService: DateIntervalService,
          logger: Logger) {
-        self.coreDataStack = coreDataStack
+        self.context = context
         self.notificationCenter = notificationCenter
         self.dateIntervalService = dateIntervalService
         self.logger = logger
@@ -63,21 +63,13 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     private func setupNotificationsObservers() {
-        coreDataStack.getViewContext { (context) in
-            let notification = Notification.Name.NSManagedObjectContextDidSave
-            self.notificationCenter.addObserver(forName: notification, object: context, queue: OperationQueue.main) { (_) in
-                self.delegate?.sumUpdated(value: self.totalValueOfSavedTransactions(inContext: context))
-            }
+        let notification = Notification.Name.NSManagedObjectContextDidSave
+        notificationCenter.addObserver(forName: notification, object: context, queue: OperationQueue.main) { (_) in
+            self.delegate?.sumUpdated(value: self.transactionsSum())
         }
     }
     
-    func transactionsSum(sum: @escaping (CompoundTransactionsSum) -> Void) {
-        coreDataStack.getViewContext { (context) in
-            sum(self.totalValueOfSavedTransactions(inContext: context))
-        }
-    }
-    
-    private func totalValueOfSavedTransactions(inContext context: NSManagedObjectContext) -> CompoundTransactionsSum {
+    func transactionsSum() -> CompoundTransactionsSum {
         let fetchRequest: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
         fetchRequest.propertiesToFetch = [TransactionManagedObject.valueAttributeName,
                                           TransactionManagedObject.creationTimeIntervalAttributeName]

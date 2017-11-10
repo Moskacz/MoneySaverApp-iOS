@@ -12,22 +12,20 @@ import Dip
 class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
-    private weak var tabBarController: UITabBarController?
+    private weak var tabBarController: DashboardTabBarController?
+    private weak var transactionsVC: TransactionsListViewController?
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
-    private let transactionsService: TransactionsService
     private let presentationManager = CardStylePresentationManager()
     
     var animatedTransitions: Bool = true
     
     init(applicationDelegate: AppDelegate?,
          storyboard: UIStoryboard,
-         dependencyContainer: DependencyContainer,
-         transactionsService: TransactionsService) {
+         dependencyContainer: DependencyContainer) {
         self.applicationDelegate = applicationDelegate
         self.storyboard = storyboard
         self.dependencyContainer = dependencyContainer
-        self.transactionsService = transactionsService
     }
     
     func startFlow() {
@@ -35,8 +33,19 @@ class RootFlowController: FlowController {
     }
     
     private func setupRootFlowController() {
+        let stack: CoreDataStack = try! dependencyContainer.resolve()
+        stack.loadStores { [unowned stack, weak self] in
+            self?.dependencyContainer.register {
+                stack.getViewContext()
+            }
+            self?.setupViewModels(stack: stack)
+        }
+        
         let tabBarVC = DashboardTabBarController()
-        let transactionsNavController = UINavigationController(rootViewController: transactionsListViewController())
+        
+        let transactionsListVC = transactionsListViewController()
+        self.transactionsVC = transactionsListVC
+        let transactionsNavController = UINavigationController(rootViewController: transactionsListVC)
         let budgetNavController = UINavigationController(rootViewController: budgetViewController())
         let statsNavController = UINavigationController(rootViewController: statsViewController())
         
@@ -50,6 +59,7 @@ class RootFlowController: FlowController {
         applicationDelegate?.window = window
         applicationDelegate?.window?.makeKeyAndVisible()
         self.tabBarController = tabBarVC
+        setupViewModels(stack: stack)
     }
     
     private func transactionsListViewController() -> TransactionsListViewController {
@@ -59,7 +69,6 @@ class RootFlowController: FlowController {
             self.presentTransactionDataViewController()
         }
         
-        viewController.viewModel = try! dependencyContainer.resolve()
         return viewController
     }
     
@@ -71,6 +80,14 @@ class RootFlowController: FlowController {
     private func statsViewController() -> StatsViewController {
         let viewController: StatsViewController = storyboard.instantiateTypeViewController(withIdentifier: StatsViewController.defaultStoryboardIdentifier)
         return viewController
+    }
+    
+    private func setupViewModels(stack: CoreDataStack) {
+        guard stack.isLoaded else { return }
+        
+        if transactionsVC?.viewModel == nil {
+            transactionsVC?.viewModel = try! dependencyContainer.resolve()
+        }
     }
     
     private func presentTransactionDataViewController() {
@@ -97,7 +114,7 @@ class RootFlowController: FlowController {
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.categorySelectedCallback = { category in
-            self.transactionsService.addTransaction(data: data, category: category)
+//            self.transactionsService.addTransaction(data: data, category: category)
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
