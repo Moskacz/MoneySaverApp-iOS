@@ -202,6 +202,9 @@
                                                 <date key="date" timeIntervalSinceReferenceDate="532089526.11995">
                                                     <!--2017-11-11 10:38:46 +0000-->
                                                 </date>
+                                                <connections>
+                                                    <action selector="datePickerChanged:" destination="ze7-cu-UEi" eventType="valueChanged" id="RdC-5F-vdV"/>
+                                                </connections>
                                             </datePicker>
                                         </subviews>
                                     </stackView>

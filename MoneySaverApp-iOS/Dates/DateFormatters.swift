@@ -11,6 +11,7 @@ import Foundation
 enum DateFormatterType: Int {
     case monthOnly
     case yearOnly
+    case dateWithTime
 }
 
 class DateFormatters {
@@ -33,6 +34,9 @@ class DateFormatters {
             formatter.dateFormat = "MMMM"
         case .yearOnly:
             formatter.dateFormat = "YYYY"
+        case .dateWithTime:
+            formatter.dateStyle = .short
+            formatter.timeStyle = .short
         }
         return formatter
     }

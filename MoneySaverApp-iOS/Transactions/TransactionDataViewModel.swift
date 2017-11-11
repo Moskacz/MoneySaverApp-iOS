@@ -13,13 +13,19 @@ enum TransactionDataFormError: Error {
     case missingTitle
     case missingValue
     case invalidValue
-    
 }
 
 class TransactionDataViewModel {
     
+    private var dateFormatter: DateFormatter
+    
     var transactionTitle: String? = nil
     var transactionValue: String? = nil
+    var transactionDate = Date()
+    
+    init(dateFormatter: DateFormatter = DateFormatters.formatter(forType: .dateWithTime)) {
+        self.dateFormatter = dateFormatter
+    }
     
     func data() throws -> TransactionData {
         guard let title = transactionTitle, !title.isEmpty else {
@@ -33,5 +39,11 @@ class TransactionDataViewModel {
         }
         
         return TransactionData(title: title, value: decimalValue)
+    }
+    
+    // MARK: Transaction date
+    
+    func formatted(date: Date) -> String {
+        return dateFormatter.string(from: date)
     }
 }

@@ -61,9 +61,17 @@ class TransactionDataViewController: UIViewController {
     
     private func setupInitialData() {
         guard
+            let model = viewModel,
             let selectedSignIndex = valueSignSegmentedControl?.selectedSegmentIndex,
             let sign = TransactionValueSign(rawValue: selectedSignIndex) else { return }
         setupValueField(withSign: sign)
+        datePicker?.date = model.transactionDate
+        setup(transactionDate: model.transactionDate)
+    }
+    
+    private func setup(transactionDate date: Date) {
+        currentDateLabel?.text = viewModel?.formatted(date: date)
+        viewModel?.transactionDate = date
     }
     
     @objc func nextButtonTapped() {
@@ -137,6 +145,10 @@ class TransactionDataViewController: UIViewController {
     
     @IBAction func currentDateTapped(_ sender: UITapGestureRecognizer) {
         toggleDatePickerVisibility()
+    }
+    
+    @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        setup(transactionDate: sender.date)
     }
     
     private func toggleDatePickerVisibility() {
