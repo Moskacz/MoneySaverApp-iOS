@@ -38,7 +38,9 @@ class TransactionDataViewModel {
             throw TransactionDataFormError.invalidValue
         }
         
-        return TransactionData(title: title, value: decimalValue)
+        return TransactionData(title: title,
+                               value: decimalValue,
+                               creationDate: transactionDate)
     }
     
     // MARK: Transaction date

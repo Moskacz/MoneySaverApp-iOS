@@ -11,6 +11,7 @@ import UIKit
 struct TransactionData {
     let title: String
     let value: Decimal
+    let creationDate: Date
 }
 
 enum TransactionValueSign: Int {
