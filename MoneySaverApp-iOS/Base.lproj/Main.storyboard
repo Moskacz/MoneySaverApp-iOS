@@ -128,7 +128,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-dI-fI8">
-                                        <rect key="frame" x="16" y="16" width="343" height="458"/>
+                                        <rect key="frame" x="16" y="16" width="343" height="453"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uCs-7g-mTq">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
@@ -188,8 +188,8 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-oT-EJM">
-                                                <rect key="frame" x="0.0" y="180" width="343" height="278"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-oT-EJM">
+                                                <rect key="frame" x="0.0" y="180" width="343" height="273"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcp-Z7-kha">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="17"/>
@@ -197,21 +197,30 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F30-rz-fSc">
-                                                        <rect key="frame" x="0.0" y="17" width="343" height="45"/>
-                                                        <gestureRecognizers/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="45" id="VoT-Jt-X2G"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="qdf-n0-FAM" appends="YES" id="T39-d5-91g"/>
-                                                        </connections>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiX-E3-Nxy">
+                                                        <rect key="frame" x="0.0" y="29" width="343" height="16"/>
+                                                        <subviews>
+                                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F30-rz-fSc">
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="16"/>
+                                                                <gestureRecognizers/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="qdf-n0-FAM" appends="YES" id="T39-d5-91g"/>
+                                                                </connections>
+                                                            </label>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="right-chevron" translatesAutoresizingMaskIntoConstraints="NO" id="Zku-6B-rLt">
+                                                                <rect key="frame" x="327" y="0.0" width="16" height="16"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="16" id="GyB-wa-TAu"/>
+                                                                    <constraint firstAttribute="width" constant="16" id="KQ7-J8-CvW"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-bw-5e3">
-                                                        <rect key="frame" x="0.0" y="62" width="343" height="216"/>
+                                                        <rect key="frame" x="0.0" y="57" width="343" height="216"/>
                                                         <date key="date" timeIntervalSinceReferenceDate="532089526.11995">
                                                             <!--2017-11-11 10:38:46 +0000-->
                                                         </date>
@@ -243,6 +252,7 @@
                         <viewLayoutGuide key="safeArea" id="X2P-eZ-UOH"/>
                     </view>
                     <connections>
+                        <outlet property="currentDateChevron" destination="Zku-6B-rLt" id="Vw2-aB-Apr"/>
                         <outlet property="currentDateLabel" destination="F30-rz-fSc" id="jyn-aU-Hs9"/>
                         <outlet property="datePicker" destination="NXZ-bw-5e3" id="Z2E-aO-jw6"/>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
@@ -309,4 +319,7 @@
             <point key="canvasLocation" x="2141.5999999999999" y="-563.56821589205401"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="right-chevron" width="306" height="306"/>
+    </resources>
 </document>

@@ -34,6 +34,7 @@ class TransactionDataViewController: UIViewController {
     @IBOutlet private weak var valueTextField: UITextField?
     @IBOutlet private weak var valueSignSegmentedControl: UISegmentedControl?
     @IBOutlet private weak var currentDateLabel: UILabel?
+    @IBOutlet private weak var currentDateChevron: UIImageView?
     @IBOutlet private weak var datePicker: UIDatePicker?
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
@@ -157,9 +158,13 @@ class TransactionDataViewController: UIViewController {
         if picker.isHidden {
             UIView.animate(withDuration: 0.3, animations: {
                 picker.isHidden = false
+                self.currentDateChevron?.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
             })
         } else {
             picker.isHidden = true
+            UIView.animate(withDuration: 0.3, animations: {
+                self.currentDateChevron?.transform = .identity
+            })
         }
     }
 }
