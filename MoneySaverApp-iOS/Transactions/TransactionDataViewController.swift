@@ -32,6 +32,8 @@ class TransactionDataViewController: UIViewController {
     @IBOutlet private weak var titleTextField: UITextField?
     @IBOutlet private weak var valueTextField: UITextField?
     @IBOutlet private weak var valueSignSegmentedControl: UISegmentedControl?
+    @IBOutlet private weak var currentDateLabel: UILabel?
+    @IBOutlet private weak var datePicker: UIDatePicker?
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
@@ -54,6 +56,7 @@ class TransactionDataViewController: UIViewController {
                                            target: self,
                                            action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
+        datePicker?.isHidden = true
     }
     
     private func setupInitialData() {
@@ -128,5 +131,22 @@ class TransactionDataViewController: UIViewController {
         var text = valueTextField?.text ?? ""
         text = String(text.dropFirst())
         valueTextField?.text = text
+    }
+    
+    // MARK: Transaction date
+    
+    @IBAction func currentDateTapped(_ sender: UITapGestureRecognizer) {
+        toggleDatePickerVisibility()
+    }
+    
+    private func toggleDatePickerVisibility() {
+        guard let picker = datePicker else { return }
+        if picker.isHidden {
+            UIView.animate(withDuration: 0.3, animations: {
+                picker.isHidden = false
+            })
+        } else {
+            picker.isHidden = true
+        }
     }
 }
