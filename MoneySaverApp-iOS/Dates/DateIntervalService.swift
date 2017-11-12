@@ -8,10 +8,6 @@
 
 import Foundation
 
-protocol DateIntervalService {
-    func dateInterval(forType type: DateIntervalType) -> DateInterval?
-}
-
 enum DateIntervalType {
     case today
     case currentWeek
@@ -22,6 +18,11 @@ enum DateIntervalType {
 struct TypedDateInterval {
     let dateInterval: DateInterval
     let type: DateIntervalType
+}
+
+protocol DateIntervalService {
+    func dateInterval(forType type: DateIntervalType) -> DateInterval?
+    func startOfDay(fromDate date: Date) -> Date
 }
 
 class DateIntervalServiceImpl: DateIntervalService {
@@ -47,4 +48,9 @@ class DateIntervalServiceImpl: DateIntervalService {
             return calendar.dateInterval(of: .year, for: dateProvider.currentDate())
         }
     }
+    
+    func startOfDay(fromDate date: Date) -> Date {
+        return calendar.startOfDay(for: date)
+    }
+    
 }

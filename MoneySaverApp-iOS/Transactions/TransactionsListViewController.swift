@@ -49,8 +49,16 @@ class TransactionsListViewController: UIViewController {
 // MARK: UITableViewDataSource
 extension TransactionsListViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel?.sectionsCount() ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.transactionsCount() ?? 0
+        return viewModel?.transactionsCount(inSection:  section) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel?.title(forSection: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

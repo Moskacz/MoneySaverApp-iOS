@@ -39,8 +39,20 @@ class TransactionsListViewModel {
         createFRC()
     }
     
-    func transactionsCount() -> Int {
-        return transactionsFRC?.fetchedObjects?.count ?? 0
+    func sectionsCount() -> Int {
+        return transactionsFRC?.sections?.count ?? 0
+    }
+    
+    func transactionsCount(inSection section: Int) -> Int {
+        let transactionsSection = transactionsFRC?.sections?[section]
+        return transactionsSection?.numberOfObjects ?? 0
+    }
+    
+    func title(forSection section: Int) -> String? {
+        let section = transactionsFRC?.sections?[section]
+        guard let transaction = section?.objects?.first as? TransactionManagedObject else { return nil }
+        let date = Date(timeIntervalSince1970: transaction.creationDayTimeInterval)
+        return DateFormatters.formatter(forType: .dateOnly).string(from: date)
     }
     
     func transactionCellViewModel(atPath path: IndexPath) -> TransactionCellViewModel {

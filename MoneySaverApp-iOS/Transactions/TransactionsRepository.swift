@@ -19,19 +19,24 @@ protocol TransactionsRepository {
 class TransactionsRepositoryImplementation: TransactionsRepository {
     
     private let context: NSManagedObjectContext
+    private let datesService: DateIntervalService
     private let logger: Logger
     
-    init(context: NSManagedObjectContext, logger: Logger) {
+    init(context: NSManagedObjectContext,
+         logger: Logger,
+         datesService: DateIntervalService) {
         self.context = context
         self.logger = logger
+        self.datesService = datesService
     }
     
     func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
         let fetchRequest: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationTimeInterval", ascending: false)]
+        
         return NSFetchedResultsController(fetchRequest: fetchRequest,
                                           managedObjectContext: context,
-                                          sectionNameKeyPath: nil,
+                                          sectionNameKeyPath: "creationDayTimeInterval",
                                           cacheName: nil)
     }
     
@@ -42,6 +47,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             transaction.title = data.title
             transaction.category = category
             transaction.creationTimeInterval = data.creationDate.timeIntervalSince1970
+            transaction.creationDayTimeInterval = self.datesService.startOfDay(fromDate: data.creationDate).timeIntervalSince1970
             self.saveContextIfNeeded()
         }
     }

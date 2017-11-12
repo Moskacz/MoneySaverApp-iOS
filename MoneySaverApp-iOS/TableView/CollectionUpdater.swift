@@ -11,10 +11,15 @@ import CoreData
 
 protocol CollectionUpdater {
     func beginUpdates()
+    func endUpdates()
+    
     func insertRow(at indexPaths: [IndexPath])
     func deleteRow(at indexPaths: [IndexPath])
     func move(from fromIndexPath: IndexPath, to toIndexPath: IndexPath)
     func reload(at indexPaths: [IndexPath])
-    func endUpdates()
+    
+    func insertSection(index: Int)
+    func deleteSection(index: Int)
+    
     func reloadAll()
 }

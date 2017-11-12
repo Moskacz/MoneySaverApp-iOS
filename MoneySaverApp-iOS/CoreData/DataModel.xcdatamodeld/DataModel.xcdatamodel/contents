@@ -7,6 +7,7 @@
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionManagedObject" inverseName="category" inverseEntity="TransactionManagedObject" syncable="YES"/>
     </entity>
     <entity name="TransactionManagedObject" representedClassName=".TransactionManagedObject" syncable="YES">
+        <attribute name="creationDayTimeInterval" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="creationTimeInterval" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
@@ -14,6 +15,6 @@
     </entity>
     <elements>
         <element name="TransactionCategoryManagedObject" positionX="-63" positionY="18" width="128" height="105"/>
-        <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

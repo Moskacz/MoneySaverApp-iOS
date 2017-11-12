@@ -22,6 +22,20 @@ class CoreDataCollectionUpdateHandler: NSObject, NSFetchedResultsControllerDeleg
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
+                    didChange sectionInfo: NSFetchedResultsSectionInfo,
+                    atSectionIndex sectionIndex: Int,
+                    for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            collectionUpdater.insertSection(index: sectionIndex)
+        case .delete:
+            collectionUpdater.deleteSection(index: sectionIndex)
+        case .update, .move:
+            break
+        }
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>,
                     didChange anObject: Any,
                     at indexPath: IndexPath?,
                     for type: NSFetchedResultsChangeType,

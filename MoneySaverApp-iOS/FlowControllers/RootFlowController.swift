@@ -20,6 +20,10 @@ class RootFlowController: FlowController {
     
     var animatedTransitions: Bool = true
     
+    private lazy var transactionService: TransactionsService? = {
+       return try? self.dependencyContainer.resolve()
+    }()
+    
     init(applicationDelegate: AppDelegate?,
          storyboard: UIStoryboard,
          dependencyContainer: DependencyContainer) {
@@ -114,7 +118,7 @@ class RootFlowController: FlowController {
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.categorySelectedCallback = { category in
-//            self.transactionsService.addTransaction(data: data, category: category)
+            self.transactionService?.addTransaction(data: data, category: category)
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         

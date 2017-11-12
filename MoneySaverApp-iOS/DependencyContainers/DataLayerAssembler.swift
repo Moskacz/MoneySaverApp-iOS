@@ -17,7 +17,7 @@ struct DataLayerAssembler: ContainerAssembly {
         }
         
         container.register(.singleton) {
-            TransactionsRepositoryImplementation(context: $0, logger: $1) as TransactionsRepository
+            TransactionsRepositoryImplementation(context: $0, logger: $1, datesService: $2) as TransactionsRepository
         }
         
         container.register(.singleton) {

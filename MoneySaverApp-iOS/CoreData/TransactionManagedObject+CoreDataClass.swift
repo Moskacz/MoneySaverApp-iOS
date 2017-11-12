@@ -14,4 +14,5 @@ public class TransactionManagedObject: NSManagedObject {
     
     static var valueAttributeName = "value"
     static var creationTimeIntervalAttributeName = "creationTimeInterval"
+    
 }

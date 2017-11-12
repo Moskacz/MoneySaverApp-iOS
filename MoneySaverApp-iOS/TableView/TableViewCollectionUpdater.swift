@@ -22,6 +22,14 @@ class TableViewCollectionUpdater: CollectionUpdater {
         tableView?.beginUpdates()
     }
     
+    func endUpdates() {
+        tableView?.endUpdates()
+    }
+    
+    func reloadAll() {
+        tableView?.reloadData()
+    }
+    
     func insertRow(at indexPaths: [IndexPath]) {
         tableView?.insertRows(at: indexPaths, with: .automatic)
     }
@@ -39,11 +47,11 @@ class TableViewCollectionUpdater: CollectionUpdater {
         tableView?.reloadRows(at: indexPaths, with: .automatic)
     }
     
-    func endUpdates() {
-        tableView?.endUpdates()
+    func insertSection(index: Int) {
+        tableView?.insertSections(IndexSet(integer: index), with: .automatic)
     }
     
-    func reloadAll() {
-        tableView?.reloadData()
+    func deleteSection(index: Int) {
+        tableView?.deleteSections(IndexSet(integer: index), with: .automatic)
     }
 }

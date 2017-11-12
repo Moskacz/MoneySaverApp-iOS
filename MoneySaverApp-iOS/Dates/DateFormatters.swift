@@ -12,6 +12,7 @@ enum DateFormatterType: Int {
     case monthOnly
     case yearOnly
     case dateWithTime
+    case dateOnly
 }
 
 class DateFormatters {
@@ -37,6 +38,11 @@ class DateFormatters {
         case .dateWithTime:
             formatter.dateStyle = .short
             formatter.timeStyle = .short
+            formatter.doesRelativeDateFormatting = true
+        case .dateOnly:
+            formatter.timeStyle = .none
+            formatter.dateStyle = .short
+            formatter.doesRelativeDateFormatting = true
         }
         return formatter
     }

@@ -66,6 +66,8 @@
 		35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */; };
 		35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */; };
 		35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */; };
+		35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF71FB72C2D00589F53 /* SectionModel.swift */; };
+		35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */; };
 		35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */; };
 		35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */; };
 		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
@@ -183,6 +185,8 @@
 		35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
 		35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewController.swift; sourceTree = "<group>"; };
+		35C0ECF71FB72C2D00589F53 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
+		35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionGrouper.swift; sourceTree = "<group>"; };
 		35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		35C9FEF01E8C276A0092D5E3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		35C9FEF21E8C279D0092D5E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -411,6 +415,7 @@
 		35C09DDC1E8974F800095FE2 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				35C0ECF61FB72C1400589F53 /* Grouping */,
 				35EA1A251EB6329C0083C57F /* Views */,
 				358894751E99457400ACF06C /* Mappers */,
 				35C09DDD1E89751A00095FE2 /* TransactionsService.swift */,
@@ -438,12 +443,21 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		35C0ECF61FB72C1400589F53 /* Grouping */ = {
+			isa = PBXGroup;
+			children = (
+				35C0ECF71FB72C2D00589F53 /* SectionModel.swift */,
+				35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */,
+			);
+			path = Grouping;
+			sourceTree = "<group>";
+		};
 		35C9FEEC1E8C23A90092D5E3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				3514C42A1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift */,
-				3514C42B1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift */,
 				3599F5D81F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift */,
+				3514C42B1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift */,
 				35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */,
 				35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */,
 				35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */,
@@ -654,6 +668,7 @@
 				35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */,
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
 				355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */,
+				35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				35C09DDE1E89751A00095FE2 /* TransactionsService.swift in Sources */,
@@ -670,6 +685,7 @@
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,
+				35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */,
 				3514C42C1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				35CCD4FE1FAE170900BD308E /* CurrentDateProvider.swift in Sources */,

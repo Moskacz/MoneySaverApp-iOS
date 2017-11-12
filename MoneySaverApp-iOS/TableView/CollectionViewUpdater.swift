@@ -16,25 +16,13 @@ class CollectionViewUpdater: CollectionUpdater {
         self.collectionView = collectionView
     }
     
-    func beginUpdates() {
-        
-    }
-    
-    func insertRow(at indexPaths: [IndexPath]) {
-        
-    }
-    
-    func deleteRow(at indexPaths: [IndexPath]) {
-        
-    }
-    
-    func move(from fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-        
-    }
-    
-    func reload(at indexPaths: [IndexPath]) {
-        
-    }
+    func beginUpdates() {}
+    func insertRow(at indexPaths: [IndexPath]) {}
+    func deleteRow(at indexPaths: [IndexPath]) {}
+    func move(from fromIndexPath: IndexPath, to toIndexPath: IndexPath) {}
+    func reload(at indexPaths: [IndexPath]) {}
+    func insertSection(index: Int) {}
+    func deleteSection(index: Int) {}
     
     func endUpdates() {
         collectionView?.reloadData()

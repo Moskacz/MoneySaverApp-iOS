@@ -18,6 +18,7 @@ extension TransactionManagedObject {
     }
 
     @NSManaged public var creationTimeInterval: Double
+    @NSManaged public var creationDayTimeInterval: Double
     @NSManaged public var title: String?
     @NSManaged public var value: NSDecimalNumber?
     @NSManaged public var category: TransactionCategoryManagedObject?

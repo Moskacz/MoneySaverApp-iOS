@@ -29,16 +29,14 @@ class TransactionCategoriesCollectionViewModel {
     }
     
     func loadData() {
-        service.allEntitiesFRC { [weak self] (frc) in
-            self?.categoriesFRC = frc
-            self?.categoriesFRC?.delegate = self?.collectionUpdateHandler
-            
-            do {
-                try self?.categoriesFRC?.performFetch()
-                self?.collectionUpdater?.reloadAll()
-            } catch {
-                self?.logger.log(withLevel: .error, message: error.localizedDescription)
-            }
+        categoriesFRC = service.allEntitiesFRC()
+        categoriesFRC?.delegate = collectionUpdateHandler
+        
+        do {
+            try categoriesFRC?.performFetch()
+            collectionUpdater?.reloadAll()
+        } catch {
+            logger.log(withLevel: .error, message: error.localizedDescription)
         }
     }
     
