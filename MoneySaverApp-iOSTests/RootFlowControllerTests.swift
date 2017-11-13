@@ -21,8 +21,7 @@ class RootFlowControllerTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         sut = RootFlowController(applicationDelegate: appDelegate,
                                  storyboard: storyboard,
-                                 dependencyContainer: DependencyContainer.createContainer(),
-                                 transactionsService: FakeTransactionsService())
+                                 dependencyContainer: DependencyContainer.createContainer())
     }
     
     override func tearDown() {
@@ -33,48 +32,50 @@ class RootFlowControllerTests: XCTestCase {
     
     func test_whenFlowControllerStarted_thenShouldSetNavigationWithConfiguredTabBarAsRoot() {
         sut.startFlow()
-        let navController = appDelegate.window!.rootViewController as! UINavigationController
-        let tabBar = navController.viewControllers.first as! DashboardTabBarController
-        XCTAssertTrue(tabBar.viewControllers![0] is TransactionsListViewController)
-        XCTAssertTrue(tabBar.viewControllers![1] is BudgetViewController)
-        XCTAssertTrue(tabBar.viewControllers![2] is StatsViewController)
+        let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
+        let transactionsNavCon = tabBar.viewControllers![0] as! UINavigationController
+        XCTAssertTrue(transactionsNavCon.viewControllers[0] is TransactionsListViewController)
+        let budgetNavCon = tabBar.viewControllers![1] as! UINavigationController
+        XCTAssertTrue(budgetNavCon.viewControllers[0] is BudgetViewController)
+        let statsNavCon = tabBar.viewControllers![2] as! UINavigationController
+        XCTAssertTrue(statsNavCon.viewControllers[0] is StatsViewController)
     }
     
     func test_whenAddNewButtonTapped_thenAddTransactionViewControllerEmbeddedInNavController_shouldBePresented() {
         sut.animatedTransitions = false
         sut.startFlow()
-        let navBar = appDelegate.window!.rootViewController as! UINavigationController
-        let tabBar = navBar.viewControllers.first as! DashboardTabBarController
-        let transactionsListVC = tabBar.viewControllers?.first as! TransactionsListViewController
+        let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
+        let transactionsListNavBar = tabBar.viewControllers?.first as! UINavigationController
+        let transactionsListVC = transactionsListNavBar.viewControllers[0] as! TransactionsListViewController
         transactionsListVC.newTransactionButtonTapCallback()
-        let presentedNavBar = navBar.presentedViewController as! UINavigationController
+        let presentedNavBar = tabBar.presentedViewController as! UINavigationController
         XCTAssert(presentedNavBar.viewControllers[0] is TransactionDataViewController)
     }
     
     func test_whenNextTappedOnTransactionDataVC_thenTransactionCategoryPickerShouldBePushed() {
         sut.animatedTransitions = false
         sut.startFlow()
-        let navBar = appDelegate.window!.rootViewController as! UINavigationController
-        let tabBar = navBar.viewControllers.first as! DashboardTabBarController
-        let transactionsListVC = tabBar.viewControllers?.first as! TransactionsListViewController
+        let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
+        let transactionsListNavCon = tabBar.viewControllers![0] as! UINavigationController
+        let transactionsListVC = transactionsListNavCon.viewControllers[0] as! TransactionsListViewController
         transactionsListVC.newTransactionButtonTapCallback()
-        let presentedNavBar = navBar.presentedViewController as! UINavigationController
+        let presentedNavBar = tabBar.presentedViewController as! UINavigationController
         let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
-        addTransactionVC.dataEnteredCallback(TransactionData(title: "", value: Decimal()))
+        addTransactionVC.dataEnteredCallback(TransactionData(title: "", value: Decimal(), creationDate: Date()))
         XCTAssert(presentedNavBar.viewControllers[1] is TransactionCategoriesCollectionViewController)
     }
     
     func test_whenUserCancelsAddingNewTransaction_thenAddTransactionVCShouldBeDismissed() {
         sut.animatedTransitions = false
         sut.startFlow()
-        let navBar = appDelegate.window!.rootViewController as! UINavigationController
-        let tabBar = navBar.viewControllers.first as! DashboardTabBarController
-        let transactionsListVC = tabBar.viewControllers?.first as! TransactionsListViewController
+        let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
+        let transactionsListNavCon = tabBar.viewControllers![0] as! UINavigationController
+        let transactionsListVC = transactionsListNavCon.viewControllers[0] as! TransactionsListViewController
         transactionsListVC.newTransactionButtonTapCallback()
-        let presentedNavBar = navBar.presentedViewController as! UINavigationController
+        let presentedNavBar = tabBar.presentedViewController as! UINavigationController
         let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
         addTransactionVC.cancelButtonTapped()
-        expectation(for: NSPredicate(format: "presentedViewController == nil"), evaluatedWith: navBar, handler: nil)
+        expectation(for: NSPredicate(format: "presentedViewController == nil"), evaluatedWith: tabBar, handler: nil)
         waitForExpectations(timeout: 1.0, handler: nil)
     }
     

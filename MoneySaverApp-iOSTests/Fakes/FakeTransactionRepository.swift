@@ -11,6 +11,9 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsRepository: TransactionsRepository {
-    func allDataFRC(completion: @escaping ((NSFetchedResultsController<TransactionManagedObject>) -> Void)) {}
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
+        return NSFetchedResultsController()
+    }
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {}
+    func remove(transaction: TransactionManagedObject) {}
 }

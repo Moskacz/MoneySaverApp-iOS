@@ -10,6 +10,7 @@ import Foundation
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsService: TransactionsService {
+    func remove(transaction: TransactionManagedObject) {}
     func getRepository() -> TransactionsRepository {
         return FakeTransactionsRepository()
     }
