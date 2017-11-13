@@ -14,13 +14,13 @@ protocol DateIntervalPickerViewModelDelegate: class {
 
 class DateIntervalPickerViewModel {
     
-    private let dateIntervalService: DateIntervalService
+    private let calendarService: CalendarService
     private var computingService: TransactionsComputingService
     private var viewModels = [DateIntervalCellViewModel]()
     weak var delegate: DateIntervalPickerViewModelDelegate?
     
-    init(dateIntervalService: DateIntervalService, computingService: TransactionsComputingService) {
-        self.dateIntervalService = dateIntervalService
+    init(calendarService: CalendarService, computingService: TransactionsComputingService) {
+        self.calendarService = calendarService
         self.computingService = computingService
         self.computingService.delegate = self
         createInitialViewModels()
@@ -33,7 +33,7 @@ class DateIntervalPickerViewModel {
     private func createViewModels(transactionSum: CompoundTransactionsSum) {
         let intervals: [DateIntervalType] = [.today, .currentWeek, .currentMonth, .currentYear]
         self.viewModels = intervals.flatMap { (type) in
-            guard let interval = self.dateIntervalService.dateInterval(forType: type) else { return nil }
+            guard let interval = self.calendarService.dateInterval(forType: type) else { return nil }
             let typedInterval = TypedDateInterval(dateInterval: interval, type: type)
             return DateIntervalCellViewModelImpl(dateInterval: typedInterval,
                                                  sum: transactionSum.sum(forDateInterval: type))

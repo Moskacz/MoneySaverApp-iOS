@@ -25,12 +25,12 @@ struct ModelsAssembler: ContainerAssembly {
         container.register {
             TransactionsComputingServiceImpl(context: $0,
                                              notificationCenter: $1,
-                                             dateIntervalService: $2,
+                                             calendarService: $2,
                                              logger: $3) as TransactionsComputingService
         }
         
         container.register {
-            DateIntervalServiceImpl() as DateIntervalService
+            CalendarServiceImpl() as CalendarService
         }
     }
 }

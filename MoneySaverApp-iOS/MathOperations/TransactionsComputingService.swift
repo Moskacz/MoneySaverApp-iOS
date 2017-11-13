@@ -46,18 +46,18 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
 
     private let context: NSManagedObjectContext
     private let notificationCenter: NotificationCenter
-    private let dateIntervalService: DateIntervalService
+    private let calendarService: CalendarService
     private let logger: Logger
     
     weak var delegate: TransactionsComputingServiceDelegate?
     
     init(context: NSManagedObjectContext,
          notificationCenter: NotificationCenter,
-         dateIntervalService: DateIntervalService,
+         calendarService: CalendarService,
          logger: Logger) {
         self.context = context
         self.notificationCenter = notificationCenter
-        self.dateIntervalService = dateIntervalService
+        self.calendarService = calendarService
         self.logger = logger
         setupNotificationsObservers()
     }
@@ -101,7 +101,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private func filteredTransactions(_ transactions: [TransactionManagedObject],
                                       forDateInterval type: DateIntervalType) -> [TransactionManagedObject] {
-        guard let dateInterval = dateIntervalService.dateInterval(forType: type) else {
+        guard let dateInterval = calendarService.dateInterval(forType: type) else {
             return []
         }
         

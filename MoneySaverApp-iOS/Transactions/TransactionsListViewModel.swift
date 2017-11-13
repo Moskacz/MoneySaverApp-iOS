@@ -29,7 +29,7 @@ class TransactionsListViewModel {
     }
     
     func dateIntervalsPickerViewModel() -> DateIntervalPickerViewModel {
-        return DateIntervalPickerViewModel(dateIntervalService: DateIntervalServiceImpl(),
+        return DateIntervalPickerViewModel(calendarService: CalendarServiceImpl(),
                                            computingService: transactionsComputingService)
     }
     

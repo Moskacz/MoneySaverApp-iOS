@@ -19,15 +19,15 @@ protocol TransactionsRepository {
 class TransactionsRepositoryImplementation: TransactionsRepository {
     
     private let context: NSManagedObjectContext
-    private let datesService: DateIntervalService
+    private let calendarService: CalendarService
     private let logger: Logger
     
     init(context: NSManagedObjectContext,
          logger: Logger,
-         datesService: DateIntervalService) {
+         calendarService: CalendarService) {
         self.context = context
         self.logger = logger
-        self.datesService = datesService
+        self.calendarService = calendarService
     }
     
     func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
@@ -47,7 +47,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             transaction.title = data.title
             transaction.category = category
             transaction.creationTimeInterval = data.creationDate.timeIntervalSince1970
-            transaction.creationDayTimeInterval = self.datesService.startOfDay(fromDate: data.creationDate).timeIntervalSince1970
+            transaction.creationDayTimeInterval = self.calendarService.startOfDay(fromDate: data.creationDate).timeIntervalSince1970
             self.saveContextIfNeeded()
         }
     }

@@ -20,12 +20,12 @@ struct TypedDateInterval {
     let type: DateIntervalType
 }
 
-protocol DateIntervalService {
+protocol CalendarService {
     func dateInterval(forType type: DateIntervalType) -> DateInterval?
     func startOfDay(fromDate date: Date) -> Date
 }
 
-class DateIntervalServiceImpl: DateIntervalService {
+class CalendarServiceImpl: CalendarService {
     
     private var calendar: Calendar
     private let dateProvider: CurrentDateProvider
