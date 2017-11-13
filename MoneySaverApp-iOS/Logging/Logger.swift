@@ -19,3 +19,7 @@ enum LogLevel {
 protocol Logger {
     func log(withLevel level: LogLevel, message: String)
 }
+
+class NullLogger: Logger {
+    func log(withLevel level: LogLevel, message: String) {}
+}
