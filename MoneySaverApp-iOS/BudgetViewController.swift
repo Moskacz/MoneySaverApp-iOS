@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Charts
 
 class BudgetViewController: UIViewController {
+    
+    @IBOutlet private weak var pieChart: PieChartView?
     
     override var tabBarItem: UITabBarItem! {
         get {
@@ -17,4 +20,19 @@ class BudgetViewController: UIViewController {
         set {}
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupPieChart()
+    }
+    
+    private func setupPieChart() {
+        let values = [PieChartDataEntry(value: 1, label: "1"),
+                      PieChartDataEntry(value: 2, label: "3"),
+                      PieChartDataEntry(value: 3, label: "2")]
+        let dataSet = PieChartDataSet(values: values, label: "data set")
+        dataSet.colors = [UIColor.blue, UIColor.orange, UIColor.red]
+        pieChart?.data = PieChartData(dataSet: dataSet)
+        pieChart?.holeColor = UIColor.clear
+        pieChart?.notifyDataSetChanged()
+    }
 }
