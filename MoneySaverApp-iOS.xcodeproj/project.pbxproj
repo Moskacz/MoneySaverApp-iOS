@@ -622,6 +622,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Dip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/MoneySaverFoundationiOS.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 			);
 			outputPaths = (
 			);
