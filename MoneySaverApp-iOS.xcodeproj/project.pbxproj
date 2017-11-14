@@ -18,7 +18,6 @@
 		3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
 		352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
-		352B030B1E92BD1B001B99CB /* Dip.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B030D1E92BE13001B99CB /* DependencyContainerConfigurator.swift */; };
 		352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B030F1E92BF20001B99CB /* ContainerAssembly.swift */; };
 		352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03111E92BF63001B99CB /* NetworkingLayerAssembler.swift */; };
@@ -50,7 +49,6 @@
 		35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */; };
 		35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACE1EC8BFBB007E3A53 /* Logger.swift */; };
 		35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; };
-		35B5CACC1E883D7B00D1990E /* MoneySaverFoundationiOS.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */; };
 		35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1831F923CB00059A1CC /* TransactionCategoryView.swift */; };
 		35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */; };
@@ -103,20 +101,6 @@
 			remoteInfo = "MoneySaverApp-iOS";
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		35C233E51E81AAA30095AFFE /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				352B030B1E92BD1B001B99CB /* Dip.framework in CopyFiles */,
-				35B5CACC1E883D7B00D1990E /* MoneySaverFoundationiOS.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		350F0F601E9564F3002ED5D7 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
@@ -526,7 +510,7 @@
 				35BB97161E7F085F003DBA41 /* Sources */,
 				35BB97171E7F085F003DBA41 /* Frameworks */,
 				35BB97181E7F085F003DBA41 /* Resources */,
-				35C233E51E81AAA30095AFFE /* CopyFiles */,
+				35BBEBAD1FBB8830002CF520 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -628,6 +612,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		35BBEBAD1FBB8830002CF520 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Dip.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/MoneySaverFoundationiOS.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		35BB97161E7F085F003DBA41 /* Sources */ = {
