@@ -11,6 +11,7 @@ import Charts
 
 class BudgetViewController: UIViewController {
     
+    @IBOutlet private weak var stackView: UIStackView?
     @IBOutlet private weak var pieChart: PieChartView?
     
     override var tabBarItem: UITabBarItem! {
@@ -34,5 +35,18 @@ class BudgetViewController: UIViewController {
         pieChart?.data = PieChartData(dataSet: dataSet)
         pieChart?.holeColor = UIColor.clear
         pieChart?.notifyDataSetChanged()
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection,
+                                 with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        coordinator.animate(alongsideTransition: { [weak self] (_) in
+            switch newCollection.verticalSizeClass {
+            case .compact, .unspecified:
+                self?.stackView?.axis = .horizontal
+            case .regular:
+                self?.stackView?.axis = .vertical
+            }
+        }, completion: nil)
     }
 }

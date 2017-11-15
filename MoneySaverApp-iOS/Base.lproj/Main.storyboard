@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,24 +94,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ak-Zj-gke" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="24" y="44" width="327" height="327"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="5ak-Zj-gke" secondAttribute="height" id="zrH-yx-vHu"/>
-                                </constraints>
-                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yoT-UC-WxC">
+                                <rect key="frame" x="8" y="28" width="359" height="631"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-X8-nyH" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="315.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWS-3K-xkh">
+                                        <rect key="frame" x="0.0" y="315.5" width="359" height="315.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.81088837942325842" blue="0.44950911477957656" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="5ak-Zj-gke" firstAttribute="top" secondItem="LGe-DS-nCM" secondAttribute="top" constant="24" id="P1R-sP-X1T"/>
-                            <constraint firstItem="LGe-DS-nCM" firstAttribute="trailing" secondItem="5ak-Zj-gke" secondAttribute="trailing" constant="24" id="Ydz-gq-3C6"/>
-                            <constraint firstItem="5ak-Zj-gke" firstAttribute="leading" secondItem="LGe-DS-nCM" secondAttribute="leading" constant="24" id="aYT-gq-mOE"/>
+                            <constraint firstItem="LGe-DS-nCM" firstAttribute="trailing" secondItem="yoT-UC-WxC" secondAttribute="trailing" constant="8" id="BVP-W1-uL0"/>
+                            <constraint firstItem="yoT-UC-WxC" firstAttribute="leading" secondItem="LGe-DS-nCM" secondAttribute="leading" constant="8" id="Giw-EO-JMT"/>
+                            <constraint firstItem="yoT-UC-WxC" firstAttribute="top" secondItem="LGe-DS-nCM" secondAttribute="top" constant="8" id="LlE-it-ObG"/>
+                            <constraint firstItem="LGe-DS-nCM" firstAttribute="bottom" secondItem="yoT-UC-WxC" secondAttribute="bottom" constant="8" id="fq7-7A-4ww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGe-DS-nCM"/>
                     </view>
                     <connections>
-                        <outlet property="pieChart" destination="5ak-Zj-gke" id="d4n-zF-4wN"/>
+                        <outlet property="pieChart" destination="kWY-X8-nyH" id="0fm-l4-z1r"/>
+                        <outlet property="stackView" destination="yoT-UC-WxC" id="8sS-1N-mlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifx-eI-JqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
