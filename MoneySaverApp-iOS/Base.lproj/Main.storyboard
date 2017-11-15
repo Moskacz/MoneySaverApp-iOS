@@ -101,7 +101,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="359" height="315.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWS-3K-xkh">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWS-3K-xkh" customClass="CombinedChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="315.5" width="359" height="315.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -118,6 +118,7 @@
                         <viewLayoutGuide key="safeArea" id="LGe-DS-nCM"/>
                     </view>
                     <connections>
+                        <outlet property="combinedChart" destination="aWS-3K-xkh" id="5eI-Ac-qs7"/>
                         <outlet property="pieChart" destination="kWY-X8-nyH" id="0fm-l4-z1r"/>
                         <outlet property="stackView" destination="yoT-UC-WxC" id="8sS-1N-mlK"/>
                     </connections>

@@ -13,6 +13,7 @@ class BudgetViewController: UIViewController {
     
     @IBOutlet private weak var stackView: UIStackView?
     @IBOutlet private weak var pieChart: PieChartView?
+    @IBOutlet private weak var combinedChart: CombinedChartView?
     
     override var tabBarItem: UITabBarItem! {
         get {
@@ -24,6 +25,7 @@ class BudgetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupPieChart()
+        setupCombinedChart()
     }
     
     private func setupPieChart() {
@@ -35,6 +37,26 @@ class BudgetViewController: UIViewController {
         pieChart?.data = PieChartData(dataSet: dataSet)
         pieChart?.holeColor = UIColor.clear
         pieChart?.notifyDataSetChanged()
+    }
+    
+    private func setupCombinedChart() {
+        let data = CombinedChartData()
+        let barEntries = [BarChartDataEntry(x: 0, y: 1),
+                          BarChartDataEntry(x: 1, y: 2),
+                          BarChartDataEntry(x: 2, y: 3)]
+        let barDataSet = BarChartDataSet(values: barEntries, label: "bar")
+        barDataSet.barBorderColor = UIColor.red
+        data.barData = BarChartData(dataSet: barDataSet)
+        
+        let lineEntries = [ChartDataEntry(x: 0, y: 1),
+                           ChartDataEntry(x: 1, y: 2),
+                           ChartDataEntry(x: 2, y: 3)]
+        let lineDataSet = LineChartDataSet(values: lineEntries, label: "line")
+        lineDataSet.colors = [UIColor.orange]
+        data.lineData = LineChartData(dataSet: lineDataSet)
+        
+        combinedChart?.data = data
+        combinedChart?.notifyDataSetChanged()
     }
     
     override func willTransition(to newCollection: UITraitCollection,
