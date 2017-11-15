@@ -330,6 +330,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35C853921FBCC84300A7E479 /* Budget */,
 				35D7C4121FAC9C0F0052BAD6 /* Dates */,
 				356D0EAF1F8C00BB00378362 /* Errors */,
 				353DF8551F84011700EF6F70 /* TransactionCategory */,
@@ -353,7 +354,6 @@
 				35BB97291E7F0860003DBA41 /* Info.plist */,
 				355509C61F7831F20007FEF1 /* SynchronizationService.swift */,
 				355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */,
-				355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */,
 				355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */,
 			);
 			path = "MoneySaverApp-iOS";
@@ -425,6 +425,14 @@
 				35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */,
 			);
 			path = Grouping;
+			sourceTree = "<group>";
+		};
+		35C853921FBCC84300A7E479 /* Budget */ = {
+			isa = PBXGroup;
+			children = (
+				355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */,
+			);
+			path = Budget;
 			sourceTree = "<group>";
 		};
 		35C9FEEC1E8C23A90092D5E3 /* CoreData */ = {
