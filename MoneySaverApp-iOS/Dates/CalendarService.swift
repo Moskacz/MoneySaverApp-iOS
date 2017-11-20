@@ -22,7 +22,11 @@ struct TypedDateInterval {
 
 protocol CalendarService {
     func dateInterval(forType type: DateIntervalType) -> DateInterval?
-    func startOfDay(fromDate date: Date) -> Date
+    func year(ofDate date: Date) -> Int
+    func month(ofDate date: Date) -> Int
+    func weekOfYear(ofDate date: Date) -> Int
+    func day(ofDate date: Date) -> Int
+    func dayOfYear(ofDate date: Date) -> Int
 }
 
 class CalendarServiceImpl: CalendarService {
@@ -49,8 +53,24 @@ class CalendarServiceImpl: CalendarService {
         }
     }
     
-    func startOfDay(fromDate date: Date) -> Date {
-        return calendar.startOfDay(for: date)
+    func year(ofDate date: Date) -> Int {
+        return calendar.component(.year, from: date)
+    }
+    
+    func month(ofDate date: Date) -> Int {
+        return calendar.component(.month, from: date)
+    }
+    
+    func weekOfYear(ofDate date: Date) -> Int {
+        return calendar.component(.weekOfYear, from: date)
+    }
+    
+    func day(ofDate date: Date) -> Int {
+        return calendar.component(.day, from: date)
+    }
+    
+    func dayOfYear(ofDate date: Date) -> Int {
+        return calendar.ordinality(of: .day, in: .year, for: date) ?? 0
     }
     
 }

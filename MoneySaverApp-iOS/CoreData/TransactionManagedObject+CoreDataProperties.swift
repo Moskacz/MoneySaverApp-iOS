@@ -20,11 +20,11 @@ extension TransactionManagedObject {
     @NSManaged public var creationTimeInterval: Double
     @NSManaged public var title: String?
     @NSManaged public var value: NSDecimalNumber?
-    @NSManaged public var dayOfYear: Int64
-    @NSManaged public var weekOfYear: Int64
-    @NSManaged public var month: Int64
-    @NSManaged public var year: Int64
-    @NSManaged public var day: Int64
+    @NSManaged public var dayOfYear: Int32
+    @NSManaged public var weekOfYear: Int32
+    @NSManaged public var month: Int32
+    @NSManaged public var year: Int32
+    @NSManaged public var day: Int32
     @NSManaged public var category: TransactionCategoryManagedObject?
 
 }

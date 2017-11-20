@@ -36,18 +36,22 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         
         return NSFetchedResultsController(fetchRequest: fetchRequest,
                                           managedObjectContext: context,
-                                          sectionNameKeyPath: "creationDayTimeInterval",
+                                          sectionNameKeyPath: "dayOfYear",
                                           cacheName: nil)
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
         context.perform {
             let transaction = TransactionManagedObject.createEntity(inContext: self.context)
-            transaction.value = data.value as NSDecimalNumber
-            transaction.title = data.title
-            transaction.category = category
             transaction.creationTimeInterval = data.creationDate.timeIntervalSince1970
-            
+            transaction.day = Int32(self.calendarService.day(ofDate: data.creationDate))
+            transaction.dayOfYear = Int32(self.calendarService.dayOfYear(ofDate: data.creationDate))
+            transaction.month = Int32(self.calendarService.month(ofDate: data.creationDate))
+            transaction.title = data.title
+            transaction.value = data.value as NSDecimalNumber
+            transaction.weekOfYear = Int32(self.calendarService.weekOfYear(ofDate: data.creationDate))
+            transaction.year = Int32(self.calendarService.year(ofDate: data.creationDate))
+            transaction.category = category
             self.saveContextIfNeeded()
         }
     }
