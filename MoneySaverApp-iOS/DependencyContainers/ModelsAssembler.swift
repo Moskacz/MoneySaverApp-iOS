@@ -23,7 +23,7 @@ struct ModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            TransactionsComputingServiceImpl(context: $0,
+            TransactionsComputingServiceImpl(repository: $0,
                                              notificationCenter: $1,
                                              calendarService: $2,
                                              logger: $3) as TransactionsComputingService

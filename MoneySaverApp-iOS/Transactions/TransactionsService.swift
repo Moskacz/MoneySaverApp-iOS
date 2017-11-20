@@ -8,9 +8,10 @@
 
 import Foundation
 import MoneySaverFoundationiOS
+import CoreData
 
 protocol TransactionsService {
-    func getRepository() -> TransactionsRepository
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject>
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
 }
@@ -29,8 +30,14 @@ class TransactionsServiceImpl: TransactionsService {
         self.logger = logger
     }
     
-    func getRepository() -> TransactionsRepository {
-        return repository
+    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
+        let transactionsFR = repository.fetchRequest
+        transactionsFR.sortDescriptors = [repository.sortDescriptor]
+        
+        return NSFetchedResultsController(fetchRequest: transactionsFR,
+                                          managedObjectContext: repository.context,
+                                          sectionNameKeyPath: "dayOfYear",
+                                          cacheName: nil)
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {

@@ -10,51 +10,44 @@ import Foundation
 import CoreData
 
 protocol TransactionsComputingService  {
+    func sum() -> TransactionsCompoundSum
     func add(delegate: TransactionsComputingServiceDelegate?)
-    func transactionsSum() -> CompoundTransactionsSum
 }
 
 protocol TransactionsComputingServiceDelegate: class {
-    func sumUpdated(value: CompoundTransactionsSum)
+    func sumUpdated(sum: TransactionsCompoundSum)
 }
 
-struct CompoundTransactionsSum {
-    let todaySum: Decimal
-    let weekSum: Decimal
-    let monthSum: Decimal
-    let yearSum: Decimal
+struct TransactionsSum {
+    let incomes: Decimal
+    let expenses: Decimal
+    let dateComponent: TransactionDateComponent
     
-    static var zero: CompoundTransactionsSum {
-        return CompoundTransactionsSum(todaySum: 0, weekSum: 0, monthSum: 0, yearSum: 0)
+    func total() -> Decimal {
+        return incomes + expenses
     }
-    
-    func sum(forDateInterval type: DateIntervalType) -> Decimal {
-        switch type {
-        case .today:
-            return todaySum
-        case .currentWeek:
-            return weekSum
-        case .currentMonth:
-            return monthSum
-        case .currentYear:
-            return yearSum
-        }
-    }
+}
+
+struct TransactionsCompoundSum {
+    let daily: TransactionsSum
+    let weekly: TransactionsSum
+    let monthly: TransactionsSum
+    let yearly: TransactionsSum
 }
 
 class TransactionsComputingServiceImpl: TransactionsComputingService {
-
-    private let context: NSManagedObjectContext
+    
+    private let repository: TransactionsRepository
     private let notificationCenter: NotificationCenter
     private let calendarService: CalendarService
     private let logger: Logger
     private var delegates = [TransactionsComputingServiceDelegate]()
     
-    init(context: NSManagedObjectContext,
+    init(repository: TransactionsRepository,
          notificationCenter: NotificationCenter,
          calendarService: CalendarService,
          logger: Logger) {
-        self.context = context
+        self.repository = repository
         self.notificationCenter = notificationCenter
         self.calendarService = calendarService
         self.logger = logger
@@ -63,60 +56,56 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private func setupNotificationsObservers() {
         let notification = Notification.Name.NSManagedObjectContextDidSave
-        notificationCenter.addObserver(forName: notification, object: context, queue: OperationQueue.main) { (_) in
-            self.notifyDelegate(withSum: self.transactionsSum())
+        notificationCenter.addObserver(forName: notification, object: repository.context, queue: OperationQueue.main) { (_) in
+            self.notifyDelegates(withSum: self.sum())
         }
     }
     
     func add(delegate: TransactionsComputingServiceDelegate?) {
-        guard let delegate = delegate else { return }
-        delegates.append(delegate)
+        if let del = delegate {
+            delegates.append(del)
+        }
     }
     
-    func transactionsSum() -> CompoundTransactionsSum {
-        let fetchRequest: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
-        fetchRequest.propertiesToFetch = [TransactionManagedObject.valueAttributeName,
-                                          TransactionManagedObject.creationTimeIntervalAttributeName]
-        fetchRequest.includesPropertyValues = true
-        
+    func sum() -> TransactionsCompoundSum {
+        return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .day),
+                                       weekly: transactionsSum(forDateComponent: .weekOfYear),
+                                       monthly: transactionsSum(forDateComponent: .month),
+                                       yearly: transactionsSum(forDateComponent: .year))
+    }
+    
+    private func transactionsSum(forDateComponent component: TransactionDateComponent) -> TransactionsSum {
+        let entities = transactions(forDateComponent: component)
+        return sum(transactions: entities, dateComponent: component)
+    }
+    
+    private func transactions(forDateComponent component: TransactionDateComponent) -> [TransactionManagedObject] {
+        let request = repository.fetchRequest
+        request.propertiesToFetch = ["value"]
+        request.includesPropertyValues = true
+        request.predicate = repository.predicate(forDateComponent: component)
+        print(request.predicate)
         do {
-            let transactions = try context.fetch(fetchRequest)
-            return compoundSum(fromTransactions: transactions)
+            return try repository.context.fetch(request)
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
-            return CompoundTransactionsSum.zero
-        }
-    }
-    
-    private func compoundSum(fromTransactions transactions: [TransactionManagedObject]) -> CompoundTransactionsSum {
-        let year = value(ofTransactions: filteredTransactions(transactions, forDateInterval: .currentYear))
-        let month = value(ofTransactions: filteredTransactions(transactions, forDateInterval: .currentMonth))
-        let week = value(ofTransactions: filteredTransactions(transactions, forDateInterval: .currentWeek))
-        let today = value(ofTransactions: filteredTransactions(transactions, forDateInterval: .today))
-        return CompoundTransactionsSum(todaySum: today, weekSum: week, monthSum: month, yearSum: year)
-    }
-    
-    private func value(ofTransactions transactions: [TransactionManagedObject]) -> Decimal {
-        return transactions.reduce(Decimal(0), { (result, transaction) -> Decimal in
-            let transactionValue = (transaction.value ?? NSDecimalNumber.zero) as Decimal
-            return result + transactionValue
-        })
-    }
-    
-    private func filteredTransactions(_ transactions: [TransactionManagedObject],
-                                      forDateInterval type: DateIntervalType) -> [TransactionManagedObject] {
-        guard let dateInterval = calendarService.dateInterval(forType: type) else {
             return []
         }
-        
-        return transactions.filter {
-            dateInterval.contains(Date(timeIntervalSince1970: $0.creationTimeInterval))
+    }
+    
+    private func sum(transactions: [TransactionManagedObject], dateComponent: TransactionDateComponent) -> TransactionsSum {
+        let values = transactions.map { $0.value?.doubleValue ?? 0 }
+        let incomes = values.filter { $0 > 0 }.reduce(0, +)
+        let expenses = values.filter { $0 < 0 }.reduce(0, +)
+        return TransactionsSum(incomes: Decimal(incomes),
+                               expenses: Decimal(expenses),
+                               dateComponent: dateComponent)
+    }
+    
+    private func notifyDelegates(withSum sum: TransactionsCompoundSum) {
+        for delegate in delegates {
+            delegate.sumUpdated(sum: sum)
         }
     }
     
-    private func notifyDelegate(withSum sum: CompoundTransactionsSum) {
-        for delegate in delegates {
-            delegate.sumUpdated(value: sum)
-        }
-    }
 }

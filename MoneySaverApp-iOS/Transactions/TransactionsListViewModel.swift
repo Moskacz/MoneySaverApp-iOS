@@ -77,7 +77,7 @@ class TransactionsListViewModel {
     }
     
     private func createFRC() {
-        transactionsFRC = transactionsService.getRepository().allDataFRC()
+        transactionsFRC = transactionsService.allDataFRC()
         transactionsFRC?.delegate = collectionUpdateHandler
         do {
             try transactionsFRC?.performFetch()

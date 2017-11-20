@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="152" width="375" height="515"/>
+                                <rect key="frame" x="0.0" y="177" width="375" height="490"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
@@ -26,10 +26,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-f9-ZV4" customClass="DateIntervalPickerView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="36" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="36" width="375" height="125"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-6V-dDy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L5p-R9-bVi">
                                             <size key="itemSize" width="50" height="50"/>
@@ -48,7 +48,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="aUm-6V-dDy" secondAttribute="bottom" constant="8" id="73h-l3-H6c"/>
                                     <constraint firstItem="aUm-6V-dDy" firstAttribute="leading" secondItem="FZ1-f9-ZV4" secondAttribute="leading" id="cOd-tv-7I5"/>
-                                    <constraint firstAttribute="height" constant="100" id="eD7-hl-ORQ"/>
+                                    <constraint firstAttribute="height" constant="125" id="eD7-hl-ORQ"/>
                                     <constraint firstItem="aUm-6V-dDy" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="top" id="qcz-wb-YGS"/>
                                     <constraint firstAttribute="trailing" secondItem="aUm-6V-dDy" secondAttribute="trailing" id="ujh-GL-YPu"/>
                                 </constraints>

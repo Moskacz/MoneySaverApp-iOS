@@ -18,24 +18,30 @@
                 <rect key="frame" x="0.0" y="0.0" width="267" height="220"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-qc-GFw">
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gnv-qc-GFw">
                         <rect key="frame" x="8" y="8" width="226" height="151"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="257" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhn-2V-aag">
-                                <rect key="frame" x="0.0" y="0.0" width="251" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="240$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-Dz-MeH">
-                                <rect key="frame" x="0.0" y="28.5" width="251" height="153"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="259" text="1.10 - 7.10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUO-bR-HHV">
-                                <rect key="frame" x="0.0" y="189.5" width="251" height="14.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="251" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incomes: +200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sE8-Il-0TP">
+                                <rect key="frame" x="0.0" y="56" width="251" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.19236100606147044" green="0.75876376295336789" blue="0.21746423362193118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses: -300" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Ue-Ik-ZvP">
+                                <rect key="frame" x="0.0" y="112" width="251" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="0.4231500164" blue="0.41794321109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: -100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi1-Dz-MeH">
+                                <rect key="frame" x="0.0" y="168" width="251" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -47,15 +53,16 @@
             <constraints>
                 <constraint firstItem="Gnv-qc-GFw" firstAttribute="leading" secondItem="muc-GC-sVn" secondAttribute="leading" constant="8" id="OKO-Vp-9Hr"/>
                 <constraint firstAttribute="trailing" secondItem="Gnv-qc-GFw" secondAttribute="trailing" constant="8" id="fwB-Rm-bne"/>
-                <constraint firstItem="Gnv-qc-GFw" firstAttribute="top" secondItem="muc-GC-sVn" secondAttribute="top" constant="8" id="tzo-Q3-uVv"/>
-                <constraint firstAttribute="bottom" secondItem="Gnv-qc-GFw" secondAttribute="bottom" constant="8" id="v1J-4U-ubo"/>
+                <constraint firstItem="Gnv-qc-GFw" firstAttribute="top" secondItem="muc-GC-sVn" secondAttribute="top" id="tzo-Q3-uVv"/>
+                <constraint firstAttribute="bottom" secondItem="Gnv-qc-GFw" secondAttribute="bottom" id="v1J-4U-ubo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="7Ko-JV-qHb"/>
             <size key="customSize" width="267" height="220"/>
             <connections>
-                <outlet property="descriptionLabel" destination="TUO-bR-HHV" id="hE3-Fj-prt"/>
-                <outlet property="sumLabel" destination="Pi1-Dz-MeH" id="tD3-2W-1cU"/>
+                <outlet property="expensesSumLabel" destination="6Ue-Ik-ZvP" id="M3V-oz-CTM"/>
+                <outlet property="incomesSumLabel" destination="sE8-Il-0TP" id="3tM-h7-GXv"/>
                 <outlet property="titleLabel" destination="fhn-2V-aag" id="YNt-B4-bu1"/>
+                <outlet property="totalSumLabel" destination="Pi1-Dz-MeH" id="R6J-EO-P2Z"/>
             </connections>
             <point key="canvasLocation" x="422" y="619"/>
         </collectionViewCell>

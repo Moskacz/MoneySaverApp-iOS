@@ -25,21 +25,25 @@ class BudgetViewModel {
     }
     
     func pieChartData() -> PieChartData {
-        return pieChartData(withTransactionsSum: computingService.transactionsSum())
+        return pieChartData(sum: computingService.sum().monthly)
     }
     
-    private func pieChartData(withTransactionsSum sum: CompoundTransactionsSum) -> PieChartData {
-        let spentMoneyEntry = PieChartDataEntry(value: sum.monthSum.double, label: "Spent")
-        let leftSum = max(Double(3000) - sum.monthSum.double, 0)
+    private func pieChartData(sum: TransactionsSum) -> PieChartData {
+        let spentMoneyEntry = PieChartDataEntry(value: sum.total().double, label: "Spent")
+        let leftSum = max(Double(3000) - sum.total().double, 0)
         let leftMoneyEntry = PieChartDataEntry(value: leftSum, label: "Left")
         let dataSet = PieChartDataSet(values: [spentMoneyEntry, leftMoneyEntry], label: nil)
         dataSet.colors = [UIColor.red, UIColor.green]
         return PieChartData(dataSet: dataSet)
     }
+    
+    private func monthlySum(fromSums sums: [TransactionsSum]) -> TransactionsSum? {
+        return sums.first { $0.dateComponent == .month }
+    }
 }
 
 extension BudgetViewModel: TransactionsComputingServiceDelegate {
-    func sumUpdated(value: CompoundTransactionsSum) {
-        delegate?.pieChartDataUpdated(pieChartData(withTransactionsSum: value))
+    func sumUpdated(sum: TransactionsCompoundSum) {
+        delegate?.pieChartDataUpdated(pieChartData(sum: sum.monthly))
     }
 }

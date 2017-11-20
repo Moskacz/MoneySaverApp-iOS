@@ -10,41 +10,37 @@ import Foundation
 
 class DateIntervalCellViewModelImpl: DateIntervalCellViewModel {
     
-    private let dateInterval: TypedDateInterval
-    private let sum: Decimal
-
-    init(dateInterval: TypedDateInterval, sum: Decimal) {
-        self.dateInterval = dateInterval
+    private let sum: TransactionsSum
+    
+    init(sum: TransactionsSum) {
         self.sum = sum
     }
     
     func intervalTitle() -> String? {
-        switch dateInterval.type {
-        case .today:
+        switch sum.dateComponent {
+        case .day:
             return "Today"
-        case .currentWeek:
-            return "Week"
-        case .currentMonth:
-            return "Month"
-        case .currentYear:
-            return "Year"
-        }
-    }
-    
-    func intervalDescription() -> String? {
-        switch dateInterval.type {
-        case .today, .currentWeek:
+        case .weekOfYear:
+            return "This week"
+        case .month:
+            return "This month"
+        case .year:
+            return "This year"
+        case .dayOfYear:
             return nil
-        case .currentMonth:
-            let formatter = DateFormatters.formatter(forType: .monthOnly)
-            return formatter.string(from: dateInterval.dateInterval.start)
-        case .currentYear:
-            let formatter = DateFormatters.formatter(forType: .yearOnly)
-            return formatter.string(from: dateInterval.dateInterval.start)
         }
     }
     
-    func transactionsSum() -> String? {
-        return "\(sum)"
+    func incomesSum() -> String? {
+        return "+\(sum.incomes)"
     }
+    
+    func expensesSum() -> String? {
+        return "\(sum.expenses)"
+    }
+    
+    func totalSum() -> String? {
+        return "\(sum.total())"
+    }
+    
 }

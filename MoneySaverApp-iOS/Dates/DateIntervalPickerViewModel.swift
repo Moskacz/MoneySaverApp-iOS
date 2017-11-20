@@ -27,17 +27,14 @@ class DateIntervalPickerViewModel {
     }
     
     private func createInitialViewModels() {
-        createViewModels(transactionSum: computingService.transactionsSum())
+        createViewModels(sum: computingService.sum())
     }
     
-    private func createViewModels(transactionSum: CompoundTransactionsSum) {
-        let intervals: [DateIntervalType] = [.today, .currentWeek, .currentMonth, .currentYear]
-        self.viewModels = intervals.flatMap { (type) in
-            guard let interval = self.calendarService.dateInterval(forType: type) else { return nil }
-            let typedInterval = TypedDateInterval(dateInterval: interval, type: type)
-            return DateIntervalCellViewModelImpl(dateInterval: typedInterval,
-                                                 sum: transactionSum.sum(forDateInterval: type))
-        }
+    private func createViewModels(sum: TransactionsCompoundSum) {
+        self.viewModels = [DateIntervalCellViewModelImpl(sum: sum.daily),
+                           DateIntervalCellViewModelImpl(sum: sum.weekly),
+                           DateIntervalCellViewModelImpl(sum: sum.monthly),
+                           DateIntervalCellViewModelImpl(sum: sum.yearly)]
         self.delegate?.reloadView()
     }
     
@@ -51,8 +48,7 @@ class DateIntervalPickerViewModel {
 }
 
 extension DateIntervalPickerViewModel: TransactionsComputingServiceDelegate {
-    
-    func sumUpdated(value: CompoundTransactionsSum) {
-        createViewModels(transactionSum: value)
+    func sumUpdated(sum: TransactionsCompoundSum) {
+        createViewModels(sum: sum)
     }
 }
