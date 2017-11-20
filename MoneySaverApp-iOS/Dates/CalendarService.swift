@@ -18,6 +18,7 @@ enum TransactionDateComponent: String {
 
 protocol CalendarService {
     func component(_ component: TransactionDateComponent, ofDate date: Date) -> Int
+    var monthSymbols: [String] { get }
 }
 
 class CalendarServiceImpl: CalendarService {
@@ -41,5 +42,9 @@ class CalendarServiceImpl: CalendarService {
         case .year:
             return calendar.component(.year, from: date)
         }
+    }
+    
+    var monthSymbols: [String] {
+        return calendar.monthSymbols
     }
 }

@@ -31,10 +31,10 @@ class DateIntervalPickerViewModel {
     }
     
     private func createViewModels(sum: TransactionsCompoundSum) {
-        self.viewModels = [DateIntervalCellViewModelImpl(sum: sum.daily),
-                           DateIntervalCellViewModelImpl(sum: sum.weekly),
-                           DateIntervalCellViewModelImpl(sum: sum.monthly),
-                           DateIntervalCellViewModelImpl(sum: sum.yearly)]
+        self.viewModels = [DateIntervalCellViewModelImpl(sum: sum.daily, calendarService: calendarService),
+                           DateIntervalCellViewModelImpl(sum: sum.weekly, calendarService: calendarService),
+                           DateIntervalCellViewModelImpl(sum: sum.monthly, calendarService: calendarService),
+                           DateIntervalCellViewModelImpl(sum: sum.yearly, calendarService: calendarService)]
         self.delegate?.reloadView()
     }
     

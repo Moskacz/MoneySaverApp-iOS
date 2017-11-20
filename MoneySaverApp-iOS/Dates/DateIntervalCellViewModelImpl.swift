@@ -11,9 +11,11 @@ import Foundation
 class DateIntervalCellViewModelImpl: DateIntervalCellViewModel {
     
     private let sum: TransactionsSum
+    private let calendarService: CalendarService
     
-    init(sum: TransactionsSum) {
+    init(sum: TransactionsSum, calendarService: CalendarService) {
         self.sum = sum
+        self.calendarService = calendarService
     }
     
     func intervalTitle() -> String? {
@@ -23,9 +25,10 @@ class DateIntervalCellViewModelImpl: DateIntervalCellViewModel {
         case .weekOfYear:
             return "This week"
         case .month:
-            return "This month"
+            let value = calendarService.component(sum.dateComponent, ofDate: Date())
+            return calendarService.monthSymbols[value]
         case .year:
-            return "This year"
+            return "\(calendarService.component(sum.dateComponent, ofDate: Date()))"
         case .dayOfYear:
             return nil
         }
