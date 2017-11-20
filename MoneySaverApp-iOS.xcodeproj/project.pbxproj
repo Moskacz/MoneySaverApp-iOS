@@ -63,6 +63,9 @@
 		35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */; };
 		35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF71FB72C2D00589F53 /* SectionModel.swift */; };
 		35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */; };
+		35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */; };
+		35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C853991FBCD89800A7E479 /* BudgetViewModel.swift */; };
+		35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */; };
 		35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */; };
 		35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */; };
 		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
@@ -165,6 +168,9 @@
 		35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewController.swift; sourceTree = "<group>"; };
 		35C0ECF71FB72C2D00589F53 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionGrouper.swift; sourceTree = "<group>"; };
+		35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakHoldersCollectionTests.swift; sourceTree = "<group>"; };
+		35C853991FBCD89800A7E479 /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
+		35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Additions.swift"; sourceTree = "<group>"; };
 		35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		35C9FEF01E8C276A0092D5E3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		35C9FEF21E8C279D0092D5E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -368,6 +374,7 @@
 				355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */,
 				35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */,
 				35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */,
+				35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -414,6 +421,7 @@
 				3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */,
 				359A31381FB249C4000DA85F /* Character+Additions.swift */,
 				359A313A1FB4F754000DA85F /* UIColor+Additions.swift */,
+				35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -431,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */,
+				35C853991FBCD89800A7E479 /* BudgetViewModel.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -664,6 +673,7 @@
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */,
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
+				35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */,
 				358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */,
@@ -679,6 +689,7 @@
 				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
+				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */,
 				35D7C4141FAC9C230052BAD6 /* DateIntervalPickerView.swift in Sources */,
@@ -724,6 +735,7 @@
 				35CCD5021FAE1AB200BD308E /* DateIntervalServiceTests.swift in Sources */,
 				35CCD5001FAE1A6C00BD308E /* FakeCurrentDateProvider.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
+				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
 				35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

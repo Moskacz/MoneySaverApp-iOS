@@ -11,7 +11,7 @@ import XCTest
 
 class DateIntervalServiceTests: XCTestCase {
     
-    var sut: DateIntervalService!
+    var sut: CalendarServiceImpl!
     
     override func setUp() {
         super.setUp()
@@ -20,7 +20,7 @@ class DateIntervalServiceTests: XCTestCase {
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "GMT")!
         dateProvider.date = Date(timeIntervalSince1970: 1509789600)
-        sut = DateIntervalServiceImpl(calendar: calendar, dateProvider: dateProvider)
+        sut = CalendarServiceImpl(calendar: calendar, dateProvider: dateProvider)
     }
     
     override func tearDown() {

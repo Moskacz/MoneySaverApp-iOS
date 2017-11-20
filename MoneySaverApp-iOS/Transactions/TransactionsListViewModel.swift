@@ -49,10 +49,7 @@ class TransactionsListViewModel {
     }
     
     func title(forSection section: Int) -> String? {
-        let section = transactionsFRC?.sections?[section]
-        guard let transaction = section?.objects?.first as? TransactionManagedObject else { return nil }
-        let date = Date(timeIntervalSince1970: transaction.creationDayTimeInterval)
-        return DateFormatters.formatter(forType: .dateOnly).string(from: date)
+        return nil
     }
     
     func transactionCellViewModel(atPath path: IndexPath) -> TransactionCellViewModel {

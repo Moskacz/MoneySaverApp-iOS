@@ -47,7 +47,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             transaction.title = data.title
             transaction.category = category
             transaction.creationTimeInterval = data.creationDate.timeIntervalSince1970
-            transaction.creationDayTimeInterval = self.calendarService.startOfDay(fromDate: data.creationDate).timeIntervalSince1970
+            
             self.saveContextIfNeeded()
         }
     }

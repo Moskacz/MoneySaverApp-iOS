@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol TransactionsComputingService  {
-    var delegate: TransactionsComputingServiceDelegate? { get set }
+    func add(delegate: TransactionsComputingServiceDelegate?)
     func transactionsSum() -> CompoundTransactionsSum
 }
 
@@ -48,8 +48,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private let notificationCenter: NotificationCenter
     private let calendarService: CalendarService
     private let logger: Logger
-    
-    weak var delegate: TransactionsComputingServiceDelegate?
+    private var delegates = [TransactionsComputingServiceDelegate]()
     
     init(context: NSManagedObjectContext,
          notificationCenter: NotificationCenter,
@@ -65,8 +64,13 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private func setupNotificationsObservers() {
         let notification = Notification.Name.NSManagedObjectContextDidSave
         notificationCenter.addObserver(forName: notification, object: context, queue: OperationQueue.main) { (_) in
-            self.delegate?.sumUpdated(value: self.transactionsSum())
+            self.notifyDelegate(withSum: self.transactionsSum())
         }
+    }
+    
+    func add(delegate: TransactionsComputingServiceDelegate?) {
+        guard let delegate = delegate else { return }
+        delegates.append(delegate)
     }
     
     func transactionsSum() -> CompoundTransactionsSum {
@@ -107,6 +111,12 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         
         return transactions.filter {
             dateInterval.contains(Date(timeIntervalSince1970: $0.creationTimeInterval))
+        }
+    }
+    
+    private func notifyDelegate(withSum sum: CompoundTransactionsSum) {
+        for delegate in delegates {
+            delegate.sumUpdated(value: sum)
         }
     }
 }

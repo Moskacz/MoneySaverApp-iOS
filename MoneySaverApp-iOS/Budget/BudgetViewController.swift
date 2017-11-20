@@ -15,6 +15,12 @@ class BudgetViewController: UIViewController {
     @IBOutlet private weak var pieChart: PieChartView?
     @IBOutlet private weak var combinedChart: CombinedChartView?
     
+    var viewModel: BudgetViewModel? {
+        didSet {
+            viewModel?.delegate = self
+        }
+    }
+    
     override var tabBarItem: UITabBarItem! {
         get {
             return UITabBarItem(title: "Budget", image: nil, selectedImage: nil)
@@ -29,13 +35,8 @@ class BudgetViewController: UIViewController {
     }
     
     private func setupPieChart() {
-        let values = [PieChartDataEntry(value: 1, label: "1"),
-                      PieChartDataEntry(value: 2, label: "3"),
-                      PieChartDataEntry(value: 3, label: "2")]
-        let dataSet = PieChartDataSet(values: values, label: "data set")
-        dataSet.colors = [UIColor.blue, UIColor.orange, UIColor.red]
-        pieChart?.data = PieChartData(dataSet: dataSet)
         pieChart?.holeColor = UIColor.clear
+        pieChart?.data = viewModel?.pieChartData()
         pieChart?.notifyDataSetChanged()
     }
     
@@ -70,5 +71,17 @@ class BudgetViewController: UIViewController {
                 self?.stackView?.axis = .vertical
             }
         }, completion: nil)
+    }
+}
+
+extension BudgetViewController: BudgetViewModelDelegate {
+    
+    func pieChartDataUpdated(_ data: PieChartData) {
+        pieChart?.data = data
+        pieChart?.notifyDataSetChanged()
+    }
+    
+    func combinedChartDataUpdated(_ data: CombinedChartData) {
+        
     }
 }

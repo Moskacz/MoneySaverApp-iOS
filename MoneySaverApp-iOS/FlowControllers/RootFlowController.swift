@@ -14,6 +14,8 @@ class RootFlowController: FlowController {
     private weak var applicationDelegate: AppDelegate?
     private weak var tabBarController: DashboardTabBarController?
     private weak var transactionsVC: TransactionsListViewController?
+    private weak var budgetVC: BudgetViewController?
+    
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
     private let presentationManager = CardStylePresentationManager()
@@ -50,7 +52,11 @@ class RootFlowController: FlowController {
         let transactionsListVC = transactionsListViewController()
         self.transactionsVC = transactionsListVC
         let transactionsNavController = UINavigationController(rootViewController: transactionsListVC)
-        let budgetNavController = UINavigationController(rootViewController: budgetViewController())
+        
+        let budgetVC = budgetViewController()
+        self.budgetVC = budgetVC
+        let budgetNavController = UINavigationController(rootViewController: budgetVC)
+        
         let statsNavController = UINavigationController(rootViewController: statsViewController())
         
         tabBarVC.viewControllers = [transactionsNavController,
@@ -91,6 +97,10 @@ class RootFlowController: FlowController {
         
         if transactionsVC?.viewModel == nil {
             transactionsVC?.viewModel = try! dependencyContainer.resolve()
+        }
+        
+        if budgetVC?.viewModel == nil {
+            budgetVC?.viewModel = try! dependencyContainer.resolve()
         }
     }
     

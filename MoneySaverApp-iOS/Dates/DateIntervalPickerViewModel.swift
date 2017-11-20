@@ -22,7 +22,7 @@ class DateIntervalPickerViewModel {
     init(calendarService: CalendarService, computingService: TransactionsComputingService) {
         self.calendarService = calendarService
         self.computingService = computingService
-        self.computingService.delegate = self
+        self.computingService.add(delegate: self)
         createInitialViewModels()
     }
     
