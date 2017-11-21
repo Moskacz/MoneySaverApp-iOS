@@ -32,6 +32,8 @@ class TransactionsServiceImpl: TransactionsService {
     
     func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
         let transactionsFR = repository.fetchRequest
+        transactionsFR.includesPropertyValues = true
+        transactionsFR.fetchBatchSize = 20
         transactionsFR.sortDescriptors = [repository.sortDescriptor]
         
         return NSFetchedResultsController(fetchRequest: transactionsFR,
