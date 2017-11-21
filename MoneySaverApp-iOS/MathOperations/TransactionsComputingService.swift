@@ -84,7 +84,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         request.propertiesToFetch = ["value"]
         request.includesPropertyValues = true
         request.predicate = repository.predicate(forDateComponent: component)
-        print(request.predicate)
+        
         do {
             return try repository.context.fetch(request)
         } catch {
