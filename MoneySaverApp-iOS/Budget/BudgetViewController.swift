@@ -41,22 +41,7 @@ class BudgetViewController: UIViewController {
     }
     
     private func setupCombinedChart() {
-        let data = CombinedChartData()
-        let barEntries = [BarChartDataEntry(x: 0, y: 1),
-                          BarChartDataEntry(x: 1, y: 2),
-                          BarChartDataEntry(x: 2, y: 3)]
-        let barDataSet = BarChartDataSet(values: barEntries, label: "bar")
-        barDataSet.barBorderColor = UIColor.red
-        data.barData = BarChartData(dataSet: barDataSet)
-        
-        let lineEntries = [ChartDataEntry(x: 0, y: 1),
-                           ChartDataEntry(x: 1, y: 2),
-                           ChartDataEntry(x: 2, y: 3)]
-        let lineDataSet = LineChartDataSet(values: lineEntries, label: "line")
-        lineDataSet.colors = [UIColor.orange]
-        data.lineData = LineChartData(dataSet: lineDataSet)
-        
-        combinedChart?.data = data
+        combinedChart?.data = viewModel?.combinedChartData()
         combinedChart?.notifyDataSetChanged()
     }
     
@@ -82,6 +67,7 @@ extension BudgetViewController: BudgetViewModelDelegate {
     }
     
     func combinedChartDataUpdated(_ data: CombinedChartData) {
-        
+        combinedChart?.data = data
+        combinedChart?.notifyDataSetChanged()
     }
 }
