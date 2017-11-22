@@ -27,7 +27,7 @@ struct ViewModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            BudgetViewModel(computingService: $0)
+            BudgetViewModel(computingService: $0, dataProcessor: $1)
         }
     }
 }

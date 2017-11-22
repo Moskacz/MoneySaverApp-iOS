@@ -15,5 +15,9 @@ class UtilsAssebler: ContainerAssembly {
         container.register(.singleton) {
             NullLogger() as Logger
         }
+        
+        container.register {
+            ChartsDataProcessorImpl(calendarService: $0) as ChartsDataProcessor
+        }
     }
 }
