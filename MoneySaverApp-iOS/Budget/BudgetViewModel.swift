@@ -38,16 +38,25 @@ class BudgetViewModel {
     }
     
     func combinedChartData() -> CombinedChartData {
-        return combinedChartData(transactionsValue: computingService.sum().monthly.total())
+        return combinedChartData(expensesPerDay: computingService.currentMonthExpensesPerDay())
     }
     
-    private func combinedChartData(transactionsValue: Decimal) -> CombinedChartData {
+    private func combinedChartData(expensesPerDay: [(Int, Decimal)]) -> CombinedChartData {
         let data = CombinedChartData()
         let daysInMonth = 30
+        let daysRange = 0...daysInMonth
         let valuePerDay = budgetValue() / Double(daysInMonth)
-        let barEntries = (0...daysInMonth).map { BarChartDataEntry(x: Double($0), y: valuePerDay * Double($0))}
+        let barEntries = daysRange.map { BarChartDataEntry(x: Double($0), y: valuePerDay * Double($0))}
         let barDataSet = BarChartDataSet(values: barEntries, label: "Estimated spendings")
         data.barData = BarChartData(dataSet: barDataSet)
+        
+        let lineEntries = daysRange.map { (day: Int) -> ChartDataEntry in
+            let value = expensesPerDay.first { $0.0 == day }?.1 ?? Decimal(0)
+            return ChartDataEntry(x: Double(day), y: value.double)
+        }
+        let lineDataSet = LineChartDataSet(values: lineEntries, label: "Actual spendings")
+        data.lineData = LineChartData(dataSet: lineDataSet)
+        
         return data
     }
     
@@ -59,6 +68,6 @@ class BudgetViewModel {
 extension BudgetViewModel: TransactionsComputingServiceDelegate {
     func sumUpdated(sum: TransactionsCompoundSum) {
         delegate?.pieChartDataUpdated(pieChartData(expenses: sum.monthly.expenses))
-        delegate?.combinedChartDataUpdated(combinedChartData(transactionsValue: sum.monthly.total()))
+//        delegate?.combinedChartDataUpdated(combinedChartData(transactionsValue: sum.monthly.total()))
     }
 }

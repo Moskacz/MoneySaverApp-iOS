@@ -11,6 +11,7 @@ import CoreData
 
 protocol TransactionsComputingService  {
     func sum() -> TransactionsCompoundSum
+    func monthlyExpensesPerDay() -> [(Int, Decimal)]
     func add(delegate: TransactionsComputingServiceDelegate?)
 }
 
@@ -100,6 +101,29 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         return TransactionsSum(incomes: Decimal(incomes),
                                expenses: Decimal(expenses),
                                dateComponent: dateComponent)
+    }
+    
+    func monthlyExpensesPerDay() -> [(Int, Decimal)] {
+        let request: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: TransactionManagedObject.entityName)
+        request.predicate = repository.predicate(forDateComponent: .month)
+        
+        let expressionDesc = NSExpressionDescription()
+        expressionDesc.expression = NSExpression(forFunction: "sum:", arguments: [NSExpression(forKeyPath: "value")])
+        expressionDesc.name = "sum"
+        expressionDesc.expressionResultType = .decimalAttributeType
+        request.propertiesToFetch = [expressionDesc, "day"]
+        request.propertiesToGroupBy = ["day"]
+        request.resultType = .dictionaryResultType
+        
+        do {
+            let dictionaries = try repository.context.fetch(request)
+            return dictionaries.flatMap {
+                guard let day = $0["day"] as? Int, let sum = $0["sum"] as? Decimal else { return nil }
+                return (day, sum)
+            }
+        } catch {
+           return []
+        }
     }
     
     private func notifyDelegates(withSum sum: TransactionsCompoundSum) {
