@@ -14,6 +14,7 @@ protocol TransactionsRepository {
     var context: NSManagedObjectContext { get }
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
     var sortDescriptor: NSSortDescriptor { get }
+    var expensesOnlyPredicate: NSPredicate { get }
     
     func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
@@ -43,6 +44,12 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     var sortDescriptor: NSSortDescriptor {
         get {
             return NSSortDescriptor(key: "creationTimeInterval", ascending: false)
+        }
+    }
+    
+    var expensesOnlyPredicate: NSPredicate {
+        get {
+            return NSPredicate(format: "value < 0")
         }
     }
     

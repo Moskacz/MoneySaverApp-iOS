@@ -9,9 +9,14 @@
 import Foundation
 import CoreData
 
+struct DailyValue {
+    let day: Int
+    let value: Decimal
+}
+
 protocol TransactionsComputingService  {
     func sum() -> TransactionsCompoundSum
-    func monthlyExpensesPerDay() -> [(Int, Decimal)]
+    func monthlyExpenses() -> [DailyValue]
     func add(delegate: TransactionsComputingServiceDelegate?)
 }
 
@@ -103,14 +108,16 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
                                dateComponent: dateComponent)
     }
     
-    func monthlyExpensesPerDay() -> [(Int, Decimal)] {
+    func monthlyExpenses() -> [DailyValue] {
         let request: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: TransactionManagedObject.entityName)
-        request.predicate = repository.predicate(forDateComponent: .month)
+        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateComponent: .month)]
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         
         let expressionDesc = NSExpressionDescription()
         expressionDesc.expression = NSExpression(forFunction: "sum:", arguments: [NSExpression(forKeyPath: "value")])
         expressionDesc.name = "sum"
         expressionDesc.expressionResultType = .decimalAttributeType
+        
         request.propertiesToFetch = [expressionDesc, "day"]
         request.propertiesToGroupBy = ["day"]
         request.resultType = .dictionaryResultType
@@ -119,10 +126,10 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
             let dictionaries = try repository.context.fetch(request)
             return dictionaries.flatMap {
                 guard let day = $0["day"] as? Int, let sum = $0["sum"] as? Decimal else { return nil }
-                return (day, sum)
+                return DailyValue(day: day, value: sum)
             }
         } catch {
-           return []
+            return []
         }
     }
     

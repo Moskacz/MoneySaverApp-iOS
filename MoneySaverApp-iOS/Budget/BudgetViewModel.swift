@@ -38,10 +38,10 @@ class BudgetViewModel {
     }
     
     func combinedChartData() -> CombinedChartData {
-        return combinedChartData(expensesPerDay: computingService.currentMonthExpensesPerDay())
+        return combinedChartData(monthlyExpenses: computingService.monthlyExpenses())
     }
     
-    private func combinedChartData(expensesPerDay: [(Int, Decimal)]) -> CombinedChartData {
+    private func combinedChartData(monthlyExpenses: [DailyValue]) -> CombinedChartData {
         let data = CombinedChartData()
         let daysInMonth = 30
         let daysRange = 0...daysInMonth
@@ -50,10 +50,7 @@ class BudgetViewModel {
         let barDataSet = BarChartDataSet(values: barEntries, label: "Estimated spendings")
         data.barData = BarChartData(dataSet: barDataSet)
         
-        let lineEntries = daysRange.map { (day: Int) -> ChartDataEntry in
-            let value = expensesPerDay.first { $0.0 == day }?.1 ?? Decimal(0)
-            return ChartDataEntry(x: Double(day), y: value.double)
-        }
+        let lineEntries = [ChartDataEntry]()
         let lineDataSet = LineChartDataSet(values: lineEntries, label: "Actual spendings")
         data.lineData = LineChartData(dataSet: lineDataSet)
         
