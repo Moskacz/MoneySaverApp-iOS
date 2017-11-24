@@ -26,6 +26,7 @@ class TransactionsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Transactions"
         setupViews()
         bindViewModel()
     }

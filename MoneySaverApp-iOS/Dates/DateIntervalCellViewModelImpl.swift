@@ -26,7 +26,7 @@ class DateIntervalCellViewModelImpl: DateIntervalCellViewModel {
             return "This week"
         case .month:
             let value = calendarService.component(sum.dateComponent, ofDate: Date())
-            return calendarService.monthSymbols[value]
+            return calendarService.monthSymbols[value-1]
         case .year:
             return "\(calendarService.component(sum.dateComponent, ofDate: Date()))"
         case .dayOfYear:
