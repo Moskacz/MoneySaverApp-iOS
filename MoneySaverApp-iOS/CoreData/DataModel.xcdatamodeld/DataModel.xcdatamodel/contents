@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BudgetManagedObject" representedClassName="BudgetManagedObject" syncable="YES" codeGenerationType="class">
+        <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <entity name="TransactionCategoryManagedObject" representedClassName=".TransactionCategoryManagedObject" syncable="YES">
         <attribute name="color" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="icon" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -20,5 +23,6 @@
     <elements>
         <element name="TransactionCategoryManagedObject" positionX="-63" positionY="18" width="128" height="105"/>
         <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="BudgetManagedObject" positionX="-54" positionY="54" width="128" height="60"/>
     </elements>
 </model>
