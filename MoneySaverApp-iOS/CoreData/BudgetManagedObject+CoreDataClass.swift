@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(BudgetManagedObject)
+
 public class BudgetManagedObject: NSManagedObject {
 
 }
