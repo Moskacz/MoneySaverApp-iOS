@@ -345,6 +345,66 @@
             </objects>
             <point key="canvasLocation" x="2141.5999999999999" y="-563.56821589205401"/>
         </scene>
+        <!--Setup Budget View Controller-->
+        <scene sceneID="bKZ-WY-Dfh">
+            <objects>
+                <viewController storyboardIdentifier="SetupBudgetViewController" id="snG-UO-KbW" customClass="SetupBudgetViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="olM-B3-P9z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-2U-rR3">
+                                <rect key="frame" x="87.5" y="287" width="200" height="93"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Budget amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gQ-No-hkW">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="E3N-Q0-7ER"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUh-35-aTd">
+                                        <rect key="frame" x="0.0" y="53" width="200" height="40"/>
+                                        <color key="backgroundColor" red="0.31672879546596444" green="0.80381719559585496" blue="0.19774479252980537" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="vI8-DQ-GgH"/>
+                                        </constraints>
+                                        <state key="normal" title="Confirm">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="confirmButtonTapped:" destination="snG-UO-KbW" eventType="touchUpInside" id="Fyo-5s-POV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jVr-fb-rLu"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fcg-2U-rR3" firstAttribute="centerX" secondItem="olM-B3-P9z" secondAttribute="centerX" id="HaI-Ca-lTm"/>
+                            <constraint firstItem="Fcg-2U-rR3" firstAttribute="centerY" secondItem="olM-B3-P9z" secondAttribute="centerY" id="Zy6-GB-s70"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FxP-A6-c9p"/>
+                    </view>
+                    <connections>
+                        <outlet property="budgetTextField" destination="7gQ-No-hkW" id="wLa-YY-Iwp"/>
+                        <outlet property="confirmButton" destination="hUh-35-aTd" id="6Sq-dQ-3lC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzD-fT-Wh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2850" y="-564"/>
+        </scene>
     </scenes>
     <resources>
         <image name="right-chevron" width="306" height="306"/>
