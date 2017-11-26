@@ -353,11 +353,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-2U-rR3">
-                                <rect key="frame" x="87.5" y="287" width="200" height="93"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Fcg-2U-rR3">
+                                <rect key="frame" x="37.5" y="258.5" width="300" height="150"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide amount that you want to spend monthly ;) " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YlM-R4-pjq">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.29525452389000606" green="0.29525452389000606" blue="0.29525452389000606" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Budget amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gQ-No-hkW">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="45"/>
+                                        <rect key="frame" x="0.0" y="53" width="300" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="E3N-Q0-7ER"/>
                                         </constraints>
@@ -366,7 +372,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hUh-35-aTd">
-                                        <rect key="frame" x="0.0" y="53" width="200" height="40"/>
+                                        <rect key="frame" x="0.0" y="110" width="300" height="40"/>
                                         <color key="backgroundColor" red="0.31672879546596444" green="0.80381719559585496" blue="0.19774479252980537" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="vI8-DQ-GgH"/>
@@ -385,7 +391,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="jVr-fb-rLu"/>
+                                    <constraint firstAttribute="width" constant="300" id="jVr-fb-rLu"/>
                                 </constraints>
                             </stackView>
                         </subviews>

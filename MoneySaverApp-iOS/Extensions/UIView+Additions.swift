@@ -55,3 +55,14 @@ extension UIView {
         layer.shadowOpacity = 0.5
     }
 }
+
+// MARK: Error state
+extension UIView {
+    func displayAsIncorrect() {
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.autoreverse], animations: {
+            self.backgroundColor = Theme.errorColor
+        }, completion: { (_) in
+            self.backgroundColor = UIColor.white
+        })
+    }
+}

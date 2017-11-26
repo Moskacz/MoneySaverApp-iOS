@@ -15,4 +15,18 @@ extension UIViewController {
             return String(describing: self)
         }
     }
+    
+    func addViewController(asChild child: UIViewController) {
+        addChildViewController(child)
+        view.addSubview(child.view)
+        didMove(toParentViewController: self)
+    }
+    
+    func removeChildViewControllers() {
+        for childVC in childViewControllers {
+            childVC.willMove(toParentViewController: nil)
+            childVC.view.removeFromSuperview()
+            childVC.removeFromParentViewController()
+        }
+    }
 }

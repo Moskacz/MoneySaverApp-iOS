@@ -18,13 +18,23 @@ class BudgetViewModel {
     
     private let computingService: TransactionsComputingService
     private let dataProcessor: ChartsDataProcessor
+    let budgetRepository: BudgetRepository
     weak var delegate: BudgetViewModelDelegate?
     
-    init(computingService: TransactionsComputingService, dataProcessor: ChartsDataProcessor) {
+    init(computingService: TransactionsComputingService,
+         dataProcessor: ChartsDataProcessor,
+         budgetRepository: BudgetRepository) {
         self.computingService = computingService
         self.dataProcessor = dataProcessor
+        self.budgetRepository = budgetRepository
         self.computingService.add(delegate: self)
     }
+    
+    func isBudgetSetUp() -> Bool {
+        return false
+    }
+    
+    // MARK: Charts
     
     func pieChartData() -> PieChartData {
         return pieChartData(expenses: computingService.sum().monthly.expenses)

@@ -11,6 +11,7 @@ import UIKit
 
 class SetupBudgetViewController: UIViewController {
     
+    var viewModel: SetupBudgetViewModel?
     var budgetSetCallback = {}
     
     @IBOutlet private weak var budgetTextField: UITextField?
@@ -19,7 +20,26 @@ class SetupBudgetViewController: UIViewController {
     // MARK: UI Actions
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
-        budgetSetCallback()
+        guard let model = viewModel else { return }
+        do {
+            passDataToViewModel()
+            try model.saveBudget()
+            budgetSetCallback()
+        } catch {
+            handle(error: error)
+        }
+    }
+    
+    private func passDataToViewModel() {
+        viewModel?.providedBudgetAmount = budgetTextField?.text
+    }
+    
+    private func handle(error: Error) {
+        guard let formError = error as? SetupBudgetError else { return }
+        switch formError {
+        case .incorrectAmount:
+            budgetTextField?.displayAsIncorrect()
+        }
     }
 
 }

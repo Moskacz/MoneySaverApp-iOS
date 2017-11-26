@@ -40,6 +40,7 @@
 		35708BC21FC95B300052ED9E /* BudgetRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC11FC95B300052ED9E /* BudgetRepository.swift */; };
 		35708BC51FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC31FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift */; };
 		35708BC61FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */; };
+		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -144,6 +145,7 @@
 		35708BC11FC95B300052ED9E /* BudgetRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRepository.swift; sourceTree = "<group>"; };
 		35708BC31FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 				35C853991FBCD89800A7E479 /* BudgetViewModel.swift */,
 				35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */,
 				35708BC11FC95B300052ED9E /* BudgetRepository.swift */,
+				35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */,
 				352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */,
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,
+				35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */,
 				3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */,
 				35CCD4FC1FAE14E500BD308E /* CalendarService.swift in Sources */,
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,

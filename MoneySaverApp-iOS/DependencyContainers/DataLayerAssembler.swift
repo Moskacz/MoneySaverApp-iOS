@@ -27,5 +27,9 @@ struct DataLayerAssembler: ContainerAssembly {
         container.register(.singleton) {
             TransactionCategoryServiceImpl(repository: $0) as TransactionCategoryService
         }
+        
+        container.register(.singleton) {
+            BudgetRepositoryImpl(context: $0, logger: $1) as BudgetRepository
+        }
     }
 }

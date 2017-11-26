@@ -30,17 +30,24 @@ class BudgetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupPieChart()
-        setupCombinedChart()
+        setupViews()
     }
     
-    private func setupPieChart() {
+    private func setupViews() {
+        guard let model = viewModel, let storyboard = storyboard else { return }
+        if model.isBudgetSetUp() {
+            setupCharts()
+        } else {
+            let setupBudgetVC: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
+            setupBudgetVC.viewModel = SetupBudgetViewModel(budgetRepository: model.budgetRepository)
+            addViewController(asChild: setupBudgetVC)
+        }
+    }
+    
+    private func setupCharts() {
         pieChart?.holeColor = UIColor.clear
         pieChart?.data = viewModel?.pieChartData()
         pieChart?.notifyDataSetChanged()
-    }
-    
-    private func setupCombinedChart() {
         combinedChart?.data = viewModel?.combinedChartData()
         combinedChart?.notifyDataSetChanged()
     }

@@ -23,11 +23,18 @@ struct ViewModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            TransactionCategoriesCollectionViewModel(service: $0, logger: $1)
+            TransactionCategoriesCollectionViewModel(service: $0,
+                                                     logger: $1)
         }
         
         container.register {
-            BudgetViewModel(computingService: $0, dataProcessor: $1)
+            BudgetViewModel(computingService: $0,
+                            dataProcessor: $1,
+                            budgetRepository: $2)
+        }
+        
+        container.register {
+            SetupBudgetViewModel(budgetRepository: $0)
         }
     }
 }
