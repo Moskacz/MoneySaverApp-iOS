@@ -32,5 +32,9 @@ struct ModelsAssembler: ContainerAssembly {
         container.register {
             CalendarServiceImpl() as CalendarService
         }
+        
+        container.register {
+            BudgetServiceImpl(repository: $0) as BudgetService
+        }
     }
 }
