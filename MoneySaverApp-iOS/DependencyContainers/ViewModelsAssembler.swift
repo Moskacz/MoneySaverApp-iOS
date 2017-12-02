@@ -30,7 +30,8 @@ struct ViewModelsAssembler: ContainerAssembly {
         container.register {
             BudgetViewModel(computingService: $0,
                             dataProcessor: $1,
-                            budgetRepository: $2)
+                            budgetRepository: $2,
+                            service: $3)
         }
         
         container.register {

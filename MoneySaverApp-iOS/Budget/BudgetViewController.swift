@@ -34,13 +34,11 @@ class BudgetViewController: UIViewController {
     }
     
     private func setupViews() {
-        guard let model = viewModel, let storyboard = storyboard else { return }
+        guard let model = viewModel else { return }
         if model.isBudgetSetUp() {
             setupCharts()
         } else {
-            let setupBudgetVC: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
-            setupBudgetVC.viewModel = SetupBudgetViewModel(budgetRepository: model.budgetRepository)
-            addViewController(asChild: setupBudgetVC)
+            displaySetupBudgetViewController()
         }
     }
     
@@ -64,9 +62,28 @@ class BudgetViewController: UIViewController {
             }
         }, completion: nil)
     }
+    
+    // MARK: SetupBudgetViewController
+    
+    private func displaySetupBudgetViewController() {
+        guard let storyboard = storyboard, let model = viewModel else { return }
+        let setupBudgetVC: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
+        setupBudgetVC.viewModel = SetupBudgetViewModel(budgetRepository: model.budgetRepository)
+        addViewController(asChild: setupBudgetVC)
+    }
+    
+    private func removeSetupBudgetViewController() {
+        removeChildViewControllers()
+    }
 }
 
 extension BudgetViewController: BudgetViewModelDelegate {
+    
+    func budget(setUp: Bool) {
+        guard setUp else { return }
+        setupCharts()
+        removeChildViewControllers()
+    }
     
     func pieChartDataUpdated(_ data: PieChartData) {
         pieChart?.data = data

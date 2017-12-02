@@ -10,13 +10,16 @@ import Foundation
 import CoreData
 
 protocol BudgetRepository {
+    var fetchRequest: NSFetchRequest<BudgetManagedObject> { get }
+    var sortDescriptor: NSSortDescriptor { get }
+    var context: NSManagedObjectContext { get }
     func currentBudgetValue() -> Decimal?
     func saveBudget(withValue value: Decimal)
 }
 
 class BudgetRepositoryImpl: BudgetRepository {
     
-    private let context: NSManagedObjectContext
+    let context: NSManagedObjectContext
     private let logger: Logger
     
     init(context: NSManagedObjectContext, logger: Logger) {
@@ -67,7 +70,11 @@ class BudgetRepositoryImpl: BudgetRepository {
         }
     }
     
-    private var fetchRequest: NSFetchRequest<BudgetManagedObject> {
+    var fetchRequest: NSFetchRequest<BudgetManagedObject> {
         return BudgetManagedObject.fetchRequest()
+    }
+    
+    var sortDescriptor: NSSortDescriptor {
+        return NSSortDescriptor(key: "value", ascending: true)
     }
 }

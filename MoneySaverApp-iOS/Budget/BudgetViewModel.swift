@@ -8,30 +8,47 @@
 
 import Foundation
 import Charts
+import CoreData
 
 protocol BudgetViewModelDelegate: class {
+    func budget(setUp: Bool)
     func pieChartDataUpdated(_ data: PieChartData)
     func combinedChartDataUpdated(_ data: CombinedChartData)
 }
 
-class BudgetViewModel {
+class BudgetViewModel: NSObject {
     
     private let computingService: TransactionsComputingService
     private let dataProcessor: ChartsDataProcessor
     let budgetRepository: BudgetRepository
+    private let service: BudgetService
+    private var frc: NSFetchedResultsController<BudgetManagedObject>?
     weak var delegate: BudgetViewModelDelegate?
     
     init(computingService: TransactionsComputingService,
          dataProcessor: ChartsDataProcessor,
-         budgetRepository: BudgetRepository) {
+         budgetRepository: BudgetRepository,
+         service: BudgetService) {
         self.computingService = computingService
         self.dataProcessor = dataProcessor
         self.budgetRepository = budgetRepository
-        self.computingService.add(delegate: self)
+        self.service = service
+        super.init()
+        fetchCurrentBudget()
+        computingService.add(delegate: self)
+    }
+    
+    private func fetchCurrentBudget() {
+        frc = service.budgetFRC()
+        frc?.delegate = self
+        try? frc?.performFetch()
     }
     
     func isBudgetSetUp() -> Bool {
-        return false
+        guard let objects = frc?.fetchedObjects else {
+            return false
+        }
+        return !objects.isEmpty
     }
     
     // MARK: Charts
@@ -80,13 +97,21 @@ class BudgetViewModel {
     }
     
     private func budgetValue() -> Double {
-        return 3000
+        guard let budget = frc?.fetchedObjects?.first?.value else { return 0 }
+        return budget.doubleValue
+    }
+}
+
+extension BudgetViewModel: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        delegate?.budget(setUp: isBudgetSetUp())
     }
 }
 
 extension BudgetViewModel: TransactionsComputingServiceDelegate {
     func sumUpdated(sum: TransactionsCompoundSum) {
         delegate?.pieChartDataUpdated(pieChartData(expenses: sum.monthly.expenses))
+//        delegate?.combinedChartDataUpdated(combinedChartData(monthlyExpenses: sum.))
 //        delegate?.combinedChartDataUpdated(combinedChartData(transactionsValue: sum.monthly.total()))
     }
 }

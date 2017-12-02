@@ -58,6 +58,7 @@
 		35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */; };
 		35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1831F923CB00059A1CC /* TransactionCategoryView.swift */; };
 		35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */; };
+		35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */; };
 		35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB971D1E7F085F003DBA41 /* AppDelegate.swift */; };
 		35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97211E7F0860003DBA41 /* Main.storyboard */; };
 		35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97241E7F0860003DBA41 /* Assets.xcassets */; };
@@ -164,6 +165,7 @@
 		35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryService.swift; sourceTree = "<group>"; };
 		35B8C1831F923CB00059A1CC /* TransactionCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryView.swift; sourceTree = "<group>"; };
 		35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsComputingService.swift; sourceTree = "<group>"; };
+		35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetService.swift; sourceTree = "<group>"; };
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BB971D1E7F085F003DBA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BB97221E7F0860003DBA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */,
 				35708BC11FC95B300052ED9E /* BudgetRepository.swift */,
 				35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */,
+				35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
 				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
+				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
 				35708BC51FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift in Sources */,
