@@ -61,7 +61,7 @@ class TransactionCategoryView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.tintColor = UIColor.white
+    
         containerView.addSubview(imageView)
         imageView.matchParent(edgeInsets: UIEdgeInsetsMake(8, 8, -8, -8))
         self.categoryIconImageView = imageView
@@ -72,7 +72,7 @@ class TransactionCategoryView: UIView {
     // MARK: Upadting
     
     public func update(withViewModel viewModel: TransactionCategoryViewModel) {
-        categoryIconImageView?.image = viewModel.transactionIcon()?.withRenderingMode(.alwaysTemplate)
+        categoryIconImageView?.image = viewModel.transactionIcon()
         categoryIconContainerView?.backgroundColor = viewModel.backgroundColor()
         let transactionName = viewModel.transactionName()
         categoryNameLabel?.text = transactionName

@@ -28,8 +28,7 @@ class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
     }
     
     func transactionIcon() -> UIImage? {
-        guard let imageData = category.icon else { return nil }
-        return UIImage(data: imageData as Data)
+        return category.image
     }
     
     func backgroundColor() -> UIColor? {
