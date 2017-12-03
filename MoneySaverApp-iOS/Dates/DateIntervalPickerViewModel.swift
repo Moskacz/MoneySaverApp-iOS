@@ -48,7 +48,9 @@ class DateIntervalPickerViewModel {
 }
 
 extension DateIntervalPickerViewModel: TransactionsComputingServiceDelegate {
-    func sumUpdated(sum: TransactionsCompoundSum) {
+    func transactionsSumUpdated(_ sum: TransactionsCompoundSum) {
         createViewModels(sum: sum)
     }
+    
+    func monthlyExpensesUpdated(_ expenses: [DailyValue]) {}
 }

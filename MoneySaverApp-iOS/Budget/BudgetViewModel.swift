@@ -109,9 +109,11 @@ extension BudgetViewModel: NSFetchedResultsControllerDelegate {
 }
 
 extension BudgetViewModel: TransactionsComputingServiceDelegate {
-    func sumUpdated(sum: TransactionsCompoundSum) {
+    func transactionsSumUpdated(_ sum: TransactionsCompoundSum) {
         delegate?.pieChartDataUpdated(pieChartData(expenses: sum.monthly.expenses))
-//        delegate?.combinedChartDataUpdated(combinedChartData(monthlyExpenses: sum.))
-//        delegate?.combinedChartDataUpdated(combinedChartData(transactionsValue: sum.monthly.total()))
+    }
+    
+    func monthlyExpensesUpdated(_ expenses: [DailyValue]) {
+        delegate?.combinedChartDataUpdated(combinedChartData(monthlyExpenses: expenses))
     }
 }

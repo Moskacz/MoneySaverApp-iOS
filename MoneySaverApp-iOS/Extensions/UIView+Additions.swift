@@ -11,39 +11,47 @@ import UIKit
 // MARK: AutoLayout
 extension UIView {
     
-    func matchParent(edgeInsets: UIEdgeInsets = UIEdgeInsets.zero) {
-        matchParentHorizontally(edges: edgeInsets)
-        matchParentVertically(edges: edgeInsets)
+    func matchParent(edgeInsets: UIEdgeInsets = UIEdgeInsets.zero, priority: UILayoutPriority = .required) {
+        matchParentHorizontally(edges: edgeInsets, priority: priority)
+        matchParentVertically(edges: edgeInsets, priority: priority)
     }
     
-    func matchParentHorizontally(edges: UIEdgeInsets = UIEdgeInsets.zero) {
-        pinToParentLeading(constant: edges.left)
-        pinToParentTrailing(constant: edges.right)
+    func matchParentHorizontally(edges: UIEdgeInsets = UIEdgeInsets.zero, priority: UILayoutPriority = .required) {
+        pinToParentLeading(constant: edges.left, priority: priority)
+        pinToParentTrailing(constant: edges.right, priority: priority)
     }
     
-    func matchParentVertically(edges: UIEdgeInsets = UIEdgeInsets.zero) {
-        pinToParentTop(constant: edges.top)
-        pinToParentBottom(constant: edges.bottom)
+    func matchParentVertically(edges: UIEdgeInsets = UIEdgeInsets.zero, priority: UILayoutPriority = .required) {
+        pinToParentTop(constant: edges.top, priority: priority)
+        pinToParentBottom(constant: edges.bottom, priority: priority)
     }
     
-    func pinToParentLeading(constant: CGFloat = 0.0) {
+    func pinToParentLeading(constant: CGFloat = 0.0, priority: UILayoutPriority = .required) {
         guard let parent = superview else { return }
-        leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: constant).isActive = true
+        let constraint = leadingAnchor.constraint(equalTo: parent.leadingAnchor, constant: constant)
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func pinToParentTrailing(constant: CGFloat = 0.0) {
+    func pinToParentTrailing(constant: CGFloat = 0.0, priority: UILayoutPriority = .required) {
         guard let parent = superview else { return }
-        trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: constant).isActive = true
+        let constraint = trailingAnchor.constraint(equalTo: parent.trailingAnchor, constant: constant)
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func pinToParentTop(constant: CGFloat = 0.0) {
+    func pinToParentTop(constant: CGFloat = 0.0, priority: UILayoutPriority = .required) {
         guard let parent = superview else { return }
-        topAnchor.constraint(equalTo: parent.topAnchor, constant: constant).isActive = true
+        let constraint = topAnchor.constraint(equalTo: parent.topAnchor, constant: constant)
+        constraint.priority = priority
+        constraint.isActive = true
     }
     
-    func pinToParentBottom(constant: CGFloat = 0.0) {
+    func pinToParentBottom(constant: CGFloat = 0.0, priority: UILayoutPriority = .required) {
         guard let parent = superview else { return }
-        bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: constant).isActive = true
+        let constraint = bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: constant)
+        constraint.priority = priority
+        constraint.isActive = true
     }
 }
 

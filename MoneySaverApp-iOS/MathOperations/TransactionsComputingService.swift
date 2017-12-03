@@ -21,7 +21,8 @@ protocol TransactionsComputingService  {
 }
 
 protocol TransactionsComputingServiceDelegate: class {
-    func sumUpdated(sum: TransactionsCompoundSum)
+    func transactionsSumUpdated(_ sum: TransactionsCompoundSum)
+    func monthlyExpensesUpdated(_ expenses: [DailyValue])
 }
 
 struct TransactionsSum {
@@ -63,7 +64,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private func setupNotificationsObservers() {
         let notification = Notification.Name.NSManagedObjectContextDidSave
         notificationCenter.addObserver(forName: notification, object: repository.context, queue: OperationQueue.main) { (_) in
-            self.notifyDelegates(withSum: self.sum())
+            self.notifyDelegates()
         }
     }
     
@@ -133,9 +134,12 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         }
     }
     
-    private func notifyDelegates(withSum sum: TransactionsCompoundSum) {
+    private func notifyDelegates() {
+        let transactionsSum = sum()
+        let expenses = monthlyExpenses()
         for delegate in delegates {
-            delegate.sumUpdated(sum: sum)
+            delegate.transactionsSumUpdated(transactionsSum)
+            delegate.monthlyExpensesUpdated(expenses)
         }
     }
     

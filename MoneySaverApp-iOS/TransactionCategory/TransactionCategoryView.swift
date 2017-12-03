@@ -63,7 +63,7 @@ class TransactionCategoryView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
     
         containerView.addSubview(imageView)
-        imageView.matchParent(edgeInsets: UIEdgeInsetsMake(8, 8, -8, -8))
+        imageView.matchParent(edgeInsets: UIEdgeInsetsMake(8, 8, -8, -8), priority: UILayoutPriority(rawValue: 900))
         self.categoryIconImageView = imageView
         self.categoryIconContainerView = containerView
         stackView?.addArrangedSubview(containerView)
