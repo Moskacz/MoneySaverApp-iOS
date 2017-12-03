@@ -11,6 +11,8 @@ import Charts
 
 class BudgetViewController: UIViewController {
     
+    var editBudgetTapCallback = {}
+    
     @IBOutlet private weak var stackView: UIStackView?
     @IBOutlet private weak var pieChart: PieChartView?
     @IBOutlet private weak var combinedChart: CombinedChartView?
@@ -37,6 +39,7 @@ class BudgetViewController: UIViewController {
         guard let model = viewModel else { return }
         if model.isBudgetSetUp() {
             setupCharts()
+            addEditButton()
         } else {
             displaySetupBudgetViewController()
         }
@@ -75,6 +78,17 @@ class BudgetViewController: UIViewController {
     private func removeSetupBudgetViewController() {
         removeChildViewControllers()
     }
+    
+    // MARK: Edit budget
+    
+    private func addEditButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
+        navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc private func editButtonTapped() {
+        editBudgetTapCallback()
+    }
 }
 
 extension BudgetViewController: BudgetViewModelDelegate {
@@ -82,6 +96,7 @@ extension BudgetViewController: BudgetViewModelDelegate {
     func budget(setUp: Bool) {
         guard setUp else { return }
         setupCharts()
+        addEditButton()
         removeChildViewControllers()
     }
     

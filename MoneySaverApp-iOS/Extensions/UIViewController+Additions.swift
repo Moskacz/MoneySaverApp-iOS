@@ -29,4 +29,9 @@ extension UIViewController {
             childVC.removeFromParentViewController()
         }
     }
+    
+    var isPresented: Bool {
+        return presentingViewController != nil
+    }
+    
 }

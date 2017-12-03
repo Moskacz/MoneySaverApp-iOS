@@ -84,6 +84,11 @@ class RootFlowController: FlowController {
     
     private func budgetViewController() -> BudgetViewController {
         let viewController: BudgetViewController = storyboard.instantiateTypeViewController(withIdentifier: BudgetViewController.defaultStoryboardIdentifier)
+        
+        viewController.editBudgetTapCallback = {
+            self.presentSetupBudgetViewController()
+        }
+        
         return viewController
     }
     
@@ -133,5 +138,19 @@ class RootFlowController: FlowController {
         }
         
         navigationController.pushViewController(viewController, animated: animatedTransitions)
+    }
+    
+    private func presentSetupBudgetViewController() {
+        let viewController: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
+        
+        viewController.budgetSetCallback = {
+            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
+        }
+        
+        viewController.closeButtonCallback = {
+            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
+        }
+        
+        tabBarController?.present(viewController, animated: animatedTransitions, completion: nil)
     }
 }

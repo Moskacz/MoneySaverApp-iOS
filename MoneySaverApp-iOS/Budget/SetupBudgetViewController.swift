@@ -13,9 +13,16 @@ class SetupBudgetViewController: UIViewController {
     
     var viewModel: SetupBudgetViewModel?
     var budgetSetCallback = {}
+    var closeButtonCallback = {}
     
     @IBOutlet private weak var budgetTextField: UITextField?
     @IBOutlet private weak var confirmButton: UIButton?
+    @IBOutlet private weak var closeButton: UIButton?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        closeButton?.isHidden = !isPresented
+    }
     
     // MARK: UI Actions
     
@@ -28,6 +35,10 @@ class SetupBudgetViewController: UIViewController {
         } catch {
             handle(error: error)
         }
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        closeButtonCallback()
     }
     
     private func passDataToViewModel() {

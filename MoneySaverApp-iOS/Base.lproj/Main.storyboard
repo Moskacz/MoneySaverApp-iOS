@@ -394,16 +394,38 @@
                                     <constraint firstAttribute="width" constant="300" id="jVr-fb-rLu"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxT-nw-mka">
+                                <rect key="frame" x="37.5" y="603" width="300" height="40"/>
+                                <color key="backgroundColor" red="0.31672879549999999" green="0.80381719559999998" blue="0.19774479249999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6pM-QH-Rd1"/>
+                                    <constraint firstAttribute="width" constant="300" id="gDZ-HG-eP1"/>
+                                </constraints>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="snG-UO-KbW" eventType="touchUpInside" id="VuN-51-56w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="BxT-nw-mka" firstAttribute="centerX" secondItem="olM-B3-P9z" secondAttribute="centerX" id="BHB-jd-QFF"/>
                             <constraint firstItem="Fcg-2U-rR3" firstAttribute="centerX" secondItem="olM-B3-P9z" secondAttribute="centerX" id="HaI-Ca-lTm"/>
+                            <constraint firstItem="FxP-A6-c9p" firstAttribute="bottom" secondItem="BxT-nw-mka" secondAttribute="bottom" constant="24" id="L5m-Ma-ql3"/>
                             <constraint firstItem="Fcg-2U-rR3" firstAttribute="centerY" secondItem="olM-B3-P9z" secondAttribute="centerY" id="Zy6-GB-s70"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FxP-A6-c9p"/>
                     </view>
                     <connections>
                         <outlet property="budgetTextField" destination="7gQ-No-hkW" id="wLa-YY-Iwp"/>
+                        <outlet property="closeButton" destination="BxT-nw-mka" id="kcs-kU-a4c"/>
                         <outlet property="confirmButton" destination="hUh-35-aTd" id="6Sq-dQ-3lC"/>
                     </connections>
                 </viewController>
