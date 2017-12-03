@@ -39,5 +39,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>UIApplicationShortcutItems</key>
+    <array>
+        <dict>
+            <key>UIApplicationShortcutItemTitle</key>
+            <string>New transaction</string>
+            <key>UIApplicationShortcutItemType</key>
+            <string>com.mycompany.myapp.openfavorites</string>
+        </dict>
+    </array>
 </dict>
 </plist>
