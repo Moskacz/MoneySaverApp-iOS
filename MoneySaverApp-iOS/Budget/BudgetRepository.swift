@@ -13,7 +13,6 @@ protocol BudgetRepository {
     var fetchRequest: NSFetchRequest<BudgetManagedObject> { get }
     var sortDescriptor: NSSortDescriptor { get }
     var context: NSManagedObjectContext { get }
-    func currentBudgetValue() -> Decimal?
     func saveBudget(withValue value: Decimal)
 }
 
@@ -25,18 +24,6 @@ class BudgetRepositoryImpl: BudgetRepository {
     init(context: NSManagedObjectContext, logger: Logger) {
         self.context = context
         self.logger = logger
-    }
-    
-    func currentBudgetValue() -> Decimal? {
-        let request = fetchRequest
-        request.fetchLimit = 1
-        do {
-            let budget = try context.fetch(request).first
-            return budget?.value as Decimal?
-        } catch {
-            logger.log(withLevel: .error, message: error.localizedDescription)
-            return nil
-        }
     }
     
     func saveBudget(withValue value: Decimal) {

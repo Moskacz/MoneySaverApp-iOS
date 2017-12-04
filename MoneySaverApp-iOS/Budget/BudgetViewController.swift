@@ -23,6 +23,8 @@ class BudgetViewController: UIViewController {
         }
     }
     
+    var setupBudgetViewModel: SetupBudgetViewModel?
+    
     override var tabBarItem: UITabBarItem! {
         get {
             return UITabBarItem(title: "Budget", image: nil, selectedImage: nil)
@@ -69,9 +71,9 @@ class BudgetViewController: UIViewController {
     // MARK: SetupBudgetViewController
     
     private func displaySetupBudgetViewController() {
-        guard let storyboard = storyboard, let model = viewModel else { return }
+        guard let storyboard = storyboard else { return }
         let setupBudgetVC: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
-        setupBudgetVC.viewModel = SetupBudgetViewModel(budgetRepository: model.budgetRepository)
+        setupBudgetVC.viewModel = setupBudgetViewModel
         addViewController(asChild: setupBudgetVC)
     }
     

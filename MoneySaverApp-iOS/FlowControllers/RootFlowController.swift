@@ -107,6 +107,10 @@ class RootFlowController: FlowController {
         if budgetVC?.viewModel == nil {
             budgetVC?.viewModel = try! dependencyContainer.resolve()
         }
+        
+        if budgetVC?.setupBudgetViewModel == nil {
+            budgetVC?.setupBudgetViewModel = try! dependencyContainer.resolve()
+        }
     }
     
     private func presentTransactionDataViewController() {
@@ -142,6 +146,7 @@ class RootFlowController: FlowController {
     
     private func presentSetupBudgetViewController() {
         let viewController: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
+        viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.budgetSetCallback = {
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
