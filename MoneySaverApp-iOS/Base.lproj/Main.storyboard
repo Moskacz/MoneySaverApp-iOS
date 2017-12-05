@@ -282,6 +282,7 @@
                         <outlet property="currentDateChevron" destination="Zku-6B-rLt" id="Vw2-aB-Apr"/>
                         <outlet property="currentDateLabel" destination="F30-rz-fSc" id="jyn-aU-Hs9"/>
                         <outlet property="datePicker" destination="NXZ-bw-5e3" id="Z2E-aO-jw6"/>
+                        <outlet property="scrollView" destination="fJT-tv-2rK" id="3lH-dF-DS9"/>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
                         <outlet property="valueSignSegmentedControl" destination="HeW-it-5JI" id="8EW-3W-eLF"/>
                         <outlet property="valueTextField" destination="NtE-lG-S22" id="PlH-oo-L3d"/>

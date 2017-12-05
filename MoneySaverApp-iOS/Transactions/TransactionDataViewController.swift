@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMFoundation
 
 struct TransactionData {
     let title: String
@@ -30,12 +31,14 @@ enum TransactionValueSign: Int {
 
 class TransactionDataViewController: UIViewController {
     
+    @IBOutlet private weak var scrollView: UIScrollView?
     @IBOutlet private weak var titleTextField: UITextField?
     @IBOutlet private weak var valueTextField: UITextField?
     @IBOutlet private weak var valueSignSegmentedControl: UISegmentedControl?
     @IBOutlet private weak var currentDateLabel: UILabel?
     @IBOutlet private weak var currentDateChevron: UIImageView?
     @IBOutlet private weak var datePicker: UIDatePicker?
+    private var keyboardObserver: KeyboardAppearObserver?
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
@@ -43,8 +46,20 @@ class TransactionDataViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupKeyboardObserver()
         setupViews()
         setupInitialData()
+    }
+    
+    private func setupKeyboardObserver() {
+        keyboardObserver = KeyboardAppearObserver()
+        keyboardObserver?.keyboardWillAppearCallback = { [weak self] height in
+            self?.scrollView?.contentInset.bottom = height
+        }
+        
+        keyboardObserver?.keyboardWillHideCallback = { [weak self] in
+            self?.scrollView?.contentInset.bottom = 0
+        }
     }
     
     private func setupViews() {
@@ -151,6 +166,7 @@ class TransactionDataViewController: UIViewController {
             UIView.animate(withDuration: 0.3, animations: {
                 picker.isHidden = false
                 self.currentDateChevron?.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+                self.scrollView?.scrollRectToVisible(picker.frame, animated: true)
             })
         } else {
             picker.isHidden = true
