@@ -52,14 +52,8 @@ class TransactionDataViewController: UIViewController {
     }
     
     private func setupKeyboardObserver() {
-        keyboardObserver = KeyboardAppearObserver()
-        keyboardObserver?.keyboardWillAppearCallback = { [weak self] height in
-            self?.scrollView?.contentInset.bottom = height
-        }
-        
-        keyboardObserver?.keyboardWillHideCallback = { [weak self] in
-            self?.scrollView?.contentInset.bottom = 0
-        }
+        guard let scroll = scrollView else { return }
+        keyboardObserver = KeyboardAppearObserver(scrollView: scroll)
     }
     
     private func setupViews() {
