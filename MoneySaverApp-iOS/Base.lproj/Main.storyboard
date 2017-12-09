@@ -25,47 +25,140 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="hUW-SR-27q"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZ1-f9-ZV4" customClass="DateIntervalPickerView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LK8-df-Lhb">
                                 <rect key="frame" x="0.0" y="36" width="375" height="125"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aUm-6V-dDy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="117"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="L5p-R9-bVi">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="FZ1-f9-ZV4" id="rT4-SP-Upq"/>
-                                            <outlet property="delegate" destination="FZ1-f9-ZV4" id="TbC-UC-pFg"/>
-                                        </connections>
-                                    </collectionView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fnU-WH-78E" customClass="TransactionSummaryElementView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="125"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSF-6i-DTz">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vX1-Rp-6bd">
+                                                <rect key="frame" x="0.0" y="31.5" width="94" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyc-UW-ICD">
+                                                <rect key="frame" x="0.0" y="62.5" width="94" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W42-Jc-kyO">
+                                                <rect key="frame" x="0.0" y="94" width="94" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Itn-40-sl0" customClass="TransactionSummaryElementView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="94" y="0.0" width="93.5" height="125"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ElD-yX-XGp">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGX-Lw-A5p">
+                                                <rect key="frame" x="0.0" y="31.5" width="93.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v4-r8-mda">
+                                                <rect key="frame" x="0.0" y="62.5" width="93.5" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Uv-zX-PVi">
+                                                <rect key="frame" x="0.0" y="94" width="93.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gYF-65-Q1V" customClass="TransactionSummaryElementView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="187.5" y="0.0" width="94" height="125"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exl-Gm-cOh">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAQ-aR-xiG">
+                                                <rect key="frame" x="0.0" y="31.5" width="94" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51y-Pe-brw">
+                                                <rect key="frame" x="0.0" y="62.5" width="94" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cO9-s1-wtJ">
+                                                <rect key="frame" x="0.0" y="94" width="94" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SWu-fN-6lf" customClass="TransactionSummaryElementView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="125"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65e-At-Dfg">
+                                                <rect key="frame" x="0.0" y="0.0" width="93.5" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8L-Ah-jXp">
+                                                <rect key="frame" x="0.0" y="31.5" width="93.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVS-y5-iA5">
+                                                <rect key="frame" x="0.0" y="62.5" width="93.5" height="31.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qw-H1-ZwP">
+                                                <rect key="frame" x="0.0" y="94" width="93.5" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="aUm-6V-dDy" secondAttribute="bottom" constant="8" id="73h-l3-H6c"/>
-                                    <constraint firstItem="aUm-6V-dDy" firstAttribute="leading" secondItem="FZ1-f9-ZV4" secondAttribute="leading" id="cOd-tv-7I5"/>
-                                    <constraint firstAttribute="height" constant="125" id="eD7-hl-ORQ"/>
-                                    <constraint firstItem="aUm-6V-dDy" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="top" id="qcz-wb-YGS"/>
-                                    <constraint firstAttribute="trailing" secondItem="aUm-6V-dDy" secondAttribute="trailing" id="ujh-GL-YPu"/>
+                                    <constraint firstAttribute="height" constant="125" id="xnx-mL-nxq"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="dateIntervalsCollectionView" destination="aUm-6V-dDy" id="BO7-eg-LKt"/>
-                                </connections>
-                            </view>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
+                            <constraint firstItem="LK8-df-Lhb" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="3hQ-D1-cuS"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="FZ1-f9-ZV4" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="Gzh-jP-Uny"/>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="FZ1-f9-ZV4" secondAttribute="bottom" constant="16" id="IvU-0D-7H3"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="FZ1-f9-ZV4" secondAttribute="trailing" id="MMX-ay-1vG"/>
-                            <constraint firstItem="FZ1-f9-ZV4" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="S3x-hF-34O"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="LK8-df-Lhb" secondAttribute="bottom" constant="16" id="Dq9-H5-8Hc"/>
+                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="LK8-df-Lhb" secondAttribute="trailing" id="b5f-iq-jqL"/>
                             <constraint firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="iEt-Yn-6Cf"/>
+                            <constraint firstItem="LK8-df-Lhb" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="16" id="jw5-Nk-Ff8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
@@ -78,7 +171,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="dateIntervalsPickerView" destination="FZ1-f9-ZV4" id="C6g-wY-TQc"/>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
                     </connections>
                 </viewController>

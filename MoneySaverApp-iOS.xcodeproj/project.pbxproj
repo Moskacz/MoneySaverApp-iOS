@@ -45,6 +45,8 @@
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
 		359784B71FD70D5200140DCA /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; };
+		3598B1101FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598B10F1FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift */; };
+		3598B1121FDC4A3100ADAF0D /* TransactionsSummaryElementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3598B1111FDC4A3100ADAF0D /* TransactionsSummaryElementViewModel.swift */; };
 		3599F5DA1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F5D81F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift */; };
 		3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */; };
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
@@ -166,6 +168,8 @@
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
 		359784AE1FD70D3E00140DCA /* MMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMFoundation.xcodeproj; path = InternalFrameworks/MMFoundation/MMFoundation.xcodeproj; sourceTree = "<group>"; };
+		3598B10F1FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryElementView.swift; sourceTree = "<group>"; };
+		3598B1111FDC4A3100ADAF0D /* TransactionsSummaryElementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryElementViewModel.swift; sourceTree = "<group>"; };
 		3599F5D81F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategoryManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Additions.swift"; sourceTree = "<group>"; };
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
@@ -337,6 +341,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3598B10C1FDC499A00ADAF0D /* TransactionsSummary */ = {
+			isa = PBXGroup;
+			children = (
+				3598B10F1FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift */,
+				3598B1111FDC4A3100ADAF0D /* TransactionsSummaryElementViewModel.swift */,
+			);
+			path = TransactionsSummary;
+			sourceTree = "<group>";
+		};
 		35B296D61F7EBEC5004A3E32 /* PresentationControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -385,6 +398,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3598B10C1FDC499A00ADAF0D /* TransactionsSummary */,
 				35708BB81FC605B20052ED9E /* Charts */,
 				35C853921FBCC84300A7E479 /* Budget */,
 				35D7C4121FAC9C0F0052BAD6 /* Dates */,
@@ -764,6 +778,7 @@
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				35C09DDE1E89751A00095FE2 /* TransactionsService.swift in Sources */,
+				3598B1121FDC4A3100ADAF0D /* TransactionsSummaryElementViewModel.swift in Sources */,
 				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
@@ -796,6 +811,7 @@
 				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
 				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
+				3598B1101FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift in Sources */,
 				35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,
