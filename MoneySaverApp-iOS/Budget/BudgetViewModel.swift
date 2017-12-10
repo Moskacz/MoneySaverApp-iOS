@@ -62,7 +62,7 @@ class BudgetViewModel: NSObject {
         let leftSum = max(budgetValue() + expenses.double, 0)
         let leftMoneyEntry = PieChartDataEntry(value: leftSum, label: "Left")
         let dataSet = PieChartDataSet(values: [spentMoneyEntry, leftMoneyEntry], label: nil)
-        dataSet.colors = [#colorLiteral(red: 1, green: 0.3717083335, blue: 0.3938803077, alpha: 1), #colorLiteral(red: 0, green: 0.7720543742, blue: 0, alpha: 1)]
+        dataSet.colors = [Styles.redColor, Styles.greenColor]
         return PieChartData(dataSet: dataSet)
     }
     
@@ -77,7 +77,7 @@ class BudgetViewModel: NSObject {
         let valuePerDay = budgetValue() / Double(daysInMonth)
         let barEntries = daysRange.map { BarChartDataEntry(x: Double($0), y: valuePerDay * Double($0))}
         let barDataSet = BarChartDataSet(values: barEntries, label: "Estimated spendings")
-        barDataSet.colors = [#colorLiteral(red: 0, green: 0.7720543742, blue: 0, alpha: 1)]
+        barDataSet.colors = [Styles.greenColor]
         barDataSet.drawValuesEnabled = false
         data.barData = BarChartData(dataSet: barDataSet)
         
@@ -85,7 +85,7 @@ class BudgetViewModel: NSObject {
             return ChartDataEntry(x: Double($0.day), y: $0.value.double)
         }
         let lineDataSet = LineChartDataSet(values: lineEntries, label: "Actual spendings")
-        lineDataSet.colors = [#colorLiteral(red: 1, green: 0.3717083335, blue: 0.3938803077, alpha: 1)]
+        lineDataSet.colors = [Styles.redColor]
         
         lineDataSet.mode = .linear
         lineDataSet.lineWidth = 5

@@ -28,18 +28,19 @@ class TransactionSummaryElementView: UIView {
     private func setup() {
         setupLayer()
         let titleLabel = createLabel()
-        titleLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        titleLabel.backgroundColor = Styles.yellowColor
         titleLabel.text = "title"
         
         let expensesLabel = createLabel()
-        expensesLabel.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1).withAlphaComponent(0.1)
+        expensesLabel.backgroundColor = Styles.redColor
         expensesLabel.text = "expenses"
         
         let incomesLabel = createLabel()
-        incomesLabel.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).withAlphaComponent(0.1)
+        incomesLabel.backgroundColor = Styles.greenColor
         incomesLabel.text = "incomes"
         
         let totalLabel = createLabel()
+        totalLabel.backgroundColor = Styles.yellowColor
         totalLabel.text = "total"
         
         let stackView = UIStackView(arrangedSubviews: [titleLabel, expensesLabel, incomesLabel, totalLabel])
@@ -65,6 +66,8 @@ class TransactionSummaryElementView: UIView {
     private func createLabel() -> UILabel {
         let label = UILabel()
         label.textAlignment = .center
+        label.textColor = UIColor.white
+        label.minimumScaleFactor = 0.5
         return label
     }
     

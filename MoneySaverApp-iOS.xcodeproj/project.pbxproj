@@ -43,6 +43,7 @@
 		35708BC51FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC31FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift */; };
 		35708BC61FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */; };
 		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
+		3585EDFA1FDDA08200871941 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDF91FDDA08200871941 /* Styles.swift */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -177,6 +178,7 @@
 		35708BC31FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
+		3585EDF91FDDA08200871941 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -332,6 +334,14 @@
 			path = Charts;
 			sourceTree = "<group>";
 		};
+		3585EDF61FDDA07000871941 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				3585EDF91FDDA08200871941 /* Styles.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
 		358894751E99457400ACF06C /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +418,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3585EDF61FDDA07000871941 /* Styles */,
 				3598B10C1FDC499A00ADAF0D /* TransactionsSummary */,
 				35708BB81FC605B20052ED9E /* Charts */,
 				35C853921FBCC84300A7E479 /* Budget */,
@@ -803,6 +814,7 @@
 				35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */,
 				3514C42C1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
+				3585EDFA1FDDA08200871941 /* Styles.swift in Sources */,
 				35CCD4FE1FAE170900BD308E /* CurrentDateProvider.swift in Sources */,
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				3514C42D1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift in Sources */,
