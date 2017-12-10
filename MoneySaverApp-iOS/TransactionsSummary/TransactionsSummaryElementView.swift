@@ -31,16 +31,18 @@ class TransactionSummaryElementView: UIView {
         titleLabel.backgroundColor = UIColor.black.withAlphaComponent(0.1)
         titleLabel.text = "title"
         
-        let incomesLabel = createLabel()
-        incomesLabel.text = "incomes"
-        
         let expensesLabel = createLabel()
+        expensesLabel.backgroundColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1).withAlphaComponent(0.1)
         expensesLabel.text = "expenses"
+        
+        let incomesLabel = createLabel()
+        incomesLabel.backgroundColor = #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).withAlphaComponent(0.1)
+        incomesLabel.text = "incomes"
         
         let totalLabel = createLabel()
         totalLabel.text = "total"
         
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, incomesLabel, expensesLabel, totalLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, expensesLabel, incomesLabel, totalLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.distribution = .fillEqually

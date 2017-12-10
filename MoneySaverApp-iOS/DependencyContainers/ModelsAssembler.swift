@@ -30,7 +30,7 @@ struct ModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            CalendarServiceImpl() as CalendarService
+            CalendarServiceImpl(calendar: $0, currentDateProvider: $1) as CalendarService
         }
         
         container.register {

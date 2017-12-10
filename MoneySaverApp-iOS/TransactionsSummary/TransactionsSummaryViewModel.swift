@@ -23,21 +23,29 @@ class TransactionsSummaryViewModel {
     }
     
     private let computingService: TransactionsComputingService
+    private let calendarService: CalendarService
     
-    init(computingService: TransactionsComputingService) {
+    init(computingService: TransactionsComputingService,
+         calendarService: CalendarService) {
         self.computingService = computingService
+        self.calendarService = calendarService
         computingService.add(delegate: self)
     }
     
     private func createViewModels(withSum sum: TransactionsCompoundSum) {
-        delegate?.updateElement(viewModel: TransactionsSummaryElementViewModelImpl(transactionsSum: sum.daily),
+        delegate?.updateElement(viewModel: elementViewModel(sum: sum.daily),
                                 dateComponent: .day)
-        delegate?.updateElement(viewModel: TransactionsSummaryElementViewModelImpl(transactionsSum: sum.weekly),
+        delegate?.updateElement(viewModel: elementViewModel(sum: sum.weekly),
                                 dateComponent: .weekOfYear)
-        delegate?.updateElement(viewModel: TransactionsSummaryElementViewModelImpl(transactionsSum: sum.monthly),
+        delegate?.updateElement(viewModel: elementViewModel(sum: sum.monthly),
                                 dateComponent: .month)
-        delegate?.updateElement(viewModel: TransactionsSummaryElementViewModelImpl(transactionsSum: sum.yearly),
+        delegate?.updateElement(viewModel: elementViewModel(sum: sum.yearly),
                                 dateComponent: .year)
+    }
+    
+    private func elementViewModel(sum: TransactionsSum) -> TransactionsSummaryElementViewModel {
+        return TransactionsSummaryElementViewModelImpl(transactionsSum: sum,
+                                                       calendarService: calendarService)
     }
     
 }

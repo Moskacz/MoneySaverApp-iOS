@@ -15,6 +15,7 @@ class TransactionsListViewModel {
     private let transactionsService: TransactionsService
     private var transactionsComputingService: TransactionsComputingService
     private let logger: Logger
+    private let calendarService: CalendarService
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
@@ -22,14 +23,17 @@ class TransactionsListViewModel {
     
     init(transactionsService: TransactionsService,
          transactionsComputingService: TransactionsComputingService,
-         logger: Logger) {
+         logger: Logger,
+         calendarService: CalendarService) {
         self.transactionsService = transactionsService
         self.transactionsComputingService = transactionsComputingService
         self.logger = logger
+        self.calendarService = calendarService
     }
     
     func summaryViewModel() -> TransactionsSummaryViewModel {
-        return TransactionsSummaryViewModel(computingService: transactionsComputingService)
+        return TransactionsSummaryViewModel(computingService: transactionsComputingService,
+                                            calendarService: calendarService)
     }
     
     func attach(updater: CollectionUpdater) {

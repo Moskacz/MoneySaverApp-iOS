@@ -9,7 +9,6 @@
 import Foundation
 
 protocol TransactionsSummaryElementViewModel {
-    var dateComponent: TransactionDateComponent { get }
     var title: String? { get }
     var incomes: String? { get }
     var expenses: String? { get }
@@ -19,21 +18,30 @@ protocol TransactionsSummaryElementViewModel {
 class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewModel {
     
     private let sum: TransactionsSum
+    private let calendarService: CalendarService
     
-    init(transactionsSum: TransactionsSum) {
+    init(transactionsSum: TransactionsSum, calendarService: CalendarService) {
         self.sum = transactionsSum
-    }
-    
-    var dateComponent: TransactionDateComponent {
-        return sum.dateComponent
+        self.calendarService = calendarService
     }
     
     var title: String? {
-        return nil
+        switch sum.dateComponent {
+        case .day:
+            return "Today"
+        case .weekOfYear:
+            return "This week"
+        case .month:
+            return calendarService.currentMonthDescription()
+        case .year:
+            return calendarService.currentYearDescription()
+        case .dayOfYear:
+            return nil
+        }
     }
     
     var incomes: String? {
-        return "\(sum.incomes)"
+        return "+\(sum.incomes)"
     }
     
     var expenses: String? {
