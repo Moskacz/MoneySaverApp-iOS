@@ -10,7 +10,7 @@ import UIKit
 
 class TransactionsListViewController: UIViewController {
     
-    @IBOutlet private weak var dateIntervalsPickerView: DateIntervalPickerView?
+    @IBOutlet private weak var summaryView: TransactionsSummaryView?
     @IBOutlet private weak var tableView: UITableView?
     
     var viewModel: TransactionsListViewModel? {
@@ -32,7 +32,7 @@ class TransactionsListViewController: UIViewController {
     }
     
     private func setupViews() {
-        dateIntervalsPickerView?.viewModel = viewModel?.dateIntervalsPickerViewModel()
+        summaryView?.viewModel = viewModel?.summaryViewModel()
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.tableFooterView = UIView()

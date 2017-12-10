@@ -28,9 +28,8 @@ class TransactionsListViewModel {
         self.logger = logger
     }
     
-    func dateIntervalsPickerViewModel() -> DateIntervalPickerViewModel {
-        return DateIntervalPickerViewModel(calendarService: CalendarServiceImpl(),
-                                           computingService: transactionsComputingService)
+    func summaryViewModel() -> TransactionsSummaryViewModel {
+        return TransactionsSummaryViewModel(computingService: transactionsComputingService)
     }
     
     func attach(updater: CollectionUpdater) {

@@ -8,12 +8,54 @@
 
 import UIKit
 
-class TransactionSummaryElementView: UIStackView {
+class TransactionSummaryElementView: UIView {
     
-    @IBOutlet private weak var titleLabel: UILabel?
-    @IBOutlet private weak var incomesLabel: UILabel?
-    @IBOutlet private weak var expensesLabel: UILabel?
-    @IBOutlet private weak var totalLabel: UILabel?
+    private weak var titleLabel: UILabel?
+    private weak var incomesLabel: UILabel?
+    private weak var expensesLabel: UILabel?
+    private weak var totalLabel: UILabel?
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    private func setup() {
+        let titleLabel = createLabel()
+        titleLabel.text = "title"
+        
+        let incomesLabel = createLabel()
+        incomesLabel.text = "incomes"
+        
+        let expensesLabel = createLabel()
+        expensesLabel.text = "expenses"
+        
+        let totalLabel = createLabel()
+        totalLabel.text = "total"
+        
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, incomesLabel, expensesLabel, totalLabel])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        addSubview(stackView)
+        stackView.matchParent()
+        
+        self.titleLabel = titleLabel
+        self.incomesLabel = incomesLabel
+        self.expensesLabel = expensesLabel
+        self.totalLabel = totalLabel
+    }
+
+    private func createLabel() -> UILabel {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }
     
     func update(withViewModel viewModel: TransactionsSummaryElementViewModel) {
         titleLabel?.text = viewModel.title
