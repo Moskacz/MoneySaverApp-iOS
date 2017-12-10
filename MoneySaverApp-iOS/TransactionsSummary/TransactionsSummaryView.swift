@@ -41,6 +41,7 @@ class TransactionsSummaryView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
+        stackView.spacing = 8
         addSubview(stackView)
         stackView.matchParent()
         
