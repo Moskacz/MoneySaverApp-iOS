@@ -44,6 +44,7 @@
 		35708BC61FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */; };
 		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
 		3585EDFA1FDDA08200871941 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDF91FDDA08200871941 /* Styles.swift */; };
+		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -179,6 +180,7 @@
 		35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BudgetManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
 		3585EDF91FDDA08200871941 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -563,6 +565,7 @@
 			isa = PBXGroup;
 			children = (
 				35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */,
+				3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -812,6 +815,7 @@
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,
 				35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */,
+				3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */,
 				3514C42C1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				3585EDFA1FDDA08200871941 /* Styles.swift in Sources */,
