@@ -11,7 +11,7 @@ import MoneySaverFoundationiOS
 import CoreData
 
 protocol TransactionsService {
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject>
+    var allDataFRC: NSFetchedResultsController<TransactionManagedObject> { get }
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
 }
@@ -30,16 +30,19 @@ class TransactionsServiceImpl: TransactionsService {
         self.logger = logger
     }
     
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
-        let transactionsFR = repository.fetchRequest
-        transactionsFR.includesPropertyValues = true
-        transactionsFR.fetchBatchSize = 20
-        transactionsFR.sortDescriptors = [repository.sortDescriptor]
-        
-        return NSFetchedResultsController(fetchRequest: transactionsFR,
-                                          managedObjectContext: repository.context,
-                                          sectionNameKeyPath: "dayOfYear",
-                                          cacheName: nil)
+    var allDataFRC: NSFetchedResultsController<TransactionManagedObject> {
+        get {
+            let transactionsFR = repository.fetchRequest
+            transactionsFR.includesPropertyValues = true
+            transactionsFR.fetchBatchSize = 20
+            transactionsFR.sortDescriptors = [TransactionManagedObject.SortDescriptors.dayOfYear.value,
+                                              TransactionManagedObject.SortDescriptors.creationTimeInterval.value]
+            
+            return NSFetchedResultsController(fetchRequest: transactionsFR,
+                                              managedObjectContext: repository.context,
+                                              sectionNameKeyPath: TransactionManagedObject.AttributesNames.dayOfYear.rawValue,
+                                              cacheName: nil)
+        }
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {

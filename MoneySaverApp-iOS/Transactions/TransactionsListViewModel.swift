@@ -80,7 +80,7 @@ class TransactionsListViewModel {
     }
     
     private func createFRC() {
-        transactionsFRC = transactionsService.allDataFRC()
+        transactionsFRC = transactionsService.allDataFRC
         transactionsFRC?.delegate = collectionUpdateHandler
         
         do {

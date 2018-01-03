@@ -32,9 +32,9 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
         case .weekOfYear:
             return "This week"
         case .month:
-            return calendarService.currentMonthDescription()
+            return calendarService.currentMonthDescription
         case .year:
-            return calendarService.currentYearDescription()
+            return calendarService.currentYearDescription
         case .dayOfYear:
             return "Today"
         }

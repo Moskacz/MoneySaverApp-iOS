@@ -18,8 +18,8 @@ enum TransactionDateComponent: String {
 
 protocol CalendarService {
     func component(_ component: TransactionDateComponent, ofDate date: Date) -> Int
-    func currentYearDescription() -> String
-    func currentMonthDescription() -> String
+    var currentYearDescription: String { get }
+    var currentMonthDescription: String { get }
 }
 
 class CalendarServiceImpl: CalendarService {
@@ -47,11 +47,11 @@ class CalendarServiceImpl: CalendarService {
         }
     }
     
-    func currentYearDescription() -> String {
+    var currentYearDescription: String {
         return DateFormatters.formatter(forType: .yearOnly).string(from: now)
     }
     
-    func currentMonthDescription() -> String {
+    var currentMonthDescription: String {
         return DateFormatters.formatter(forType: .monthOnly).string(from: now)
     }
     

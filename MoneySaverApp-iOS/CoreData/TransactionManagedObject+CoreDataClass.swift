@@ -9,10 +9,27 @@
 import Foundation
 import CoreData
 
-
 public class TransactionManagedObject: NSManagedObject {
     
-    static var valueAttributeName = "value"
-    static var creationTimeIntervalAttributeName = "creationTimeInterval"
+    enum AttributesNames: String {
+        case value
+        case creationTimeInterval
+        case dayOfYear
+    }
     
+    enum SortDescriptors {
+        case dayOfYear
+        case creationTimeInterval
+        
+        var value: NSSortDescriptor {
+            switch self {
+            case .dayOfYear:
+                return NSSortDescriptor(key: AttributesNames.dayOfYear.rawValue,
+                                        ascending: false)
+            case .creationTimeInterval:
+                return NSSortDescriptor(key: AttributesNames.creationTimeInterval.rawValue,
+                                        ascending: false)
+            }
+        }
+    }
 }

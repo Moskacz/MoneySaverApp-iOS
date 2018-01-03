@@ -13,7 +13,6 @@ import MoneySaverFoundationiOS
 protocol TransactionsRepository {
     var context: NSManagedObjectContext { get }
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
-    var sortDescriptor: NSSortDescriptor { get }
     var expensesOnlyPredicate: NSPredicate { get }
     var currentYearOnlyPredicate: NSPredicate { get }
     
@@ -42,12 +41,6 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         }
     }
     
-    var sortDescriptor: NSSortDescriptor {
-        get {
-            return NSSortDescriptor(key: "creationTimeInterval", ascending: false)
-        }
-    }
-    
     var expensesOnlyPredicate: NSPredicate {
         get {
             return NSPredicate(format: "value < 0")
@@ -58,16 +51,6 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         get {
             return predicate(forDateComponent: .year)
         }
-    }
-    
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
-        let transactionsFR = fetchRequest
-        transactionsFR.sortDescriptors = [sortDescriptor]
-        
-        return NSFetchedResultsController(fetchRequest: transactionsFR,
-                                          managedObjectContext: context,
-                                          sectionNameKeyPath: "dayOfYear",
-                                          cacheName: nil)
     }
     
     func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate {
