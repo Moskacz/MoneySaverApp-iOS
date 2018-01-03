@@ -12,7 +12,9 @@ import CoreData
 
 public class TransactionCategoryManagedObject: NSManagedObject {
 
-    class var nameAttributeName: String { return "name" }
+    enum AttributesNames: String {
+        case name
+    }
     
     lazy var image: UIImage? = {
         guard let data = icon else { return nil }
