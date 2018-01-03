@@ -28,7 +28,7 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
     var title: String? {
         switch sum.dateComponent {
         case .day:
-            return "Today"
+            return nil
         case .weekOfYear:
             return "This week"
         case .month:
@@ -36,7 +36,7 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
         case .year:
             return calendarService.currentYearDescription()
         case .dayOfYear:
-            return nil
+            return "Today"
         }
     }
     

@@ -15,6 +15,7 @@ protocol TransactionsRepository {
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
     var sortDescriptor: NSSortDescriptor { get }
     var expensesOnlyPredicate: NSPredicate { get }
+    var currentYearOnlyPredicate: NSPredicate { get }
     
     func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
@@ -50,6 +51,12 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     var expensesOnlyPredicate: NSPredicate {
         get {
             return NSPredicate(format: "value < 0")
+        }
+    }
+    
+    var currentYearOnlyPredicate: NSPredicate {
+        get {
+            return predicate(forDateComponent: .year)
         }
     }
     

@@ -34,7 +34,7 @@ class TransactionsSummaryViewModel {
     
     private func createViewModels(withSum sum: TransactionsCompoundSum) {
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.daily),
-                                dateComponent: .day)
+                                dateComponent: .dayOfYear)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.weekly),
                                 dateComponent: .weekOfYear)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.monthly),

@@ -75,7 +75,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func sum() -> TransactionsCompoundSum {
-        return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .day),
+        return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .dayOfYear),
                                        weekly: transactionsSum(forDateComponent: .weekOfYear),
                                        monthly: transactionsSum(forDateComponent: .month),
                                        yearly: transactionsSum(forDateComponent: .year))
@@ -90,7 +90,8 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let request = repository.fetchRequest
         request.propertiesToFetch = ["value"]
         request.includesPropertyValues = true
-        request.predicate = repository.predicate(forDateComponent: component)
+        let predicates = [repository.predicate(forDateComponent: component), repository.currentYearOnlyPredicate]
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         
         do {
             return try repository.context.fetch(request)

@@ -56,7 +56,7 @@ extension TransactionsSummaryView: TransactionsSummaryViewModelDelegate {
     
     func updateElement(viewModel: TransactionsSummaryElementViewModel, dateComponent: TransactionDateComponent) {
         switch dateComponent {
-        case .day:
+        case .dayOfYear:
             todayElement?.update(withViewModel: viewModel)
         case .weekOfYear:
             weekElement?.update(withViewModel: viewModel)
