@@ -62,7 +62,7 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
     
     func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject> {
         let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: TransactionCategoryManagedObject.AttributesNames.name, ascending: true)
+        let sortDescriptor = NSSortDescriptor(key: TransactionCategoryManagedObject.AttributesNames.name.rawValue, ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
         return NSFetchedResultsController(fetchRequest: fetchRequest,
                                           managedObjectContext: context,

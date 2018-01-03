@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMFoundation
 
 class TransactionCategoryView: UIView {
     
