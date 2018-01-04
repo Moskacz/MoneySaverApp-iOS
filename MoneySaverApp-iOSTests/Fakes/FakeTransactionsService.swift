@@ -7,9 +7,15 @@
 //
 
 import Foundation
+import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsService: TransactionsService {
+    
+    var allDataFRC: NSFetchedResultsController<TransactionManagedObject> {
+        fatalError()
+    }
+    
     func remove(transaction: TransactionManagedObject) {}
     func getRepository() -> TransactionsRepository {
         return FakeTransactionsRepository()

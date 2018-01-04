@@ -11,9 +11,33 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsRepository: TransactionsRepository {
-    func allDataFRC() -> NSFetchedResultsController<TransactionManagedObject> {
-        return NSFetchedResultsController()
+    var context: NSManagedObjectContext {
+        fatalError()
     }
-    func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {}
-    func remove(transaction: TransactionManagedObject) {}
+    
+    var fetchRequest: NSFetchRequest<TransactionManagedObject> {
+        fatalError()
+    }
+    
+    var expensesOnlyPredicate: NSPredicate {
+        fatalError()
+    }
+    
+    var currentYearOnlyPredicate: NSPredicate {
+        fatalError()
+    }
+    
+    func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate {
+        fatalError()
+    }
+    
+    func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
+        fatalError()
+    }
+    
+    func remove(transaction: TransactionManagedObject) {
+        fatalError()
+    }
+    
+    
 }
