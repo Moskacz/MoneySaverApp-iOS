@@ -61,8 +61,10 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         context.perform {
             let transaction = TransactionManagedObject.createEntity(inContext: self.context)
             transaction.creationTimeInterval = data.creationDate.timeIntervalSince1970
-            transaction.day = Int32(self.calendarService.component(.day, ofDate: data.creationDate))
+            transaction.dayOfWeek = Int32(self.calendarService.component(.dayOfWeek, ofDate: data.creationDate))
+            transaction.dayOfMonth = Int32(self.calendarService.component(.dayOfMonth, ofDate: data.creationDate))
             transaction.dayOfYear = Int32(self.calendarService.component(.dayOfYear, ofDate: data.creationDate))
+            transaction.dayOfEra = Int32(self.calendarService.component(.dayOfEra, ofDate: data.creationDate))
             transaction.month = Int32(self.calendarService.component(.month, ofDate: data.creationDate))
             transaction.title = data.title
             transaction.value = data.value as NSDecimalNumber

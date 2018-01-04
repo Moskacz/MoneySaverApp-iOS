@@ -14,17 +14,18 @@ public class TransactionManagedObject: NSManagedObject {
     enum AttributesNames: String {
         case value
         case creationTimeInterval
-        case dayOfYear
+        case dayOfEra
+        case dayOfMonth
     }
     
     enum SortDescriptors {
-        case dayOfYear
+        case dayOfEra
         case creationTimeInterval
         
-        var value: NSSortDescriptor {
+        var descriptor: NSSortDescriptor {
             switch self {
-            case .dayOfYear:
-                return NSSortDescriptor(key: AttributesNames.dayOfYear.rawValue,
+            case .dayOfEra:
+                return NSSortDescriptor(key: AttributesNames.dayOfEra.rawValue,
                                         ascending: false)
             case .creationTimeInterval:
                 return NSSortDescriptor(key: AttributesNames.creationTimeInterval.rawValue,

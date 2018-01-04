@@ -35,12 +35,12 @@ class TransactionsServiceImpl: TransactionsService {
             let transactionsFR = repository.fetchRequest
             transactionsFR.includesPropertyValues = true
             transactionsFR.fetchBatchSize = 20
-            transactionsFR.sortDescriptors = [TransactionManagedObject.SortDescriptors.dayOfYear.value,
-                                              TransactionManagedObject.SortDescriptors.creationTimeInterval.value]
+            transactionsFR.sortDescriptors = [TransactionManagedObject.SortDescriptors.dayOfEra.descriptor,
+                                              TransactionManagedObject.SortDescriptors.creationTimeInterval.descriptor]
             
             return NSFetchedResultsController(fetchRequest: transactionsFR,
                                               managedObjectContext: repository.context,
-                                              sectionNameKeyPath: TransactionManagedObject.AttributesNames.dayOfYear.rawValue,
+                                              sectionNameKeyPath: TransactionManagedObject.AttributesNames.dayOfEra.rawValue,
                                               cacheName: nil)
         }
     }

@@ -9,8 +9,10 @@
 import Foundation
 
 enum TransactionDateComponent: String {
-    case day
+    case dayOfWeek
+    case dayOfMonth
     case dayOfYear
+    case dayOfEra
     case weekOfYear
     case month
     case year
@@ -34,10 +36,14 @@ class CalendarServiceImpl: CalendarService {
     
     func component(_ component: TransactionDateComponent, ofDate date: Date) -> Int {
         switch component {
-        case .day:
+        case .dayOfWeek:
+            return calendar.component(.weekday, from: date)
+        case .dayOfMonth:
             return calendar.component(.day, from: date)
         case .dayOfYear:
             return calendar.ordinality(of: .day, in: .year, for: date)!
+        case .dayOfEra:
+            return calendar.ordinality(of: .day, in: .era, for: date)!
         case .weekOfYear:
             return calendar.component(.weekOfYear, from: date)
         case .month:

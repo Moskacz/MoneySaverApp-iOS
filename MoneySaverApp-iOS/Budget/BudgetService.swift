@@ -23,7 +23,7 @@ class BudgetServiceImpl: BudgetService {
     
     func budgetFRC() -> NSFetchedResultsController<BudgetManagedObject> {
         let request = repository.fetchRequest
-        request.sortDescriptors = [repository.sortDescriptor]
+        request.sortDescriptors = [BudgetManagedObject.SortDescriptors.value.descriptor]
         
         return NSFetchedResultsController(fetchRequest: request,
                                           managedObjectContext: repository.context,

@@ -75,7 +75,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func sum() -> TransactionsCompoundSum {
-        return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .dayOfYear),
+        return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .dayOfEra),
                                        weekly: transactionsSum(forDateComponent: .weekOfYear),
                                        monthly: transactionsSum(forDateComponent: .month),
                                        yearly: transactionsSum(forDateComponent: .year))
@@ -88,7 +88,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private func transactions(forDateComponent component: TransactionDateComponent) -> [TransactionManagedObject] {
         let request = repository.fetchRequest
-        request.propertiesToFetch = ["value"]
+        request.propertiesToFetch = [TransactionManagedObject.AttributesNames.value.rawValue]
         request.includesPropertyValues = true
         let predicates = [repository.predicate(forDateComponent: component), repository.currentYearOnlyPredicate]
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
@@ -116,18 +116,21 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         
         let expressionDesc = NSExpressionDescription()
-        expressionDesc.expression = NSExpression(forFunction: "sum:", arguments: [NSExpression(forKeyPath: "value")])
-        expressionDesc.name = "sum"
+        let expressionName = "sum"
+        expressionDesc.expression = NSExpression(forFunction: "sum:",
+                                                 arguments: [NSExpression(forKeyPath: TransactionManagedObject.AttributesNames.value.rawValue)])
+        expressionDesc.name = expressionName
         expressionDesc.expressionResultType = .decimalAttributeType
         
-        request.propertiesToFetch = [expressionDesc, "day"]
-        request.propertiesToGroupBy = ["day"]
+        request.propertiesToFetch = [expressionDesc, TransactionManagedObject.AttributesNames.dayOfMonth.rawValue]
+        request.propertiesToGroupBy = [TransactionManagedObject.AttributesNames.dayOfMonth.rawValue]
         request.resultType = .dictionaryResultType
         
         do {
             let dictionaries = try repository.context.fetch(request)
             return dictionaries.flatMap {
-                guard let day = $0["day"] as? Int, let sum = $0["sum"] as? Decimal else { return nil }
+                guard let day = $0[TransactionManagedObject.AttributesNames.dayOfMonth.rawValue] as? Int,
+                    let sum = $0[expressionName] as? Decimal else { return nil }
                 return DailyValue(day: day, value: sum)
             }
         } catch {

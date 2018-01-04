@@ -16,6 +16,14 @@ public class TransactionCategoryManagedObject: NSManagedObject {
         case name
     }
     
+    enum SortDescriptors {
+        case name
+        
+        var descriptor: NSSortDescriptor {
+            return NSSortDescriptor(key: AttributesNames.name.rawValue, ascending: true)
+        }
+    }
+    
     lazy var image: UIImage? = {
         guard let data = icon else { return nil }
         return UIImage(data: data as Data)
