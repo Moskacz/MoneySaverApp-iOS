@@ -51,6 +51,16 @@ class TransactionDataViewController: UIViewController {
         setupInitialData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        titleTextField?.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        currentResponder?.resignFirstResponder()
+    }
+    
     private func setupKeyboardObserver() {
         guard let scroll = scrollView else { return }
         keyboardObserver = KeyboardAppearObserver(scrollView: scroll)
@@ -142,6 +152,10 @@ class TransactionDataViewController: UIViewController {
         var text = valueTextField?.text ?? ""
         text = String(text.dropFirst())
         valueTextField?.text = text
+    }
+    
+    private var currentResponder: UIResponder? {
+        return [titleTextField, valueTextField].flatMap { $0 }.first { $0.isFirstResponder }
     }
     
     // MARK: Transaction date
