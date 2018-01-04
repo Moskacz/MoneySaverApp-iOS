@@ -78,6 +78,7 @@
 		35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */; };
 		35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF71FB72C2D00589F53 /* SectionModel.swift */; };
 		35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */; };
+		35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */; };
 		35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */; };
 		35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C853991FBCD89800A7E479 /* BudgetViewModel.swift */; };
 		35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */; };
@@ -219,6 +220,7 @@
 		35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewController.swift; sourceTree = "<group>"; };
 		35C0ECF71FB72C2D00589F53 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
 		35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionGrouper.swift; sourceTree = "<group>"; };
+		35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Additions.swift"; sourceTree = "<group>"; };
 		35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakHoldersCollectionTests.swift; sourceTree = "<group>"; };
 		35C853991FBCD89800A7E479 /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
 		35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Additions.swift"; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				359A31381FB249C4000DA85F /* Character+Additions.swift */,
 				359A313A1FB4F754000DA85F /* UIColor+Additions.swift */,
 				35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */,
+				35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
 				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,
+				35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
 				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,

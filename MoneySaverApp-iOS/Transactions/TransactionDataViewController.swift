@@ -78,6 +78,7 @@ class TransactionDataViewController: UIViewController {
                                            action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
         datePicker?.isHidden = true
+        datePicker?.alpha = 0
     }
     
     private func setupInitialData() {
@@ -173,12 +174,14 @@ class TransactionDataViewController: UIViewController {
         if picker.isHidden {
             UIView.animate(withDuration: 0.3, animations: {
                 picker.isHidden = false
+                picker.alpha = 1
                 self.currentDateChevron?.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-                self.scrollView?.scrollRectToVisible(picker.frame, animated: true)
+                self.scrollView?.scrollToBottom(animated: true)
             })
         } else {
-            picker.isHidden = true
+            picker.alpha = 0
             UIView.animate(withDuration: 0.3, animations: {
+                picker.isHidden = true
                 self.currentDateChevron?.transform = .identity
             })
         }
