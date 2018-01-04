@@ -16,6 +16,7 @@ enum TransactionDateComponent: String {
     case weekOfYear
     case month
     case year
+    case era
 }
 
 protocol CalendarService {
@@ -50,6 +51,8 @@ class CalendarServiceImpl: CalendarService {
             return calendar.component(.month, from: date)
         case .year:
             return calendar.component(.year, from: date)
+        case .era:
+            return calendar.component(.era, from: date)
         }
     }
     
