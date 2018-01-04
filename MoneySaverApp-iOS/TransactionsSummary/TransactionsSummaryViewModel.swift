@@ -41,6 +41,8 @@ class TransactionsSummaryViewModel {
                                 dateComponent: .month)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.yearly),
                                 dateComponent: .year)
+        delegate?.updateElement(viewModel: elementViewModel(sum: sum.era),
+                                dateComponent: .era)
     }
     
     private func elementViewModel(sum: TransactionsSum) -> TransactionsSummaryElementViewModel {

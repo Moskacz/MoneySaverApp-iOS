@@ -40,6 +40,7 @@ struct TransactionsCompoundSum {
     let weekly: TransactionsSum
     let monthly: TransactionsSum
     let yearly: TransactionsSum
+    let era: TransactionsSum
 }
 
 class TransactionsComputingServiceImpl: TransactionsComputingService {
@@ -78,7 +79,8 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .dayOfEra),
                                        weekly: transactionsSum(forDateComponent: .weekOfYear),
                                        monthly: transactionsSum(forDateComponent: .month),
-                                       yearly: transactionsSum(forDateComponent: .year))
+                                       yearly: transactionsSum(forDateComponent: .year),
+                                       era: transactionsSum(forDateComponent: .era))
     }
     
     private func transactionsSum(forDateComponent component: TransactionDateComponent) -> TransactionsSum {
@@ -90,8 +92,10 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let request = repository.fetchRequest
         request.propertiesToFetch = [TransactionManagedObject.AttributesNames.value.rawValue]
         request.includesPropertyValues = true
-        let predicates = [repository.predicate(forDateComponent: component), repository.currentYearOnlyPredicate]
-        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        if component != .era {
+            let predicates = [repository.predicate(forDateComponent: component), repository.currentYearOnlyPredicate]
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        }
         
         do {
             return try repository.context.fetch(request)

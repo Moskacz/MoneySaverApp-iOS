@@ -20,6 +20,7 @@ class TransactionsSummaryView: UIView {
     private weak var weekElement: TransactionSummaryElementView?
     private weak var monthElement: TransactionSummaryElementView?
     private weak var yearElement: TransactionSummaryElementView?
+    private weak var eraElement: TransactionSummaryElementView?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,12 +37,13 @@ class TransactionsSummaryView: UIView {
         let weekElement = TransactionSummaryElementView()
         let monthElement = TransactionSummaryElementView()
         let yearElement = TransactionSummaryElementView()
+        let eraElement = TransactionSummaryElementView()
         
-        let stackView = UIStackView(arrangedSubviews: [todayElement, weekElement, monthElement, yearElement])
+        let stackView = UIStackView(arrangedSubviews: [todayElement, weekElement, monthElement, yearElement, eraElement])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        stackView.spacing = 8
+        stackView.spacing = 4
         addSubview(stackView)
         stackView.matchParent()
         
@@ -49,6 +51,7 @@ class TransactionsSummaryView: UIView {
         self.weekElement = weekElement
         self.monthElement = monthElement
         self.yearElement = yearElement
+        self.eraElement = eraElement
     }
 }
 
@@ -64,6 +67,8 @@ extension TransactionsSummaryView: TransactionsSummaryViewModelDelegate {
             monthElement?.update(withViewModel: viewModel)
         case .year:
             yearElement?.update(withViewModel: viewModel)
+        case .era:
+            eraElement?.update(withViewModel: viewModel)
         default:
             break
         }

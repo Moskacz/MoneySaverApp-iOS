@@ -30,11 +30,13 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
         case .dayOfEra:
             return "Today"
         case .weekOfYear:
-            return "This week"
+            return "Week"
         case .month:
             return calendarService.currentMonthDescription
         case .year:
             return calendarService.currentYearDescription
+        case .era:
+            return "Overall"
         default:
             return nil
         }
