@@ -57,8 +57,6 @@ class TransactionSummaryElementView: UIView {
     }
     
     private func setupLayer() {
-        layer.borderWidth = 0.5
-        layer.borderColor = UIColor.lightGray.cgColor
         layer.cornerRadius = 6
         layer.masksToBounds = true
     }
