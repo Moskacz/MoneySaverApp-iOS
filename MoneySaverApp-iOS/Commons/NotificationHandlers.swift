@@ -8,23 +8,34 @@
 
 import Foundation
 
+protocol TimeChangedHandlerDelegate: class {
+    func timeChanged()
+}
+
 class TimeChangedHandler {
+    
+    public weak var delegate: TimeChangedHandlerDelegate? {
+        didSet {
+            if delegate != nil {
+                registerForNotificationsIfNeeded()
+            }
+        }
+    }
     
     private let notificationCenter: NotificationCenter
     private var token: NSObjectProtocol?
-    private var handler = {}
     
     init(notificationCenter: NotificationCenter) {
         self.notificationCenter = notificationCenter
     }
     
-    func add(handler: @escaping () -> Void) {
-        self.handler = handler
+    private func registerForNotificationsIfNeeded() {
+        guard token == nil else { return }
         let name = Notification.Name.UIApplicationSignificantTimeChange
         token = notificationCenter.addObserver(forName: name,
                                                object: nil,
                                                queue: .current, using: { [weak self] _ in
-            self?.handler()
+            self?.delegate?.timeChanged()
         })
     }
     
