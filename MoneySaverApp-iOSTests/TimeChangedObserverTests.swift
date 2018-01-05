@@ -9,7 +9,7 @@
 import XCTest
 @testable import MoneySaverApp_iOS
 
-class TimeChangedHandlerTests: XCTestCase {
+class TimeChangedObserverTests: XCTestCase {
     
     var notificationCenter: NotificationCenter!
     var sut: TimeChangedObserver!

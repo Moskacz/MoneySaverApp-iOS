@@ -104,7 +104,7 @@
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
 		35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2D1EB636E90083C57F /* Theme.swift */; };
 		35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB3D071F7195BD00BCB79C /* CloudKit.framework */; };
-		35FB7E1A1FFFE352001929DF /* TimeChangedHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB7E191FFFE352001929DF /* TimeChangedHandlerTests.swift */; };
+		35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,7 +249,7 @@
 		35EA1A2D1EB636E90083C57F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		35EB3D071F7195BD00BCB79C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		35F011D51E8D7B03006A2BC2 /* Cleanse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cleanse.framework; path = Carthage/Build/iOS/Cleanse.framework; sourceTree = "<group>"; };
-		35FB7E191FFFE352001929DF /* TimeChangedHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangedHandlerTests.swift; sourceTree = "<group>"; };
+		35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangedObserverTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,7 +466,7 @@
 				35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */,
 				35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */,
 				35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */,
-				35FB7E191FFFE352001929DF /* TimeChangedHandlerTests.swift */,
+				35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -864,7 +864,7 @@
 				35CCD5001FAE1A6C00BD308E /* FakeCurrentDateProvider.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
-				35FB7E1A1FFFE352001929DF /* TimeChangedHandlerTests.swift in Sources */,
+				35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */,
 				35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
