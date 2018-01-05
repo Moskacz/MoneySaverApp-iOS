@@ -12,12 +12,12 @@ import XCTest
 class TimeChangedHandlerTests: XCTestCase {
     
     var notificationCenter: NotificationCenter!
-    var sut: TimeChangedHandler!
+    var sut: TimeChangedObserver!
     
     override func setUp() {
         super.setUp()
         notificationCenter = NotificationCenter()
-        sut = TimeChangedHandler(notificationCenter: notificationCenter)
+        sut = TimeChangedObserver(notificationCenter: notificationCenter)
     }
     
     override func tearDown() {
@@ -33,7 +33,7 @@ class TimeChangedHandlerTests: XCTestCase {
         XCTAssertTrue(delegate.called)
     }
     
-    class FakeDelegate: TimeChangedHandlerDelegate {
+    class FakeDelegate: TimeChangedObserverDelegate {
         var called = false
         func timeChanged() {
             called = true

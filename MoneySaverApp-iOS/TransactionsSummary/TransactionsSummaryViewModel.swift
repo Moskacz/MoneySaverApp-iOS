@@ -13,7 +13,6 @@ protocol TransactionsSummaryViewModelDelegate: class {
                        dateComponent: TransactionDateComponent)
 }
 
-
 class TransactionsSummaryViewModel {
     
     weak var delegate: TransactionsSummaryViewModelDelegate? {

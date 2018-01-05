@@ -16,6 +16,7 @@ class TransactionsListViewModel {
     private var transactionsComputingService: TransactionsComputingService
     private let logger: Logger
     private let calendarService: CalendarService
+    private let timeChangedObserver: TimeChangedObserver
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
@@ -24,11 +25,13 @@ class TransactionsListViewModel {
     init(transactionsService: TransactionsService,
          transactionsComputingService: TransactionsComputingService,
          logger: Logger,
-         calendarService: CalendarService) {
+         calendarService: CalendarService,
+         timeChangedObserver: TimeChangedObserver) {
         self.transactionsService = transactionsService
         self.transactionsComputingService = transactionsComputingService
         self.logger = logger
         self.calendarService = calendarService
+        self.timeChangedObserver = timeChangedObserver
     }
     
     func summaryViewModel() -> TransactionsSummaryViewModel {
@@ -89,5 +92,11 @@ class TransactionsListViewModel {
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }
+    }
+}
+
+extension TransactionsListViewModel: TimeChangedObserverDelegate {
+    func timeChanged() {
+        collectionUpdater?.reloadAll()
     }
 }

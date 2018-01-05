@@ -49,17 +49,21 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private let notificationCenter: NotificationCenter
     private let calendarService: CalendarService
     private let logger: Logger
+    private let timeChangedObserver: TimeChangedObserver
     private var delegates = [TransactionsComputingServiceDelegate]()
     
     init(repository: TransactionsRepository,
          notificationCenter: NotificationCenter,
          calendarService: CalendarService,
-         logger: Logger) {
+         logger: Logger,
+         timeChangedObserver: TimeChangedObserver) {
         self.repository = repository
         self.notificationCenter = notificationCenter
         self.calendarService = calendarService
         self.logger = logger
+        self.timeChangedObserver = timeChangedObserver
         setupNotificationsObservers()
+        self.timeChangedObserver.delegate = self
     }
     
     private func setupNotificationsObservers() {
@@ -151,4 +155,10 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         }
     }
     
+}
+
+extension TransactionsComputingServiceImpl: TimeChangedObserverDelegate {
+    func timeChanged() {
+        notifyDelegates()
+    }
 }

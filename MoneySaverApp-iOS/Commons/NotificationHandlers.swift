@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol TimeChangedHandlerDelegate: class {
+protocol TimeChangedObserverDelegate: class {
     func timeChanged()
 }
 
-class TimeChangedHandler {
+class TimeChangedObserver {
     
-    public weak var delegate: TimeChangedHandlerDelegate? {
+    public weak var delegate: TimeChangedObserverDelegate? {
         didSet {
             if delegate != nil {
                 registerForNotificationsIfNeeded()
