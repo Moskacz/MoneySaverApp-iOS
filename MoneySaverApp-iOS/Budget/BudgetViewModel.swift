@@ -34,8 +34,9 @@ class BudgetViewModel: NSObject {
         self.budgetRepository = budgetRepository
         self.service = service
         super.init()
+        
         fetchCurrentBudget()
-        computingService.add(delegate: self)
+        computingService.delegates.add(item: self)
     }
     
     private func fetchCurrentBudget() {

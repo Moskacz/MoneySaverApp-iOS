@@ -28,7 +28,7 @@ class TransactionsSummaryViewModel {
          calendarService: CalendarService) {
         self.computingService = computingService
         self.calendarService = calendarService
-        computingService.add(delegate: self)
+        computingService.delegates.add(item: self)
     }
     
     private func createViewModels(withSum sum: TransactionsCompoundSum) {

@@ -8,19 +8,20 @@
 
 import Foundation
 import CoreData
+import MMFoundation
 
 struct DailyValue {
     let day: Int
     let value: Decimal
 }
 
-protocol TransactionsComputingService  {
+protocol TransactionsComputingService {
+    var delegates: WeakArray<AnyObject> { get }
     func sum() -> TransactionsCompoundSum
     func monthlyExpenses() -> [DailyValue]
-    func add(delegate: TransactionsComputingServiceDelegate?)
 }
 
-protocol TransactionsComputingServiceDelegate: class {
+protocol TransactionsComputingServiceDelegate {
     func transactionsSumUpdated(_ sum: TransactionsCompoundSum)
     func monthlyExpensesUpdated(_ expenses: [DailyValue])
 }
@@ -50,7 +51,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private let calendarService: CalendarService
     private let logger: Logger
     private let timeChangedObserver: TimeChangedObserver
-    private var delegates = [TransactionsComputingServiceDelegate]()
+    var delegates = WeakArray<AnyObject>()
     
     init(repository: TransactionsRepository,
          notificationCenter: NotificationCenter,
@@ -70,12 +71,6 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let notification = Notification.Name.NSManagedObjectContextDidSave
         notificationCenter.addObserver(forName: notification, object: repository.context, queue: OperationQueue.main) { (_) in
             self.notifyDelegates()
-        }
-    }
-    
-    func add(delegate: TransactionsComputingServiceDelegate?) {
-        if let del = delegate {
-            delegates.append(del)
         }
     }
     
@@ -149,9 +144,10 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private func notifyDelegates() {
         let transactionsSum = sum()
         let expenses = monthlyExpenses()
-        for delegate in delegates {
-            delegate.transactionsSumUpdated(transactionsSum)
-            delegate.monthlyExpensesUpdated(expenses)
+        for object in delegates {
+            let delegate = object as? TransactionsComputingServiceDelegate
+            delegate?.transactionsSumUpdated(transactionsSum)
+            delegate?.monthlyExpensesUpdated(expenses)
         }
     }
     
