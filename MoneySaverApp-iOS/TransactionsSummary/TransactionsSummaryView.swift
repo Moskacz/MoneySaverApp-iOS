@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TransactionsSummaryViewDelegate: class {
+    func summary(view: TransactionsSummaryView, didSelectElementWith component: TransactionDateComponent)
+}
+
 class TransactionsSummaryView: UIView {
     
     var viewModel: TransactionsSummaryViewModel? {
@@ -15,13 +19,9 @@ class TransactionsSummaryView: UIView {
             viewModel?.delegate = self
         }
     }
-    
-    private weak var todayElement: TransactionSummaryElementView?
-    private weak var weekElement: TransactionSummaryElementView?
-    private weak var monthElement: TransactionSummaryElementView?
-    private weak var yearElement: TransactionSummaryElementView?
-    private weak var eraElement: TransactionSummaryElementView?
-    
+    weak var delegate: TransactionsSummaryViewDelegate?
+    private var elementsMapping = [(component: TransactionDateComponent, view: TransactionSummaryElementView)]()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -47,13 +47,33 @@ class TransactionsSummaryView: UIView {
         addSubview(stackView)
         stackView.matchParent()
         
-        self.todayElement = todayElement
-        self.weekElement = weekElement
-        self.monthElement = monthElement
-        self.yearElement = yearElement
-        self.eraElement = eraElement
+        elementsMapping = [(TransactionDateComponent.dayOfEra, todayElement),
+                           (TransactionDateComponent.weekOfYear, weekElement),
+                           (TransactionDateComponent.month, monthElement),
+                           (TransactionDateComponent.year, yearElement),
+                           (TransactionDateComponent.era, eraElement)]
         
         setupSelectionGestureRecognizer()
+    }
+    
+    // MARK: Elements mapping
+    
+    private func element(forComponent component: TransactionDateComponent) -> TransactionSummaryElementView? {
+        return elementsMapping.first { $0.component == component }?.view
+    }
+    
+    private func dateComponent(forElement element: TransactionSummaryElementView) -> TransactionDateComponent {
+        return elementsMapping.first { $0.view == element }!.component
+    }
+    
+    // MARK: Element selection
+    
+    func selectElement(dateComponent: TransactionDateComponent) {
+        element(forComponent: dateComponent)?.isSelected = true
+    }
+    
+    private func deselectCurrentlySelected() {
+        elements.first { $0.isSelected }?.isSelected = false
     }
     
     private func setupSelectionGestureRecognizer() {
@@ -65,39 +85,23 @@ class TransactionsSummaryView: UIView {
         let tapLocation = recognizer.location(in: self)
         for element in elements {
             if element.frame.contains(tapLocation) {
-                selectedElement?.isSelected = false
+                deselectCurrentlySelected()
                 element.isSelected = true
+                delegate?.summary(view: self, didSelectElementWith: dateComponent(forElement: element))
                 break
             }
         }
     }
     
     private var elements: [TransactionSummaryElementView] {
-        return [todayElement, weekElement, monthElement, yearElement, eraElement].flatMap { $0 }
-    }
-    
-    private var selectedElement: TransactionSummaryElementView? {
-        return elements.first { $0.isSelected }
+        return elementsMapping.map { $0.1 }
     }
 }
 
 extension TransactionsSummaryView: TransactionsSummaryViewModelDelegate {
     
     func updateElement(viewModel: TransactionsSummaryElementViewModel, dateComponent: TransactionDateComponent) {
-        switch dateComponent {
-        case .dayOfEra:
-            todayElement?.update(withViewModel: viewModel)
-        case .weekOfYear:
-            weekElement?.update(withViewModel: viewModel)
-        case .month:
-            monthElement?.update(withViewModel: viewModel)
-        case .year:
-            yearElement?.update(withViewModel: viewModel)
-        case .era:
-            eraElement?.update(withViewModel: viewModel)
-        default:
-            break
-        }
+        element(forComponent: dateComponent)?.update(withViewModel: viewModel)
     }
 }
 

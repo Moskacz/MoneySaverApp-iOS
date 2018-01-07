@@ -33,6 +33,8 @@ class TransactionsListViewController: UIViewController {
     
     private func setupViews() {
         summaryView?.viewModel = viewModel?.summaryViewModel()
+        summaryView?.delegate = self
+        summaryView?.selectElement(dateComponent: .era)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.tableFooterView = UIView()
@@ -47,7 +49,6 @@ class TransactionsListViewController: UIViewController {
     }
 }
 
-// MARK: UITableViewDataSource
 extension TransactionsListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,11 +79,16 @@ extension TransactionsListViewController: UITableViewDataSource {
     }
 }
 
-// MARK: UITableViewDelegate
 extension TransactionsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TransactionCell.defaultHeight
     }
     
+}
+
+extension TransactionsListViewController: TransactionsSummaryViewDelegate {
+    func summary(view: TransactionsSummaryView, didSelectElementWith component: TransactionDateComponent) {
+        
+    }
 }
