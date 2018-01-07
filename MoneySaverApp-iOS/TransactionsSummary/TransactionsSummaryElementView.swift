@@ -26,21 +26,16 @@ class TransactionSummaryElementView: UIView {
     }
     
     private func setup() {
-        setupLayer(borderWidth: 0)
         let titleLabel = createLabel()
-        titleLabel.backgroundColor = Styles.yellowColor
         titleLabel.text = "title"
         
         let expensesLabel = createLabel()
-        expensesLabel.backgroundColor = Styles.redColor
         expensesLabel.text = "expenses"
         
         let incomesLabel = createLabel()
-        incomesLabel.backgroundColor = Styles.greenColor
         incomesLabel.text = "incomes"
         
         let totalLabel = createLabel()
-        totalLabel.backgroundColor = Styles.yellowColor
         totalLabel.text = "total"
         
         let stackView = UIStackView(arrangedSubviews: [titleLabel, expensesLabel, incomesLabel, totalLabel])
@@ -54,12 +49,22 @@ class TransactionSummaryElementView: UIView {
         self.incomesLabel = incomesLabel
         self.expensesLabel = expensesLabel
         self.totalLabel = totalLabel
+        
+        setupLayer(borderWidth: 0)
+        setupColors()
+    }
+    
+    private func setupColors() {
+        titleLabel?.backgroundColor = Styles.yellowColor
+        expensesLabel?.backgroundColor = Styles.redColor
+        incomesLabel?.backgroundColor = Styles.greenColor
+        totalLabel?.backgroundColor = Styles.yellowColor
     }
     
     private func setupLayer(borderWidth: CGFloat) {
         layer.cornerRadius = 6
         layer.masksToBounds = true
-        layer.borderColor = UIColor.red.cgColor
+        layer.borderColor = Styles.darkRedColor.cgColor
         layer.borderWidth = borderWidth
     }
 
