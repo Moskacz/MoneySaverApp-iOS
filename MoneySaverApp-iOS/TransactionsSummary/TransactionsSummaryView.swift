@@ -52,6 +52,32 @@ class TransactionsSummaryView: UIView {
         self.monthElement = monthElement
         self.yearElement = yearElement
         self.eraElement = eraElement
+        
+        setupSelectionGestureRecognizer()
+    }
+    
+    private func setupSelectionGestureRecognizer() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped(recognizer:)))
+        addGestureRecognizer(recognizer)
+    }
+    
+    @objc private func viewTapped(recognizer: UITapGestureRecognizer) {
+        let tapLocation = recognizer.location(in: self)
+        for element in elements {
+            if element.frame.contains(tapLocation) {
+                selectedElement?.isSelected = false
+                element.isSelected = true
+                break
+            }
+        }
+    }
+    
+    private var elements: [TransactionSummaryElementView] {
+        return [todayElement, weekElement, monthElement, yearElement, eraElement].flatMap { $0 }
+    }
+    
+    private var selectedElement: TransactionSummaryElementView? {
+        return elements.first { $0.isSelected }
     }
 }
 
