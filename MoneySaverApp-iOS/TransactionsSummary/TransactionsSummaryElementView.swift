@@ -26,7 +26,7 @@ class TransactionSummaryElementView: UIView {
     }
     
     private func setup() {
-        setupLayer()
+        setupLayer(borderWidth: 0)
         let titleLabel = createLabel()
         titleLabel.backgroundColor = Styles.yellowColor
         titleLabel.text = "title"
@@ -56,9 +56,11 @@ class TransactionSummaryElementView: UIView {
         self.totalLabel = totalLabel
     }
     
-    private func setupLayer() {
+    private func setupLayer(borderWidth: CGFloat) {
         layer.cornerRadius = 6
         layer.masksToBounds = true
+        layer.borderColor = UIColor.red.cgColor
+        layer.borderWidth = borderWidth
     }
 
     private func createLabel() -> UILabel {
@@ -74,6 +76,12 @@ class TransactionSummaryElementView: UIView {
         incomesLabel?.text = viewModel.incomes
         expensesLabel?.text = viewModel.expenses
         totalLabel?.text = viewModel.total
+    }
+    
+    var isSelected: Bool = false {
+        didSet {
+            setupLayer(borderWidth: isSelected ? 2 : 0)
+        }
     }
     
 }
