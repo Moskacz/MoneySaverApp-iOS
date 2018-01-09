@@ -10,7 +10,7 @@ import Foundation
 
 protocol TransactionsSummaryViewModelDelegate: class {
     func updateElement(viewModel: TransactionsSummaryElementViewModel,
-                       dateComponent: TransactionDateComponent)
+                       dateRange: DateRange)
 }
 
 class TransactionsSummaryViewModel {
@@ -33,15 +33,15 @@ class TransactionsSummaryViewModel {
     
     private func createViewModels(withSum sum: TransactionsCompoundSum) {
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.daily),
-                                dateComponent: .dayOfEra)
+                                dateRange: .today)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.weekly),
-                                dateComponent: .weekOfYear)
+                                dateRange: .thisWeek)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.monthly),
-                                dateComponent: .month)
+                                dateRange: .thisMonth)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.yearly),
-                                dateComponent: .year)
+                                dateRange: .thisYear)
         delegate?.updateElement(viewModel: elementViewModel(sum: sum.era),
-                                dateComponent: .era)
+                                dateRange: .allTime)
     }
     
     private func elementViewModel(sum: TransactionsSum) -> TransactionsSummaryElementViewModel {

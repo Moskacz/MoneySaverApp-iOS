@@ -29,7 +29,7 @@ protocol TransactionsComputingServiceDelegate {
 struct TransactionsSum {
     let incomes: Decimal
     let expenses: Decimal
-    let dateComponent: TransactionDateComponent
+    let dateRange: DateRange
     
     func total() -> Decimal {
         return incomes + expenses
@@ -75,26 +75,23 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func sum() -> TransactionsCompoundSum {
-        return TransactionsCompoundSum(daily: transactionsSum(forDateComponent: .dayOfEra),
-                                       weekly: transactionsSum(forDateComponent: .weekOfYear),
-                                       monthly: transactionsSum(forDateComponent: .month),
-                                       yearly: transactionsSum(forDateComponent: .year),
-                                       era: transactionsSum(forDateComponent: .era))
+        return TransactionsCompoundSum(daily: transactionsSum(forDateRange: .today),
+                                       weekly: transactionsSum(forDateRange: .thisWeek),
+                                       monthly: transactionsSum(forDateRange: .thisMonth),
+                                       yearly: transactionsSum(forDateRange: .thisYear),
+                                       era: transactionsSum(forDateRange: .allTime))
     }
     
-    private func transactionsSum(forDateComponent component: TransactionDateComponent) -> TransactionsSum {
-        let entities = transactions(forDateComponent: component)
-        return sum(transactions: entities, dateComponent: component)
+    private func transactionsSum(forDateRange range: DateRange) -> TransactionsSum {
+        let entities = transactions(forDateRange: range)
+        return sum(transactions: entities, dateRange: range)
     }
     
-    private func transactions(forDateComponent component: TransactionDateComponent) -> [TransactionManagedObject] {
+    private func transactions(forDateRange range: DateRange) -> [TransactionManagedObject] {
         let request = repository.fetchRequest
         request.propertiesToFetch = [TransactionManagedObject.AttributesNames.value.rawValue]
         request.includesPropertyValues = true
-        if component != .era {
-            let predicates = [repository.predicate(forDateComponent: component), repository.currentYearOnlyPredicate]
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        }
+        request.predicate = repository.prediate(forDateRange: range)
         
         do {
             return try repository.context.fetch(request)
@@ -104,18 +101,18 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         }
     }
     
-    private func sum(transactions: [TransactionManagedObject], dateComponent: TransactionDateComponent) -> TransactionsSum {
+    private func sum(transactions: [TransactionManagedObject], dateRange: DateRange) -> TransactionsSum {
         let values = transactions.map { $0.value?.doubleValue ?? 0 }
         let incomes = values.filter { $0 > 0 }.reduce(0, +)
         let expenses = values.filter { $0 < 0 }.reduce(0, +)
         return TransactionsSum(incomes: Decimal(incomes),
                                expenses: Decimal(expenses),
-                               dateComponent: dateComponent)
+                               dateRange: dateRange)
     }
     
     func monthlyExpenses() -> [DailyValue] {
         let request: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: TransactionManagedObject.entityName)
-        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateComponent: .month)]
+        let predicates = [repository.expensesOnlyPredicate, repository.prediate(forDateRange: .thisMonth)!]
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         
         let expressionDesc = NSExpressionDescription()

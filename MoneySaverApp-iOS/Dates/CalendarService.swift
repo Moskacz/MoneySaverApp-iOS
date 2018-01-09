@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 enum TransactionDateComponent: String {
     case dayOfWeek
     case dayOfMonth
@@ -18,6 +20,7 @@ enum TransactionDateComponent: String {
     case year
     case era
 }
+
 
 protocol CalendarService {
     func component(_ component: TransactionDateComponent, ofDate date: Date) -> Int

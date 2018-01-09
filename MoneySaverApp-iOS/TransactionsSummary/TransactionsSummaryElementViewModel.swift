@@ -26,19 +26,17 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
     }
     
     var title: String? {
-        switch sum.dateComponent {
-        case .dayOfEra:
+        switch sum.dateRange {
+        case .today:
             return "Today"
-        case .weekOfYear:
+        case .thisWeek:
             return "Week"
-        case .month:
+        case .thisMonth:
             return calendarService.currentMonthDescription
-        case .year:
+        case .thisYear:
             return calendarService.currentYearDescription
-        case .era:
+        case .allTime:
             return "Overall"
-        default:
-            return nil
         }
     }
     

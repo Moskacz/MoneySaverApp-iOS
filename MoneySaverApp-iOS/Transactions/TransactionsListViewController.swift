@@ -34,7 +34,7 @@ class TransactionsListViewController: UIViewController {
     private func setupViews() {
         summaryView?.viewModel = viewModel?.summaryViewModel()
         summaryView?.delegate = self
-        summaryView?.selectElement(dateComponent: .era)
+        summaryView?.selectElement(withRange: .allTime)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.tableFooterView = UIView()
@@ -88,7 +88,7 @@ extension TransactionsListViewController: UITableViewDelegate {
 }
 
 extension TransactionsListViewController: TransactionsSummaryViewDelegate {
-    func summary(view: TransactionsSummaryView, didSelectElementWith component: TransactionDateComponent) {
+    func summary(view: TransactionsSummaryView, didSelectElementWith dateRange: DateRange) {
         
     }
 }

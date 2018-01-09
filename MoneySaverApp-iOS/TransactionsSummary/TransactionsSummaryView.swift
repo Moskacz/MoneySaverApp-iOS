@@ -9,7 +9,7 @@
 import UIKit
 
 protocol TransactionsSummaryViewDelegate: class {
-    func summary(view: TransactionsSummaryView, didSelectElementWith component: TransactionDateComponent)
+    func summary(view: TransactionsSummaryView, didSelectElementWith dateRange: DateRange)
 }
 
 class TransactionsSummaryView: UIView {
@@ -20,7 +20,7 @@ class TransactionsSummaryView: UIView {
         }
     }
     weak var delegate: TransactionsSummaryViewDelegate?
-    private var elementsMapping = [(component: TransactionDateComponent, view: TransactionSummaryElementView)]()
+    private var elementsMapping = [(dateRange: DateRange, view: TransactionSummaryElementView)]()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,12 +34,16 @@ class TransactionsSummaryView: UIView {
     
     private func setup() {
         let todayElement = TransactionSummaryElementView()
-        let weekElement = TransactionSummaryElementView()
-        let monthElement = TransactionSummaryElementView()
-        let yearElement = TransactionSummaryElementView()
-        let eraElement = TransactionSummaryElementView()
+        let thisWeekElement = TransactionSummaryElementView()
+        let thisMonthElement = TransactionSummaryElementView()
+        let thisYearElement = TransactionSummaryElementView()
+        let allTimeElement = TransactionSummaryElementView()
         
-        let stackView = UIStackView(arrangedSubviews: [todayElement, weekElement, monthElement, yearElement, eraElement])
+        let stackView = UIStackView(arrangedSubviews: [todayElement,
+                                                       thisWeekElement,
+                                                       thisMonthElement,
+                                                       thisYearElement,
+                                                       allTimeElement])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -47,29 +51,29 @@ class TransactionsSummaryView: UIView {
         addSubview(stackView)
         stackView.matchParent()
         
-        elementsMapping = [(TransactionDateComponent.dayOfEra, todayElement),
-                           (TransactionDateComponent.weekOfYear, weekElement),
-                           (TransactionDateComponent.month, monthElement),
-                           (TransactionDateComponent.year, yearElement),
-                           (TransactionDateComponent.era, eraElement)]
+        elementsMapping = [(.today, todayElement),
+                           (.thisWeek, thisWeekElement),
+                           (.thisMonth, thisMonthElement),
+                           (.thisYear, thisYearElement),
+                           (.allTime, allTimeElement)]
         
         setupSelectionGestureRecognizer()
     }
     
     // MARK: Elements mapping
     
-    private func element(forComponent component: TransactionDateComponent) -> TransactionSummaryElementView? {
-        return elementsMapping.first { $0.component == component }?.view
+    private func element(forRange range: DateRange) -> TransactionSummaryElementView? {
+        return elementsMapping.first { $0.dateRange == range }?.view
     }
     
-    private func dateComponent(forElement element: TransactionSummaryElementView) -> TransactionDateComponent {
-        return elementsMapping.first { $0.view == element }!.component
+    private func dateRange(forElement element: TransactionSummaryElementView) -> DateRange {
+        return elementsMapping.first { $0.view == element }!.dateRange
     }
     
     // MARK: Element selection
     
-    func selectElement(dateComponent: TransactionDateComponent) {
-        element(forComponent: dateComponent)?.isSelected = true
+    func selectElement(withRange range: DateRange) {
+        element(forRange: range)?.isSelected = true
     }
     
     private func deselectCurrentlySelected() {
@@ -87,7 +91,7 @@ class TransactionsSummaryView: UIView {
             if element.frame.contains(tapLocation) {
                 deselectCurrentlySelected()
                 element.isSelected = true
-                delegate?.summary(view: self, didSelectElementWith: dateComponent(forElement: element))
+                delegate?.summary(view: self, didSelectElementWith: dateRange(forElement: element))
                 break
             }
         }
@@ -100,8 +104,8 @@ class TransactionsSummaryView: UIView {
 
 extension TransactionsSummaryView: TransactionsSummaryViewModelDelegate {
     
-    func updateElement(viewModel: TransactionsSummaryElementViewModel, dateComponent: TransactionDateComponent) {
-        element(forComponent: dateComponent)?.update(withViewModel: viewModel)
+    func updateElement(viewModel: TransactionsSummaryElementViewModel, dateRange: DateRange) {
+        element(forRange: dateRange)?.update(withViewModel: viewModel)
     }
+    
 }
-

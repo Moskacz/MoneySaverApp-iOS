@@ -14,9 +14,8 @@ protocol TransactionsRepository {
     var context: NSManagedObjectContext { get }
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
     var expensesOnlyPredicate: NSPredicate { get }
-    var currentYearOnlyPredicate: NSPredicate { get }
     
-    func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate
+    func prediate(forDateRange range: DateRange) -> NSPredicate?
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
 }
@@ -47,14 +46,8 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         }
     }
     
-    var currentYearOnlyPredicate: NSPredicate {
-        get {
-            return predicate(forDateComponent: .year)
-        }
-    }
-    
-    func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate {
-        return NSPredicate(format: "\(component.rawValue) == \(calendarService.component(component, ofDate: Date()))")
+    func prediate(forDateRange range: DateRange) -> NSPredicate? {
+        return nil
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
