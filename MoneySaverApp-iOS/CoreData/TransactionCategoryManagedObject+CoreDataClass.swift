@@ -28,4 +28,5 @@ public class TransactionCategoryManagedObject: NSManagedObject {
         guard let data = icon else { return nil }
         return UIImage(data: data as Data)
     }()
+    
 }

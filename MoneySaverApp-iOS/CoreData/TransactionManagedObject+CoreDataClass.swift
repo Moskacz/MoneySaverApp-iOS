@@ -33,4 +33,15 @@ public class TransactionManagedObject: NSManagedObject {
             }
         }
     }
+    
+    func setupDateComponents(date: StructuredDate) {
+        creationTimeInterval = date.timeInterval
+        dayOfWeek = Int32(date.dayOfWeek)
+        dayOfMonth = Int32(date.dayOfMonth)
+        dayOfYear = Int32(date.dayOfYear)
+        dayOfEra = Int32(date.dayOfEra)
+        weekOfYear = Int32(date.weekOfYear)
+        month = Int32(date.month)
+        year = Int32(date.year)
+    }
 }
