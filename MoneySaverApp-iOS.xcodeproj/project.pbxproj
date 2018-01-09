@@ -45,6 +45,7 @@
 		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
 		3573A9312002AE3100B615F7 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573A9302002AE3100B615F7 /* DateRange.swift */; };
 		3581635C200552590013BE33 /* StructuredDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581635B200552590013BE33 /* StructuredDate.swift */; };
+		35816360200560F80013BE33 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581635F200560F80013BE33 /* CalendarTests.swift */; };
 		3585EDFA1FDDA08200871941 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDF91FDDA08200871941 /* Styles.swift */; };
 		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
@@ -185,6 +186,7 @@
 		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
 		3573A9302002AE3100B615F7 /* DateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		3581635B200552590013BE33 /* StructuredDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuredDate.swift; sourceTree = "<group>"; };
+		3581635F200560F80013BE33 /* CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTests.swift; sourceTree = "<group>"; };
 		3585EDF91FDDA08200871941 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
@@ -471,6 +473,7 @@
 				35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */,
 				35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */,
 				35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */,
+				3581635F200560F80013BE33 /* CalendarTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -868,6 +871,7 @@
 				355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */,
 				35214FF71F9E675A006503C5 /* FakeTransactionsService.swift in Sources */,
 				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
+				35816360200560F80013BE33 /* CalendarTests.swift in Sources */,
 				35CCD5021FAE1AB200BD308E /* DateIntervalServiceTests.swift in Sources */,
 				35CCD5001FAE1A6C00BD308E /* FakeCurrentDateProvider.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,

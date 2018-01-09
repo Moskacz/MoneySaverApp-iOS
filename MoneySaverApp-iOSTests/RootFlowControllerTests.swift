@@ -76,7 +76,7 @@ class RootFlowControllerTests: XCTestCase {
         let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
         addTransactionVC.cancelButtonTapped()
         expectation(for: NSPredicate(format: "presentedViewController == nil"), evaluatedWith: tabBar, handler: nil)
-        waitForExpectations(timeout: 2.0, handler: nil)
+        waitForExpectations(timeout: 5.0, handler: nil)
     }
     
 }

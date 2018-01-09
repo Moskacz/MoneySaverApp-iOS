@@ -23,20 +23,16 @@ class FakeTransactionsRepository: TransactionsRepository {
         fatalError()
     }
     
-    var currentYearOnlyPredicate: NSPredicate {
-        fatalError()
-    }
-    
-    func predicate(forDateComponent component: TransactionDateComponent) -> NSPredicate {
-        fatalError()
+    func prediate(forDateRange range: DateRange) -> NSPredicate? {
+        return nil
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
-        fatalError()
+        
     }
     
     func remove(transaction: TransactionManagedObject) {
-        fatalError()
+        
     }
     
     
