@@ -93,10 +93,6 @@
 		35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */; };
 		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
 		35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */; };
-		35CCD4FC1FAE14E500BD308E /* CalendarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD4FB1FAE14E500BD308E /* CalendarService.swift */; };
-		35CCD4FE1FAE170900BD308E /* CurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD4FD1FAE170900BD308E /* CurrentDateProvider.swift */; };
-		35CCD5001FAE1A6C00BD308E /* FakeCurrentDateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD4FF1FAE1A6C00BD308E /* FakeCurrentDateProvider.swift */; };
-		35CCD5021FAE1AB200BD308E /* DateIntervalServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */; };
 		35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */; };
 		35D1DE7A1EA124A900284EA0 /* CollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
@@ -243,10 +239,6 @@
 		35C9FEF01E8C276A0092D5E3 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		35C9FEF21E8C279D0092D5E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
-		35CCD4FB1FAE14E500BD308E /* CalendarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarService.swift; sourceTree = "<group>"; };
-		35CCD4FD1FAE170900BD308E /* CurrentDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDateProvider.swift; sourceTree = "<group>"; };
-		35CCD4FF1FAE1A6C00BD308E /* FakeCurrentDateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCurrentDateProvider.swift; sourceTree = "<group>"; };
-		35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateIntervalServiceTests.swift; sourceTree = "<group>"; };
 		35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
@@ -304,7 +296,6 @@
 			children = (
 				35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */,
 				35214FF61F9E675A006503C5 /* FakeTransactionsService.swift */,
-				35CCD4FF1FAE1A6C00BD308E /* FakeCurrentDateProvider.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -478,7 +469,6 @@
 				355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */,
 				355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */,
 				35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */,
-				35CCD5011FAE1AB200BD308E /* DateIntervalServiceTests.swift */,
 				35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */,
 				35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */,
 				3581635F200560F80013BE33 /* CalendarTests.swift */,
@@ -606,8 +596,6 @@
 		35D7C4121FAC9C0F0052BAD6 /* Dates */ = {
 			isa = PBXGroup;
 			children = (
-				35CCD4FB1FAE14E500BD308E /* CalendarService.swift */,
-				35CCD4FD1FAE170900BD308E /* CurrentDateProvider.swift */,
 				35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */,
 				3573A9302002AE3100B615F7 /* DateRange.swift */,
 				3581635B200552590013BE33 /* StructuredDate.swift */,
@@ -803,7 +791,6 @@
 				35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */,
 				353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */,
 				3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */,
-				35CCD4FC1FAE14E500BD308E /* CalendarService.swift in Sources */,
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
 				352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */,
 				355509CD1F7ABF7E0007FEF1 /* StatsViewController.swift in Sources */,
@@ -850,7 +837,6 @@
 				3573A9312002AE3100B615F7 /* DateRange.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				3585EDFA1FDDA08200871941 /* Styles.swift in Sources */,
-				35CCD4FE1FAE170900BD308E /* CurrentDateProvider.swift in Sources */,
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				3514C42D1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
@@ -888,8 +874,6 @@
 				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
 				35816360200560F80013BE33 /* CalendarTests.swift in Sources */,
 				3551A39B20069F90001394F2 /* StringTests.swift in Sources */,
-				35CCD5021FAE1AB200BD308E /* DateIntervalServiceTests.swift in Sources */,
-				35CCD5001FAE1A6C00BD308E /* FakeCurrentDateProvider.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
 				35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */,

@@ -25,10 +25,6 @@ class UtilsAssebler: ContainerAssembly {
         }
         
         container.register {
-            CurrentDateProviderImpl() as CurrentDateProvider
-        }
-        
-        container.register {
             TimeChangedObserver(notificationCenter: $0)
         }
     }
