@@ -17,7 +17,7 @@ class UtilsAssebler: ContainerAssembly {
         }
         
         container.register {
-            ChartsDataProcessorImpl(calendarService: $0) as ChartsDataProcessor
+            ChartsDataProcessorImpl() as ChartsDataProcessor
         }
         
         container.register {

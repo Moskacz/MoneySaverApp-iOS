@@ -48,19 +48,16 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private let repository: TransactionsRepository
     private let notificationCenter: NotificationCenter
-    private let calendarService: CalendarService
     private let logger: Logger
     private let timeChangedObserver: TimeChangedObserver
     var delegates = WeakArray<AnyObject>()
     
     init(repository: TransactionsRepository,
          notificationCenter: NotificationCenter,
-         calendarService: CalendarService,
          logger: Logger,
          timeChangedObserver: TimeChangedObserver) {
         self.repository = repository
         self.notificationCenter = notificationCenter
-        self.calendarService = calendarService
         self.logger = logger
         self.timeChangedObserver = timeChangedObserver
         setupNotificationsObservers()
