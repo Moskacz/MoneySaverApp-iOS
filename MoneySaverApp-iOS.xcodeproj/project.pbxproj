@@ -26,6 +26,9 @@
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
 		353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */; };
 		353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */; };
+		3551A39320069B8E001394F2 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39220069B8E001394F2 /* Calendar+Additions.swift */; };
+		3551A39720069BD3001394F2 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39620069BD3001394F2 /* Date+Additions.swift */; };
+		3551A39920069E68001394F2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39820069E68001394F2 /* String+Additions.swift */; };
 		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
 		355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */; };
 		355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */; };
@@ -168,6 +171,9 @@
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
 		353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryView.swift; sourceTree = "<group>"; };
 		353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryViewModel.swift; sourceTree = "<group>"; };
+		3551A39220069B8E001394F2 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
+		3551A39620069BD3001394F2 /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
+		3551A39820069E68001394F2 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsCloudKitClient.swift; sourceTree = "<group>"; };
 		355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
@@ -522,6 +528,9 @@
 				359A313A1FB4F754000DA85F /* UIColor+Additions.swift */,
 				35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */,
 				35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */,
+				3551A39220069B8E001394F2 /* Calendar+Additions.swift */,
+				3551A39620069BD3001394F2 /* Date+Additions.swift */,
+				3551A39820069E68001394F2 /* String+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -787,6 +796,7 @@
 				352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */,
 				3581635C200552590013BE33 /* StructuredDate.swift in Sources */,
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,
+				3551A39920069E68001394F2 /* String+Additions.swift in Sources */,
 				35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */,
 				353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */,
 				3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */,
@@ -844,6 +854,7 @@
 				358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */,
 				35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */,
 				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
+				3551A39720069BD3001394F2 /* Date+Additions.swift in Sources */,
 				35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */,
 				3514C4291F9B9A55003C3044 /* TransactionCategoryViewModel.swift in Sources */,
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
@@ -851,6 +862,7 @@
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
 				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
 				3598B1101FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift in Sources */,
+				3551A39320069B8E001394F2 /* Calendar+Additions.swift in Sources */,
 				35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,
