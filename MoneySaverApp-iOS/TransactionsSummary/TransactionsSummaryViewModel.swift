@@ -22,12 +22,12 @@ class TransactionsSummaryViewModel {
     }
     
     private let computingService: TransactionsComputingService
-    private let calendarService: CalendarService
+    private let calendar: Calendar
     
     init(computingService: TransactionsComputingService,
-         calendarService: CalendarService) {
+         calendar: Calendar) {
         self.computingService = computingService
-        self.calendarService = calendarService
+        self.calendar = calendar
         computingService.delegates.add(item: self)
     }
     
@@ -46,7 +46,7 @@ class TransactionsSummaryViewModel {
     
     private func elementViewModel(sum: TransactionsSum) -> TransactionsSummaryElementViewModel {
         return TransactionsSummaryElementViewModelImpl(transactionsSum: sum,
-                                                       calendarService: calendarService)
+                                                       calendar: calendar)
     }
     
 }

@@ -16,7 +16,7 @@ struct ViewModelsAssembler: ContainerAssembly {
             TransactionsListViewModel(transactionsService: $0,
                                       transactionsComputingService: $1,
                                       logger: $2,
-                                      calendarService: $3,
+                                      calendar: $3,
                                       timeChangedObserver: $4) as TransactionsListViewModel
         }
         

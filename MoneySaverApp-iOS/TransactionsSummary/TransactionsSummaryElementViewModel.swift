@@ -18,11 +18,11 @@ protocol TransactionsSummaryElementViewModel {
 class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewModel {
     
     private let sum: TransactionsSum
-    private let calendarService: CalendarService
+    private let calendar: Calendar
     
-    init(transactionsSum: TransactionsSum, calendarService: CalendarService) {
+    init(transactionsSum: TransactionsSum, calendar: Calendar) {
         self.sum = transactionsSum
-        self.calendarService = calendarService
+        self.calendar = calendar
     }
     
     var title: String? {
@@ -32,9 +32,9 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
         case .thisWeek:
             return "Week"
         case .thisMonth:
-            return calendarService.currentMonthDescription
+            return calendar.monthName(forDate: Date.now)
         case .thisYear:
-            return calendarService.currentYearDescription
+            return calendar.yearName(forDate: Date.now)
         case .allTime:
             return "Overall"
         }
