@@ -37,4 +37,10 @@ class ChartsDataProcessorTests: XCTestCase {
         XCTAssertEqual(spendings[1].value, -60)
     }
     
+    func test_monthlySpendings_spendingsCountShouldEqualDaysOfMonth() {
+        let spendings = sut.spendings(fromMonthlyExpenses: [])
+        let daysInMonth = 28
+        XCTAssertEqual(spendings.count, daysInMonth)
+    }
+    
 }
