@@ -23,25 +23,46 @@ class TimeChangedObserver {
     }
     
     private let notificationCenter: NotificationCenter
-    private var token: NSObjectProtocol?
+    private var timeChangedObservationToken: NSObjectProtocol?
+    private var appWillEnterForegroundObservationToken: NSObjectProtocol?
     
     init(notificationCenter: NotificationCenter) {
         self.notificationCenter = notificationCenter
     }
     
     private func registerForNotificationsIfNeeded() {
-        guard token == nil else { return }
-        let name = Notification.Name.UIApplicationSignificantTimeChange
-        token = notificationCenter.addObserver(forName: name,
-                                               object: nil,
-                                               queue: .current, using: { [weak self] _ in
-            self?.delegate?.timeChanged()
+        registerForTimeChangedNotificationsIfNeeded()
+        registerForEnteringForegroundNotificationsIfNeeded()
+    }
+    
+    private func registerForTimeChangedNotificationsIfNeeded() {
+        guard timeChangedObservationToken == nil else { return }
+        let notificationName = Notification.Name.UIApplicationSignificantTimeChange
+        timeChangedObservationToken = notificationCenter.addObserver(forName: notificationName,
+                                                                     object: nil,
+                                                                     queue: .current, using: { [weak self] _ in
+                                                                                self?.delegate?.timeChanged()
+        })
+    }
+    
+    private func registerForEnteringForegroundNotificationsIfNeeded() {
+        guard appWillEnterForegroundObservationToken == nil else { return }
+        let notificationName = Notification.Name.UIApplicationWillEnterForeground
+        appWillEnterForegroundObservationToken = notificationCenter.addObserver(forName: notificationName,
+                                                                                object: nil,
+                                                                                queue: .current,
+                                                                                using: { [weak self] _ in
+                                                                                    self?.delegate?.timeChanged()
         })
     }
     
     private func removeObserver() {
-        guard let currentToken = token else { return }
-        notificationCenter.removeObserver(currentToken)
+        if let token = timeChangedObservationToken {
+            notificationCenter.removeObserver(token)
+        }
+        if let token = appWillEnterForegroundObservationToken {
+            notificationCenter.removeObserver(token)
+        }
     }
     
     deinit {
