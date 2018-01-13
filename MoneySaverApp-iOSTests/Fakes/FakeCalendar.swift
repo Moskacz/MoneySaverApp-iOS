@@ -14,7 +14,7 @@ class FakeCalendar: CalendarProtocol {
         fatalError()
     }
     
-    func daysInMonthRange(forDate date: Date) -> Range<Int> {
+    func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int> {
         fatalError()
     }
     

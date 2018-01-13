@@ -25,7 +25,9 @@ class ChartsDataProcessorImpl: ChartsDataProcessor {
             return lhs.day < rhs.day
         }
         
+        
         let daysRange = 0...30
+        
         return daysRange.map { day in
             let value = sortedExpeneses.reduce(0, { (sum, dailyValue) -> Decimal in
                 guard dailyValue.day <= day else { return sum }
