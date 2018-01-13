@@ -43,8 +43,8 @@ class CalendarTests: XCTestCase {
     }
     
     func test_numerOfDaysInMonth() {
-        let daysCount = calendar.daysInMonth(forDate: testedDate)
-        XCTAssertEqual(daysCount, 31)
+        let range = calendar.daysInMonthRange(forDate: testedDate)
+        XCTAssertEqual(range.count, 31)
     }
     
     private var testedDate: Date {

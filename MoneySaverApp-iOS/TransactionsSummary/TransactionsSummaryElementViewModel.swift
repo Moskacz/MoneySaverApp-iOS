@@ -32,9 +32,9 @@ class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewMod
         case .thisWeek:
             return "Week"
         case .thisMonth:
-            return calendar.monthName(forDate: Date.now)
+            return calendar.monthName(forDate: calendar.now)
         case .thisYear:
-            return calendar.yearName(forDate: Date.now)
+            return calendar.yearName(forDate: calendar.now)
         case .allTime:
             return "Overall"
         }

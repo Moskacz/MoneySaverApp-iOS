@@ -11,15 +11,19 @@ import XCTest
 
 class ChartsDataProcessorTests: XCTestCase {
     
+    var fakeCalendar: FakeCalendar!
     var sut: ChartsDataProcessorImpl!
+    
     
     override func setUp() {
         super.setUp()
-        sut = ChartsDataProcessorImpl()
+        fakeCalendar = FakeCalendar()
+        sut = ChartsDataProcessorImpl(calendar: fakeCalendar)
     }
     
     override func tearDown() {
         sut = nil
+        fakeCalendar = nil
         super.tearDown()
     }
     

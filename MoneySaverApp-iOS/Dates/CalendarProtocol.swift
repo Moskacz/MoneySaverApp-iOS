@@ -9,13 +9,18 @@
 import Foundation
 
 protocol CalendarProtocol {
+    var now: Date { get }
     func structuredDate(forDate date: Date) -> StructuredDate
     func monthName(forDate date: Date) -> String
     func yearName(forDate date: Date) -> String
-    func daysInMonth(forDate date: Date) -> Int
+    func daysInMonthRange(forDate date: Date) -> Range<Int>
 }
 
 extension Calendar: CalendarProtocol {
+    
+    var now: Date {
+        return Date()
+    }
     
     func monthName(forDate date: Date) -> String {
         let month = component(.month, from: date) - 1
@@ -26,11 +31,10 @@ extension Calendar: CalendarProtocol {
         return String(component(.year, from: date))
     }
     
-    func daysInMonth(forDate date: Date) -> Int {
-        guard let range = range(of: .day, in: .month, for: date) else {
-            return 0
-        }
-        
-        return range.count
+    func daysInMonthRange(forDate date: Date) -> Range<Int> {
+        let emptyRange: Range<Int> = 0..<0
+        return range(of: .day, in: .month, for: date) ?? emptyRange
     }
+    
+    
 }

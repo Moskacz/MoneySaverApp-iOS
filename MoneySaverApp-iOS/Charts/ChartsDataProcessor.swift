@@ -14,6 +14,12 @@ protocol ChartsDataProcessor {
 
 class ChartsDataProcessorImpl: ChartsDataProcessor {
     
+    private let calendar: CalendarProtocol
+    
+    init(calendar: CalendarProtocol) {
+        self.calendar = calendar
+    }
+    
     func spendings(fromMonthlyExpenses expenses: [DailyValue]) -> [DailyValue] {
         let sortedExpeneses = expenses.sorted { (lhs, rhs) -> Bool in
             return lhs.day < rhs.day
