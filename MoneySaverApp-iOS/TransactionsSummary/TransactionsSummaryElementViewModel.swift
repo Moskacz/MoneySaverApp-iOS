@@ -18,9 +18,9 @@ protocol TransactionsSummaryElementViewModel {
 class TransactionsSummaryElementViewModelImpl: TransactionsSummaryElementViewModel {
     
     private let sum: TransactionsSum
-    private let calendar: Calendar
+    private let calendar: CalendarProtocol
     
-    init(transactionsSum: TransactionsSum, calendar: Calendar) {
+    init(transactionsSum: TransactionsSum, calendar: CalendarProtocol) {
         self.sum = transactionsSum
         self.calendar = calendar
     }

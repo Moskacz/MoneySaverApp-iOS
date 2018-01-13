@@ -15,7 +15,7 @@ class TransactionsListViewModel {
     private let transactionsService: TransactionsService
     private var transactionsComputingService: TransactionsComputingService
     private let logger: Logger
-    private let calendar: Calendar
+    private let calendar: CalendarProtocol
     private let timeChangedObserver: TimeChangedObserver
     
     private var collectionUpdater: CollectionUpdater?
@@ -25,7 +25,7 @@ class TransactionsListViewModel {
     init(transactionsService: TransactionsService,
          transactionsComputingService: TransactionsComputingService,
          logger: Logger,
-         calendar: Calendar,
+         calendar: CalendarProtocol,
          timeChangedObserver: TimeChangedObserver) {
         self.transactionsService = transactionsService
         self.transactionsComputingService = transactionsComputingService

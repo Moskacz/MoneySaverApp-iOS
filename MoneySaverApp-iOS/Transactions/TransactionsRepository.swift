@@ -23,12 +23,12 @@ protocol TransactionsRepository {
 class TransactionsRepositoryImplementation: TransactionsRepository {
     
     let context: NSManagedObjectContext
-    private let calendar: Calendar
+    private let calendar: CalendarProtocol
     private let logger: Logger
     
     init(context: NSManagedObjectContext,
          logger: Logger,
-         calendar: Calendar) {
+         calendar: CalendarProtocol) {
         self.context = context
         self.logger = logger
         self.calendar = calendar

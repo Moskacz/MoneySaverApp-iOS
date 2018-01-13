@@ -21,7 +21,7 @@ class UtilsAssebler: ContainerAssembly {
         }
         
         container.register {
-            Calendar.current
+            Calendar.current as CalendarProtocol
         }
         
         container.register {

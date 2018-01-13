@@ -22,10 +22,10 @@ class TransactionsSummaryViewModel {
     }
     
     private let computingService: TransactionsComputingService
-    private let calendar: Calendar
+    private let calendar: CalendarProtocol
     
     init(computingService: TransactionsComputingService,
-         calendar: Calendar) {
+         calendar: CalendarProtocol) {
         self.computingService = computingService
         self.calendar = calendar
         computingService.delegates.add(item: self)
