@@ -10,12 +10,16 @@ import Foundation
 @testable import MoneySaverApp_iOS
 
 class FakeCalendar: CalendarProtocol {
+    
+    var nowToReturn: Date!
+    var daysInMonthRangeToReturn: CountableClosedRange<Int>!
+    
     var now: Date {
-        fatalError()
+        return nowToReturn
     }
     
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int> {
-        fatalError()
+        return daysInMonthRangeToReturn
     }
     
     func daysInMonth(forDate date: Date) -> Int {

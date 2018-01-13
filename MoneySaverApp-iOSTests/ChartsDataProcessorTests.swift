@@ -28,23 +28,32 @@ class ChartsDataProcessorTests: XCTestCase {
     }
     
     func test_spendingFromMonthlyExpenses_shouldSortPassedData() {
-        let firstDayExpense = DailyValue(day: 0, value: Decimal(floatLiteral: 50))
-        let secondDayExpense = DailyValue(day: 1, value: Decimal(floatLiteral: 10))
+        fakeCalendar.nowToReturn = Date()
+        fakeCalendar.daysInMonthRangeToReturn = 1...30
+        
+        let firstDayExpense = DailyValue(day: 1, value: Decimal(floatLiteral: 50))
+        let secondDayExpense = DailyValue(day: 2, value: Decimal(floatLiteral: 10))
         let spendings = sut.spendings(fromMonthlyExpenses: [secondDayExpense, firstDayExpense])
         XCTAssertEqual(spendings[0].value, -50)
     }
     
     func test_monthlySpendings_dailyExpensesShouldBeSumOfEarlierDays() {
-        let firstDayExpense = DailyValue(day: 0, value: Decimal(floatLiteral: 50))
-        let secondDayExpense = DailyValue(day: 1, value: Decimal(floatLiteral: 10))
+        fakeCalendar.nowToReturn = Date()
+        fakeCalendar.daysInMonthRangeToReturn = 1...30
+        
+        let firstDayExpense = DailyValue(day: 1, value: Decimal(floatLiteral: 50))
+        let secondDayExpense = DailyValue(day: 2, value: Decimal(floatLiteral: 10))
         let spendings = sut.spendings(fromMonthlyExpenses: [firstDayExpense, secondDayExpense])
         XCTAssertEqual(spendings[1].value, -60)
     }
     
     func test_monthlySpendings_spendingsCountShouldEqualDaysOfMonth() {
+        let daysCount = 28
+        fakeCalendar.nowToReturn = Date()
+        fakeCalendar.daysInMonthRangeToReturn = 1...daysCount
+        
         let spendings = sut.spendings(fromMonthlyExpenses: [])
-        let daysInMonth = 28
-        XCTAssertEqual(spendings.count, daysInMonth)
+        XCTAssertEqual(spendings.count, daysCount)
     }
     
 }
