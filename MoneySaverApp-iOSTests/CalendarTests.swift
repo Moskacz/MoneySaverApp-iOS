@@ -11,7 +11,7 @@ import XCTest
 
 class CalendarTests: XCTestCase {
     
-    var calendar: Calendar!
+    var calendar: CalendarProtocol!
     
     override func setUp() {
         super.setUp()
@@ -40,6 +40,11 @@ class CalendarTests: XCTestCase {
     
     func test_yearName() {
         XCTAssertEqual(calendar.yearName(forDate: testedDate), "2018")
+    }
+    
+    func test_numerOfDaysInMonth() {
+        let daysCount = calendar.daysInMonth(forDate: testedDate)
+        XCTAssertEqual(daysCount, 31)
     }
     
     private var testedDate: Date {

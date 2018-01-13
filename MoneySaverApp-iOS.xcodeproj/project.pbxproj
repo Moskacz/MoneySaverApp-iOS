@@ -26,7 +26,6 @@
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
 		353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */; };
 		353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */; };
-		3551A39320069B8E001394F2 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39220069B8E001394F2 /* Calendar+Additions.swift */; };
 		3551A39720069BD3001394F2 /* Date+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39620069BD3001394F2 /* Date+Additions.swift */; };
 		3551A39920069E68001394F2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39820069E68001394F2 /* String+Additions.swift */; };
 		3551A39B20069F90001394F2 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39A20069F90001394F2 /* StringTests.swift */; };
@@ -171,7 +170,6 @@
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
 		353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryView.swift; sourceTree = "<group>"; };
 		353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryViewModel.swift; sourceTree = "<group>"; };
-		3551A39220069B8E001394F2 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
 		3551A39620069BD3001394F2 /* Date+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Additions.swift"; sourceTree = "<group>"; };
 		3551A39820069E68001394F2 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		3551A39A20069F90001394F2 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
@@ -529,7 +527,6 @@
 				359A313A1FB4F754000DA85F /* UIColor+Additions.swift */,
 				35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */,
 				35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */,
-				3551A39220069B8E001394F2 /* Calendar+Additions.swift */,
 				3551A39620069BD3001394F2 /* Date+Additions.swift */,
 				3551A39820069E68001394F2 /* String+Additions.swift */,
 			);
@@ -861,7 +858,6 @@
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
 				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
 				3598B1101FDC49CA00ADAF0D /* TransactionsSummaryElementView.swift in Sources */,
-				3551A39320069B8E001394F2 /* Calendar+Additions.swift in Sources */,
 				35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,

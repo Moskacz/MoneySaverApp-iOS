@@ -10,6 +10,10 @@ import Foundation
 @testable import MoneySaverApp_iOS
 
 class FakeCalendar: CalendarProtocol {
+    func daysInMonth(forDate date: Date) -> Int {
+        fatalError()
+    }
+    
     func structuredDate(forDate date: Date) -> StructuredDate {
         fatalError()
     }
