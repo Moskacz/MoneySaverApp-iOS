@@ -100,6 +100,7 @@
 		35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
 		35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */; };
+		35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B47200A015700AD2926 /* CalendarProtocol.swift */; };
 		35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */; };
 		35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */; };
 		35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */; };
@@ -247,6 +248,7 @@
 		35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonProvider.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDataProcessorTests.swift; sourceTree = "<group>"; };
+		35DF1B47200A015700AD2926 /* CalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProtocol.swift; sourceTree = "<group>"; };
 		35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModelTests.swift; sourceTree = "<group>"; };
 		35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdater.swift; sourceTree = "<group>"; };
@@ -602,6 +604,7 @@
 				35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */,
 				3573A9302002AE3100B615F7 /* DateRange.swift */,
 				3581635B200552590013BE33 /* StructuredDate.swift */,
+				35DF1B47200A015700AD2926 /* CalendarProtocol.swift */,
 			);
 			path = Dates;
 			sourceTree = "<group>";
@@ -813,6 +816,7 @@
 				35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */,
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
 				355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */,
+				35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */,
 				35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
