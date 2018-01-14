@@ -16,6 +16,8 @@ public class TransactionManagedObject: NSManagedObject {
         case creationTimeInterval
         case dayOfEra
         case dayOfMonth
+        case weekOfYear
+        case month
     }
     
     enum SortDescriptors {
@@ -32,6 +34,11 @@ public class TransactionManagedObject: NSManagedObject {
                                         ascending: false)
             }
         }
+    }
+    
+    static func predicate(forDateRange range: DateRange, value: Int) -> NSPredicate? {
+        guard range != .allTime else { return nil }
+        return nil
     }
     
     func setupDateComponents(date: StructuredDate) {
