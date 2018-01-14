@@ -24,7 +24,25 @@ class StructuredDateBuilder {
     private var year = 0
     private var era = 0
     
+    func set(dayOfEra era: Int) -> StructuredDateBuilder {
+        dayOfEra = era
+        return self
+    }
     
+    func set(weekOfEra era: Int) -> StructuredDateBuilder {
+        weekOfEra = era
+        return self
+    }
+    
+    func set(monthOfEra era: Int) -> StructuredDateBuilder {
+        monthOfEra = era
+        return self
+    }
+    
+    func set(year: Int) -> StructuredDateBuilder {
+        self.year = year
+        return self
+    }
     
     func build() -> StructuredDate {
         return StructuredDate(timeInterval: timeInterval,

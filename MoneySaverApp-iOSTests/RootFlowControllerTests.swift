@@ -65,18 +65,4 @@ class RootFlowControllerTests: XCTestCase {
         XCTAssert(presentedNavBar.viewControllers[1] is TransactionCategoriesCollectionViewController)
     }
     
-    func test_whenUserCancelsAddingNewTransaction_thenAddTransactionVCShouldBeDismissed() {
-        sut.animatedTransitions = false
-        sut.startFlow()
-        let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
-        let transactionsListNavCon = tabBar.viewControllers![0] as! UINavigationController
-        let transactionsListVC = transactionsListNavCon.viewControllers[0] as! TransactionsListViewController
-        transactionsListVC.newTransactionButtonTapCallback()
-        let presentedNavBar = tabBar.presentedViewController as! UINavigationController
-        let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
-        addTransactionVC.cancelButtonTapped()
-        expectation(for: NSPredicate(format: "presentedViewController == nil"), evaluatedWith: tabBar, handler: nil)
-        waitForExpectations(timeout: 5.0, handler: nil)
-    }
-    
 }
