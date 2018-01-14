@@ -23,7 +23,7 @@ class FakeTransactionsRepository: TransactionsRepository {
         fatalError()
     }
     
-    func prediate(forDateRange range: DateRange) -> NSPredicate? {
+    func predicate(forDateRange range: DateRange) -> NSPredicate? {
         return nil
     }
     

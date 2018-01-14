@@ -15,7 +15,7 @@ protocol TransactionsRepository {
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
     var expensesOnlyPredicate: NSPredicate { get }
     
-    func prediate(forDateRange range: DateRange) -> NSPredicate?
+    func predicate(forDateRange range: DateRange) -> NSPredicate?
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
 }
@@ -46,7 +46,8 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         }
     }
     
-    func prediate(forDateRange range: DateRange) -> NSPredicate? {
+    func predicate(forDateRange range: DateRange) -> NSPredicate? {
+        
         return nil
     }
     

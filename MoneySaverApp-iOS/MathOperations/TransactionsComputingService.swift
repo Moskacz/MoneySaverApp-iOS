@@ -88,7 +88,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let request = repository.fetchRequest
         request.propertiesToFetch = [TransactionManagedObject.AttributesNames.value.rawValue]
         request.includesPropertyValues = true
-        request.predicate = repository.prediate(forDateRange: range)
+        request.predicate = repository.predicate(forDateRange: range)
         
         do {
             return try repository.context.fetch(request)
@@ -109,7 +109,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     func monthlyExpenses() -> [DailyValue] {
         let request: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: TransactionManagedObject.entityName)
-        let predicates = [repository.expensesOnlyPredicate, repository.prediate(forDateRange: .thisMonth)!]
+        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)!]
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         
         let expressionDesc = NSExpressionDescription()
