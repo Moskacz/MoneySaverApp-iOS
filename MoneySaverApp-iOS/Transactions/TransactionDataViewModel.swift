@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MoneySaverFoundationiOS
 
 enum TransactionDataFormError: Error {
     case missingTitle

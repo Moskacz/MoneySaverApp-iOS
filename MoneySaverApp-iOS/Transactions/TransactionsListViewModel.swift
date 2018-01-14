@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MoneySaverFoundationiOS
 import CoreData
 
 class TransactionsListViewModel {

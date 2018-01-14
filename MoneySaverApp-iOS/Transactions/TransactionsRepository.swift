@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import MoneySaverFoundationiOS
 
 protocol TransactionsRepository {
     var context: NSManagedObjectContext { get }

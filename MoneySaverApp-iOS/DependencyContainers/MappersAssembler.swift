@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import MoneySaverFoundationiOS
 import Dip
 
 struct MappersAssembler: ContainerAssembly {
