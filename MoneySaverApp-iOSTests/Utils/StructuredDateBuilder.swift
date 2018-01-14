@@ -25,6 +25,7 @@ class StructuredDateBuilder {
     private var era = 0
     
     
+    
     func build() -> StructuredDate {
         return StructuredDate(timeInterval: timeInterval,
                               dayOfWeek: dayOfWeek,
