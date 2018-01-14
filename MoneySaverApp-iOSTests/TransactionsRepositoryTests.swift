@@ -33,26 +33,41 @@ class TransactionsRepositoryTests: XCTestCase {
     }
     
     func test_predicateForDateRange_ifRangeIsAllTime_thenShouldReturnNil() {
+        fakeCaledar.nowToReturn = Date()
+        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().build()
+        
         let predicate = sut.predicate(forDateRange: .allTime)
         XCTAssertNil(predicate)
     }
     
     func test_predicateForDateRange_todayRange() {
+        fakeCaledar.nowToReturn = Date()
+        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().build()
+        
         let predicate = sut.predicate(forDateRange: .today)
-        XCTAssertEqual(predicate?.predicateFormat, "dayOfEra == 5")
+        XCTAssertEqual(predicate?.predicateFormat, "dayOfEra == 5)")
     }
     
     func test_predicateForDateRange_thisWeekRange() {
+        fakeCaledar.nowToReturn = Date()
+        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().build()
+        
         let predicate = sut.predicate(forDateRange: .thisWeek)
         XCTAssertEqual(predicate?.predicateFormat, "weekOfEra == 5")
     }
     
     func test_predicateForDateRange_thisMonth() {
+        fakeCaledar.nowToReturn = Date()
+        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().build()
+        
         let predicate = sut.predicate(forDateRange: .thisMonth)
         XCTAssertEqual(predicate?.predicateFormat, "monthOfEra == 5")
     }
     
     func test_predicateForDateRange_thisYear() {
+        fakeCaledar.nowToReturn = Date()
+        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().build()
+        
         let predicate = sut.predicate(forDateRange: .thisYear)
         XCTAssertEqual(predicate?.predicateFormat, "year == 2018")
     }

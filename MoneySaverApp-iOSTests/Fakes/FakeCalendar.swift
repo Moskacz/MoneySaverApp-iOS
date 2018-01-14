@@ -13,6 +13,7 @@ class FakeCalendar: CalendarProtocol {
     
     var nowToReturn: Date!
     var daysInMonthRangeToReturn: CountableClosedRange<Int>!
+    var structuredDateToReturn: StructuredDate!
     
     var now: Date {
         return nowToReturn
@@ -27,7 +28,7 @@ class FakeCalendar: CalendarProtocol {
     }
     
     func structuredDate(forDate date: Date) -> StructuredDate {
-        fatalError()
+        return structuredDateToReturn
     }
     
     func monthName(forDate date: Date) -> String {

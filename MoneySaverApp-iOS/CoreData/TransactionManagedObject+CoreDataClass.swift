@@ -54,7 +54,7 @@ public class TransactionManagedObject: NSManagedObject {
         dayOfYear = Int32(date.dayOfYear)
         dayOfEra = Int32(date.dayOfEra)
         weekOfYear = Int32(date.weekOfYear)
-        month = Int32(date.month)
+        month = Int32(date.monthOfYear)
         year = Int32(date.year)
     }
 }

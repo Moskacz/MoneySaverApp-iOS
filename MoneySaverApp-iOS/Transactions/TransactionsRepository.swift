@@ -47,8 +47,19 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     }
     
     func predicate(forDateRange range: DateRange) -> NSPredicate? {
-        
-        return nil
+        let date = calendar.structuredDate(forDate: calendar.now)
+        switch range {
+        case .today:
+            return NSPredicate(format: "\(TransactionManagedObject.AttributesNames.dayOfEra) == \(date.dayOfEra)")
+        case .thisWeek:
+            return NSPredicate(format: "\(TransactionManagedObject.AttributesNames.weekOfEra) == \(date.weekOfEra)")
+        case .thisMonth:
+            return NSPredicate(format: "\(TransactionManagedObject.AttributesNames.monthOfEra) == \(date.monthOfEra)")
+        case .thisYear:
+            return NSPredicate(format: "\(TransactionManagedObject.AttributesNames.year) == \(date.year)")
+        case .allTime:
+            return nil
+        }
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {

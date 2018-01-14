@@ -14,8 +14,11 @@ struct StructuredDate {
     let dayOfMonth: Int
     let dayOfYear: Int
     let dayOfEra: Int
+    let weekOfMonth: Int
     let weekOfYear: Int
-    let month: Int
+    let weekOfEra: Int
+    let monthOfYear: Int
+    let monthOfEra: Int
     let year: Int
     let era: Int
 }
@@ -27,8 +30,11 @@ extension Calendar {
                               dayOfMonth: component(.day, from: date),
                               dayOfYear: ordinality(of: .day, in: .year, for: date)!,
                               dayOfEra: ordinality(of: .day, in: .era, for: date)!,
+                              weekOfMonth: component(.weekOfMonth, from: date),
                               weekOfYear: component(.weekOfYear, from: date),
-                              month: component(.month, from: date),
+                              weekOfEra: 1,
+                              monthOfYear: component(.month, from: date),
+                              monthOfEra: ordinality(of: .month, in: .era, for: date)!,
                               year: component(.year, from: date),
                               era: component(.era, from: date))
         
