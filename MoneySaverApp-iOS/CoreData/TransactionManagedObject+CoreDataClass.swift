@@ -14,10 +14,16 @@ public class TransactionManagedObject: NSManagedObject {
     enum AttributesNames: String {
         case value
         case creationTimeInterval
-        case dayOfEra
+        case dayOfWeek
         case dayOfMonth
+        case dayOfYear
+        case dayOfEra
+        case weekOfMonth
         case weekOfYear
-        case month
+        case weekOfEra
+        case monthOfYear
+        case monthOfEra
+        case year
     }
     
     enum SortDescriptors {
