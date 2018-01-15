@@ -40,8 +40,7 @@ class TransactionsListViewModel {
     
     func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
-        createCollectionUpdateHandler()
-        createFRC()
+        createFRC(withUpdater: updater)
     }
     
     func sectionsCount() -> Int {
@@ -73,16 +72,9 @@ class TransactionsListViewModel {
     
     // MARK: Private
     
-    private func createCollectionUpdateHandler() {
-        guard let updater = collectionUpdater else {
-            return
-        }
-        
-        collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
-    }
-    
-    private func createFRC() {
+    private func createFRC(withUpdater updater: CollectionUpdater) {
         transactionsFRC = repository.allTransactionsFRC
+        collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
         transactionsFRC?.delegate = collectionUpdateHandler
         
         do {
