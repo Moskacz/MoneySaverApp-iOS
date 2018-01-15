@@ -11,3 +11,17 @@ import Foundation
 protocol RootFlowService {
     func addTransaction(withData data: TransactionData, category: TransactionCategoryManagedObject)
 }
+
+class RootFlowServiceImpl: RootFlowService {
+    
+    private let repository: TransactionsRepository
+    
+    init(repository: TransactionsRepository) {
+        self.repository = repository
+    }
+    
+    func addTransaction(withData data: TransactionData, category: TransactionCategoryManagedObject) {
+        repository.addTransaction(data: data, category: category)
+    }
+    
+}

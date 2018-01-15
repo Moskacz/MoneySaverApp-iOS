@@ -31,5 +31,9 @@ struct DataLayerAssembler: ContainerAssembly {
         container.register(.singleton) {
             BudgetRepositoryImpl(context: $0, logger: $1) as BudgetRepository
         }
+        
+        container.register {
+            RootFlowServiceImpl(repository: $0) as RootFlowService
+        }
     }
 }

@@ -11,6 +11,12 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsRepository: TransactionsRepository {
+    var addTransactionCalled = false
+    
+    var allTransactionsFRC: NSFetchedResultsController<TransactionManagedObject> {
+        fatalError()
+    }
+    
     var context: NSManagedObjectContext {
         fatalError()
     }
@@ -28,7 +34,7 @@ class FakeTransactionsRepository: TransactionsRepository {
     }
     
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject) {
-        
+        addTransactionCalled = true
     }
     
     func remove(transaction: TransactionManagedObject) {
