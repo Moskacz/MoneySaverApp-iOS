@@ -17,7 +17,7 @@ class TimeChangedObserverTests: XCTestCase {
     override func setUp() {
         super.setUp()
         notificationCenter = NotificationCenter()
-        sut = TimeChangedObserver(notificationCenter: notificationCenter)
+        sut = TimeChangedObserverImpl(notificationCenter: notificationCenter)
     }
     
     override func tearDown() {

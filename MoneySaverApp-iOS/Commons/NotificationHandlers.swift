@@ -12,7 +12,11 @@ protocol TimeChangedObserverDelegate: class {
     func timeChanged()
 }
 
-class TimeChangedObserver {
+protocol TimeChangedObserver: class {
+    weak var delegate: TimeChangedObserverDelegate? { set get }
+}
+
+class TimeChangedObserverImpl: TimeChangedObserver {
     
     public weak var delegate: TimeChangedObserverDelegate? {
         didSet {

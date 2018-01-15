@@ -25,7 +25,7 @@ class UtilsAssebler: ContainerAssembly {
         }
         
         container.register {
-            TimeChangedObserver(notificationCenter: $0)
+            TimeChangedObserverImpl(notificationCenter: $0) as TimeChangedObserver
         }
     }
 }

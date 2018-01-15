@@ -12,9 +12,10 @@ import CoreData
 
 class FakeTransactionsRepository: TransactionsRepository {
     var addTransactionCalled = false
+    var allTransactionFRCToReturn: NSFetchedResultsController<TransactionManagedObject>!
     
     var allTransactionsFRC: NSFetchedResultsController<TransactionManagedObject> {
-        fatalError()
+        return allTransactionFRCToReturn
     }
     
     var context: NSManagedObjectContext {

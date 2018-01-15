@@ -31,6 +31,7 @@ class TransactionsListViewModel {
         self.logger = logger
         self.calendar = calendar
         self.timeChangedObserver = timeChangedObserver
+        self.timeChangedObserver.delegate = self
     }
     
     func summaryViewModel() -> TransactionsSummaryViewModel {
