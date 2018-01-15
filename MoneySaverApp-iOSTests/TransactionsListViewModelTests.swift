@@ -12,6 +12,7 @@ import XCTest
 class TransactionsListViewModelTests: XCTestCase {
     
     var repositoryFake: FakeTransactionsRepository!
+    var transactionsFRCFake: FakeTransactionsResultsController!
     var calendarFake: FakeCalendar!
     var computingServiceFake: FakeTransactionsComputingService!
     var timeChangedObserver: FakeTimeChangedObserver!
@@ -20,7 +21,8 @@ class TransactionsListViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         repositoryFake = FakeTransactionsRepository()
-        repositoryFake.allTransactionFRCToReturn = FakeTransactionsResultsController()
+        transactionsFRCFake = FakeTransactionsResultsController()
+        repositoryFake.allTransactionFRCToReturn = transactionsFRCFake
         calendarFake = FakeCalendar()
         computingServiceFake = FakeTransactionsComputingService()
         timeChangedObserver = FakeTimeChangedObserver()
@@ -48,4 +50,23 @@ class TransactionsListViewModelTests: XCTestCase {
         XCTAssertTrue(updater.reloadAllCalled)
     }
     
+    func test_whenDateRangeChanged_thenListShouldBeReloaded() {
+        let updater = FakeCollectionUpdater()
+        sut.attach(updater: updater)
+        updater.reloadAllCalled = false
+        sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisMonth)
+        XCTAssertTrue(updater.reloadAllCalled)
+    }
+    
+    func test_whenUpdaterAttached_thenFRCShouldFetchData() {
+        sut.attach(updater: FakeCollectionUpdater())
+        XCTAssertTrue(transactionsFRCFake.performFetchCalled)
+    }
+    
+    func test_whenDataRangeChanged_thenFRCShouldFetchData() {
+        sut.attach(updater: FakeCollectionUpdater())
+        transactionsFRCFake.performFetchCalled = false
+        sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisMonth)
+        XCTAssertTrue(transactionsFRCFake.performFetchCalled)
+    }
 }

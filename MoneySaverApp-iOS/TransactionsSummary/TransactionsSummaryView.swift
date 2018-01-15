@@ -19,6 +19,7 @@ class TransactionsSummaryView: UIView {
             viewModel?.delegate = self
         }
     }
+    
     weak var delegate: TransactionsSummaryViewDelegate?
     private var elementsMapping = [(dateRange: DateRange, view: TransactionSummaryElementView)]()
 

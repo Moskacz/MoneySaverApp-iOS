@@ -77,7 +77,10 @@ class TransactionsListViewModel {
         transactionsFRC = repository.allTransactionsFRC
         collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
         transactionsFRC?.delegate = collectionUpdateHandler
-        
+        fetchData()
+    }
+    
+    private func fetchData() {
         do {
             try transactionsFRC?.performFetch()
             collectionUpdater?.reloadAll()
@@ -89,6 +92,14 @@ class TransactionsListViewModel {
 
 extension TransactionsListViewModel: TimeChangedObserverDelegate {
     func timeChanged() {
+        collectionUpdater?.reloadAll()
+    }
+}
+
+extension TransactionsListViewModel: TransactionsSummaryViewDelegate {
+    func summary(view: TransactionsSummaryView, didSelectElementWith dateRange: DateRange) {
+        transactionsFRC?.fetchRequest.predicate = repository.predicate(forDateRange: dateRange)
+        fetchData()
         collectionUpdater?.reloadAll()
     }
 }

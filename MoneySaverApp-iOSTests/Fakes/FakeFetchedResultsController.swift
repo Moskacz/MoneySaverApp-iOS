@@ -12,9 +12,18 @@ import CoreData
 
 class FakeTransactionsResultsController: NSFetchedResultsController<TransactionManagedObject> {
     
+    var performFetchCalled = false
+    
     override var sections: [NSFetchedResultsSectionInfo]? { return nil }
     
     override func performFetch() throws {
-        
+        performFetchCalled = true
     }
 }
+
+protocol FetchedResultsController {
+    var sections: [NSFetchedResultsSectionInfo]? { get }
+    func performFetch() throws
+}
+
+extension NSFetchedResultsController: FetchedResultsController {}

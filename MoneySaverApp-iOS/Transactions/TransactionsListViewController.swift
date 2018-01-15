@@ -33,7 +33,7 @@ class TransactionsListViewController: UIViewController {
     
     private func setupViews() {
         summaryView?.viewModel = viewModel?.summaryViewModel()
-        summaryView?.delegate = self
+        summaryView?.delegate = viewModel
         summaryView?.selectElement(withRange: .allTime)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
@@ -80,15 +80,7 @@ extension TransactionsListViewController: UITableViewDataSource {
 }
 
 extension TransactionsListViewController: UITableViewDelegate {
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return TransactionCell.defaultHeight
-    }
-    
-}
-
-extension TransactionsListViewController: TransactionsSummaryViewDelegate {
-    func summary(view: TransactionsSummaryView, didSelectElementWith dateRange: DateRange) {
-        
     }
 }
