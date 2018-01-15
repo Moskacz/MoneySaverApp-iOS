@@ -10,9 +10,11 @@ import Foundation
 import CoreData
 
 protocol TransactionsRepository {
+    var allTransactionsFRC: NSFetchedResultsController<TransactionManagedObject> { get }
     var context: NSManagedObjectContext { get }
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
     var expensesOnlyPredicate: NSPredicate { get }
+    
     
     func predicate(forDateRange range: DateRange) -> NSPredicate?
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
@@ -31,6 +33,14 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         self.context = context
         self.logger = logger
         self.calendar = calendar
+    }
+    
+    var allTransactionsFRC: NSFetchedResultsController<TransactionManagedObject> {
+        let request = fetchRequest
+        request.includesPropertyValues = true
+        request.fetchBatchSize = 20
+        request.sortDescriptors = [TransactionManagedObject.SortDescriptors.dayOfEra.descriptor, TransactionManagedObject.SortDescriptors.creationTimeInterval.descriptor]
+        return NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: TransactionManagedObject.AttributesNames.dayOfEra.rawValue, cacheName: nil)
     }
     
     var fetchRequest: NSFetchRequest<TransactionManagedObject> {

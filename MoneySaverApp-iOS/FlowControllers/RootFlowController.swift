@@ -22,7 +22,7 @@ class RootFlowController: FlowController {
     
     var animatedTransitions: Bool = true
     
-    private lazy var transactionService: TransactionsService? = {
+    private lazy var flowService: RootFlowService? = {
        return try? self.dependencyContainer.resolve()
     }()
     
@@ -137,7 +137,7 @@ class RootFlowController: FlowController {
         viewController.viewModel = try! dependencyContainer.resolve()
         
         viewController.categorySelectedCallback = { category in
-            self.transactionService?.addTransaction(data: data, category: category)
+            self.flowService?.addTransaction(withData: data, category: category)
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         

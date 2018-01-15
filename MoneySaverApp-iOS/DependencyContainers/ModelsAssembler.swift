@@ -16,12 +16,6 @@ struct ModelsAssembler: ContainerAssembly {
             NotificationCenter.default as NotificationCenter
         }
         
-        container.register(.singleton) {
-            TransactionsServiceImpl(serverInterface: $0,
-                                    repository: $1,
-                                    logger: $2) as TransactionsService
-        }
-        
         container.register {
             TransactionsComputingServiceImpl(repository: $0,
                                              notificationCenter: $1,
