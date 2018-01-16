@@ -17,7 +17,8 @@ struct ViewModelsAssembler: ContainerAssembly {
                                       transactionsComputingService: $1,
                                       logger: $2,
                                       calendar: $3,
-                                      timeChangedObserver: $4) as TransactionsListViewModel
+                                      timeChangedObserver: $4,
+                                      appPreservationModel: $5) as TransactionsListViewModel
         }
         
         container.register {

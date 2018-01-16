@@ -16,6 +16,7 @@ class TransactionsListViewModel {
     private let logger: Logger
     private let calendar: CalendarProtocol
     private let timeChangedObserver: TimeChangedObserver
+    private let appPreservationModel: AppPreservationModel
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
@@ -25,12 +26,14 @@ class TransactionsListViewModel {
          transactionsComputingService: TransactionsComputingService,
          logger: Logger,
          calendar: CalendarProtocol,
-         timeChangedObserver: TimeChangedObserver) {
+         timeChangedObserver: TimeChangedObserver,
+         appPreservationModel: AppPreservationModel) {
         self.repository = repository
         self.transactionsComputingService = transactionsComputingService
         self.logger = logger
         self.calendar = calendar
         self.timeChangedObserver = timeChangedObserver
+        self.appPreservationModel = appPreservationModel
         self.timeChangedObserver.delegate = self
     }
     
