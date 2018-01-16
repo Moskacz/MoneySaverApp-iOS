@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum DateRange {
+enum DateRange: Int {
     case today
     case thisWeek
     case thisMonth

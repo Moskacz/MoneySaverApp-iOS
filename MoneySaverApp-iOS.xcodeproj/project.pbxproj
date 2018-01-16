@@ -116,6 +116,8 @@
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
 		35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2D1EB636E90083C57F /* Theme.swift */; };
 		35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB3D071F7195BD00BCB79C /* CloudKit.framework */; };
+		35EE9D04200D3B89006D5791 /* UserDefaultsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE9D03200D3B89006D5791 /* UserDefaultsProtocol.swift */; };
+		35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */; };
 		35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -272,6 +274,8 @@
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
 		35EA1A2D1EB636E90083C57F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		35EB3D071F7195BD00BCB79C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		35EE9D03200D3B89006D5791 /* UserDefaultsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProtocol.swift; sourceTree = "<group>"; };
+		35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDefaults.swift; sourceTree = "<group>"; };
 		35F011D51E8D7B03006A2BC2 /* Cleanse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cleanse.framework; path = Carthage/Build/iOS/Cleanse.framework; sourceTree = "<group>"; };
 		35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangedObserverTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -327,6 +331,7 @@
 				35B8A1E4200D1A5B00EA8C7C /* FakeTimeChangedObserver.swift */,
 				35B8A1E6200D201B00EA8C7C /* FakeCollectionUpdater.swift */,
 				35B8A1EA200D22A900EA8C7C /* FakeFetchedResultsController.swift */,
+				35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -460,6 +465,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35EE9D00200D3B44006D5791 /* StatePreservation */,
 				3585EDF61FDDA07000871941 /* Styles */,
 				3598B10C1FDC499A00ADAF0D /* TransactionsSummary */,
 				35708BB81FC605B20052ED9E /* Charts */,
@@ -656,6 +662,14 @@
 			path = Brand;
 			sourceTree = "<group>";
 		};
+		35EE9D00200D3B44006D5791 /* StatePreservation */ = {
+			isa = PBXGroup;
+			children = (
+				35EE9D03200D3B89006D5791 /* UserDefaultsProtocol.swift */,
+			);
+			path = StatePreservation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -823,6 +837,7 @@
 				3581635C200552590013BE33 /* StructuredDate.swift in Sources */,
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,
 				3551A39920069E68001394F2 /* String+Additions.swift in Sources */,
+				35EE9D04200D3B89006D5791 /* UserDefaultsProtocol.swift in Sources */,
 				35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */,
 				353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */,
 				3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */,
@@ -918,6 +933,7 @@
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 				35129ED1200B5A1400B7A566 /* TransactionsRepositoryTests.swift in Sources */,
 				35129ED6200B5E8600B7A566 /* StructuredDateBuilder.swift in Sources */,
+				35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */,
 				35B8A1EB200D22A900EA8C7C /* FakeFetchedResultsController.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
 				35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */,
