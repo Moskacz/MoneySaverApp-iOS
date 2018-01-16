@@ -32,9 +32,10 @@ class TransactionsListViewController: UIViewController {
     }
     
     private func setupViews() {
-        summaryView?.viewModel = viewModel?.summaryViewModel()
-        summaryView?.delegate = viewModel
-        summaryView?.selectElement(withRange: .allTime)
+        guard let model = viewModel else { return }
+        summaryView?.viewModel = model.summaryViewModel()
+        summaryView?.delegate = model
+        summaryView?.selectElement(withRange: model.dateRangeFilter)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.tableFooterView = UIView()

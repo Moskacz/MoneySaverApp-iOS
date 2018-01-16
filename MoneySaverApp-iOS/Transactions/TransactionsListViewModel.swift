@@ -74,10 +74,15 @@ class TransactionsListViewModel {
         repository.remove(transaction: transaction)
     }
     
+    var dateRangeFilter: DateRange {
+        return appPreservationModel.savedDateRangeFilter ?? DateRange.allTime
+    }
+    
     // MARK: Private
     
     private func createFRC(withUpdater updater: CollectionUpdater) {
         transactionsFRC = repository.allTransactionsFRC
+        setupPredicate(forDateRange: dateRangeFilter)
         collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
         transactionsFRC?.delegate = collectionUpdateHandler
         fetchData()
@@ -91,6 +96,10 @@ class TransactionsListViewModel {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }
     }
+    
+    private func setupPredicate(forDateRange dateRange: DateRange) {
+        transactionsFRC?.fetchRequest.predicate = repository.predicate(forDateRange: dateRange)
+    }
 }
 
 extension TransactionsListViewModel: TimeChangedObserverDelegate {
@@ -101,8 +110,9 @@ extension TransactionsListViewModel: TimeChangedObserverDelegate {
 
 extension TransactionsListViewModel: TransactionsSummaryViewDelegate {
     func summary(view: TransactionsSummaryView, didSelectElementWith dateRange: DateRange) {
-        transactionsFRC?.fetchRequest.predicate = repository.predicate(forDateRange: dateRange)
+        setupPredicate(forDateRange: dateRange)
         fetchData()
         collectionUpdater?.reloadAll()
+        appPreservationModel.save(dateRangeFilter: dateRange)
     }
 }

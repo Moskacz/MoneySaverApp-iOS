@@ -16,6 +16,7 @@ class TransactionsListViewModelTests: XCTestCase {
     var calendarFake: FakeCalendar!
     var computingServiceFake: FakeTransactionsComputingService!
     var timeChangedObserver: FakeTimeChangedObserver!
+    var appPreservtionModel: FakeAppPreservationModel!
     var sut: TransactionsListViewModel!
     
     override func setUp() {
@@ -26,11 +27,13 @@ class TransactionsListViewModelTests: XCTestCase {
         calendarFake = FakeCalendar()
         computingServiceFake = FakeTransactionsComputingService()
         timeChangedObserver = FakeTimeChangedObserver()
+        appPreservtionModel = FakeAppPreservationModel()
         sut = TransactionsListViewModel(repository: repositoryFake,
                                         transactionsComputingService: computingServiceFake,
                                         logger: NullLogger(),
                                         calendar: calendarFake,
-                                        timeChangedObserver: timeChangedObserver)
+                                        timeChangedObserver: timeChangedObserver,
+                                        appPreservationModel: appPreservtionModel)
     }
     
     override func tearDown() {
@@ -63,10 +66,24 @@ class TransactionsListViewModelTests: XCTestCase {
         XCTAssertTrue(transactionsFRCFake.performFetchCalled)
     }
     
-    func test_whenDataRangeChanged_thenFRCShouldFetchData() {
+    func test_whenDateRangeChanged_thenFRCShouldFetchData() {
         sut.attach(updater: FakeCollectionUpdater())
         transactionsFRCFake.performFetchCalled = false
         sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisMonth)
         XCTAssertTrue(transactionsFRCFake.performFetchCalled)
+    }
+    
+    func test_whenDateRangeChanged_thenNewFilterShouldBeSaved() {
+        sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisWeek)
+        XCTAssertTrue(appPreservtionModel.saveFilerCalled)
+    }
+    
+    func test_whenThereIsSavedDateRangeFilter_thenItIsAvailable() {
+        appPreservtionModel.savedFilterToReturn = DateRange.thisYear
+        XCTAssertEqual(sut.dateRangeFilter, DateRange.thisYear)
+    }
+    
+    func test_whenThereIsNoSavedDateRangeFilter_thenInitialValueShouldEqualToAllTime() {
+        XCTAssertEqual(sut.dateRangeFilter, DateRange.allTime)
     }
 }
