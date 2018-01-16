@@ -9,17 +9,21 @@
 import Foundation
 @testable import MoneySaverApp_iOS
 
-class FakeUserDefaults: UserDefaultsProtocol {
+class FakeUserDefaults: KeyValueStorage {
     
-    var setIntPassed: Int? = nil
-    var integerForKeyToReturn: Int!
+    var valuePassed: Any? = nil
+    var valueForKeyToReturn: Any? = nil
     
-    func set(_ value: Int, forKey: String) {
-        setIntPassed = value
+    func value(forKey key: String) -> Any? {
+        return valueForKeyToReturn
     }
     
-    func integer(forKey key: String) -> Int {
-        return integerForKeyToReturn
+    func set(_ value: Any?, forKey key: String) {
+        valuePassed = value
     }
     
+    func removeObject(forKey key: String) {
+        
+    }
+
 }
