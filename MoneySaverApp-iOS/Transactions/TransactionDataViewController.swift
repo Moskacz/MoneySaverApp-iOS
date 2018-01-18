@@ -79,6 +79,8 @@ class TransactionDataViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelButton
         datePicker?.isHidden = true
         datePicker?.alpha = 0
+        
+        titleTextField?.delegate = self
     }
     
     private func setupInitialData() {
@@ -185,5 +187,16 @@ class TransactionDataViewController: UIViewController {
                 self.currentDateChevron?.transform = .identity
             })
         }
+    }
+}
+
+extension TransactionDataViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == titleTextField {
+            valueTextField?.becomeFirstResponder()
+            return false
+        }
+        return true
     }
 }
