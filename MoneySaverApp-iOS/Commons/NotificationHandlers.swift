@@ -21,22 +21,16 @@ class TimeChangedObserverImpl: TimeChangedObserver {
     public weak var delegate: TimeChangedObserverDelegate? {
         didSet {
             if delegate != nil {
-                registerForNotificationsIfNeeded()
+                registerForTimeChangedNotificationsIfNeeded()
             }
         }
     }
     
     private let notificationCenter: NotificationCenter
     private var timeChangedObservationToken: NSObjectProtocol?
-    private var appWillEnterForegroundObservationToken: NSObjectProtocol?
     
     init(notificationCenter: NotificationCenter) {
         self.notificationCenter = notificationCenter
-    }
-    
-    private func registerForNotificationsIfNeeded() {
-        registerForTimeChangedNotificationsIfNeeded()
-        registerForEnteringForegroundNotificationsIfNeeded()
     }
     
     private func registerForTimeChangedNotificationsIfNeeded() {
@@ -49,22 +43,8 @@ class TimeChangedObserverImpl: TimeChangedObserver {
         })
     }
     
-    private func registerForEnteringForegroundNotificationsIfNeeded() {
-        guard appWillEnterForegroundObservationToken == nil else { return }
-        let notificationName = Notification.Name.UIApplicationWillEnterForeground
-        appWillEnterForegroundObservationToken = notificationCenter.addObserver(forName: notificationName,
-                                                                                object: nil,
-                                                                                queue: .current,
-                                                                                using: { [weak self] _ in
-                                                                                    self?.delegate?.timeChanged()
-        })
-    }
-    
     private func removeObserver() {
         if let token = timeChangedObservationToken {
-            notificationCenter.removeObserver(token)
-        }
-        if let token = appWillEnterForegroundObservationToken {
             notificationCenter.removeObserver(token)
         }
     }

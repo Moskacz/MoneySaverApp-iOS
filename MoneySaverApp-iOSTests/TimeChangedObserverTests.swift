@@ -33,13 +33,6 @@ class TimeChangedObserverTests: XCTestCase {
         XCTAssertTrue(delegate.called)
     }
     
-    func test_whenAppWillEnterForegroundNotificationIsPosted_thenDelegateMethodShouldBeCalled() {
-        let delegate = FakeDelegate()
-        sut.delegate = delegate
-        notificationCenter.post(name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
-        XCTAssertTrue(delegate.called)
-    }
-    
     class FakeDelegate: TimeChangedObserverDelegate {
         var called = false
         func timeChanged() {
