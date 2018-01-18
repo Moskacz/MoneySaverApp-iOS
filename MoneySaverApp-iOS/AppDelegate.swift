@@ -14,20 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var dependencyContainer: DependencyContainer?
-    var rootFlowController: FlowController?
+    var rootFlowController: RootFlowController?
     var logger: Logger?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         let diContainer = DependencyContainer.createContainer()
         rootFlowController = RootFlowController(applicationDelegate: self,
                                                 storyboard: UIStoryboard.getMain(),
                                                 dependencyContainer: diContainer)
         rootFlowController?.startFlow()
         dependencyContainer = diContainer
-        logger = try? diContainer.resolve()
-        
-        logger?.log(withLevel: .info, message: "didFinishLaunchingWithOptions")
         
         return true
     }
@@ -41,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
     func applicationWillTerminate(_ application: UIApplication) {}
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        rootFlowController?.setup(flowState: .transactionData)
+        completionHandler(true)
+    }
 
 }
 

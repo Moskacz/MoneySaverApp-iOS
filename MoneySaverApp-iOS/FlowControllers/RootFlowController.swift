@@ -9,6 +9,12 @@
 import UIKit
 import Dip
 
+enum FlowState {
+    case transactionsList
+    case budget
+    case transactionData
+}
+
 class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
@@ -36,6 +42,25 @@ class RootFlowController: FlowController {
     
     func startFlow() {
         setupRootFlowController()
+    }
+    
+    func setup(flowState: FlowState) {
+        guard tabBarController?.presentedViewController == nil else {
+            tabBarController?.dismiss(animated: self.animatedTransitions, completion: {
+                self.setup(flowState: flowState)
+            })
+            return
+        }
+        
+        switch flowState {
+        case .transactionsList:
+            tabBarController?.select(tab: .transactionsList)
+        case .budget:
+            tabBarController?.select(tab: .budget)
+        case .transactionData:
+            tabBarController?.select(tab: .transactionsList)
+            presentTransactionDataViewController()
+        }
     }
     
     private func setupRootFlowController() {
