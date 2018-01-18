@@ -46,6 +46,8 @@
             <string>New transaction</string>
             <key>UIApplicationShortcutItemType</key>
             <string>com.mycompany.myapp.openfavorites</string>
+            <key>UIApplicationShortcutItemIconType</key>
+            <string>UIApplicationShortcutIconTypeAdd</string>
         </dict>
     </array>
 </dict>
