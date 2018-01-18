@@ -45,12 +45,11 @@ class TransactionsListViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_whenTimeChanged_thenListShouldBeReloaded() {
-        let updater = FakeCollectionUpdater()
-        sut.attach(updater: updater)
-        updater.reloadAllCalled = false
+    func test_whenTimeChanged_thenFRCShouldFetchData() {
+        sut.attach(updater: FakeCollectionUpdater())
+        transactionsFRCFake.reset()
         timeChangedObserver.delegate?.timeChanged()
-        XCTAssertTrue(updater.reloadAllCalled)
+        XCTAssertTrue(transactionsFRCFake.performFetchCalled)
     }
     
     func test_whenDateRangeChanged_thenListShouldBeReloaded() {
@@ -68,7 +67,7 @@ class TransactionsListViewModelTests: XCTestCase {
     
     func test_whenDateRangeChanged_thenFRCShouldFetchData() {
         sut.attach(updater: FakeCollectionUpdater())
-        transactionsFRCFake.performFetchCalled = false
+        transactionsFRCFake.reset()
         sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisMonth)
         XCTAssertTrue(transactionsFRCFake.performFetchCalled)
     }

@@ -89,6 +89,7 @@ class TransactionsListViewModel {
     }
     
     private func fetchData() {
+        guard collectionUpdater != nil else { return }
         do {
             try transactionsFRC?.performFetch()
             collectionUpdater?.reloadAll()
@@ -104,7 +105,7 @@ class TransactionsListViewModel {
 
 extension TransactionsListViewModel: TimeChangedObserverDelegate {
     func timeChanged() {
-        collectionUpdater?.reloadAll()
+        fetchData()
     }
 }
 

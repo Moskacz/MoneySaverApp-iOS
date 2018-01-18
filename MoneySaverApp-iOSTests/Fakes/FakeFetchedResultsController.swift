@@ -14,6 +14,10 @@ class FakeTransactionsResultsController: NSFetchedResultsController<TransactionM
     
     var performFetchCalled = false
     
+    func reset() {
+        performFetchCalled = false
+    }
+    
     override var sections: [NSFetchedResultsSectionInfo]? { return nil }
     
     override func performFetch() throws {
