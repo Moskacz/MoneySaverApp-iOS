@@ -105,6 +105,7 @@
 		35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */; };
 		35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
+		35DEBBE32011249000EA1556 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35DEBBE02011249000EA1556 /* Default-568h@2x.png */; };
 		35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */; };
 		35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B47200A015700AD2926 /* CalendarProtocol.swift */; };
 		35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */; };
@@ -265,6 +266,7 @@
 		35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionUpdateHandler.swift; sourceTree = "<group>"; };
 		35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonProvider.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
+		35DEBBE02011249000EA1556 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDataProcessorTests.swift; sourceTree = "<group>"; };
 		35DF1B47200A015700AD2926 /* CalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProtocol.swift; sourceTree = "<group>"; };
 		35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendar.swift; sourceTree = "<group>"; };
@@ -452,6 +454,7 @@
 		35BB97111E7F085F003DBA41 = {
 			isa = PBXGroup;
 			children = (
+				35DEBBE02011249000EA1556 /* Default-568h@2x.png */,
 				359784AE1FD70D3E00140DCA /* MMFoundation.xcodeproj */,
 				35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */,
 				35BB97311E7F0860003DBA41 /* MoneySaverApp-iOSTests */,
@@ -802,6 +805,7 @@
 				35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */,
 				35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */,
 				35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */,
+				35DEBBE32011249000EA1556 /* Default-568h@2x.png in Resources */,
 				35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
