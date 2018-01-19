@@ -10,6 +10,7 @@ import Foundation
 
 protocol ChartsDataProcessor {
     func spendings(fromMonthlyExpenses expenses: [DailyValue]) -> [DailyValue]
+    func estimatedSpendings(budgetValue: Double) -> [DailyValue]
 }
 
 class ChartsDataProcessorImpl: ChartsDataProcessor {
@@ -33,6 +34,10 @@ class ChartsDataProcessorImpl: ChartsDataProcessor {
             })
             return DailyValue(day: day, value: value)
         }
+    }
+    
+    func estimatedSpendings(budgetValue: Double) -> [DailyValue] {
+        return []
     }
     
 }

@@ -56,4 +56,13 @@ class ChartsDataProcessorTests: XCTestCase {
         XCTAssertEqual(spendings.count, daysCount)
     }
     
+    func test_estimatedSpending_spendingCountShouldEqualDaysOfMonth() {
+        let daysCount = 28
+        fakeCalendar.nowToReturn = Date()
+        fakeCalendar.daysInMonthRangeToReturn = 1...daysCount
+        
+        let spendings = sut.estimatedSpendings(budgetValue: 0)
+        XCTAssertEqual(spendings.count, daysCount)
+    }
+    
 }
