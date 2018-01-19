@@ -73,10 +73,10 @@ class BudgetViewModel: NSObject {
     
     private func combinedChartData(monthlyExpenses: [DailyValue]) -> CombinedChartData {
         let data = CombinedChartData()
-        let daysInMonth = 30
-        let daysRange = 0...daysInMonth
-        let valuePerDay = budgetValue() / Double(daysInMonth)
-        let barEntries = daysRange.map { BarChartDataEntry(x: Double($0), y: valuePerDay * Double($0))}
+        
+        let barEntries = dataProcessor.estimatedSpendings(budgetValue: budgetValue()).map {
+            BarChartDataEntry(x: Double($0.day), y: $0.value.double)
+        }
         let barDataSet = BarChartDataSet(values: barEntries, label: "Estimated spendings")
         barDataSet.colors = [Styles.greenColor]
         barDataSet.drawValuesEnabled = false
@@ -87,7 +87,6 @@ class BudgetViewModel: NSObject {
         }
         let lineDataSet = LineChartDataSet(values: lineEntries, label: "Actual spendings")
         lineDataSet.colors = [Styles.redColor]
-        
         lineDataSet.mode = .linear
         lineDataSet.lineWidth = 5
         lineDataSet.drawCirclesEnabled = false
