@@ -37,7 +37,11 @@ class ChartsDataProcessorImpl: ChartsDataProcessor {
     }
     
     func estimatedSpendings(budgetValue: Double) -> [DailyValue] {
-        return []
+        let daysRange = calendar.daysInMonthRange(forDate: calendar.now)
+        return daysRange.map { day in
+            let dailySpending = budgetValue * Double(day)  / Double(daysRange.upperBound)
+            return DailyValue(day: day, value: Decimal(floatLiteral: dailySpending))
+        }
     }
     
 }
