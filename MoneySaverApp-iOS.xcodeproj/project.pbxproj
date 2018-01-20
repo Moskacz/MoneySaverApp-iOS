@@ -110,6 +110,7 @@
 		35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B47200A015700AD2926 /* CalendarProtocol.swift */; };
 		35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */; };
 		35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */; };
+		35DFB5DD2012903B00F03C93 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DFB5DC2012903B00F03C93 /* StatsViewModel.swift */; };
 		35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */; };
 		35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */; };
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
@@ -271,6 +272,7 @@
 		35DF1B47200A015700AD2926 /* CalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProtocol.swift; sourceTree = "<group>"; };
 		35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendar.swift; sourceTree = "<group>"; };
 		35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModelTests.swift; sourceTree = "<group>"; };
+		35DFB5DC2012903B00F03C93 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
 		35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdater.swift; sourceTree = "<group>"; };
 		35E6F1DE1EC389F1007667BB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
@@ -475,6 +477,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35DFB5D92012900C00F03C93 /* Stats */,
 				35EE9D00200D3B44006D5791 /* StatePreservation */,
 				3585EDF61FDDA07000871941 /* Styles */,
 				3598B10C1FDC499A00ADAF0D /* TransactionsSummary */,
@@ -503,7 +506,6 @@
 				35BB97291E7F0860003DBA41 /* Info.plist */,
 				355509C61F7831F20007FEF1 /* SynchronizationService.swift */,
 				355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */,
-				355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */,
 			);
 			path = "MoneySaverApp-iOS";
 			sourceTree = "<group>";
@@ -653,6 +655,15 @@
 				35DF1B47200A015700AD2926 /* CalendarProtocol.swift */,
 			);
 			path = Dates;
+			sourceTree = "<group>";
+		};
+		35DFB5D92012900C00F03C93 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */,
+				35DFB5DC2012903B00F03C93 /* StatsViewModel.swift */,
+			);
+			path = Stats;
 			sourceTree = "<group>";
 		};
 		35EA1A251EB6329C0083C57F /* Views */ = {
@@ -924,6 +935,7 @@
 				35708BC61FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift in Sources */,
 				35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */,
 				356D0EB11F8C00E700378362 /* Errors.swift in Sources */,
+				35DFB5DD2012903B00F03C93 /* StatsViewModel.swift in Sources */,
 				35B296D81F7EBEEA004A3E32 /* CardStylePresentationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
