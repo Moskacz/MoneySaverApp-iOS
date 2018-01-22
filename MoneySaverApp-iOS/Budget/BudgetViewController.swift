@@ -27,7 +27,7 @@ class BudgetViewController: UIViewController {
     
     override var tabBarItem: UITabBarItem! {
         get {
-            return UITabBarItem(title: "Budget", image: nil, selectedImage: nil)
+            return UITabBarItem(title: "Budget", image: #imageLiteral(resourceName: "money_bag"), selectedImage: #imageLiteral(resourceName: "money_bag"))
         }
         set {}
     }

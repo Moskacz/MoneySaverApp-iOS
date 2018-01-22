@@ -87,7 +87,6 @@ class RootFlowController: FlowController {
         tabBarVC.viewControllers = [transactionsNavController,
                                     budgetNavController,
                                     statsNavController]
-        tabBarVC.setupItemsTitles()
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarVC
