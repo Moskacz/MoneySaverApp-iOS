@@ -10,10 +10,7 @@ import UIKit
 
 class StatsViewController: UIViewController {
     
-    override var tabBarItem: UITabBarItem! {
-        get {
-            return UITabBarItem(title: "Stats", image: nil, selectedImage: nil)
-        }
-        set {}
-    }
+    override lazy var tabBarItem: UITabBarItem! = {
+        return UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
+    }()
 }
