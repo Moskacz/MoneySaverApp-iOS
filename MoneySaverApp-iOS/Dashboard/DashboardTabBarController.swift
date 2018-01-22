@@ -17,7 +17,7 @@ enum DashboardTab {
 class DashboardTabBarController: UITabBarController {
     
     func setupItemsTitles() {
-        tabBar.items?[0].title = "Transactions"
+//        tabBar.items?[0].title = "Transactions"
         tabBar.items?[1].title = "Budget"
         tabBar.items?[2].title = "Stats"
     }

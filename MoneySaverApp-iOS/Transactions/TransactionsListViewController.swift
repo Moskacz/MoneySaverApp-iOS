@@ -10,9 +10,6 @@ import UIKit
 
 class TransactionsListViewController: UIViewController {
     
-    @IBOutlet private weak var summaryView: TransactionsSummaryView?
-    @IBOutlet private weak var tableView: UITableView?
-    
     var viewModel: TransactionsListViewModel? {
         didSet {
             if isViewLoaded {
@@ -21,8 +18,15 @@ class TransactionsListViewController: UIViewController {
         }
     }
     
-    private let transactionCellIdentifier = "kTransactionCellIdentifier"
     var newTransactionButtonTapCallback: (() -> ()) = {}
+    
+    override lazy var tabBarItem: UITabBarItem! = {
+        return UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
+    }()
+    
+    @IBOutlet private weak var summaryView: TransactionsSummaryView?
+    @IBOutlet private weak var tableView: UITableView?
+    private let transactionCellIdentifier = "kTransactionCellIdentifier"
     
     override func viewDidLoad() {
         super.viewDidLoad()
