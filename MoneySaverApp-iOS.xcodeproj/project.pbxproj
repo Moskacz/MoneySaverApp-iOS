@@ -846,6 +846,10 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ScrollableGraphView.framework",
 			);
 			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Dip.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MoneySaverFoundationiOS.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ScrollableGraphView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
