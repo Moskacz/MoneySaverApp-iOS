@@ -63,6 +63,25 @@ class CalendarTests: XCTestCase {
         XCTAssertEqual(range.count, 31)
     }
     
+    func test_calendarStringIdentifier() {
+        XCTAssertEqual(Calendar.Identifier.buddhist.stringIdentifier, "buddhist")
+        XCTAssertEqual(Calendar.Identifier.chinese.stringIdentifier, "chinese")
+        XCTAssertEqual(Calendar.Identifier.coptic.stringIdentifier, "coptic")
+        XCTAssertEqual(Calendar.Identifier.ethiopicAmeteAlem.stringIdentifier, "ethiopicAmeteAlem")
+        XCTAssertEqual(Calendar.Identifier.ethiopicAmeteMihret.stringIdentifier, "ethiopicAmeteMihret")
+        XCTAssertEqual(Calendar.Identifier.gregorian.stringIdentifier, "gregorian")
+        XCTAssertEqual(Calendar.Identifier.hebrew.stringIdentifier, "hebrew")
+        XCTAssertEqual(Calendar.Identifier.indian.stringIdentifier, "indian")
+        XCTAssertEqual(Calendar.Identifier.islamic.stringIdentifier, "islamic")
+        XCTAssertEqual(Calendar.Identifier.islamicCivil.stringIdentifier, "islamicCivil")
+        XCTAssertEqual(Calendar.Identifier.islamicTabular.stringIdentifier, "islamicTabular")
+        XCTAssertEqual(Calendar.Identifier.islamicUmmAlQura.stringIdentifier, "islamicUmmAlQura")
+        XCTAssertEqual(Calendar.Identifier.iso8601.stringIdentifier, "iso8601")
+        XCTAssertEqual(Calendar.Identifier.japanese.stringIdentifier, "japanese")
+        XCTAssertEqual(Calendar.Identifier.persian.stringIdentifier, "persian")
+        XCTAssertEqual(Calendar.Identifier.republicOfChina.stringIdentifier, "republicOfChina")
+    }
+    
     private var testedDate: Date {
         // 09/01/2018 @ 1:33pm (UTC)
         return Date(timeIntervalSince1970: 1515504813)
