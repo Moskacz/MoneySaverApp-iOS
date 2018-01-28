@@ -64,6 +64,8 @@
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
 		359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */; };
+		35A7BA02201DFE17009E6111 /* CalendarDay+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA00201DFE17009E6111 /* CalendarDay+CoreDataClass.swift */; };
+		35A7BA03201DFE17009E6111 /* CalendarDay+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA01201DFE17009E6111 /* CalendarDay+CoreDataProperties.swift */; };
 		35B296D81F7EBEEA004A3E32 /* CardStylePresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D71F7EBEEA004A3E32 /* CardStylePresentationManager.swift */; };
 		35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */; };
 		35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */; };
@@ -222,6 +224,8 @@
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
+		35A7BA00201DFE17009E6111 /* CalendarDay+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDay+CoreDataClass.swift"; sourceTree = "<group>"; };
+		35A7BA01201DFE17009E6111 /* CalendarDay+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDay+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35B296D71F7EBEEA004A3E32 /* CardStylePresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationManager.swift; sourceTree = "<group>"; };
 		35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationController.swift; sourceTree = "<group>"; };
 		35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
@@ -609,6 +613,8 @@
 		35C9FEEC1E8C23A90092D5E3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				35A7BA00201DFE17009E6111 /* CalendarDay+CoreDataClass.swift */,
+				35A7BA01201DFE17009E6111 /* CalendarDay+CoreDataProperties.swift */,
 				35708BC31FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift */,
 				35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */,
 				3514C42A1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift */,
@@ -884,6 +890,7 @@
 				353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */,
 				3599F5DA1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
+				35A7BA02201DFE17009E6111 /* CalendarDay+CoreDataClass.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */,
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
 				35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */,
@@ -940,6 +947,7 @@
 				35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */,
 				35708BBC1FC958110052ED9E /* SetupBudgetViewController.swift in Sources */,
 				35708BC21FC95B300052ED9E /* BudgetRepository.swift in Sources */,
+				35A7BA03201DFE17009E6111 /* CalendarDay+CoreDataProperties.swift in Sources */,
 				35708BC61FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift in Sources */,
 				35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */,
 				356D0EB11F8C00E700378362 /* Errors.swift in Sources */,
