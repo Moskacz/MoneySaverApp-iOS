@@ -23,6 +23,22 @@ class CalendarTests: XCTestCase {
         super.tearDown()
     }
     
+    func test_dayOfEra() {
+        XCTAssertEqual(calendar.dayOfEraOf(date: testedDate), 736703)
+    }
+    
+    func test_weekOfEra() {
+        XCTAssertEqual(calendar.weekOfEraOf(date: testedDate), 105244)
+    }
+    
+    func test_monthOfEra() {
+        XCTAssertEqual(calendar.monthOfEraOf(date: testedDate), 24205)
+    }
+    
+    func test_year() {
+        XCTAssertEqual(calendar.yearOf(date: testedDate), 2018)
+    }
+    
     func test_structuredDate() {
         let sut = calendar.structuredDate(forDate: testedDate)
         XCTAssertEqual(sut.dayOfWeek, 3)

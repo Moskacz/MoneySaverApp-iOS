@@ -19,6 +19,22 @@ class FakeCalendar: CalendarProtocol {
         return nowToReturn
     }
     
+    func dayOfEraOf(date: Date) -> Int {
+        fatalError()
+    }
+    
+    func weekOfEraOf(date: Date) -> Int {
+        fatalError()
+    }
+    
+    func monthOfEraOf(date: Date) -> Int {
+        fatalError()
+    }
+    
+    func yearOf(date: Date) -> Int {
+        fatalError()
+    }
+    
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int> {
         return daysInMonthRangeToReturn
     }

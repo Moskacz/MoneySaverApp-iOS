@@ -10,6 +10,10 @@ import Foundation
 
 protocol CalendarProtocol {
     var now: Date { get }
+    func dayOfEraOf(date: Date) -> Int
+    func weekOfEraOf(date: Date) -> Int
+    func monthOfEraOf(date: Date) -> Int
+    func yearOf(date: Date) -> Int
     func structuredDate(forDate date: Date) -> StructuredDate
     func monthName(forDate date: Date) -> String
     func yearName(forDate date: Date) -> String
@@ -20,6 +24,22 @@ extension Calendar: CalendarProtocol {
     
     var now: Date {
         return Date()
+    }
+    
+    func dayOfEraOf(date: Date) -> Int {
+        return ordinality(of: .day, in: .era, for: date) ?? -1
+    }
+    
+    func weekOfEraOf(date: Date) -> Int {
+        return ordinality(of: .weekOfYear, in: .era, for: date) ?? -1
+    }
+    
+    func monthOfEraOf(date: Date) -> Int {
+        return ordinality(of: .month, in: .era, for: date) ?? -1
+    }
+    
+    func yearOf(date: Date) -> Int {
+        return component(.year, from: now)
     }
     
     func monthName(forDate date: Date) -> String {
