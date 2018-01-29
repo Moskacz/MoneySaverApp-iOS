@@ -3,17 +3,19 @@
     <entity name="BudgetManagedObject" representedClassName=".BudgetManagedObject" syncable="YES">
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
     </entity>
-    <entity name="CalendarDay" representedClassName=".CalendarDay" syncable="YES">
+    <entity name="CalendarDate" representedClassName=".CalendarDate" syncable="YES">
         <attribute name="calendarIdentifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dayOfEra" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dayOfMonth" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dayOfWeek" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dayOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="era" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="timeInterval" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weekOfEra" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weekOfMonth" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weekOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="transaction" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionManagedObject" inverseName="date" inverseEntity="TransactionManagedObject" syncable="YES"/>
     </entity>
     <entity name="TransactionCategoryManagedObject" representedClassName=".TransactionCategoryManagedObject" syncable="YES">
         <attribute name="color" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -23,24 +25,15 @@
     </entity>
     <entity name="TransactionManagedObject" representedClassName=".TransactionManagedObject" syncable="YES">
         <attribute name="creationTimeInterval" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dayOfEra" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dayOfMonth" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dayOfWeek" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="dayOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="monthOfEra" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="monthOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="weekOfEra" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="weekOfMonth" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="weekOfYear" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionCategoryManagedObject" inverseName="transactions" inverseEntity="TransactionCategoryManagedObject" syncable="YES"/>
+        <relationship name="date" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalendarDate" inverseName="transaction" inverseEntity="CalendarDate" syncable="YES"/>
     </entity>
     <elements>
         <element name="BudgetManagedObject" positionX="-54" positionY="54" width="128" height="60"/>
+        <element name="CalendarDate" positionX="-54" positionY="99" width="128" height="225"/>
         <element name="TransactionCategoryManagedObject" positionX="-63" positionY="18" width="128" height="105"/>
-        <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="255"/>
-        <element name="CalendarDay" positionX="-54" positionY="99" width="128" height="195"/>
+        <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

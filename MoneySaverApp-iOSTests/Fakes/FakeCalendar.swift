@@ -55,7 +55,7 @@ class FakeCalendar: CalendarProtocol {
         fatalError()
     }
     
-    func fillPropertiesOf(calendarDay: CalendarDay, withDate date: Date) {
+    func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date) {
         fatalError()
     }
 }

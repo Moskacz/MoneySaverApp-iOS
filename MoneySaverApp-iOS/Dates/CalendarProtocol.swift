@@ -18,7 +18,7 @@ protocol CalendarProtocol {
     func monthName(forDate date: Date) -> String
     func yearName(forDate date: Date) -> String
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int>
-    func fillPropertiesOf(calendarDay: CalendarDay, withDate date: Date)
+    func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date)
 }
 
 extension Calendar: CalendarProtocol {
@@ -59,16 +59,16 @@ extension Calendar: CalendarProtocol {
         return CountableClosedRange(range)
     }
     
-    func fillPropertiesOf(calendarDay: CalendarDay, withDate date: Date) {
-        calendarDay.calendarIdentifier = identifier.stringIdentifier
-        calendarDay.dayOfWeek = Int32(component(.weekday, from: date))
-        calendarDay.dayOfMonth = Int32(component(.day, from: date))
-        calendarDay.dayOfYear = Int32(ordinality(of: .day, in: .year, for: date) ?? -1)
-        calendarDay.dayOfEra = Int32(dayOfEraOf(date: date))
-        calendarDay.weekOfMonth = Int32(component(.weekOfMonth, from: date))
-        calendarDay.weekOfYear = Int32(component(.weekOfYear, from: date))
-        calendarDay.weekOfEra = Int32(weekOfEraOf(date: date))
-        calendarDay.year = Int32(component(.year, from: date))
-        calendarDay.era = Int32(component(.era, from: date))
+    func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date) {
+        calendarDate.calendarIdentifier = identifier.stringIdentifier
+        calendarDate.dayOfWeek = Int32(component(.weekday, from: date))
+        calendarDate.dayOfMonth = Int32(component(.day, from: date))
+        calendarDate.dayOfYear = Int32(ordinality(of: .day, in: .year, for: date) ?? -1)
+        calendarDate.dayOfEra = Int32(dayOfEraOf(date: date))
+        calendarDate.weekOfMonth = Int32(component(.weekOfMonth, from: date))
+        calendarDate.weekOfYear = Int32(component(.weekOfYear, from: date))
+        calendarDate.weekOfEra = Int32(weekOfEraOf(date: date))
+        calendarDate.year = Int32(component(.year, from: date))
+        calendarDate.era = Int32(component(.era, from: date))
     }
 }
