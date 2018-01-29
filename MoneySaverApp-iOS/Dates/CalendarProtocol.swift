@@ -69,6 +69,8 @@ extension Calendar: CalendarProtocol {
         calendarDate.weekOfMonth = Int32(component(.weekOfMonth, from: date))
         calendarDate.weekOfYear = Int32(component(.weekOfYear, from: date))
         calendarDate.weekOfEra = Int32(weekOfEraOf(date: date))
+        calendarDate.monthOfYear = Int32(component(.month, from: date))
+        calendarDate.monthOfEra = Int32(ordinality(of: .month, in: .era, for: date) ?? -1)
         calendarDate.year = Int32(component(.year, from: date))
         calendarDate.era = Int32(component(.era, from: date))
     }

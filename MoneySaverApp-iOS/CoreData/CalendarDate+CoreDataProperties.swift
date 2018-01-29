@@ -28,6 +28,8 @@ extension CalendarDate {
     @NSManaged public var weekOfYear: Int32
     @NSManaged public var year: Int32
     @NSManaged public var timeInterval: Double
+    @NSManaged public var monthOfYear: Int32
+    @NSManaged public var monthOfEra: Int32
     @NSManaged public var transaction: TransactionManagedObject?
 
 }

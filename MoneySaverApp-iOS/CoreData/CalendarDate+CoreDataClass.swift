@@ -12,5 +12,23 @@ import CoreData
 
 
 public class CalendarDate: NSManagedObject {
+    
+    enum AttributeNames: String {
+        case calendarIdentifier
+        case dayOfEra
+        case dayOfMonth
+        case dayOfWeek
+        case dayOfYear
+        case era
+        case weekOfEra
+        case weekOfMonth
+        case weekOfYear
+        case year
+        case timeInterval
+    }
+    
+    enum Relationships: String {
+        case transaction
+    }
 
 }

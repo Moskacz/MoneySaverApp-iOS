@@ -86,7 +86,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private func transactions(forDateRange range: DateRange) -> [TransactionManagedObject] {
         let request = repository.fetchRequest
-        request.propertiesToFetch = [TransactionManagedObject.AttributesNames.value.rawValue]
+        request.propertiesToFetch = [TransactionManagedObject.KeyPaths.value.rawValue]
         request.includesPropertyValues = true
         request.predicate = repository.predicate(forDateRange: range)
         
@@ -115,18 +115,18 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let expressionDesc = NSExpressionDescription()
         let expressionName = "sum"
         expressionDesc.expression = NSExpression(forFunction: "sum:",
-                                                 arguments: [NSExpression(forKeyPath: TransactionManagedObject.AttributesNames.value.rawValue)])
+                                                 arguments: [NSExpression(forKeyPath: TransactionManagedObject.KeyPaths.value.rawValue)])
         expressionDesc.name = expressionName
         expressionDesc.expressionResultType = .decimalAttributeType
         
-        request.propertiesToFetch = [expressionDesc, TransactionManagedObject.AttributesNames.dayOfMonth.rawValue]
-        request.propertiesToGroupBy = [TransactionManagedObject.AttributesNames.dayOfMonth.rawValue]
+        request.propertiesToFetch = [expressionDesc, TransactionManagedObject.KeyPaths.date]
+        request.propertiesToGroupBy = [TransactionManagedObject.KeyPaths.dayOfEra.rawValue]
         request.resultType = .dictionaryResultType
         
         do {
             let dictionaries = try repository.context.fetch(request)
             return dictionaries.flatMap {
-                guard let day = $0[TransactionManagedObject.AttributesNames.dayOfMonth.rawValue] as? Int,
+                guard let day = $0[TransactionManagedObject.KeyPaths.dayOfEra.rawValue] as? Int,
                     let sum = $0[expressionName] as? Decimal else { return nil }
                 return DailyValue(day: day, value: sum)
             }

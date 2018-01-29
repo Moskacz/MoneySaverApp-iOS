@@ -93,6 +93,8 @@ class CalendarTests: XCTestCase {
         XCTAssertEqual(calendarDate.dayOfYear, 9)
         XCTAssertEqual(calendarDate.weekOfMonth, 2)
         XCTAssertEqual(calendarDate.weekOfYear, 2)
+        XCTAssertEqual(calendarDate.monthOfYear, 1)
+        XCTAssertEqual(calendarDate.monthOfEra, 2017 * 12 + 1)
         XCTAssertEqual(calendarDate.year, 2018)
         XCTAssertEqual(calendarDate.era, 1)
         XCTAssertNotNil(calendarDate.calendarIdentifier)
