@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import CoreData
 @testable import MoneySaverApp_iOS
 
 class CalendarTests: XCTestCase {
@@ -80,6 +81,20 @@ class CalendarTests: XCTestCase {
         XCTAssertEqual(Calendar.Identifier.japanese.stringIdentifier, "japanese")
         XCTAssertEqual(Calendar.Identifier.persian.stringIdentifier, "persian")
         XCTAssertEqual(Calendar.Identifier.republicOfChina.stringIdentifier, "republicOfChina")
+    }
+    
+    func test_fillCalendarDayProperty() {
+        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        let calendarDay = CalendarDay(context: context)
+        calendar.fillPropertiesOf(calendarDay: calendarDay, withDate: testedDate)
+        XCTAssertEqual(calendarDay.dayOfWeek, 3)
+        XCTAssertEqual(calendarDay.dayOfMonth, 9)
+        XCTAssertEqual(calendarDay.dayOfYear, 9)
+        XCTAssertEqual(calendarDay.weekOfMonth, 2)
+        XCTAssertEqual(calendarDay.weekOfYear, 2)
+        XCTAssertEqual(calendarDay.year, 2018)
+        XCTAssertEqual(calendarDay.era, 1)
+        XCTAssertNotNil(calendarDay.calendarIdentifier)
     }
     
     private var testedDate: Date {

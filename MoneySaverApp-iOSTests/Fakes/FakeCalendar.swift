@@ -54,4 +54,8 @@ class FakeCalendar: CalendarProtocol {
     func yearName(forDate date: Date) -> String {
         fatalError()
     }
+    
+    func fillPropertiesOf(calendarDay: CalendarDay, withDate date: Date) {
+        fatalError()
+    }
 }
