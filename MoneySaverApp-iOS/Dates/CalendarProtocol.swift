@@ -61,6 +61,7 @@ extension Calendar: CalendarProtocol {
     
     func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date) {
         calendarDate.calendarIdentifier = identifier.stringIdentifier
+        calendarDate.timeInterval = date.timeIntervalSince1970
         calendarDate.dayOfWeek = Int32(component(.weekday, from: date))
         calendarDate.dayOfMonth = Int32(component(.day, from: date))
         calendarDate.dayOfYear = Int32(ordinality(of: .day, in: .year, for: date) ?? -1)

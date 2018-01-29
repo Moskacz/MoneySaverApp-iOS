@@ -87,6 +87,7 @@ class CalendarTests: XCTestCase {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let calendarDate = CalendarDate(context: context)
         calendar.fillPropertiesOf(calendarDate: calendarDate, withDate: testedDate)
+        XCTAssertEqual(calendarDate.timeInterval, testedDate.timeIntervalSince1970)
         XCTAssertEqual(calendarDate.dayOfWeek, 3)
         XCTAssertEqual(calendarDate.dayOfMonth, 9)
         XCTAssertEqual(calendarDate.dayOfYear, 9)

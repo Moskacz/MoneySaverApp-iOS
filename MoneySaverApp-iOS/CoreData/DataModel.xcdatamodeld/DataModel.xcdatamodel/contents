@@ -24,7 +24,6 @@
         <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TransactionManagedObject" inverseName="category" inverseEntity="TransactionManagedObject" syncable="YES"/>
     </entity>
     <entity name="TransactionManagedObject" representedClassName=".TransactionManagedObject" syncable="YES">
-        <attribute name="creationTimeInterval" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionCategoryManagedObject" inverseName="transactions" inverseEntity="TransactionCategoryManagedObject" syncable="YES"/>
@@ -34,6 +33,6 @@
         <element name="BudgetManagedObject" positionX="-54" positionY="54" width="128" height="60"/>
         <element name="CalendarDate" positionX="-54" positionY="99" width="128" height="225"/>
         <element name="TransactionCategoryManagedObject" positionX="-63" positionY="18" width="128" height="105"/>
-        <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="TransactionManagedObject" positionX="-63" positionY="-18" width="128" height="105"/>
     </elements>
 </model>
