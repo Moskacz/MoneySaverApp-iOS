@@ -46,10 +46,6 @@ class FakeCalendar: CalendarProtocol {
         fatalError()
     }
     
-    func structuredDate(forDate date: Date) -> StructuredDate {
-        fatalError()
-    }
-    
     func monthName(forDate date: Date) -> String {
         fatalError()
     }

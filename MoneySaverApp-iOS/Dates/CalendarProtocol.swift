@@ -14,7 +14,6 @@ protocol CalendarProtocol {
     func weekOfEraOf(date: Date) -> Int
     func monthOfEraOf(date: Date) -> Int
     func yearOf(date: Date) -> Int
-    func structuredDate(forDate date: Date) -> StructuredDate
     func monthName(forDate date: Date) -> String
     func yearName(forDate date: Date) -> String
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int>

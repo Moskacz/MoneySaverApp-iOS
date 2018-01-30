@@ -40,17 +40,6 @@ class CalendarTests: XCTestCase {
         XCTAssertEqual(calendar.yearOf(date: testedDate), 2018)
     }
     
-    func test_structuredDate() {
-        let sut = calendar.structuredDate(forDate: testedDate)
-        XCTAssertEqual(sut.dayOfWeek, 3)
-        XCTAssertEqual(sut.dayOfMonth, 9)
-        XCTAssertEqual(sut.dayOfYear, 9)
-        XCTAssertEqual(sut.weekOfYear, 2)
-        XCTAssertEqual(sut.dayOfEra, 736703)
-        XCTAssertEqual(sut.year, 2018)
-        XCTAssertEqual(sut.era, 1)
-    }
-    
     func test_monthName() {
         XCTAssertEqual(calendar.monthName(forDate: testedDate), "Styczeń")
     }
