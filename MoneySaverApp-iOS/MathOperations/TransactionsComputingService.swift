@@ -17,8 +17,8 @@ struct DailyValue {
 
 protocol TransactionsComputingService {
     var delegates: WeakArray<AnyObject> { get }
-    func sum() -> TransactionsCompoundSum
-    func monthlyExpenses() -> [DailyValue]
+    func sum() throws -> TransactionsCompoundSum
+    func monthlyExpenses() throws -> [DailyValue]
 }
 
 protocol TransactionsComputingServiceDelegate {
@@ -71,31 +71,25 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         }
     }
     
-    func sum() -> TransactionsCompoundSum {
-        return TransactionsCompoundSum(daily: transactionsSum(forDateRange: .today),
-                                       weekly: transactionsSum(forDateRange: .thisWeek),
-                                       monthly: transactionsSum(forDateRange: .thisMonth),
-                                       yearly: transactionsSum(forDateRange: .thisYear),
-                                       era: transactionsSum(forDateRange: .allTime))
+    func sum() throws -> TransactionsCompoundSum {
+        return TransactionsCompoundSum(daily: try transactionsSum(forDateRange: .today),
+                                       weekly: try transactionsSum(forDateRange: .thisWeek),
+                                       monthly: try transactionsSum(forDateRange: .thisMonth),
+                                       yearly: try transactionsSum(forDateRange: .thisYear),
+                                       era: try transactionsSum(forDateRange: .allTime))
     }
     
-    private func transactionsSum(forDateRange range: DateRange) -> TransactionsSum {
-        let entities = transactions(forDateRange: range)
+    private func transactionsSum(forDateRange range: DateRange) throws -> TransactionsSum {
+        let entities = try transactions(forDateRange: range)
         return sum(transactions: entities, dateRange: range)
     }
     
-    private func transactions(forDateRange range: DateRange) -> [TransactionManagedObject] {
+    private func transactions(forDateRange range: DateRange) throws -> [TransactionManagedObject] {
         let request = repository.fetchRequest
         request.propertiesToFetch = [TransactionManagedObject.KeyPaths.value.rawValue]
         request.includesPropertyValues = true
         request.predicate = repository.predicate(forDateRange: range)
-        
-        do {
-            return try repository.context.fetch(request)
-        } catch {
-            logger.log(withLevel: .error, message: error.localizedDescription)
-            return []
-        }
+        return try repository.context.fetch(request)
     }
     
     private func sum(transactions: [TransactionManagedObject], dateRange: DateRange) -> TransactionsSum {
@@ -107,41 +101,28 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
                                dateRange: dateRange)
     }
     
-    func monthlyExpenses() -> [DailyValue] {
-        let request: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: TransactionManagedObject.entityName)
-        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)!]
+    func monthlyExpenses() throws -> [DailyValue] {
+        let request: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
+        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)].flatMap { $0 }
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        
-        let expressionDesc = NSExpressionDescription()
-        let expressionName = "sum"
-        expressionDesc.expression = NSExpression(forFunction: "sum:",
-                                                 arguments: [NSExpression(forKeyPath: TransactionManagedObject.KeyPaths.value.rawValue)])
-        expressionDesc.name = expressionName
-        expressionDesc.expressionResultType = .decimalAttributeType
-        
-        request.propertiesToFetch = [expressionDesc, TransactionManagedObject.KeyPaths.date]
-        request.propertiesToGroupBy = [TransactionManagedObject.KeyPaths.dayOfEra.rawValue]
-        request.resultType = .dictionaryResultType
-        
-        do {
-            let dictionaries = try repository.context.fetch(request)
-            return dictionaries.flatMap {
-                guard let day = $0[TransactionManagedObject.KeyPaths.dayOfEra.rawValue] as? Int,
-                    let sum = $0[expressionName] as? Decimal else { return nil }
-                return DailyValue(day: day, value: sum)
-            }
-        } catch {
-            return []
+        let groupedTransactions = try repository.context.fetch(request).filter { $0.date != nil}.grouped { $0.date!.dayOfEra }
+        return groupedTransactions.map{ (dayOfEra, transactions) -> DailyValue in
+            let values = transactions.map { $0.value?.doubleValue ?? 0 }
+            return DailyValue(day: Int(dayOfEra), value: Decimal(values.reduce(0, +)))
         }
     }
     
     private func notifyDelegates() {
-        let transactionsSum = sum()
-        let expenses = monthlyExpenses()
-        for object in delegates {
-            let delegate = object as? TransactionsComputingServiceDelegate
-            delegate?.transactionsSumUpdated(transactionsSum)
-            delegate?.monthlyExpensesUpdated(expenses)
+        do {
+            let transactionsSum = try sum()
+            let expenses = try monthlyExpenses()
+            for object in delegates {
+                let delegate = object as? TransactionsComputingServiceDelegate
+                delegate?.transactionsSumUpdated(transactionsSum)
+                delegate?.monthlyExpensesUpdated(expenses)
+            }
+        } catch {
+            logger.log(withLevel: .error, message: error.localizedDescription)
         }
     }
     

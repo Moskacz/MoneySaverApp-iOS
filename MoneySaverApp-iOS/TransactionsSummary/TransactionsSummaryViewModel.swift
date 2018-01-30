@@ -17,7 +17,10 @@ class TransactionsSummaryViewModel {
     
     weak var delegate: TransactionsSummaryViewModelDelegate? {
         didSet {
-            createViewModels(withSum: computingService.sum())
+            do {
+                let sum = try computingService.sum()
+                createViewModels(withSum: sum)
+            } catch {}
         }
     }
     

@@ -54,8 +54,13 @@ class BudgetViewModel: NSObject {
     
     // MARK: Charts
     
-    func pieChartData() -> PieChartData {
-        return pieChartData(expenses: computingService.sum().monthly.expenses)
+    func pieChartData() -> PieChartData? {
+        do {
+            let sum = try computingService.sum()
+            return pieChartData(expenses: sum.monthly.expenses)
+        } catch {
+            return nil
+        }
     }
     
     private func pieChartData(expenses: Decimal) -> PieChartData {
@@ -67,8 +72,13 @@ class BudgetViewModel: NSObject {
         return PieChartData(dataSet: dataSet)
     }
     
-    func combinedChartData() -> CombinedChartData {
-        return combinedChartData(monthlyExpenses: computingService.monthlyExpenses())
+    func combinedChartData() -> CombinedChartData? {
+        do {
+            let expenses = try computingService.monthlyExpenses()
+            return combinedChartData(monthlyExpenses: expenses)
+        } catch {
+            return nil
+        }
     }
     
     private func combinedChartData(monthlyExpenses: [DailyValue]) -> CombinedChartData {

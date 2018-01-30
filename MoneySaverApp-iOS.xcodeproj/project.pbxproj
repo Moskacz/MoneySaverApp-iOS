@@ -40,6 +40,8 @@
 		355509D41F7AC8080007FEF1 /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
 		355DB267201FA83D00F990FD /* CalendarDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB265201FA83D00F990FD /* CalendarDate+CoreDataClass.swift */; };
 		355DB268201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB266201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift */; };
+		355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB2692020F90200F990FD /* Sequence+Extension.swift */; };
+		355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB26B2020FA3500F990FD /* SequenceTests.swift */; };
 		356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */; };
 		356D0EAE1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */; };
 		356D0EB11F8C00E700378362 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EB01F8C00E700378362 /* Errors.swift */; };
@@ -199,6 +201,8 @@
 		355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowControllerTests.swift; sourceTree = "<group>"; };
 		355DB265201FA83D00F990FD /* CalendarDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDate+CoreDataClass.swift"; sourceTree = "<group>"; };
 		355DB266201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		355DB2692020F90200F990FD /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
+		355DB26B2020FA3500F990FD /* SequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceTests.swift; sourceTree = "<group>"; };
 		356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewModel.swift; sourceTree = "<group>"; };
 		356D0EB01F8C00E700378362 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
@@ -533,6 +537,7 @@
 				35B8A1E0200D18AD00EA8C7C /* TransactionsListViewModelTests.swift */,
 				35EE9D09200E6F53006D5791 /* AppPreservationModelTests.swift */,
 				35E1567720132695004F6A8D /* StatsViewModelTests.swift */,
+				355DB26B2020FA3500F990FD /* SequenceTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -582,6 +587,7 @@
 				35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */,
 				3551A39820069E68001394F2 /* String+Additions.swift */,
 				35A7BA04201E023C009E6111 /* Calendar+Additions.swift */,
+				355DB2692020F90200F990FD /* Sequence+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -911,6 +917,7 @@
 				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
+				355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */,
 				35708BC51FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */,
@@ -961,6 +968,7 @@
 				35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */,
 				35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */,
 				35B8A1E5200D1A5B00EA8C7C /* FakeTimeChangedObserver.swift in Sources */,
+				355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */,
 				350FBC1F200A9596000457EB /* TransactionManagedObjectTests.swift in Sources */,
 				35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */,
 				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
