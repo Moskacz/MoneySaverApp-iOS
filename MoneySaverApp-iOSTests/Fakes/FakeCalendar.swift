@@ -13,26 +13,29 @@ class FakeCalendar: CalendarProtocol {
     
     var nowToReturn: Date!
     var daysInMonthRangeToReturn: CountableClosedRange<Int>!
-    var structuredDateToReturn: StructuredDate!
+    var dayOfEraOfDateToReturn: Int!
+    var weekOfEraOfDateToReturn: Int!
+    var monthOfEraOfDateToReturn: Int!
+    var yearOfDateToReturn: Int!
     
     var now: Date {
         return nowToReturn
     }
     
     func dayOfEraOf(date: Date) -> Int {
-        fatalError()
+        return dayOfEraOfDateToReturn
     }
     
     func weekOfEraOf(date: Date) -> Int {
-        fatalError()
+        return weekOfEraOfDateToReturn
     }
     
     func monthOfEraOf(date: Date) -> Int {
-        fatalError()
+        return monthOfEraOfDateToReturn
     }
     
     func yearOf(date: Date) -> Int {
-        fatalError()
+        return yearOfDateToReturn
     }
     
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int> {
@@ -44,7 +47,7 @@ class FakeCalendar: CalendarProtocol {
     }
     
     func structuredDate(forDate date: Date) -> StructuredDate {
-        return structuredDateToReturn
+        fatalError()
     }
     
     func monthName(forDate date: Date) -> String {

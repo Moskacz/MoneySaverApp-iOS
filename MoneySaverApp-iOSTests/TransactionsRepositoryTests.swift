@@ -34,42 +34,40 @@ class TransactionsRepositoryTests: XCTestCase {
     
     func test_predicateForDateRange_ifRangeIsAllTime_thenShouldReturnNil() {
         fakeCaledar.nowToReturn = Date()
-        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().build()
-        
         let predicate = sut.predicate(forDateRange: .allTime)
         XCTAssertNil(predicate)
     }
     
     func test_predicateForDateRange_todayRange() {
         fakeCaledar.nowToReturn = Date()
-        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().set(dayOfEra: 5).build()
+        fakeCaledar.dayOfEraOfDateToReturn = 5
         
         let predicate = sut.predicate(forDateRange: .today)
-        XCTAssertEqual(predicate?.predicateFormat, "dayOfEra == 5")
+        XCTAssertEqual(predicate?.predicateFormat, "date.dayOfEra == 5")
     }
     
     func test_predicateForDateRange_thisWeekRange() {
         fakeCaledar.nowToReturn = Date()
-        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().set(weekOfEra: 5).build()
+        fakeCaledar.weekOfEraOfDateToReturn = 5
         
         let predicate = sut.predicate(forDateRange: .thisWeek)
-        XCTAssertEqual(predicate?.predicateFormat, "weekOfEra == 5")
+        XCTAssertEqual(predicate?.predicateFormat, "date.weekOfEra == 5")
     }
     
     func test_predicateForDateRange_thisMonth() {
         fakeCaledar.nowToReturn = Date()
-        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().set(monthOfEra: 5).build()
+        fakeCaledar.monthOfEraOfDateToReturn = 5
         
         let predicate = sut.predicate(forDateRange: .thisMonth)
-        XCTAssertEqual(predicate?.predicateFormat, "monthOfEra == 5")
+        XCTAssertEqual(predicate?.predicateFormat, "date.monthOfEra == 5")
     }
     
     func test_predicateForDateRange_thisYear() {
         fakeCaledar.nowToReturn = Date()
-        fakeCaledar.structuredDateToReturn = StructuredDateBuilder().set(year: 2018).build()
+        fakeCaledar.yearOfDateToReturn = 2018
         
         let predicate = sut.predicate(forDateRange: .thisYear)
-        XCTAssertEqual(predicate?.predicateFormat, "year == 2018")
+        XCTAssertEqual(predicate?.predicateFormat, "date.year == 2018")
     }
     
     
