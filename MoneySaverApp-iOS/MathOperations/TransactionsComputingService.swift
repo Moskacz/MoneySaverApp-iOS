@@ -65,9 +65,8 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     private func setupNotificationsObservers() {
-        let notification = Notification.Name.NSManagedObjectContextDidSave
+        let notification = Notification.Name.NSManagedObjectContextObjectsDidChange
         notificationCenter.addObserver(forName: notification, object: repository.context, queue: OperationQueue.main) { (_) in
-            self.notifyDelegates()
         }
     }
     
