@@ -66,7 +66,8 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     private func setupNotificationsObservers() {
         let notification = Notification.Name.NSManagedObjectContextObjectsDidChange
-        notificationCenter.addObserver(forName: notification, object: repository.context, queue: OperationQueue.main) { (_) in
+        notificationCenter.addObserver(forName: notification, object: repository.context, queue: OperationQueue.main) { [weak self] (_) in
+            self?.notifyDelegates()
         }
     }
     
@@ -104,7 +105,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let request: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
         let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)].flatMap { $0 }
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-        let groupedTransactions = try repository.context.fetch(request).filter { $0.date != nil}.grouped { $0.date!.dayOfEra }
+        let groupedTransactions = try repository.context.fetch(request).filter { $0.date != nil}.grouped { $0.date!.dayOfMonth }
         return groupedTransactions.map{ (dayOfEra, transactions) -> DailyValue in
             let values = transactions.map { $0.value?.doubleValue ?? 0 }
             return DailyValue(day: Int(dayOfEra), value: Decimal(values.reduce(0, +)))
