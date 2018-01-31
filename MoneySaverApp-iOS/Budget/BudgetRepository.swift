@@ -34,7 +34,6 @@ class BudgetRepositoryImpl: BudgetRepository {
             } else {
                 updateBudget(value: value, entities: entities)
             }
-            try context.save()
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }

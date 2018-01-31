@@ -17,13 +17,34 @@ protocol CoreDataStack: class {
 
 class CoreDataStackImplementation: CoreDataStack {
     
-    private let persistentContainer: NSPersistentContainer
-    private let logger: Logger
     var isLoaded: Bool = false
     
-    init(logger: Logger) {
+    private let persistentContainer: NSPersistentContainer
+    private let logger: Logger
+    private let notificationCenter: NotificationCenter
+    private var didEnterBackgroundToken: NSObjectProtocol?
+    private var willTerminateToken: NSObjectProtocol?
+    
+    init(logger: Logger, notificationCenter: NotificationCenter) {
         self.logger = logger
+        self.notificationCenter = notificationCenter
         self.persistentContainer = NSPersistentContainer(name: "DataModel")
+        registerForNotifications()
+    }
+    
+    private func registerForNotifications() {
+        didEnterBackgroundToken = notificationCenter.addObserver(forName: .UIApplicationDidEnterBackground,
+                                                                 object: nil,
+                                                                 queue: .main, using: { [weak self] _ in
+            self?.save()
+        })
+        
+        willTerminateToken = notificationCenter.addObserver(forName: .UIApplicationWillTerminate,
+                                                            object: nil,
+                                                            queue: .main,
+                                                            using: { [weak self] _ in
+            self?.save()
+        })
     }
     
     func loadStores(completion: @escaping (() -> Void)) {
@@ -36,9 +57,24 @@ class CoreDataStackImplementation: CoreDataStack {
         }
     }
     
-    // MARK: CoreDataStack
-    
     func getViewContext() -> NSManagedObjectContext {
         return persistentContainer.viewContext
+    }
+    
+    private func save() {
+        do {
+            try getViewContext().save()
+        } catch {
+            logger.log(withLevel: .error, message: error.localizedDescription)
+        }
+    }
+    
+    deinit {
+        if let token = didEnterBackgroundToken {
+            notificationCenter.removeObserver(token)
+        }
+        if let token = willTerminateToken {
+            notificationCenter.removeObserver(token)
+        }
     }
 }

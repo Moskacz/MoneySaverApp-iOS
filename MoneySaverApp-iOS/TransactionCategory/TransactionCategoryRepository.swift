@@ -42,14 +42,6 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
                 let entity = TransactionCategoryManagedObject.createEntity(inContext: self.context)
                 self.updateProperties(ofEntity: entity, withCategory: category)
             }
-            
-            if self.context.hasChanges {
-                do {
-                    try self.context.save()
-                } catch {
-                    self.logger.log(withLevel: .error, message: error.localizedDescription)
-                }
-            }
         }
     }
     

@@ -86,21 +86,10 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             self.calendar.fillPropertiesOf(calendarDate: date, withDate: data.creationDate)
             transaction.date = date
             transaction.category = category
-            self.saveContextIfNeeded()
         }
     }
     
     func remove(transaction: TransactionManagedObject) {
         context.delete(transaction)
-        saveContextIfNeeded()
-    }
-    
-    private func saveContextIfNeeded() {
-        guard context.hasChanges else { return }
-        do {
-            try context.save()
-        } catch {
-            logger.log(withLevel: .error, message: error.localizedDescription)
-        }
     }
 }
