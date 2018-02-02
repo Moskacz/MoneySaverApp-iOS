@@ -23,16 +23,11 @@ class StatsViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_expensesPerDay() {
-        XCTFail()
+    func test_availableGroupings() {
+        XCTAssertEqual(sut.availableGroupings, [TransactionGrouping.day, TransactionGrouping.week, TransactionGrouping.month])
     }
     
-    func test_incomesPerDay() {
-        XCTFail()
+    func test_selectedGrouping() {
+        XCTAssertEqual(sut.selectedGrouping, 2)
     }
-    
-    func test_expensesPerCategory() {
-        XCTFail()
-    }
-    
 }

@@ -21,6 +21,7 @@ class RootFlowController: FlowController {
     private weak var tabBarController: DashboardTabBarController?
     private weak var transactionsVC: TransactionsListViewController?
     private weak var budgetVC: BudgetViewController?
+    private weak var statsVC: StatsViewController?
     
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
@@ -118,6 +119,7 @@ class RootFlowController: FlowController {
     
     private func statsViewController() -> StatsViewController {
         let viewController: StatsViewController = storyboard.instantiateTypeViewController(withIdentifier: StatsViewController.defaultStoryboardIdentifier)
+        self.statsVC = viewController
         return viewController
     }
     
@@ -134,6 +136,10 @@ class RootFlowController: FlowController {
         
         if budgetVC?.setupBudgetViewModel == nil {
             budgetVC?.setupBudgetViewModel = try! dependencyContainer.resolve()
+        }
+        
+        if statsVC?.viewModel == nil {
+            statsVC?.viewModel = try! dependencyContainer.resolve()
         }
     }
     

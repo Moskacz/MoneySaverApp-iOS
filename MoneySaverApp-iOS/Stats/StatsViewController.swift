@@ -15,14 +15,27 @@ class StatsViewController: UIViewController {
         return UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
     }()
     
+    var viewModel: StatsViewModel? {
+        didSet {
+            if isViewLoaded {
+                setup()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    private func setup() {
         setupTitleView()
     }
     
     private func setupTitleView() {
-        let groupings = [TransactionGrouping.day, TransactionGrouping.week, TransactionGrouping.month]
-        let segmentedControl = UISegmentedControl(items: groupings.map { $0.title })
+        guard let model = viewModel else { return }
+        let segmentedControl = UISegmentedControl(items: model.availableGroupings.map { $0.title })
+        segmentedControl.selectedSegmentIndex = model.selectedGrouping
         navigationItem.titleView = segmentedControl
     }
 

@@ -40,5 +40,9 @@ struct ViewModelsAssembler: ContainerAssembly {
         container.register {
             SetupBudgetViewModel(budgetRepository: $0)
         }
+        
+        container.register {
+            StatsViewModel()
+        }
     }
 }
