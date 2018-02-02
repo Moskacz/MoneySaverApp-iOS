@@ -17,21 +17,10 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTestGraph()
+        
     }
     
-    private func setupTestGraph() {
-        let graphView = ScrollableGraphView(frame: .zero, dataSource: self)
-        graphView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(graphView)
-        graphView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        graphView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        graphView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        graphView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        
-        let plot = BarPlot(identifier: "test")
-        graphView.addPlot(plot: plot)
-    }
+    
 }
 
 extension StatsViewController: ScrollableGraphViewDataSource {
