@@ -69,10 +69,11 @@ class TransactionSummaryElementView: UIView {
     }
 
     private func createLabel() -> UILabel {
-        let label = UILabel()
+        let textInset = UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 4)
+        let label = InsetLabel(insets: textInset)
         label.textAlignment = .center
         label.textColor = UIColor.white
-        label.minimumScaleFactor = 0.5
+        label.adjustsFontSizeToFitWidth = true
         return label
     }
     
