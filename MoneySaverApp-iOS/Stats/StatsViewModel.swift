@@ -3,6 +3,9 @@ import Charts
 
 class StatsViewModel {
     
+    var availableGroupings: [TransactionGrouping] = [.day, .week, .month]
+    var selectedGrouping: TransactionGrouping = TransactionGrouping.day
+    
     func expensesData() -> BarChartData {
         return BarChartData()
     }

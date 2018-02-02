@@ -17,10 +17,15 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupTitleView()
     }
     
-    
+    private func setupTitleView() {
+        let groupings = [TransactionGrouping.day, TransactionGrouping.week, TransactionGrouping.month]
+        let segmentedControl = UISegmentedControl(items: groupings.map { $0.title })
+        navigationItem.titleView = segmentedControl
+    }
+
 }
 
 extension StatsViewController: ScrollableGraphViewDataSource {
