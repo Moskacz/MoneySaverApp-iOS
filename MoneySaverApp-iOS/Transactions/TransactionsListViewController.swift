@@ -13,7 +13,7 @@ class TransactionsListViewController: UIViewController {
     var viewModel: TransactionsListViewModel? {
         didSet {
             if isViewLoaded {
-                bindViewModel()
+                setup()
             }
         }
     }
@@ -30,7 +30,10 @@ class TransactionsListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Transactions"
+        setup()
+    }
+    
+    private func setup() {
         setupViews()
         bindViewModel()
     }

@@ -69,6 +69,7 @@
 		35A0239E2022394B00E42FFD /* NSManagedObjectContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */; };
 		35A023A42024C19200E42FFD /* TransactionGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023A32024C19200E42FFD /* TransactionGrouping.swift */; };
 		35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023A82024C9CC00E42FFD /* InsetLabel.swift */; };
+		35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023AB2024E59200E42FFD /* SettingsViewController.swift */; };
 		35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA04201E023C009E6111 /* Calendar+Additions.swift */; };
 		35B296D81F7EBEEA004A3E32 /* CardStylePresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D71F7EBEEA004A3E32 /* CardStylePresentationManager.swift */; };
 		35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */; };
@@ -233,6 +234,7 @@
 		35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Additions.swift"; sourceTree = "<group>"; };
 		35A023A32024C19200E42FFD /* TransactionGrouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGrouping.swift; sourceTree = "<group>"; };
 		35A023A82024C9CC00E42FFD /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
+		35A023AB2024E59200E42FFD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35A7BA04201E023C009E6111 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
 		35B296D71F7EBEEA004A3E32 /* CardStylePresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationManager.swift; sourceTree = "<group>"; };
 		35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationController.swift; sourceTree = "<group>"; };
@@ -449,6 +451,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		35A023AA2024E58300E42FFD /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				35A023AB2024E59200E42FFD /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		35B296D61F7EBEC5004A3E32 /* PresentationControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,6 +508,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35A023AA2024E58300E42FFD /* Settings */,
 				35DFB5D92012900C00F03C93 /* Stats */,
 				35EE9D00200D3B44006D5791 /* StatePreservation */,
 				3585EDF61FDDA07000871941 /* Styles */,
@@ -941,6 +952,7 @@
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */,
 				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
+				35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */,
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,

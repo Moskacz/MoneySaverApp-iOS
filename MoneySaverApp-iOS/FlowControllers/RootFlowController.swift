@@ -76,18 +76,14 @@ class RootFlowController: FlowController {
         let tabBarVC = DashboardTabBarController()
         
         let transactionsListVC = transactionsListViewController()
-        self.transactionsVC = transactionsListVC
-        let transactionsNavController = UINavigationController(rootViewController: transactionsListVC)
-        
         let budgetVC = budgetViewController()
-        self.budgetVC = budgetVC
         let budgetNavController = UINavigationController(rootViewController: budgetVC)
         
-        let statsNavController = UINavigationController(rootViewController: statsViewController())
-        
-        tabBarVC.viewControllers = [transactionsNavController,
+        tabBarVC.viewControllers = [transactionsListVC,
                                     budgetNavController,
-                                    statsNavController]
+                                    UIViewController(),
+                                    statsViewController(),
+                                    SettingsViewController()]
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarVC
@@ -95,6 +91,10 @@ class RootFlowController: FlowController {
         applicationDelegate?.window?.makeKeyAndVisible()
         self.tabBarController = tabBarVC
         setupViewModels(stack: stack)
+        
+        tabBarVC.centerButtonTapCallback = {
+            self.presentTransactionDataViewController()
+        }
     }
     
     private func transactionsListViewController() -> TransactionsListViewController {
@@ -104,6 +104,7 @@ class RootFlowController: FlowController {
             self.presentTransactionDataViewController()
         }
         
+        self.transactionsVC = viewController
         return viewController
     }
     
@@ -114,6 +115,7 @@ class RootFlowController: FlowController {
             self.presentSetupBudgetViewController()
         }
         
+        self.budgetVC = viewController
         return viewController
     }
     
