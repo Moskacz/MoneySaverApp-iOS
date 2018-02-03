@@ -18,8 +18,6 @@ class TransactionsListViewController: UIViewController {
         }
     }
     
-    var newTransactionButtonTapCallback: (() -> ()) = {}
-    
     override lazy var tabBarItem: UITabBarItem! = {
         return UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
     }()
@@ -50,10 +48,6 @@ class TransactionsListViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
-    }
-    
-    @IBAction func addNewTransactionButtonTapped(_ sender: UIBarButtonItem) {
-        newTransactionButtonTapCallback()
     }
 }
 

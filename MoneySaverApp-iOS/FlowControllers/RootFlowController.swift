@@ -100,10 +100,6 @@ class RootFlowController: FlowController {
     private func transactionsListViewController() -> TransactionsListViewController {
         let viewController: TransactionsListViewController = storyboard.instantiateTypeViewController(withIdentifier: TransactionsListViewController.defaultStoryboardIdentifier)
         
-        viewController.newTransactionButtonTapCallback = {
-            self.presentTransactionDataViewController()
-        }
-        
         self.transactionsVC = viewController
         return viewController
     }

@@ -46,13 +46,6 @@
                         <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
-                    <navigationItem key="navigationItem" title="Title" id="X2f-ay-Lty">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="2f5-0C-pHa">
-                            <connections>
-                                <action selector="addNewTransactionButtonTapped:" destination="BYZ-38-t0r" id="XBZ-gd-HBp"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="summaryView" destination="rlY-96-H8E" id="4DI-HG-N38"/>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
