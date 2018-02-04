@@ -33,21 +33,17 @@ class RootFlowControllerTests: XCTestCase {
     func test_whenFlowControllerStarted_thenShouldSetNavigationWithConfiguredTabBarAsRoot() {
         sut.startFlow()
         let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
-        let transactionsNavCon = tabBar.viewControllers![0] as! UINavigationController
-        XCTAssertTrue(transactionsNavCon.viewControllers[0] is TransactionsListViewController)
+        XCTAssertTrue(tabBar.viewControllers![0] is TransactionsListViewController)
         let budgetNavCon = tabBar.viewControllers![1] as! UINavigationController
         XCTAssertTrue(budgetNavCon.viewControllers[0] is BudgetViewController)
-        let statsNavCon = tabBar.viewControllers![2] as! UINavigationController
-        XCTAssertTrue(statsNavCon.viewControllers[0] is StatsViewController)
+        XCTAssertTrue(tabBar.viewControllers![3] is StatsViewController)
     }
     
     func test_whenAddNewButtonTapped_thenAddTransactionViewControllerEmbeddedInNavController_shouldBePresented() {
         sut.animatedTransitions = false
         sut.startFlow()
         let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
-        let transactionsListNavBar = tabBar.viewControllers?.first as! UINavigationController
-        let transactionsListVC = transactionsListNavBar.viewControllers[0] as! TransactionsListViewController
-        transactionsListVC.newTransactionButtonTapCallback()
+        tabBar.centerButtonTapCallback()
         let presentedNavBar = tabBar.presentedViewController as! UINavigationController
         XCTAssert(presentedNavBar.viewControllers[0] is TransactionDataViewController)
     }
@@ -56,9 +52,7 @@ class RootFlowControllerTests: XCTestCase {
         sut.animatedTransitions = false
         sut.startFlow()
         let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
-        let transactionsListNavCon = tabBar.viewControllers![0] as! UINavigationController
-        let transactionsListVC = transactionsListNavCon.viewControllers[0] as! TransactionsListViewController
-        transactionsListVC.newTransactionButtonTapCallback()
+        tabBar.centerButtonTapCallback()
         let presentedNavBar = tabBar.presentedViewController as! UINavigationController
         let addTransactionVC = presentedNavBar.viewControllers[0] as! TransactionDataViewController
         addTransactionVC.dataEnteredCallback(TransactionData(title: "", value: Decimal(), creationDate: Date()))

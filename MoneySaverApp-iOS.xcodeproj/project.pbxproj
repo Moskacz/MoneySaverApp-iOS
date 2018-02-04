@@ -98,8 +98,6 @@
 		35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */; };
 		35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */; };
 		35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */; };
-		35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF71FB72C2D00589F53 /* SectionModel.swift */; };
-		35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */; };
 		35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */; };
 		35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */; };
 		35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C853991FBCD89800A7E479 /* BudgetViewModel.swift */; };
@@ -270,8 +268,6 @@
 		35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsListViewModel.swift; sourceTree = "<group>"; };
 		35C09DEA1E897ABC00095FE2 /* UITableView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Additions.swift"; sourceTree = "<group>"; };
 		35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewController.swift; sourceTree = "<group>"; };
-		35C0ECF71FB72C2D00589F53 /* SectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionModel.swift; sourceTree = "<group>"; };
-		35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionGrouper.swift; sourceTree = "<group>"; };
 		35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Additions.swift"; sourceTree = "<group>"; };
 		35C853951FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakHoldersCollectionTests.swift; sourceTree = "<group>"; };
 		35C853991FBCD89800A7E479 /* BudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModel.swift; sourceTree = "<group>"; };
@@ -635,8 +631,6 @@
 		35C0ECF61FB72C1400589F53 /* Grouping */ = {
 			isa = PBXGroup;
 			children = (
-				35C0ECF71FB72C2D00589F53 /* SectionModel.swift */,
-				35C0ECF91FB72C7300589F53 /* SectionGrouper.swift */,
 			);
 			path = Grouping;
 			sourceTree = "<group>";
@@ -948,7 +942,6 @@
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
 				355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */,
 				35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */,
-				35C0ECFA1FB72C7300589F53 /* SectionGrouper.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				3598B1121FDC4A3100ADAF0D /* TransactionsSummaryElementViewModel.swift in Sources */,
@@ -971,7 +964,6 @@
 				359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,
-				35C0ECF81FB72C2D00589F53 /* SectionModel.swift in Sources */,
 				3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */,
 				3514C42C1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */,
 				3573A9312002AE3100B615F7 /* DateRange.swift in Sources */,

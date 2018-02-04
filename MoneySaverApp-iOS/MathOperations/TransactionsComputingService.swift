@@ -84,7 +84,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         return sum(transactions: entities, dateRange: range)
     }
     
-    private func transactions(forDateRange range: DateRange) throws -> [TransactionManagedObject] {
+    private func transactions(forDateRange range: DateRange) throws -> [TransactionProtocol] {
         let request = repository.fetchRequest
         request.propertiesToFetch = [TransactionManagedObject.KeyPaths.value.rawValue]
         request.includesPropertyValues = true
@@ -92,7 +92,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         return try repository.context.fetch(request)
     }
     
-    private func sum(transactions: [TransactionManagedObject], dateRange: DateRange) -> TransactionsSum {
+    private func sum(transactions: [TransactionProtocol], dateRange: DateRange) -> TransactionsSum {
         let values = transactions.map { $0.value?.doubleValue ?? 0 }
         let incomes = values.filter { $0 > 0 }.reduce(0, +)
         let expenses = values.filter { $0 < 0 }.reduce(0, +)
