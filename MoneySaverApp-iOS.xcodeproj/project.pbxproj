@@ -25,6 +25,8 @@
 		352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03131E92C087001B99CB /* DataLayerAssembler.swift */; };
 		352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03151E92C44B001B99CB /* ModelsAssembler.swift */; };
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
+		353B9C89202770FB00990667 /* TransactionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C88202770FB00990667 /* TransactionProtocol.swift */; };
+		353B9C8B202771FC00990667 /* TransactionCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */; };
 		353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */; };
 		353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */; };
 		35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35411784200BE83F002B7AF6 /* RootFlowService.swift */; };
@@ -191,6 +193,8 @@
 		352B03131E92C087001B99CB /* DataLayerAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayerAssembler.swift; sourceTree = "<group>"; };
 		352B03151E92C44B001B99CB /* ModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAssembler.swift; sourceTree = "<group>"; };
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
+		353B9C88202770FB00990667 /* TransactionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProtocol.swift; sourceTree = "<group>"; };
+		353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryProtocol.swift; sourceTree = "<group>"; };
 		353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryView.swift; sourceTree = "<group>"; };
 		353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryViewModel.swift; sourceTree = "<group>"; };
 		35411784200BE83F002B7AF6 /* RootFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowService.swift; sourceTree = "<group>"; };
@@ -377,6 +381,15 @@
 			path = DependencyContainers;
 			sourceTree = "<group>";
 		};
+		353B9C85202770ED00990667 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				353B9C88202770FB00990667 /* TransactionProtocol.swift */,
+				353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		353DF8551F84011700EF6F70 /* TransactionCategory */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,6 +521,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				353B9C85202770ED00990667 /* Domain */,
 				35A023AA2024E58300E42FFD /* Settings */,
 				35DFB5D92012900C00F03C93 /* Stats */,
 				35EE9D00200D3B44006D5791 /* StatePreservation */,
@@ -917,6 +931,7 @@
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
 				3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */,
 				359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */,
+				353B9C8B202771FC00990667 /* TransactionCategoryProtocol.swift in Sources */,
 				35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */,
 				353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */,
 				3599F5DA1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift in Sources */,
@@ -969,6 +984,7 @@
 				35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */,
 				35C9FEEE1E8C240A0092D5E3 /* CoreDataStack.swift in Sources */,
 				35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */,
+				353B9C89202770FB00990667 /* TransactionProtocol.swift in Sources */,
 				3514C4291F9B9A55003C3044 /* TransactionCategoryViewModel.swift in Sources */,
 				35EE9D08200E6886006D5791 /* AppPreservationModel.swift in Sources */,
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,

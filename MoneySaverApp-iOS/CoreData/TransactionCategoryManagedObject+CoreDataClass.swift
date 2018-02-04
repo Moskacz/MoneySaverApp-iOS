@@ -30,3 +30,5 @@ public class TransactionCategoryManagedObject: NSManagedObject {
     }()
     
 }
+
+extension TransactionCategoryManagedObject: TransactionCategoryProtocol {}

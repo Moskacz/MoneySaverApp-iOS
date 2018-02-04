@@ -22,3 +22,9 @@ public class TransactionManagedObject: NSManagedObject {
         case timeInterval = "date.timeInterval"
     }
 }
+
+extension TransactionManagedObject: TransactionProtocol {
+    var transactionCategory: TransactionCategoryProtocol? {
+        return category
+    }
+}
