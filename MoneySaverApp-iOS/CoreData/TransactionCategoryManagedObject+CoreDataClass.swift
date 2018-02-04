@@ -29,6 +29,11 @@ public class TransactionCategoryManagedObject: NSManagedObject {
         return UIImage(data: data as Data)
     }()
     
+    lazy var categoryColor: UIColor? = {
+        guard let data = color else { return nil }
+        return UIColor.color(fromData: data as Data)
+    }()
+    
 }
 
 extension TransactionCategoryManagedObject: TransactionCategoryProtocol {}

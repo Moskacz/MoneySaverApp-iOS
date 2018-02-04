@@ -11,4 +11,5 @@ import UIKit
 protocol TransactionCategoryProtocol {
     var name: String? { get }
     var image: UIImage? { get }
+    var categoryColor: UIColor? { get }
 }

@@ -9,7 +9,6 @@
 import UIKit
 
 protocol TransactionCategoryViewModel {
-    var category: TransactionCategoryManagedObject { get }
     func transactionName() -> String?
     func transactionIcon() -> UIImage?
     func backgroundColor() -> UIColor?
@@ -17,9 +16,9 @@ protocol TransactionCategoryViewModel {
 
 class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
     
-    let category: TransactionCategoryManagedObject
+    private let category: TransactionCategoryProtocol
     
-    init(category: TransactionCategoryManagedObject) {
+    init(category: TransactionCategoryProtocol) {
         self.category = category
     }
     
@@ -32,8 +31,7 @@ class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
     }
     
     func backgroundColor() -> UIColor? {
-        guard let data = category.color else { return nil }
-        return UIColor.color(fromData: data as Data)
+        return category.categoryColor
     }
 }
 

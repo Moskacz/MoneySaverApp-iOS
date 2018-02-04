@@ -55,4 +55,8 @@ class TransactionCategoriesCollectionViewModel {
         }
         return TransactionCategoryViewModelImpl(category: object)
     }
+    
+    func category(at indexPath: IndexPath) -> TransactionCategoryManagedObject {
+        return categoriesFRC!.object(at: indexPath)
+    }
 }

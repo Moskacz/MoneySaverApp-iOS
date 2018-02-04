@@ -16,9 +16,9 @@ protocol TransactionCellViewModel {
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
     
-    private let transaction: TransactionManagedObject
+    private let transaction: TransactionProtocol
     
-    init(transaction: TransactionManagedObject) {
+    init(transaction: TransactionProtocol) {
         self.transaction = transaction
     }
     
@@ -31,7 +31,7 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     }
     
     func categoryViewModel() -> TransactionCategoryViewModel? {
-        guard let category = transaction.category else { return nil }
+        guard let category = transaction.transactionCategory else { return nil }
         return TransactionCategorySimpleViewModelImpl(category: category)
     }
 }
