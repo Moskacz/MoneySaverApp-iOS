@@ -27,6 +27,8 @@
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
 		353B9C89202770FB00990667 /* TransactionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C88202770FB00990667 /* TransactionProtocol.swift */; };
 		353B9C8B202771FC00990667 /* TransactionCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */; };
+		353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */; };
+		353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8E2027775D00990667 /* FakeTransction.swift */; };
 		353F24BA1FDC685B0024CDC7 /* TransactionsSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */; };
 		353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */; };
 		35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35411784200BE83F002B7AF6 /* RootFlowService.swift */; };
@@ -124,7 +126,6 @@
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
-		35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2D1EB636E90083C57F /* Theme.swift */; };
 		35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB3D071F7195BD00BCB79C /* CloudKit.framework */; };
 		35EE9D04200D3B89006D5791 /* KeyValueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE9D03200D3B89006D5791 /* KeyValueStorage.swift */; };
 		35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */; };
@@ -193,6 +194,8 @@
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
 		353B9C88202770FB00990667 /* TransactionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProtocol.swift; sourceTree = "<group>"; };
 		353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryProtocol.swift; sourceTree = "<group>"; };
+		353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModelTests.swift; sourceTree = "<group>"; };
+		353B9C8E2027775D00990667 /* FakeTransction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransction.swift; sourceTree = "<group>"; };
 		353F24B91FDC685B0024CDC7 /* TransactionsSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryView.swift; sourceTree = "<group>"; };
 		353F24BD1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsSummaryViewModel.swift; sourceTree = "<group>"; };
 		35411784200BE83F002B7AF6 /* RootFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowService.swift; sourceTree = "<group>"; };
@@ -295,7 +298,6 @@
 		35EA1A261EB632A70083C57F /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
-		35EA1A2D1EB636E90083C57F /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		35EB3D071F7195BD00BCB79C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		35EE9D03200D3B89006D5791 /* KeyValueStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyValueStorage.swift; sourceTree = "<group>"; };
 		35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDefaults.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				35B8A1EA200D22A900EA8C7C /* FakeFetchedResultsController.swift */,
 				35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */,
 				35EE9D0B200E730D006D5791 /* FakeAppPreservationModel.swift */,
+				353B9C8E2027775D00990667 /* FakeTransction.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -573,6 +576,7 @@
 				35EE9D09200E6F53006D5791 /* AppPreservationModelTests.swift */,
 				35E1567720132695004F6A8D /* StatsViewModelTests.swift */,
 				355DB26B2020FA3500F990FD /* SequenceTests.swift */,
+				353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -727,7 +731,6 @@
 		35EA1A2C1EB636DF0083C57F /* Brand */ = {
 			isa = PBXGroup;
 			children = (
-				35EA1A2D1EB636E90083C57F /* Theme.swift */,
 			);
 			path = Brand;
 			sourceTree = "<group>";
@@ -949,7 +952,6 @@
 				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
-				35EA1A2E1EB636E90083C57F /* Theme.swift in Sources */,
 				35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
 				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
@@ -1007,6 +1009,7 @@
 				355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */,
 				35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */,
 				35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */,
+				353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */,
 				35B8A1E5200D1A5B00EA8C7C /* FakeTimeChangedObserver.swift in Sources */,
 				355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */,
 				350FBC1F200A9596000457EB /* TransactionManagedObjectTests.swift in Sources */,
@@ -1018,6 +1021,7 @@
 				35B8A1E3200D193D00EA8C7C /* FakeTransactionsComputingService.swift in Sources */,
 				3551A39B20069F90001394F2 /* StringTests.swift in Sources */,
 				35EE9D0C200E730E006D5791 /* FakeAppPreservationModel.swift in Sources */,
+				353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 				35EE9D0A200E6F53006D5791 /* AppPreservationModelTests.swift in Sources */,
 				35129ED1200B5A1400B7A566 /* TransactionsRepositoryTests.swift in Sources */,

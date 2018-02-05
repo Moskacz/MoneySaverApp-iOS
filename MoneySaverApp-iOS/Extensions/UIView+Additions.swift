@@ -21,7 +21,7 @@ extension UIView {
 extension UIView {
     func displayAsIncorrect() {
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.autoreverse], animations: {
-            self.backgroundColor = Theme.errorColor
+            self.backgroundColor = Styles.redColor
         }, completion: { (_) in
             self.backgroundColor = UIColor.white
         })
