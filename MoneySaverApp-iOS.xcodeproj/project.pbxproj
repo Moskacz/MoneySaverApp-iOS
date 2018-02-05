@@ -110,6 +110,8 @@
 		35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */; };
 		35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */; };
 		35CFA2912028C7C90028FBA1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2902028C7C90028FBA1 /* Palette.swift */; };
+		35CFA2932028CC210028FBA1 /* CalendarDateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2922028CC210028FBA1 /* CalendarDateProtocol.swift */; };
+		35CFA2952028CD790028FBA1 /* FakeCalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */; };
 		35D1DE7A1EA124A900284EA0 /* CollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
 		35D1DE801EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */; };
@@ -282,6 +284,8 @@
 		35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TransactionManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		35CFA2902028C7C90028FBA1 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
+		35CFA2922028CC210028FBA1 /* CalendarDateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateProtocol.swift; sourceTree = "<group>"; };
+		35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendarDate.swift; sourceTree = "<group>"; };
 		35D1DE791EA124A900284EA0 /* CollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
 		35D1DE7F1EA12B0400284EA0 /* CoreDataCollectionUpdateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataCollectionUpdateHandler.swift; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 				35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */,
 				35EE9D0B200E730D006D5791 /* FakeAppPreservationModel.swift */,
 				353B9C8E2027775D00990667 /* FakeTransction.swift */,
+				35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -387,6 +392,7 @@
 			children = (
 				353B9C88202770FB00990667 /* TransactionProtocol.swift */,
 				353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */,
+				35CFA2922028CC210028FBA1 /* CalendarDateProtocol.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -936,6 +942,7 @@
 				353F24BE1FDC68B40024CDC7 /* TransactionsSummaryViewModel.swift in Sources */,
 				3599F5DA1F8404E500A39659 /* TransactionCategoryManagedObject+CoreDataClass.swift in Sources */,
 				35C9FF021E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift in Sources */,
+				35CFA2932028CC210028FBA1 /* CalendarDateProtocol.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */,
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
 				355DB267201FA83D00F990FD /* CalendarDate+CoreDataClass.swift in Sources */,
@@ -1030,6 +1037,7 @@
 				35EE9D0A200E6F53006D5791 /* AppPreservationModelTests.swift in Sources */,
 				35129ED1200B5A1400B7A566 /* TransactionsRepositoryTests.swift in Sources */,
 				35E1567820132695004F6A8D /* StatsViewModelTests.swift in Sources */,
+				35CFA2952028CD790028FBA1 /* FakeCalendarDate.swift in Sources */,
 				35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */,
 				35B8A1EB200D22A900EA8C7C /* FakeFetchedResultsController.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,

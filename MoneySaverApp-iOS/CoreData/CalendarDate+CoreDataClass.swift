@@ -30,5 +30,6 @@ public class CalendarDate: NSManagedObject {
     enum Relationships: String {
         case transaction
     }
-
 }
+
+extension CalendarDate: CalendarDateProtocol {}

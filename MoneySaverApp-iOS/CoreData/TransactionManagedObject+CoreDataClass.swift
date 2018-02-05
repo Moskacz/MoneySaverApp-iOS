@@ -27,4 +27,7 @@ extension TransactionManagedObject: TransactionProtocol {
     var transactionCategory: TransactionCategoryProtocol? {
         return category
     }
+    var transactionDate: CalendarDateProtocol? {
+        return date
+    }
 }

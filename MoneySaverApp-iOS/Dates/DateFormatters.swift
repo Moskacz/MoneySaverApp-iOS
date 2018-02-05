@@ -9,6 +9,7 @@
 import Foundation
 
 enum DateFormatterType: Int {
+    case medium
     case monthOnly
     case yearOnly
     case dateWithTime
@@ -31,6 +32,9 @@ class DateFormatters {
     class private func createFormatter(withType type: DateFormatterType) -> DateFormatter {
         let formatter = DateFormatter()
         switch type {
+        case .medium:
+            formatter.dateStyle = .medium
+            formatter.timeStyle = .medium
         case .monthOnly:
             formatter.dateFormat = "MMMM"
         case .yearOnly:

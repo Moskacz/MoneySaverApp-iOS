@@ -13,4 +13,5 @@ class FakeTransaction: TransactionProtocol {
     var title: String? = nil
     var value: NSDecimalNumber? = nil
     var transactionCategory: TransactionCategoryProtocol? = nil
+    var transactionDate: CalendarDateProtocol? = nil
 }

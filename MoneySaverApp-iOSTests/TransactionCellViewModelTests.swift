@@ -7,7 +7,6 @@
 //
 
 import XCTest
-
 @testable import MoneySaverApp_iOS
 
 class TransactionCellViewModelTests: XCTestCase {
@@ -26,4 +25,26 @@ class TransactionCellViewModelTests: XCTestCase {
         XCTAssertEqual(sut.descriptionText(), "testTitle")
     }
     
+    func test_indicatorColor_whenIncome_thenShouldBeAppGreen() {
+        let transaction = FakeTransaction()
+        transaction.value = NSDecimalNumber(value: 100)
+        let sut = TransactionCellViewModelImplementation(transaction: transaction)
+        XCTAssertEqual(sut.indicatorColor(), UIColor.appGreen)
+    }
+    
+    func test_indicatorColor_whenExpense_thenShouldBeAppGreen() {
+        let transaction = FakeTransaction()
+        transaction.value = NSDecimalNumber(value: -100)
+        let sut = TransactionCellViewModelImplementation(transaction: transaction)
+        XCTAssertEqual(sut.indicatorColor(), UIColor.appRed)
+    }
+    
+    func test_dateText_shouldBeInMediumFormat() {
+        let date = FakeCalendarDate()
+        date.timeInterval = 1515504813 // 09/01/2018 @ 1:33:33pm (UTC)
+        let transaction = FakeTransaction()
+        transaction.transactionDate = date
+        let sut = TransactionCellViewModelImplementation(transaction: transaction)
+        XCTAssertEqual(sut.dateText(), "09.01.2018, 14:33:33")
+    }
 }

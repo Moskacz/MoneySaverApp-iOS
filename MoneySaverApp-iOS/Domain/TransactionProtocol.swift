@@ -12,4 +12,5 @@ protocol TransactionProtocol {
     var title: String? { get }
     var value: NSDecimalNumber? { get }
     var transactionCategory: TransactionCategoryProtocol? { get }
+    var transactionDate: CalendarDateProtocol? { get }
 }

@@ -12,6 +12,8 @@ protocol TransactionCellViewModel {
     func titleText() -> String?
     func descriptionText() -> String?
     func categoryViewModel() -> TransactionCategoryViewModel?
+    func dateText() -> String?
+    func indicatorColor() -> UIColor?
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -28,6 +30,21 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     
     func descriptionText() -> String? {
         return transaction.title
+    }
+    
+    func dateText() -> String? {
+        guard let timestamp = transaction.transactionDate?.timeInterval else { return nil }
+        let date = Date(timeIntervalSince1970: timestamp)
+        return DateFormatters.formatter(forType: .medium).string(from: date)
+    }
+    
+    func indicatorColor() -> UIColor? {
+        let value = transaction.value?.doubleValue ?? 0
+        if value >= 0 {
+            return UIColor.appGreen
+        } else {
+            return UIColor.appRed
+        }
     }
     
     func categoryViewModel() -> TransactionCategoryViewModel? {
