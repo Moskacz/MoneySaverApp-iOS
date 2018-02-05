@@ -52,7 +52,7 @@ class DashboardTabBarController: UITabBarController {
         button.titleLabel?.font = UIFont.systemFont(ofSize: 35)
         button.setTitle("+", for: .normal)
         button.addBottomShadow()
-        button.backgroundColor = UIColor.orange
+        button.backgroundColor = UIColor.appOrange
         let buttonSize = CGFloat(60)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
