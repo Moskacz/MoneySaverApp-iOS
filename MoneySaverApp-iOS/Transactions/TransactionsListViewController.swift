@@ -43,6 +43,8 @@ class TransactionsListViewController: UIViewController {
         summaryView?.selectElement(withRange: model.dateRangeFilter)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 80
         tableView?.tableFooterView = UIView()
     }
     
@@ -78,11 +80,5 @@ extension TransactionsListViewController: UITableViewDataSource {
                    forRowAt indexPath: IndexPath) {
         guard let model = viewModel, editingStyle == .delete else { return }
         model.deleteTransaction(atPath: indexPath)
-    }
-}
-
-extension TransactionsListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return TransactionCell.defaultHeight
     }
 }

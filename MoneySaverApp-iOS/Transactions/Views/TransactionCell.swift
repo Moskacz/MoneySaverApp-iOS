@@ -12,14 +12,14 @@ class TransactionCell: UITableViewCell {
     
     @IBOutlet private weak var amoutLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
-    @IBOutlet private weak var categoryView: TransactionCategoryView?
+    @IBOutlet private weak var dateLabel: UILabel?
+    @IBOutlet private weak var indicatorView: UIView?
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
         amoutLabel?.text = viewModel.titleText()
         descriptionLabel?.text = viewModel.descriptionText()
-        if let categoryViewModel = viewModel.categoryViewModel() {
-            categoryView?.update(withViewModel: categoryViewModel)
-        }
+        dateLabel?.text = viewModel.dateText()
+        indicatorView?.backgroundColor = viewModel.indicatorColor()
     }
     
 }
