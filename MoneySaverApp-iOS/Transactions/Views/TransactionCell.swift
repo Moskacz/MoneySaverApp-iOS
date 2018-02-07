@@ -10,6 +10,7 @@ import UIKit
 
 class TransactionCell: UITableViewCell {
     
+    @IBOutlet private weak var containerView: UIView?
     @IBOutlet private weak var amoutLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     @IBOutlet private weak var dateLabel: UILabel?
@@ -22,4 +23,10 @@ class TransactionCell: UITableViewCell {
         indicatorView?.backgroundColor = viewModel.indicatorColor()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        guard let container = containerView else { return }
+        containerView?.layer.cornerRadius = container.bounds.size.height * 0.5
+        containerView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+    }
 }
