@@ -35,7 +35,7 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     func dateText() -> String? {
         guard let timestamp = transaction.transactionDate?.timeInterval else { return nil }
         let date = Date(timeIntervalSince1970: timestamp)
-        return DateFormatters.formatter(forType: .medium).string(from: date)
+        return DateFormatters.formatter(forType: .timeOnly).string(from: date)
     }
     
     func indicatorColor() -> UIColor? {

@@ -39,12 +39,12 @@ class TransactionCellViewModelTests: XCTestCase {
         XCTAssertEqual(sut.indicatorColor(), UIColor.appRed)
     }
     
-    func test_dateText_shouldBeInMediumFormat() {
+    func test_dateText_shouldHaveTimeOnly() {
         let date = FakeCalendarDate()
         date.timeInterval = 1515504813 // 09/01/2018 @ 1:33:33pm (UTC)
         let transaction = FakeTransaction()
         transaction.transactionDate = date
         let sut = TransactionCellViewModelImplementation(transaction: transaction)
-        XCTAssertEqual(sut.dateText(), "09.01.2018, 14:33:33")
+        XCTAssertEqual(sut.dateText(), "14:33:33")
     }
 }
