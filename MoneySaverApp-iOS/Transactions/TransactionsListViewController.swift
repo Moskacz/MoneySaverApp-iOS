@@ -42,6 +42,7 @@ class TransactionsListViewController: UIViewController {
         summaryView?.delegate = model
         summaryView?.selectElement(withRange: model.dateRangeFilter)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
+        tableView?.separatorColor = UIColor.clear
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.rowHeight = UITableViewAutomaticDimension
         tableView?.estimatedRowHeight = 80
