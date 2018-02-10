@@ -65,6 +65,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="YMH-se-hfS" firstAttribute="leading" secondItem="C23-If-It5" secondAttribute="leading" id="Drc-K9-zBr"/>
                     <constraint firstItem="YMH-se-hfS" firstAttribute="top" secondItem="C23-If-It5" secondAttribute="top" constant="8" id="Kyl-de-Q7J"/>
@@ -72,6 +73,7 @@
                     <constraint firstAttribute="trailing" secondItem="YMH-se-hfS" secondAttribute="trailing" constant="24" id="x31-aA-Hos"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="amoutLabel" destination="pAv-Cq-1LY" id="N4p-70-RWM"/>
                 <outlet property="containerView" destination="YMH-se-hfS" id="b9K-0c-BYn"/>

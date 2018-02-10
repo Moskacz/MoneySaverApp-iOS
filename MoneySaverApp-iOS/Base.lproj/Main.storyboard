@@ -19,20 +19,20 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlY-96-H8E" customClass="TransactionsSummaryView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
                                 <rect key="frame" x="8" y="28" width="359" height="125"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="BcE-Zc-Z8i"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
                                 <rect key="frame" x="0.0" y="169" width="375" height="498"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
                             <constraint firstItem="rlY-96-H8E" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" constant="8" id="6G3-3q-rqr"/>
