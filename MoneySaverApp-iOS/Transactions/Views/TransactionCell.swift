@@ -11,12 +11,14 @@ import UIKit
 class TransactionCell: UITableViewCell {
     
     @IBOutlet private weak var containerView: UIView?
+    @IBOutlet private weak var iconImageView: UIImageView?
     @IBOutlet private weak var amoutLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     @IBOutlet private weak var dateLabel: UILabel?
     @IBOutlet private weak var indicatorView: UIView?
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
+        iconImageView?.image = viewModel.categoryIcon()
         amoutLabel?.text = viewModel.titleText()
         descriptionLabel?.text = viewModel.descriptionText()
         dateLabel?.text = viewModel.dateText()

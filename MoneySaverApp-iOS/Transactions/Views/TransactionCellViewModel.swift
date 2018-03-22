@@ -11,7 +11,7 @@ import UIKit
 protocol TransactionCellViewModel {
     func titleText() -> String?
     func descriptionText() -> String?
-    func categoryViewModel() -> TransactionCategoryViewModel?
+    func categoryIcon() -> UIImage?
     func dateText() -> String?
     func indicatorColor() -> UIColor?
 }
@@ -47,8 +47,7 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
         }
     }
     
-    func categoryViewModel() -> TransactionCategoryViewModel? {
-        guard let category = transaction.transactionCategory else { return nil }
-        return TransactionCategorySimpleViewModelImpl(category: category)
+    func categoryIcon() -> UIImage? {
+        return transaction.transactionCategory?.image
     }
 }
