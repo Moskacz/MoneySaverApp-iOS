@@ -74,7 +74,6 @@ class TransactionCategoryView: UIView {
     
     public func update(withViewModel viewModel: TransactionCategoryViewModel) {
         categoryIconImageView?.image = viewModel.transactionIcon()
-        categoryIconContainerView?.backgroundColor = viewModel.backgroundColor()
         let transactionName = viewModel.transactionName()
         categoryNameLabel?.text = transactionName
         stackView?.spacing = transactionName == nil ? 0 : 8

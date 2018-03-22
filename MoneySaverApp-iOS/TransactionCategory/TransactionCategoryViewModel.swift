@@ -11,7 +11,6 @@ import UIKit
 protocol TransactionCategoryViewModel {
     func transactionName() -> String?
     func transactionIcon() -> UIImage?
-    func backgroundColor() -> UIColor?
 }
 
 class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
@@ -28,10 +27,6 @@ class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
     
     func transactionIcon() -> UIImage? {
         return category.image
-    }
-    
-    func backgroundColor() -> UIColor? {
-        return category.categoryColor
     }
 }
 
