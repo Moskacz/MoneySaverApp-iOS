@@ -22,7 +22,7 @@ class TransactionsListViewController: UIViewController {
         return UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
     }()
     
-    @IBOutlet private weak var summaryView: TransactionsSummaryView?
+    
     @IBOutlet private weak var tableView: UITableView?
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
     
@@ -37,10 +37,6 @@ class TransactionsListViewController: UIViewController {
     }
     
     private func setupViews() {
-        guard let model = viewModel else { return }
-        summaryView?.viewModel = model.summaryViewModel()
-        summaryView?.delegate = model
-        summaryView?.selectElement(withRange: model.dateRangeFilter)
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.separatorColor = UIColor.clear
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)

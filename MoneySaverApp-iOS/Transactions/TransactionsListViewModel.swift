@@ -37,11 +37,6 @@ class TransactionsListViewModel {
         self.timeChangedObserver.delegate = self
     }
     
-    func summaryViewModel() -> TransactionsSummaryViewModel {
-        return TransactionsSummaryViewModel(computingService: transactionsComputingService,
-                                            calendar: calendar)
-    }
-    
     func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
         createFRC(withUpdater: updater)
@@ -108,14 +103,5 @@ class TransactionsListViewModel {
 extension TransactionsListViewModel: TimeChangedObserverDelegate {
     func timeChanged() {
         fetchData()
-    }
-}
-
-extension TransactionsListViewModel: TransactionsSummaryViewDelegate {
-    func summary(view: TransactionsSummaryView, didSelectElementWith dateRange: DateRange) {
-        setupPredicate(forDateRange: dateRange)
-        fetchData()
-        collectionUpdater?.reloadAll()
-        appPreservationModel.save(dateRangeFilter: dateRange)
     }
 }

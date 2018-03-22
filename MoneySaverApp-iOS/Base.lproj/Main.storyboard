@@ -17,13 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlY-96-H8E" customClass="TransactionsSummaryView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-                                <rect key="frame" x="8" y="28" width="359" height="125"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="BcE-Zc-Z8i"/>
-                                </constraints>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
                                 <rect key="frame" x="0.0" y="169" width="375" height="498"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,18 +28,14 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
-                            <constraint firstItem="rlY-96-H8E" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" constant="8" id="6G3-3q-rqr"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="rlY-96-H8E" secondAttribute="trailing" constant="8" id="YWl-hd-zft"/>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="rlY-96-H8E" secondAttribute="bottom" constant="16" id="dUK-cR-foe"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="149" id="gjP-nK-2oz"/>
                             <constraint firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="iEt-Yn-6Cf"/>
-                            <constraint firstItem="rlY-96-H8E" firstAttribute="top" secondItem="mAZ-8P-wKp" secondAttribute="top" constant="8" id="qZq-TM-zTU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
                     <connections>
-                        <outlet property="summaryView" destination="rlY-96-H8E" id="4DI-HG-N38"/>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
                     </connections>
                 </viewController>
