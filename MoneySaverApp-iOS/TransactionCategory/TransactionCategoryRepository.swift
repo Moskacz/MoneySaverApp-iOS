@@ -12,8 +12,8 @@ import MoneySaverFoundationiOS
 
 protocol TransactionCategoryRepository {
     func countOfEntities() -> Int
-    func createEntities(forCategories categories: [TransactionCategory])
     func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
+    func createInitialCategories()
 }
 
 class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
@@ -36,22 +36,6 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
         }
     }
     
-    func createEntities(forCategories categories: [TransactionCategory]) {
-        context.perform {
-            for category in categories {
-                let entity = TransactionCategoryManagedObject.createEntity(inContext: self.context)
-                self.updateProperties(ofEntity: entity, withCategory: category)
-            }
-        }
-    }
-    
-    private func updateProperties(ofEntity entity: TransactionCategoryManagedObject,
-                                  withCategory category: TransactionCategory) {
-        entity.name = category.name
-        entity.icon = UIImagePNGRepresentation(category.icon) as NSData?
-        entity.color = category.backgroundColor.encode() as NSData
-    }
-    
     func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject> {
         let fetchRequest: NSFetchRequest<TransactionCategoryManagedObject> = TransactionCategoryManagedObject.fetchRequest()
         fetchRequest.sortDescriptors = [TransactionCategoryManagedObject.SortDescriptors.name.descriptor]
@@ -59,5 +43,22 @@ class TransactionCategoryRepositoryImpl: TransactionCategoryRepository {
                                           managedObjectContext: context,
                                           sectionNameKeyPath: nil,
                                           cacheName: nil)
+    }
+    
+    func createInitialCategories() {
+        context.perform {
+            for categoryData in self.initialCategoriesData {
+                let entity = TransactionCategoryManagedObject.createEntity(inContext: self.context)
+                entity.icon = UIImagePNGRepresentation(categoryData.image) as NSData?
+                entity.name = categoryData.name
+            }
+        }
+    }
+    
+    private var initialCategoriesData: [(name: String, image: UIImage)] {
+        return [("Groceries", #imageLiteral(resourceName: "groceries")), ("Gifts", #imageLiteral(resourceName: "gift")), ("Parties", #imageLiteral(resourceName: "party")),
+                ("Travels", #imageLiteral(resourceName: "travel")),  ("Car", #imageLiteral(resourceName: "car")),  ("Bills", #imageLiteral(resourceName: "bill")),
+                ("Education", #imageLiteral(resourceName: "education")), ("Health", #imageLiteral(resourceName: "health")), ("Clothes", #imageLiteral(resourceName: "clothes")),
+                ("Homeware", #imageLiteral(resourceName: "homeware")), ("Cosmetics", #imageLiteral(resourceName: "cosmetics"))]
     }
 }
