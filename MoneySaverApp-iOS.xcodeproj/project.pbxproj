@@ -348,13 +348,6 @@
 			path = FlowControllers;
 			sourceTree = "<group>";
 		};
-		35129ED4200B5E7000B7A566 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
 		35214FF31F9E66FE006503C5 /* Fakes */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,7 +560,6 @@
 		35BB97311E7F0860003DBA41 /* MoneySaverApp-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				35129ED4200B5E7000B7A566 /* Utils */,
 				35214FF31F9E66FE006503C5 /* Fakes */,
 				35BB97341E7F0860003DBA41 /* Info.plist */,
 				355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */,
