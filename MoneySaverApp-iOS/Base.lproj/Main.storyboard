@@ -407,10 +407,11 @@
         <scene sceneID="mwR-qY-cN4">
             <objects>
                 <viewController id="CYH-9Y-Wlq" customClass="TransactionsSummaryViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PY0-RF-pB8">
+                    <view key="view" contentMode="scaleToFill" id="PY0-RF-pB8" customClass="GradientView" customModule="MMFoundation">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.92658200260000001" blue="0.42951054179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="Vky-Df-fb7"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6a-c3-C2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
