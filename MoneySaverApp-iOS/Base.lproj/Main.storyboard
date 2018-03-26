@@ -22,6 +22,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Sk7-p2-Kh0"/>
                                 </connections>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S93-Un-Jlv">
@@ -34,7 +35,7 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.16862745098039217" green="0.1803921568627451" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
                             <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>

@@ -44,13 +44,20 @@ class DashboardTabBarController: UITabBarController {
     // MARK: UITabBar
     
     private func setupTabBar() {
+        setupTabBarAppearance()
         addTabBrCenterButton()
+    }
+    
+    private func setupTabBarAppearance() {
+        tabBar.tintColor = UIColor.appOrange
+        tabBar.barTintColor = #colorLiteral(red: 0.3266741037, green: 0.3266741037, blue: 0.3266741037, alpha: 1)
     }
     
     private func addTabBrCenterButton() {
         let button = UIButton()
         button.titleLabel?.font = UIFont.systemFont(ofSize: 35)
         button.setTitle("+", for: .normal)
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         button.addBottomShadow()
         button.backgroundColor = UIColor.appOrange
         let buttonSize = CGFloat(60)

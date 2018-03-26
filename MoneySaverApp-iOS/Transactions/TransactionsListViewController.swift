@@ -60,10 +60,6 @@ extension TransactionsListViewController: UITableViewDataSource {
         return viewModel?.transactionsCount(inSection:  section) ?? 0
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel?.title(forSection: section)
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let model = viewModel else { fatalError() }
         let cell: TransactionCell = tableView.dequeueTypedCell(withIdentifier: transactionCellIdentifier)
@@ -77,5 +73,16 @@ extension TransactionsListViewController: UITableViewDataSource {
                    forRowAt indexPath: IndexPath) {
         guard let model = viewModel, editingStyle == .delete else { return }
         model.deleteTransaction(atPath: indexPath)
+    }
+}
+
+extension TransactionsListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.text = viewModel?.title(forSection: section)
+        label.backgroundColor = UIColor.appBlack
+        return label
     }
 }
