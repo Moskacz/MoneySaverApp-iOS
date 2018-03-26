@@ -26,10 +26,18 @@ class TransactionCell: UITableViewCell {
         indicatorView?.gradient = viewModel.indicatorGradient()
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        indicatorView?.layer.cornerRadius = 4
+        indicatorView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         guard let container = containerView else { return }
         containerView?.layer.cornerRadius = container.bounds.size.height * 0.5
         containerView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     }
+    
+    
 }
