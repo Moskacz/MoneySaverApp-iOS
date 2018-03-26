@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMFoundation
 
 class TransactionCell: UITableViewCell {
     
@@ -15,14 +16,14 @@ class TransactionCell: UITableViewCell {
     @IBOutlet private weak var amoutLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     @IBOutlet private weak var dateLabel: UILabel?
-    @IBOutlet private weak var indicatorView: UIView?
+    @IBOutlet private weak var indicatorView: GradientView?
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
         iconImageView?.image = viewModel.categoryIcon()
         amoutLabel?.text = viewModel.titleText()
         descriptionLabel?.text = viewModel.descriptionText()
         dateLabel?.text = viewModel.dateText()
-        indicatorView?.backgroundColor = viewModel.indicatorColor()
+        indicatorView?.gradient = viewModel.indicatorGradient()
     }
     
     override func layoutSubviews() {

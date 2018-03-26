@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import MMFoundation
 
 protocol TransactionCellViewModel {
     func titleText() -> String?
     func descriptionText() -> String?
     func categoryIcon() -> UIImage?
     func dateText() -> String?
-    func indicatorColor() -> UIColor?
+    func indicatorGradient() -> GradientRepresenting?
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -38,12 +39,12 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
         return DateFormatters.formatter(forType: .timeOnly).string(from: date)
     }
     
-    func indicatorColor() -> UIColor? {
+    func indicatorGradient() -> GradientRepresenting? {
         let value = transaction.value?.doubleValue ?? 0
         if value >= 0 {
-            return UIColor.appGreen
+            return Gradient(colors: [UIColor.green, UIColor.appGreen], direction: .skewRight)
         } else {
-            return UIColor.appRed
+            return Gradient(colors: [UIColor.red, UIColor.appRed], direction: .skewRight)
         }
     }
     
