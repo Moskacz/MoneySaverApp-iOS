@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-import MoneySaverFoundationiOS
+import UIKit
 
 protocol TransactionCategoryRepository {
     func countOfEntities() -> Int

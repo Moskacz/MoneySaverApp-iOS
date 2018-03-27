@@ -78,7 +78,6 @@
 		35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */; };
 		35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACE1EC8BFBB007E3A53 /* Logger.swift */; };
 		35B540541FDD6D1200B27F9F /* MMFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */; };
 		35B8A1DD200D161100EA8C7C /* RootFlowServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1DC200D161100EA8C7C /* RootFlowServiceTests.swift */; };
 		35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1E0200D18AD00EA8C7C /* TransactionsListViewModelTests.swift */; };
 		35B8A1E3200D193D00EA8C7C /* FakeTransactionsComputingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1E2200D193D00EA8C7C /* FakeTransactionsComputingService.swift */; };
@@ -317,7 +316,6 @@
 				35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */,
 				352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */,
 				35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */,
-				35B5CACA1E883D6200D1990E /* MoneySaverFoundationiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,13 +879,11 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Dip.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/MoneySaverFoundationiOS.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ScrollableGraphView.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Dip.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/MoneySaverFoundationiOS.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ScrollableGraphView.framework",
 			);
