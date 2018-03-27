@@ -76,11 +76,9 @@ class RootFlowController: FlowController {
         let tabBarVC = DashboardTabBarController()
         
         let transactionsListVC = transactionsListViewController()
-        let budgetVC = budgetViewController()
-        let budgetNavController = UINavigationController(rootViewController: budgetVC)
         
         tabBarVC.viewControllers = [transactionsListVC,
-                                    budgetNavController,
+                                    budgetViewController(),
                                     UIViewController(),
                                     statsViewController(),
                                     SettingsViewController()]
