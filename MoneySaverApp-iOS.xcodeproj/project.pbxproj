@@ -26,6 +26,7 @@
 		352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03131E92C087001B99CB /* DataLayerAssembler.swift */; };
 		352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03151E92C44B001B99CB /* ModelsAssembler.swift */; };
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
+		352D29A3206AD13900B91E07 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D29A2206AD13900B91E07 /* Gradients.swift */; };
 		353B9C89202770FB00990667 /* TransactionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C88202770FB00990667 /* TransactionProtocol.swift */; };
 		353B9C8B202771FC00990667 /* TransactionCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */; };
 		353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */; };
@@ -192,6 +193,7 @@
 		352B03131E92C087001B99CB /* DataLayerAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayerAssembler.swift; sourceTree = "<group>"; };
 		352B03151E92C44B001B99CB /* ModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAssembler.swift; sourceTree = "<group>"; };
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
+		352D29A2206AD13900B91E07 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		353B9C88202770FB00990667 /* TransactionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProtocol.swift; sourceTree = "<group>"; };
 		353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryProtocol.swift; sourceTree = "<group>"; };
 		353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModelTests.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 			children = (
 				3585EDF91FDDA08200871941 /* Styles.swift */,
 				35CFA2902028C7C90028FBA1 /* Palette.swift */,
+				352D29A2206AD13900B91E07 /* Gradients.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -900,6 +903,7 @@
 			files = (
 				35708BBA1FC605C30052ED9E /* ChartsDataProcessor.swift in Sources */,
 				35D1DE7A1EA124A900284EA0 /* CollectionUpdater.swift in Sources */,
+				352D29A3206AD13900B91E07 /* Gradients.swift in Sources */,
 				359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */,
 				352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */,
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,

@@ -42,9 +42,9 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     func indicatorGradient() -> GradientRepresenting? {
         let value = transaction.value?.doubleValue ?? 0
         if value >= 0 {
-            return Gradient(colors: [UIColor.green, UIColor.appGreen], direction: .skewRight)
+            return Gradients.positiveValueTransaction
         } else {
-            return Gradient(colors: [UIColor.red, UIColor.appRed], direction: .skewRight)
+            return Gradients.negativeValueTransaction
         }
     }
     
