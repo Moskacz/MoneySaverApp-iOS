@@ -11,12 +11,18 @@ import MMFoundation
 
 class TransactionCell: UITableViewCell {
     
+    @IBOutlet private weak var dividerViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var containerView: UIView?
     @IBOutlet private weak var iconImageView: UIImageView?
     @IBOutlet private weak var amoutLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
     @IBOutlet private weak var dateLabel: UILabel?
     @IBOutlet private weak var indicatorView: GradientView?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        dividerViewHeightConstraint?.constant = 1.0/UIScreen.main.scale
+    }
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
         iconImageView?.image = viewModel.categoryIcon()
@@ -25,19 +31,4 @@ class TransactionCell: UITableViewCell {
         dateLabel?.text = viewModel.dateText()
         indicatorView?.gradient = viewModel.indicatorGradient()
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        indicatorView?.layer.cornerRadius = 4
-        indicatorView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        guard let container = containerView else { return }
-        containerView?.layer.cornerRadius = container.bounds.size.height * 0.5
-        containerView?.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-    }
-    
-    
 }

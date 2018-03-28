@@ -40,8 +40,7 @@ class TransactionsListViewController: UIViewController {
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.separatorColor = UIColor.clear
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 80
+        tableView?.rowHeight = 83
         tableView?.tableFooterView = UIView()
     }
     
