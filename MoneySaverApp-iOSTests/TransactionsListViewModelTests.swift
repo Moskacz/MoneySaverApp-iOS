@@ -51,30 +51,11 @@ class TransactionsListViewModelTests: XCTestCase {
         timeChangedObserver.delegate?.timeChanged()
         XCTAssertTrue(transactionsFRCFake.performFetchCalled)
     }
-    
-    func test_whenDateRangeChanged_thenListShouldBeReloaded() {
-        let updater = FakeCollectionUpdater()
-        sut.attach(updater: updater)
-        updater.reloadAllCalled = false
-        sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisMonth)
-        XCTAssertTrue(updater.reloadAllCalled)
-    }
+
     
     func test_whenUpdaterAttached_thenFRCShouldFetchData() {
         sut.attach(updater: FakeCollectionUpdater())
         XCTAssertTrue(transactionsFRCFake.performFetchCalled)
-    }
-    
-    func test_whenDateRangeChanged_thenFRCShouldFetchData() {
-        sut.attach(updater: FakeCollectionUpdater())
-        transactionsFRCFake.reset()
-        sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisMonth)
-        XCTAssertTrue(transactionsFRCFake.performFetchCalled)
-    }
-    
-    func test_whenDateRangeChanged_thenNewFilterShouldBeSaved() {
-        sut.summary(view: TransactionsSummaryView(), didSelectElementWith: DateRange.thisWeek)
-        XCTAssertTrue(appPreservtionModel.saveFilerCalled)
     }
     
     func test_whenThereIsSavedDateRangeFilter_thenItIsAvailable() {

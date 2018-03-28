@@ -14,7 +14,7 @@ protocol TransactionCellViewModel {
     func descriptionText() -> String?
     func categoryIcon() -> UIImage?
     func dateText() -> String?
-    func indicatorGradient() -> GradientRepresenting?
+    func indicatorGradient() -> Gradient?
 }
 
 class TransactionCellViewModelImplementation: TransactionCellViewModel {
@@ -39,7 +39,7 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
         return DateFormatters.formatter(forType: .timeOnly).string(from: date)
     }
     
-    func indicatorGradient() -> GradientRepresenting? {
+    func indicatorGradient() -> Gradient? {
         let value = transaction.value?.doubleValue ?? 0
         if value >= 0 {
             return Gradients.positiveValueTransaction

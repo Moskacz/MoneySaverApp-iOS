@@ -34,8 +34,7 @@ class RootFlowControllerTests: XCTestCase {
         sut.startFlow()
         let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
         XCTAssertTrue(tabBar.viewControllers![0] is TransactionsListViewController)
-        let budgetNavCon = tabBar.viewControllers![1] as! UINavigationController
-        XCTAssertTrue(budgetNavCon.viewControllers[0] is BudgetViewController)
+        XCTAssertTrue(tabBar.viewControllers![1] is BudgetViewController)
         XCTAssertTrue(tabBar.viewControllers![3] is StatsViewController)
     }
     
