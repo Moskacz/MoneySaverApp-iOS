@@ -16,14 +16,11 @@ struct DailyValue {
 }
 
 protocol TransactionsComputingService {
-    var delegates: WeakArray<AnyObject> { get }
     func sum() throws -> TransactionsCompoundSum
+    func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken
+    
     func monthlyExpenses() throws -> [DailyValue]
-}
-
-protocol TransactionsComputingServiceDelegate {
-    func transactionsSumUpdated(_ sum: TransactionsCompoundSum)
-    func monthlyExpensesUpdated(_ expenses: [DailyValue])
+    func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken
 }
 
 struct TransactionsSum {
@@ -101,6 +98,15 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
                                dateRange: dateRange)
     }
     
+    func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken {
+        let token = notificationCenter.addObserver(forName: .sumChangedNotification, object: nil, queue: .main, using: { (notification) in
+            
+        })
+        
+        return ObservationToken(notificationCenter: notificationCenter, token: token)
+    }
+    
+    
     func monthlyExpenses() throws -> [DailyValue] {
         let request: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
         let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)].flatMap { $0 }
@@ -112,15 +118,21 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         }
     }
     
+    func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken {
+        let token = notificationCenter.addObserver(forName: .monthlyExpensesChangedNotification, object: nil, queue: .main, using: { (_) in
+            
+        })
+        
+        return ObservationToken(notificationCenter: notificationCenter, token: token)
+    }
+    
     private func notifyDelegates() {
         do {
             let transactionsSum = try sum()
+            
+            
             let expenses = try monthlyExpenses()
-            for object in delegates {
-                let delegate = object as? TransactionsComputingServiceDelegate
-                delegate?.transactionsSumUpdated(transactionsSum)
-                delegate?.monthlyExpensesUpdated(expenses)
-            }
+            
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }

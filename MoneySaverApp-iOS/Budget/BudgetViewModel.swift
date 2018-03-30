@@ -22,6 +22,8 @@ class BudgetViewModel: NSObject {
     private let dataProcessor: ChartsDataProcessor
     let budgetRepository: BudgetRepository
     private let service: BudgetService
+    private var observationTokens = [ObservationToken]()
+    
     private var frc: NSFetchedResultsController<BudgetManagedObject>?
     weak var delegate: BudgetViewModelDelegate?
     
@@ -36,7 +38,19 @@ class BudgetViewModel: NSObject {
         super.init()
         
         fetchCurrentBudget()
-        computingService.delegates.add(item: self)
+        registerForNotifications()
+    }
+    
+    private func registerForNotifications() {
+        let sumChangedToken = computingService.observeTransactionsSumChanged { [unowned self] sum in
+            self.delegate?.pieChartDataUpdated(self.pieChartData(expenses: sum.monthly.expenses))
+        }
+        
+        let expensesChangedToken = computingService.observeMonthlyExpenseChanged { [unowned self] values in
+            self.delegate?.combinedChartDataUpdated(self.combinedChartData(monthlyExpenses: values))
+        }
+        
+        observationTokens += [sumChangedToken, expensesChangedToken]
     }
     
     private func fetchCurrentBudget() {
@@ -115,15 +129,5 @@ class BudgetViewModel: NSObject {
 extension BudgetViewModel: NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         delegate?.budget(setUp: isBudgetSetUp())
-    }
-}
-
-extension BudgetViewModel: TransactionsComputingServiceDelegate {
-    func transactionsSumUpdated(_ sum: TransactionsCompoundSum) {
-        delegate?.pieChartDataUpdated(pieChartData(expenses: sum.monthly.expenses))
-    }
-    
-    func monthlyExpensesUpdated(_ expenses: [DailyValue]) {
-        delegate?.combinedChartDataUpdated(combinedChartData(monthlyExpenses: expenses))
     }
 }
