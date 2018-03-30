@@ -11,6 +11,8 @@ import CoreData
 import MMFoundation
 
 struct DailyValue {
+    static let storageKey = "valueStorageKey"
+    
     let day: Int
     let value: Decimal
 }
@@ -34,6 +36,8 @@ struct TransactionsSum {
 }
 
 struct TransactionsCompoundSum {
+    static let storageKey = "sumStorageKey"
+    
     let daily: TransactionsSum
     let weekly: TransactionsSum
     let monthly: TransactionsSum
@@ -99,13 +103,14 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken {
-        let token = notificationCenter.addObserver(forName: .sumChangedNotification, object: nil, queue: .main, using: { (notification) in
-            
+        let token = notificationCenter.addObserver(forName: .sumChangedNotification, object: nil, queue: .main, using: { (note) in
+            guard let sum = note.userInfo?[TransactionsCompoundSum.storageKey] as? TransactionsCompoundSum else {
+                return
+            }
+            callback(sum)
         })
-        
         return ObservationToken(notificationCenter: notificationCenter, token: token)
     }
-    
     
     func monthlyExpenses() throws -> [DailyValue] {
         let request: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
@@ -119,25 +124,25 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken {
-        let token = notificationCenter.addObserver(forName: .monthlyExpensesChangedNotification, object: nil, queue: .main, using: { (_) in
-            
+        let token = notificationCenter.addObserver(forName: .monthlyExpensesChangedNotification, object: nil, queue: .main, using: { note in
+            guard let values = note.userInfo?[DailyValue.storageKey] as? [DailyValue] else {
+                return
+            }
+            callback(values)
         })
-        
         return ObservationToken(notificationCenter: notificationCenter, token: token)
     }
     
     private func notifyDelegates() {
         do {
             let transactionsSum = try sum()
-            
-            
+            notificationCenter.post(name: .sumChangedNotification, object: nil, userInfo: [TransactionsCompoundSum.storageKey: transactionsSum])
             let expenses = try monthlyExpenses()
-            
+            notificationCenter.post(name: .monthlyExpensesChangedNotification, object: nil, userInfo: [DailyValue.storageKey: expenses])
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }
     }
-    
 }
 
 extension TransactionsComputingServiceImpl: TimeChangedObserverDelegate {
