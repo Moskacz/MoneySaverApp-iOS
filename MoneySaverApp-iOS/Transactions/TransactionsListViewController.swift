@@ -10,6 +10,14 @@ import UIKit
 
 class TransactionsListViewController: UIViewController {
     
+    override lazy var tabBarItem: UITabBarItem! = {
+        return UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
+    }()
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     var viewModel: TransactionsListViewModel? {
         didSet {
             if isViewLoaded {
@@ -17,11 +25,6 @@ class TransactionsListViewController: UIViewController {
             }
         }
     }
-    
-    override lazy var tabBarItem: UITabBarItem! = {
-        return UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
-    }()
-    
     
     @IBOutlet private weak var tableView: UITableView?
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
