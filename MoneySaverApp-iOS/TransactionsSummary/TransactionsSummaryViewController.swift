@@ -15,7 +15,7 @@ class TransactionsSummaryViewController: UIViewController {
         didSet {
             viewModel?.delegate = self
             guard isViewLoaded else { return }
-            setupDisplayedData()
+            setupDisplayedData(animated: false)
         }
     }
     
@@ -30,19 +30,19 @@ class TransactionsSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientView.gradient = Gradients.activeElement
-        setupDisplayedData()
+        setupDisplayedData(animated: false)
     }
     
-    private func setupDisplayedData() {
-        expensesLabel?.text = viewModel?.expensesAmountText
-        incomesLabel?.text = viewModel?.incomesAmountText
-        totalLabel?.text = viewModel?.totalAmountText
+    private func setupDisplayedData(animated: Bool) {
+        expensesLabel?.set(text: viewModel?.expensesAmountText, animated: animated)
+        incomesLabel?.set(text: viewModel?.incomesAmountText, animated: animated)
+        totalLabel?.set(text: viewModel?.totalAmountText, animated: animated)
     }
 }
 
 extension TransactionsSummaryViewController: TransactionsSummaryViewModelDelegate {
     
     func transactionsSummaryDidUpdateValues(viewModel: TransactionsSummaryViewModel) {
-        setupDisplayedData()
+        setupDisplayedData(animated: true)
     }
 }

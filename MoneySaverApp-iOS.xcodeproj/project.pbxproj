@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		350D55B5206FD47F00BB2F3B /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350D55B4206FD47F00BB2F3B /* UILabel+Extensions.swift */; };
 		350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F601E9564F3002ED5D7 /* FlowController.swift */; };
 		350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F621E956578002ED5D7 /* RootFlowController.swift */; };
 		350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */; };
@@ -176,6 +177,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		350D55B4206FD47F00BB2F3B /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		350F0F601E9564F3002ED5D7 /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		350F0F621E956578002ED5D7 /* RootFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
 		350F0F641E95664B002ED5D7 /* UIStoryboard+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Additions.swift"; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				35A023A82024C9CC00E42FFD /* InsetLabel.swift */,
+				350D55B4206FD47F00BB2F3B /* UILabel+Extensions.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */,
 				35708BC51FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift in Sources */,
 				35AC4C9C206E70C000872615 /* ObservationToken.swift in Sources */,
+				350D55B5206FD47F00BB2F3B /* UILabel+Extensions.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
 				35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */,
 				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
