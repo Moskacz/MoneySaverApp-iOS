@@ -15,7 +15,7 @@ class TransactionsSummaryViewController: UIViewController {
         didSet {
             viewModel?.delegate = self
             guard isViewLoaded else { return }
-            
+            setupDisplayedData()
         }
     }
     
@@ -30,6 +30,7 @@ class TransactionsSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientView.gradient = Gradients.activeElement
+        setupDisplayedData()
     }
     
     private func setupDisplayedData() {

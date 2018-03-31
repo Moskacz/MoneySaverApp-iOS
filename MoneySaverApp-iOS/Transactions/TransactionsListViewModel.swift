@@ -75,6 +75,12 @@ class TransactionsListViewModel {
         return appPreservationModel.savedDateRangeFilter ?? DateRange.allTime
     }
     
+    // MARK: Summary
+    
+    lazy var summaryViewModel: TransactionsSummaryViewModel = {
+        return TransactionsSummaryViewModel(computingService: transactionsComputingService)
+    }()
+    
     // MARK: Private
     
     private func createFRC(withUpdater updater: CollectionUpdater) {

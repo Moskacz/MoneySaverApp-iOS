@@ -483,6 +483,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vky-Df-fb7"/>
                     </view>
+                    <connections>
+                        <outlet property="expensesLabel" destination="Lrg-KO-cYb" id="5kL-nx-VhY"/>
+                        <outlet property="incomesLabel" destination="Pq0-8y-QFQ" id="PQN-dC-woY"/>
+                        <outlet property="totalLabel" destination="0kS-5M-H3Q" id="X4p-VG-bvX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6a-c3-C2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
