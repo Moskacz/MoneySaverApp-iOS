@@ -11,6 +11,18 @@ import MMFoundation
 
 class TransactionsSummaryViewController: UIViewController {
     
+    var viewModel: TransactionsSummaryViewModel? {
+        didSet {
+            viewModel?.delegate = self
+            guard isViewLoaded else { return }
+            
+        }
+    }
+    
+    @IBOutlet private weak var expensesLabel: UILabel?
+    @IBOutlet private weak var incomesLabel: UILabel?
+    @IBOutlet private weak var totalLabel: UILabel?
+    
     private var gradientView: GradientView {
         return view as! GradientView
     }
@@ -18,5 +30,18 @@ class TransactionsSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gradientView.gradient = Gradients.activeElement
+    }
+    
+    private func setupDisplayedData() {
+        expensesLabel?.text = viewModel?.expensesAmountText
+        incomesLabel?.text = viewModel?.incomesAmountText
+        totalLabel?.text = viewModel?.totalAmountText
+    }
+}
+
+extension TransactionsSummaryViewController: TransactionsSummaryViewModelDelegate {
+    
+    func transactionsSummaryDidUpdateValues(viewModel: TransactionsSummaryViewModel) {
+        setupDisplayedData()
     }
 }
