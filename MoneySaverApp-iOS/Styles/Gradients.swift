@@ -10,9 +10,17 @@ import Foundation
 import MMFoundation
 
 class Gradients {
-    static let activeElement = Gradient(colors: [#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)], direction: .skewLeft)
+    static let activeElement = Gradient(colors: [UIColor.appOrange,
+                                                 UIColor.appRed,
+                                                 UIColor.appOrange],
+                                        direction: .vertical)
+    
     static let positiveValueTransaction: Gradient = Gradient(colors: [UIColor.green, UIColor.appGreen],
                                                                          direction: .skewRight)
+    
     static let negativeValueTransaction = Gradient(colors: [UIColor.red, UIColor.appRed],
                                                                          direction: .skewRight)
+    
+    static let summaryViewBackground = Gradient(colors: [UIColor.appGreen, UIColor.appOrange],
+                                                direction: .skewLeft)
 }

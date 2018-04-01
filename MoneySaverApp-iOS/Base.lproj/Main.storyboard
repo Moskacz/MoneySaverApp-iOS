@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="180" width="375" height="487"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
@@ -26,9 +26,9 @@
                                 </connections>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S93-Un-Jlv">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="0zy-cN-QcY"/>
+                                    <constraint firstAttribute="height" constant="200" id="0zy-cN-QcY"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="CYH-9Y-Wlq" kind="embed" id="d8e-hI-jiT"/>
@@ -409,7 +409,7 @@
             <objects>
                 <viewController id="CYH-9Y-Wlq" customClass="TransactionsSummaryViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PY0-RF-pB8" customClass="GradientView" customModule="MMFoundation">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DUn-6g-8bu">
@@ -417,7 +417,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vfi-8n-e4u">
-                                <rect key="frame" x="16" y="104" width="252" height="60"/>
+                                <rect key="frame" x="16" y="124" width="252" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHl-5Q-ihQ">
                                         <rect key="frame" x="0.0" y="0.0" width="252" height="14.5"/>
@@ -434,7 +434,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UTI-lo-oFA">
-                                <rect key="frame" x="284" y="70" width="75" height="94"/>
+                                <rect key="frame" x="284" y="90" width="75" height="94"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qBX-Ht-d7h">
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="47"/>
@@ -472,7 +472,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-Aq-DlR">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-Aq-DlR" customClass="GradientButton" customModule="MMFoundation">
                                 <rect key="frame" x="157.5" y="16" width="59" height="24"/>
                                 <color key="backgroundColor" red="1" green="0.81088837940000003" blue="0.4495091148" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>

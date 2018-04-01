@@ -22,7 +22,7 @@ class TransactionsSummaryViewController: UIViewController {
     @IBOutlet private weak var expensesLabel: UILabel?
     @IBOutlet private weak var incomesLabel: UILabel?
     @IBOutlet private weak var totalLabel: UILabel?
-    @IBOutlet private weak var dateRangeButton: UIButton?
+    @IBOutlet private weak var dateRangeButton: GradientButton?
     
     private var gradientView: GradientView {
         return view as! GradientView
@@ -30,8 +30,14 @@ class TransactionsSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientView.gradient = Gradients.activeElement
+        setupAppearance()
         setupDisplayedData(animated: false)
+    }
+    
+    private func setupAppearance() {
+        gradientView.gradient = Gradients.summaryViewBackground
+        dateRangeButton?.gradient = Gradients.activeElement
+        dateRangeButton?.addBottomShadow()
     }
     
     private func setupDisplayedData(animated: Bool) {

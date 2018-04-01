@@ -54,7 +54,8 @@ class DashboardTabBarController: UITabBarController {
     }
     
     private func addTabBrCenterButton() {
-        let button = UIButton()
+        let button = GradientButton()
+        button.gradient = Gradients.activeElement
         button.titleLabel?.font = UIFont.systemFont(ofSize: 35)
         button.setTitle("+", for: .normal)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
