@@ -10,6 +10,7 @@ class TransactionsSummaryViewModel {
     private(set) var totalAmountText = ""
     private(set) var expensesAmountText = ""
     private(set) var incomesAmountText = ""
+    private(set) var dateRangeButtonText = "Today"
     
     private let computingService: TransactionsComputingService
     private var observationTokens = [ObservationToken]()
@@ -31,6 +32,7 @@ class TransactionsSummaryViewModel {
     private func setupInitialValues() {
         do {
             setupAmountTexts(sum: try computingService.sum())
+        
         } catch {
             print(error.localizedDescription)
         }

@@ -472,6 +472,26 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fD-Aq-DlR">
+                                <rect key="frame" x="157.5" y="16" width="59" height="24"/>
+                                <color key="backgroundColor" red="1" green="0.81088837940000003" blue="0.4495091148" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="JxK-XE-VcU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="Today">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="daraRangeButtonTapped:" destination="CYH-9Y-Wlq" eventType="touchUpInside" id="LCV-qF-kFq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.92658200260000001" blue="0.42951054179999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -479,11 +499,14 @@
                             <constraint firstItem="UTI-lo-oFA" firstAttribute="leading" secondItem="vfi-8n-e4u" secondAttribute="trailing" constant="16" id="R8H-1I-xuq"/>
                             <constraint firstItem="Vky-Df-fb7" firstAttribute="bottom" secondItem="vfi-8n-e4u" secondAttribute="bottom" constant="16" id="a7q-Ob-KXD"/>
                             <constraint firstItem="Vky-Df-fb7" firstAttribute="bottom" secondItem="UTI-lo-oFA" secondAttribute="bottom" constant="16" id="bRa-nF-Gu0"/>
+                            <constraint firstItem="2fD-Aq-DlR" firstAttribute="top" secondItem="Vky-Df-fb7" secondAttribute="top" constant="16" id="ey2-2p-eXw"/>
+                            <constraint firstItem="2fD-Aq-DlR" firstAttribute="centerX" secondItem="PY0-RF-pB8" secondAttribute="centerX" id="rYZ-dv-zGW"/>
                             <constraint firstItem="Vky-Df-fb7" firstAttribute="trailing" secondItem="UTI-lo-oFA" secondAttribute="trailing" constant="16" id="vOu-xv-hDh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vky-Df-fb7"/>
                     </view>
                     <connections>
+                        <outlet property="dateRangeButton" destination="2fD-Aq-DlR" id="qBh-jb-Hk5"/>
                         <outlet property="expensesLabel" destination="Lrg-KO-cYb" id="5kL-nx-VhY"/>
                         <outlet property="incomesLabel" destination="Pq0-8y-QFQ" id="PQN-dC-woY"/>
                         <outlet property="totalLabel" destination="0kS-5M-H3Q" id="X4p-VG-bvX"/>

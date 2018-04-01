@@ -71,10 +71,6 @@ class TransactionsListViewModel {
         repository.remove(transaction: transaction)
     }
     
-    var dateRangeFilter: DateRange {
-        return appPreservationModel.savedDateRangeFilter ?? DateRange.allTime
-    }
-    
     // MARK: Summary
     
     lazy var summaryViewModel: TransactionsSummaryViewModel = {
@@ -85,7 +81,7 @@ class TransactionsListViewModel {
     
     private func createFRC(withUpdater updater: CollectionUpdater) {
         transactionsFRC = repository.allTransactionsFRC
-        setupPredicate(forDateRange: dateRangeFilter)
+//        setupPredicate(forDateRange: dateRangeFilter)
         collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
         transactionsFRC?.delegate = collectionUpdateHandler
         fetchData()
