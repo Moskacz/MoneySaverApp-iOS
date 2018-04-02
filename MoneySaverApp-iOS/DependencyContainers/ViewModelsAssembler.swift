@@ -14,6 +14,14 @@ struct ViewModelsAssembler: ContainerAssembly {
     func assembly(container: DependencyContainer) {
         
         container.register {
+            TransactionsOverviewViewModel(repository: $0,
+                                          logger: $1,
+                                          calendar: $2,
+                                          timeChangedObserver: $3,
+                                          computingService: $4)
+        }
+        
+        container.register {
             TransactionDataViewModel()
         }
         
