@@ -1,30 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Transactions-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Transactions Overview View Controller-->
+        <scene sceneID="AOB-Id-bNW">
             <objects>
-                <viewController storyboardIdentifier="TransactionsListViewController" title="Transactions" id="BYZ-38-t0r" customClass="TransactionsListViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="Nmo-Hm-2hu" customClass="TransactionsOverviewViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PlB-rg-wKm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
-                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="tC9-op-5Da"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Sk7-p2-Kh0"/>
-                                </connections>
-                            </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S93-Un-Jlv">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <constraints>
@@ -34,27 +26,29 @@
                                     <segue destination="CYH-9Y-Wlq" kind="embed" id="d8e-hI-jiT"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h3q-9b-wA9">
+                                <rect key="frame" x="0.0" y="200" width="375" height="467"/>
+                                <connections>
+                                    <segue destination="aPs-Nl-H25" kind="embed" id="cAM-bm-PdH"/>
+                                </connections>
+                            </containerView>
                         </subviews>
-                        <color key="backgroundColor" red="0.16862745098039217" green="0.1803921568627451" blue="0.20392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="00H-Wh-Vbq"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="BY3-td-rwo"/>
-                            <constraint firstItem="mAZ-8P-wKp" firstAttribute="trailing" secondItem="S93-Un-Jlv" secondAttribute="trailing" id="Df3-Ay-w82"/>
-                            <constraint firstItem="S93-Un-Jlv" firstAttribute="leading" secondItem="mAZ-8P-wKp" secondAttribute="leading" id="a5J-3H-a0j"/>
-                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="S93-Un-Jlv" secondAttribute="bottom" id="bPG-aM-MCg"/>
-                            <constraint firstItem="S93-Un-Jlv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fwJ-rK-8V3"/>
-                            <constraint firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="iEt-Yn-6Cf"/>
+                            <constraint firstItem="FVZ-RA-5hs" firstAttribute="trailing" secondItem="h3q-9b-wA9" secondAttribute="trailing" id="IRK-98-OL2"/>
+                            <constraint firstItem="FVZ-RA-5hs" firstAttribute="bottom" secondItem="h3q-9b-wA9" secondAttribute="bottom" id="K28-2Q-sHp"/>
+                            <constraint firstItem="S93-Un-Jlv" firstAttribute="leading" secondItem="FVZ-RA-5hs" secondAttribute="leading" id="Ob9-KX-KeU"/>
+                            <constraint firstItem="S93-Un-Jlv" firstAttribute="top" secondItem="PlB-rg-wKm" secondAttribute="top" id="aDC-4h-LlR"/>
+                            <constraint firstItem="h3q-9b-wA9" firstAttribute="leading" secondItem="FVZ-RA-5hs" secondAttribute="leading" id="c2u-F0-FPi"/>
+                            <constraint firstItem="h3q-9b-wA9" firstAttribute="top" secondItem="S93-Un-Jlv" secondAttribute="bottom" id="qsG-8M-GDO"/>
+                            <constraint firstItem="S93-Un-Jlv" firstAttribute="trailing" secondItem="FVZ-RA-5hs" secondAttribute="trailing" id="siz-fo-KPY"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="mAZ-8P-wKp"/>
+                        <viewLayoutGuide key="safeArea" id="FVZ-RA-5hs"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Transactions" id="1C8-1d-EOp"/>
-                    <connections>
-                        <outlet property="tableView" destination="Nnj-ML-nq8" id="e1U-aU-Xno"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hL9-mn-QUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696.79999999999995" y="-563.56821589205401"/>
+            <point key="canvasLocation" x="-282" y="-631"/>
         </scene>
         <!--Budget-->
         <scene sceneID="hAf-CF-dEB">
@@ -514,7 +508,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6a-c3-C2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696.79999999999995" y="-1124.4377811094453"/>
+            <point key="canvasLocation" x="697" y="-873"/>
+        </scene>
+        <!--Transactions List View Controller-->
+        <scene sceneID="ag3-zd-81C">
+            <objects>
+                <viewController id="aPs-Nl-H25" customClass="TransactionsListViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MBB-v5-kTx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="white" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Nnj-ML-nq8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="467"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="aPs-Nl-H25" id="Qrd-dI-Crd"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="3D2-2a-eSn"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="MBB-v5-kTx" secondAttribute="top" id="52Y-jq-IID"/>
+                            <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="MBB-v5-kTx" secondAttribute="leading" id="Q0Q-ve-AsT"/>
+                            <constraint firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="eAO-3U-zkZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Nnj-ML-nq8" id="eUA-JK-MP7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghr-Th-BgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="697" y="-475"/>
         </scene>
     </scenes>
     <resources>
