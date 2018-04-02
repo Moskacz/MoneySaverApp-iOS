@@ -13,7 +13,7 @@ protocol TimeChangedObserverDelegate: class {
 }
 
 protocol TimeChangedObserver: class {
-    weak var delegate: TimeChangedObserverDelegate? { set get }
+    var delegate: TimeChangedObserverDelegate? { set get }
 }
 
 class TimeChangedObserverImpl: TimeChangedObserver {

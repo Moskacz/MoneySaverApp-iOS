@@ -158,7 +158,7 @@ class TransactionDataViewController: UIViewController {
     }
     
     private var currentResponder: UIResponder? {
-        return [titleTextField, valueTextField].flatMap { $0 }.first { $0.isFirstResponder }
+        return [titleTextField, valueTextField].compactMap { $0 }.first { $0.isFirstResponder }
     }
     
     // MARK: Transaction date

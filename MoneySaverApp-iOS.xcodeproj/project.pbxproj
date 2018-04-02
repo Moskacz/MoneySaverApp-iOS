@@ -17,6 +17,8 @@
 		3514C4291F9B9A55003C3044 /* TransactionCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514C4281F9B9A55003C3044 /* TransactionCategoryViewModel.swift */; };
 		3514C42C1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514C42A1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift */; };
 		3514C42D1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514C42B1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift */; };
+		35163F0C20722472000801FA /* TransactionsOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */; };
+		35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */; };
 		35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */; };
 		3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
@@ -187,6 +189,8 @@
 		3514C4281F9B9A55003C3044 /* TransactionCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryViewModel.swift; sourceTree = "<group>"; };
 		3514C42A1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionCategoryManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3514C42B1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TransactionManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewController.swift; sourceTree = "<group>"; };
+		35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewModel.swift; sourceTree = "<group>"; };
 		351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MoneySaverApp-iOS.entitlements"; sourceTree = "<group>"; };
 		35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransactionRepository.swift; sourceTree = "<group>"; };
 		3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryRepository.swift; sourceTree = "<group>"; };
@@ -357,6 +361,15 @@
 				3528D3B5206E68A0009A19E2 /* TransactionsSummaryViewModel.swift */,
 			);
 			path = TransactionsSummary;
+			sourceTree = "<group>";
+		};
+		35163F0820722452000801FA /* TransactionsOverview */ = {
+			isa = PBXGroup;
+			children = (
+				35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */,
+				35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */,
+			);
+			path = TransactionsOverview;
 			sourceTree = "<group>";
 		};
 		35214FF31F9E66FE006503C5 /* Fakes */ = {
@@ -533,6 +546,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				35163F0820722452000801FA /* TransactionsOverview */,
 				35AC4C9A206E70AB00872615 /* Notifications */,
 				351005F9206438000090AD43 /* TransactionsSummary */,
 				353B9C85202770ED00990667 /* Domain */,
@@ -804,7 +818,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Michal Moskala";
 				TargetAttributes = {
 					35BB97191E7F085F003DBA41 = {
@@ -949,6 +963,7 @@
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
 				355DB267201FA83D00F990FD /* CalendarDate+CoreDataClass.swift in Sources */,
 				35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */,
+				35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */,
 				35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */,
 				358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
@@ -1009,6 +1024,7 @@
 				35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */,
 				35708BBC1FC958110052ED9E /* SetupBudgetViewController.swift in Sources */,
 				35708BC21FC95B300052ED9E /* BudgetRepository.swift in Sources */,
+				35163F0C20722472000801FA /* TransactionsOverviewViewController.swift in Sources */,
 				35708BC61FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift in Sources */,
 				35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */,
 				356D0EB11F8C00E700378362 /* Errors.swift in Sources */,
@@ -1093,6 +1109,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1100,6 +1117,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1149,6 +1167,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1156,6 +1175,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

@@ -114,7 +114,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     func monthlyExpenses() throws -> [DailyValue] {
         let request: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
-        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)].flatMap { $0 }
+        let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)].compactMap { $0 }
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
         let groupedTransactions = try repository.context.fetch(request).filter { $0.date != nil}.grouped { $0.date!.dayOfMonth }
         return groupedTransactions.map{ (dayOfEra, transactions) -> DailyValue in
