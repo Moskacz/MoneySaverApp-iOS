@@ -12,7 +12,7 @@
         <!--Transactions Overview View Controller-->
         <scene sceneID="AOB-Id-bNW">
             <objects>
-                <viewController id="Nmo-Hm-2hu" customClass="TransactionsOverviewViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionsOverviewViewController" id="Nmo-Hm-2hu" customClass="TransactionsOverviewViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PlB-rg-wKm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -19,7 +19,7 @@ class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
     private weak var tabBarController: DashboardTabBarController?
-    private weak var transactionsVC: TransactionsListViewController?
+    private weak var transactionsOverviewVC: TransactionsOverviewViewController?
     private weak var budgetVC: BudgetViewController?
     private weak var statsVC: StatsViewController?
     
@@ -74,10 +74,9 @@ class RootFlowController: FlowController {
         }
         
         let tabBarVC = DashboardTabBarController()
+    
         
-        let transactionsListVC = transactionsListViewController()
-        
-        tabBarVC.viewControllers = [transactionsListVC,
+        tabBarVC.viewControllers = [transactionsOverviewViewController(),
                                     budgetViewController(),
                                     UIViewController(),
                                     statsViewController(),
@@ -95,10 +94,9 @@ class RootFlowController: FlowController {
         }
     }
     
-    private func transactionsListViewController() -> TransactionsListViewController {
-        let viewController: TransactionsListViewController = storyboard.instantiateTypeViewController(withIdentifier: TransactionsListViewController.defaultStoryboardIdentifier)
-        
-        self.transactionsVC = viewController
+    private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
+        let viewController: TransactionsOverviewViewController = storyboard.instantiateFromStoryboard()
+        self.transactionsOverviewVC = viewController
         return viewController
     }
     
@@ -122,8 +120,8 @@ class RootFlowController: FlowController {
     private func setupViewModels(stack: CoreDataStack) {
         guard stack.isLoaded else { return }
         
-        if transactionsVC?.viewModel == nil {
-            transactionsVC?.viewModel = try! dependencyContainer.resolve()
+        if transactionsOverviewVC?.viewModel == nil {
+            transactionsOverviewVC?.viewModel = try! dependencyContainer.resolve()
         }
         
         if budgetVC?.viewModel == nil {
