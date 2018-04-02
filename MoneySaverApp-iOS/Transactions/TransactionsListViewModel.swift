@@ -12,28 +12,22 @@ import CoreData
 class TransactionsListViewModel {
     
     private let repository: TransactionsRepository
-    private var transactionsComputingService: TransactionsComputingService
     private let logger: Logger
     private let calendar: CalendarProtocol
     private let timeChangedObserver: TimeChangedObserver
-    private let appPreservationModel: AppPreservationModel
     
     private var collectionUpdater: CollectionUpdater?
     private var transactionsFRC: NSFetchedResultsController<TransactionManagedObject>?
     private var collectionUpdateHandler: CoreDataCollectionUpdateHandler?
     
     init(repository: TransactionsRepository,
-         transactionsComputingService: TransactionsComputingService,
          logger: Logger,
          calendar: CalendarProtocol,
-         timeChangedObserver: TimeChangedObserver,
-         appPreservationModel: AppPreservationModel) {
+         timeChangedObserver: TimeChangedObserver) {
         self.repository = repository
-        self.transactionsComputingService = transactionsComputingService
         self.logger = logger
         self.calendar = calendar
         self.timeChangedObserver = timeChangedObserver
-        self.appPreservationModel = appPreservationModel
         self.timeChangedObserver.delegate = self
     }
     
@@ -70,12 +64,6 @@ class TransactionsListViewModel {
         guard let transaction = transactionsFRC?.object(at: path) else { return }
         repository.remove(transaction: transaction)
     }
-    
-    // MARK: Summary
-    
-    lazy var summaryViewModel: TransactionsSummaryViewModel = {
-        return TransactionsSummaryViewModel(computingService: transactionsComputingService)
-    }()
     
     // MARK: Private
     

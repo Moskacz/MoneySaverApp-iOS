@@ -12,14 +12,6 @@ import Dip
 struct ViewModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        container.register {
-            TransactionsListViewModel(repository: $0,
-                                      transactionsComputingService: $1,
-                                      logger: $2,
-                                      calendar: $3,
-                                      timeChangedObserver: $4,
-                                      appPreservationModel: $5) as TransactionsListViewModel
-        }
         
         container.register {
             TransactionDataViewModel()

@@ -49,15 +49,6 @@ class TransactionsListViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
-        if let summaryVC = childViewControllers.first as? TransactionsSummaryViewController {
-            summaryVC.viewModel = viewModel?.summaryViewModel
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard let summaryVC = segue.destination as? TransactionsSummaryViewController else { return }
-        summaryVC.viewModel = viewModel?.summaryViewModel
     }
 }
 
