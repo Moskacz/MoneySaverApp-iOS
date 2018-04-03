@@ -523,16 +523,18 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="aPs-Nl-H25" id="Qrd-dI-Crd"/>
+                                    <outlet property="delegate" destination="aPs-Nl-H25" id="oUa-v3-jBO"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Nnj-ML-nq8" secondAttribute="bottom" id="3D2-2a-eSn"/>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="top" secondItem="MBB-v5-kTx" secondAttribute="top" id="52Y-jq-IID"/>
                             <constraint firstItem="Nnj-ML-nq8" firstAttribute="leading" secondItem="MBB-v5-kTx" secondAttribute="leading" id="Q0Q-ve-AsT"/>
                             <constraint firstAttribute="trailing" secondItem="Nnj-ML-nq8" secondAttribute="trailing" id="eAO-3U-zkZ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="QhG-FX-gGE"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="Nnj-ML-nq8" id="eUA-JK-MP7"/>
