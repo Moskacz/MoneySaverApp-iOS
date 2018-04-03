@@ -10,14 +10,11 @@ import Foundation
 import CoreData
 
 protocol CoreDataStack: class {
-    var isLoaded: Bool { get }
-    func loadStores(completion: @escaping (() -> Void))
+    func loadStores()
     func getViewContext() -> NSManagedObjectContext
 }
 
 class CoreDataStackImplementation: CoreDataStack {
-    
-    var isLoaded: Bool = false
     
     private let persistentContainer: NSPersistentContainer
     private let logger: Logger
@@ -47,13 +44,11 @@ class CoreDataStackImplementation: CoreDataStack {
         })
     }
     
-    func loadStores(completion: @escaping (() -> Void)) {
+    func loadStores() {
         persistentContainer.loadPersistentStores { [weak self] (_, error) in
             if let loadError = error as NSError? {
                 self?.logger.log(withLevel: .error, message: loadError.localizedDescription)
             }
-            self?.isLoaded = true
-            completion()
         }
     }
     

@@ -19,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let diContainer = DependencyContainer.createContainer()
+        let coreDataStack: CoreDataStack = try! diContainer.resolve()
+        coreDataStack.loadStores()
+        diContainer.register {
+            coreDataStack.getViewContext()
+        }
+        
         rootFlowController = RootFlowController(applicationDelegate: self,
                                                 storyboard: UIStoryboard.getMain(),
                                                 dependencyContainer: diContainer)

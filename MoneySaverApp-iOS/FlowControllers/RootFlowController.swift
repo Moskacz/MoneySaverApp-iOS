@@ -65,16 +65,7 @@ class RootFlowController: FlowController {
     }
     
     private func setupRootFlowController() {
-        let stack: CoreDataStack = try! dependencyContainer.resolve()
-        stack.loadStores { [unowned stack, weak self] in
-            self?.dependencyContainer.register {
-                stack.getViewContext()
-            }
-            self?.setupViewModels(stack: stack)
-        }
-        
         let tabBarVC = DashboardTabBarController()
-    
         
         tabBarVC.viewControllers = [transactionsOverviewViewController(),
                                     budgetViewController(),
@@ -87,7 +78,6 @@ class RootFlowController: FlowController {
         applicationDelegate?.window = window
         applicationDelegate?.window?.makeKeyAndVisible()
         self.tabBarController = tabBarVC
-        setupViewModels(stack: stack)
         
         tabBarVC.centerButtonTapCallback = {
             self.presentTransactionDataViewController()
@@ -115,26 +105,6 @@ class RootFlowController: FlowController {
         let viewController: StatsViewController = storyboard.instantiateTypeViewController(withIdentifier: StatsViewController.defaultStoryboardIdentifier)
         self.statsVC = viewController
         return viewController
-    }
-    
-    private func setupViewModels(stack: CoreDataStack) {
-        guard stack.isLoaded else { return }
-        
-        if transactionsOverviewVC?.viewModel == nil {
-            transactionsOverviewVC?.viewModel = try! dependencyContainer.resolve()
-        }
-        
-        if budgetVC?.viewModel == nil {
-            budgetVC?.viewModel = try! dependencyContainer.resolve()
-        }
-        
-        if budgetVC?.setupBudgetViewModel == nil {
-            budgetVC?.setupBudgetViewModel = try! dependencyContainer.resolve()
-        }
-        
-        if statsVC?.viewModel == nil {
-            statsVC?.viewModel = try! dependencyContainer.resolve()
-        }
     }
     
     private func presentTransactionDataViewController() {
