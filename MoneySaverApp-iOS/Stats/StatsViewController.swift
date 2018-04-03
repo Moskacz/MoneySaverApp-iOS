@@ -15,13 +15,7 @@ class StatsViewController: UIViewController {
         return UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
     }()
     
-    var viewModel: StatsViewModel? {
-        didSet {
-            if isViewLoaded {
-                setup()
-            }
-        }
-    }
+    var viewModel: StatsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()

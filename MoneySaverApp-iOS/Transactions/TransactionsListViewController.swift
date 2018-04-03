@@ -18,13 +18,7 @@ class TransactionsListViewController: UIViewController {
         return .lightContent
     }
     
-    var viewModel: TransactionsListViewModel? {
-        didSet {
-            if isViewLoaded {
-                setup()
-            }
-        }
-    }
+    var viewModel: TransactionsListViewModel?
     
     @IBOutlet private weak var tableView: UITableView?
     private let transactionCellIdentifier = "kTransactionCellIdentifier"

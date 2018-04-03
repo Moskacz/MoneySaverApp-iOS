@@ -11,13 +11,7 @@ import MMFoundation
 
 class TransactionsSummaryViewController: UIViewController {
     
-    var viewModel: TransactionsSummaryViewModel? {
-        didSet {
-            viewModel?.delegate = self
-            guard isViewLoaded else { return }
-            setupDisplayedData(animated: false)
-        }
-    }
+    var viewModel: TransactionsSummaryViewModel? 
     
     @IBOutlet private weak var expensesLabel: UILabel?
     @IBOutlet private weak var incomesLabel: UILabel?
@@ -30,6 +24,7 @@ class TransactionsSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel?.delegate = self
         setupAppearance()
         setupDisplayedData(animated: false)
     }

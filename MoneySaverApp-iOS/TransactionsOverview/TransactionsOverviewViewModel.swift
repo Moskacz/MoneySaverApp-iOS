@@ -28,15 +28,14 @@ final class TransactionsOverviewViewModel {
         self.computingService = computingService
     }
     
-    lazy var listViewModel: TransactionsListViewModel = {
+    var listViewModel: TransactionsListViewModel {
         return TransactionsListViewModel(repository: repository,
                                          logger: logger,
                                          calendar: calendar,
                                          timeChangedObserver: timeChangedObserver)
-    }()
+    }
     
-    lazy var summaryViewModel: TransactionsSummaryViewModel = {
+    var summaryViewModel: TransactionsSummaryViewModel {
         return TransactionsSummaryViewModel(computingService: computingService)
-    }()
-    
+    }
 }
