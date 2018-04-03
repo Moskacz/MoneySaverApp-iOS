@@ -19,9 +19,6 @@ class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
     private weak var tabBarController: DashboardTabBarController?
-    private weak var transactionsOverviewVC: TransactionsOverviewViewController?
-    private weak var budgetVC: BudgetViewController?
-    private weak var statsVC: StatsViewController?
     
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
@@ -86,30 +83,30 @@ class RootFlowController: FlowController {
     
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiateFromStoryboard()
-        self.transactionsOverviewVC = viewController
+        viewController.viewModel = try? dependencyContainer.resolve()
         return viewController
     }
     
     private func budgetViewController() -> BudgetViewController {
-        let viewController: BudgetViewController = storyboard.instantiateTypeViewController(withIdentifier: BudgetViewController.defaultStoryboardIdentifier)
+        let viewController: BudgetViewController = storyboard.instantiateFromStoryboard()
+        viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.editBudgetTapCallback = {
             self.presentSetupBudgetViewController()
         }
         
-        self.budgetVC = viewController
         return viewController
     }
     
     private func statsViewController() -> StatsViewController {
-        let viewController: StatsViewController = storyboard.instantiateTypeViewController(withIdentifier: StatsViewController.defaultStoryboardIdentifier)
-        self.statsVC = viewController
+        let viewController: StatsViewController = storyboard.instantiateFromStoryboard()
+        viewController.viewModel = try? dependencyContainer.resolve()
         return viewController
     }
     
     private func presentTransactionDataViewController() {
         let viewController: TransactionDataViewController = storyboard.instantiateFromStoryboard()
-        viewController.viewModel = try! dependencyContainer.resolve()
+        viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.cancelButtonTapCallback = {
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
@@ -140,7 +137,7 @@ class RootFlowController: FlowController {
     
     private func presentSetupBudgetViewController() {
         let viewController: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
-        viewController.viewModel = try! dependencyContainer.resolve()
+        viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.budgetSetCallback = {
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
