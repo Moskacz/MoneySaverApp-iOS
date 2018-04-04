@@ -125,7 +125,7 @@ class RootFlowController: FlowController {
     
     private func pushTransactionCategoriesCollection(navigationController: UINavigationController, data: TransactionData) {
         let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiateFromStoryboard()
-        viewController.viewModel = try! dependencyContainer.resolve()
+        viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.categorySelectedCallback = { category in
             self.flowService?.addTransaction(withData: data, category: category)

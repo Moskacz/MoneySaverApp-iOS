@@ -29,11 +29,9 @@ class TransactionsListViewModelTests: XCTestCase {
         timeChangedObserver = FakeTimeChangedObserver()
         appPreservtionModel = FakeAppPreservationModel()
         sut = TransactionsListViewModel(repository: repositoryFake,
-                                        transactionsComputingService: computingServiceFake,
                                         logger: NullLogger(),
                                         calendar: calendarFake,
-                                        timeChangedObserver: timeChangedObserver,
-                                        appPreservationModel: appPreservtionModel)
+                                        timeChangedObserver: timeChangedObserver)
     }
     
     override func tearDown() {
@@ -58,12 +56,4 @@ class TransactionsListViewModelTests: XCTestCase {
         XCTAssertTrue(transactionsFRCFake.performFetchCalled)
     }
     
-    func test_whenThereIsSavedDateRangeFilter_thenItIsAvailable() {
-        appPreservtionModel.savedFilterToReturn = DateRange.thisYear
-        XCTAssertEqual(sut.dateRangeFilter, DateRange.thisYear)
-    }
-    
-    func test_whenThereIsNoSavedDateRangeFilter_thenInitialValueShouldEqualToAllTime() {
-        XCTAssertEqual(sut.dateRangeFilter, DateRange.allTime)
-    }
 }

@@ -33,7 +33,7 @@ class RootFlowControllerTests: XCTestCase {
     func test_whenFlowControllerStarted_thenShouldSetNavigationWithConfiguredTabBarAsRoot() {
         sut.startFlow()
         let tabBar = appDelegate.window!.rootViewController as! DashboardTabBarController
-        XCTAssertTrue(tabBar.viewControllers![0] is TransactionsListViewController)
+        XCTAssertTrue(tabBar.viewControllers![0] is TransactionsOverviewViewController)
         XCTAssertTrue(tabBar.viewControllers![1] is BudgetViewController)
         XCTAssertTrue(tabBar.viewControllers![3] is StatsViewController)
     }

@@ -12,15 +12,19 @@ import MMFoundation
 
 class FakeTransactionsComputingService: TransactionsComputingService {
     
-    var delegates: WeakArray<AnyObject> {
-        fatalError()
-    }
-    
     func sum() -> TransactionsCompoundSum {
         fatalError()
     }
     
+    func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken {
+        fatalError()
+    }
+    
     func monthlyExpenses() -> [DailyValue] {
+        fatalError()
+    }
+    
+    func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken {
         fatalError()
     }
 }
