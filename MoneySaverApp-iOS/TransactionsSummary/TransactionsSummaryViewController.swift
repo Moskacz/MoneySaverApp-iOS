@@ -11,7 +11,8 @@ import MMFoundation
 
 class TransactionsSummaryViewController: UIViewController {
     
-    var viewModel: TransactionsSummaryViewModel? 
+    var viewModel: TransactionsSummaryViewModel?
+    var didTapOnDateRangeButton: (UIButton) -> Void = { _ in }
     
     @IBOutlet private weak var expensesLabel: UILabel?
     @IBOutlet private weak var incomesLabel: UILabel?
@@ -42,8 +43,8 @@ class TransactionsSummaryViewController: UIViewController {
         dateRangeButton?.setTitle(viewModel?.dateRangeButtonText, for: .normal)
     }
     
-    @IBAction func daraRangeButtonTapped(_ sender: UIButton) {
-        
+    @IBAction func dataRangeButtonTapped(_ sender: UIButton) {
+        didTapOnDateRangeButton(sender)
     }
 }
 
