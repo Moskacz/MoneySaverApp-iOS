@@ -17,6 +17,8 @@ class FakeCalendar: CalendarProtocol {
     var weekOfEraOfDateToReturn: Int!
     var monthOfEraOfDateToReturn: Int!
     var yearOfDateToReturn: Int!
+    var monthNameToReturn: String!
+    var yearNameToReturn: String!
     
     var now: Date {
         return nowToReturn
@@ -47,14 +49,18 @@ class FakeCalendar: CalendarProtocol {
     }
     
     func monthName(forDate date: Date) -> String {
-        fatalError()
+        return monthNameToReturn
     }
     
     func yearName(forDate date: Date) -> String {
-        fatalError()
+        return yearNameToReturn
     }
     
     func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date) {
+        fatalError()
+    }
+    
+    func startEndDayOfWeek(forDate date: Date) -> (start: Date, end: Date) {
         fatalError()
     }
 }

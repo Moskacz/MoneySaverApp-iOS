@@ -17,6 +17,7 @@ protocol CalendarProtocol {
     func monthName(forDate date: Date) -> String
     func yearName(forDate date: Date) -> String
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int>
+    func startEndDayOfWeek(forDate date: Date) -> (start: Date, end: Date)
     func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date)
 }
 
@@ -56,6 +57,17 @@ extension Calendar: CalendarProtocol {
             return 0...0
         }
         return CountableClosedRange(range)
+    }
+    
+    func startEndDayOfWeek(forDate date: Date) -> (start: Date, end: Date) {
+        var startDate: Date = Date()
+        var interval: TimeInterval = 1
+        _ = self.dateInterval(of: .weekOfMonth,
+                              start: &startDate,
+                              interval: &interval,
+                              for: date)
+        let endDate = startDate.addingTimeInterval(interval-1)
+        return (startDate, endDate)
     }
     
     func fillPropertiesOf(calendarDate: CalendarDate, withDate date: Date) {

@@ -72,6 +72,16 @@ class CalendarTests: XCTestCase {
         XCTAssertEqual(Calendar.Identifier.republicOfChina.stringIdentifier, "republicOfChina")
     }
     
+    func test_startEndDayOfWeek() {
+        let dates = calendar.startEndDayOfWeek(forDate: testedDate)
+        // 7.01.2018 23:00
+        let expectedStart = Date(timeIntervalSince1970: 1515366000)
+        // 14.01.2018 23:00:0
+        let expectedEnd = Date(timeIntervalSince1970: 1515970799)
+        XCTAssertEqual(dates.start, expectedStart)
+        XCTAssertEqual(dates.end, expectedEnd)
+    }
+    
     func test_fillCalendarDayProperty() {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let calendarDate = CalendarDate(context: context)
