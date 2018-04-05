@@ -73,7 +73,7 @@ class CalendarTests: XCTestCase {
     }
     
     func test_startEndDayOfWeek() {
-        let dates = calendar.startEndDayOfWeek(forDate: testedDate)
+        let dates = calendar.beginEndDaysOfWeek(forDate: testedDate)
         // 7.01.2018 23:00
         let expectedStart = Date(timeIntervalSince1970: 1515366000)
         // 14.01.2018 23:00:0

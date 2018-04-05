@@ -60,7 +60,7 @@ class FakeCalendar: CalendarProtocol {
         fatalError()
     }
     
-    func startEndDayOfWeek(forDate date: Date) -> (start: Date, end: Date) {
+    func beginEndDaysOfWeek(forDate date: Date) -> (start: Date, end: Date) {
         fatalError()
     }
 }
