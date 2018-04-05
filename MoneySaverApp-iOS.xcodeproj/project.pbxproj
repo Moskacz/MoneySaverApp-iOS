@@ -36,6 +36,7 @@
 		353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */; };
 		353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8E2027775D00990667 /* FakeTransction.swift */; };
 		35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35411784200BE83F002B7AF6 /* RootFlowService.swift */; };
+		354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354513122076A4EB00909A7F /* DateFormattersTests.swift */; };
 		3551A39920069E68001394F2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39820069E68001394F2 /* String+Additions.swift */; };
 		3551A39B20069F90001394F2 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39A20069F90001394F2 /* StringTests.swift */; };
 		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
@@ -211,6 +212,7 @@
 		353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModelTests.swift; sourceTree = "<group>"; };
 		353B9C8E2027775D00990667 /* FakeTransction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransction.swift; sourceTree = "<group>"; };
 		35411784200BE83F002B7AF6 /* RootFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowService.swift; sourceTree = "<group>"; };
+		354513122076A4EB00909A7F /* DateFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattersTests.swift; sourceTree = "<group>"; };
 		3551A39820069E68001394F2 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		3551A39A20069F90001394F2 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				355DB26B2020FA3500F990FD /* SequenceTests.swift */,
 				353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */,
 				35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */,
+				354513122076A4EB00909A7F /* DateFormattersTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -1060,6 +1063,7 @@
 				3551A39B20069F90001394F2 /* StringTests.swift in Sources */,
 				35EE9D0C200E730E006D5791 /* FakeAppPreservationModel.swift in Sources */,
 				353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */,
+				354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 				35EE9D0A200E6F53006D5791 /* AppPreservationModelTests.swift in Sources */,
 				35129ED1200B5A1400B7A566 /* TransactionsRepositoryTests.swift in Sources */,

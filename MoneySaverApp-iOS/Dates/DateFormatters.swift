@@ -14,6 +14,7 @@ enum DateFormatterType: Int {
     case yearOnly
     case dateWithTime
     case dateOnly
+    case shortDate
 }
 
 class DateFormatters {
@@ -47,6 +48,9 @@ class DateFormatters {
             formatter.timeStyle = .none
             formatter.dateStyle = .short
             formatter.doesRelativeDateFormatting = true
+        case .shortDate:
+            formatter.timeStyle = .none
+            formatter.dateStyle = .short
         }
         return formatter
     }
