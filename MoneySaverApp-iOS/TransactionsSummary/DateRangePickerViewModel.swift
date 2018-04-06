@@ -15,9 +15,16 @@ class DateRangePickerViewModel {
     
     var ranges: [TitledDateRange] {
         let today = TitledDateRange(title: "Today", range: .today)
-        let thisMonth = TitledDateRange(title: "Month - \(calendar.monthName(forDate: calendar.now))", range: .thisMonth)
-        let thisYear = TitledDateRange(title: "Year - \(calendar.yearName(forDate: calendar.now))", range: .thisYear)
+        let thisMonth = TitledDateRange(title: "\(calendar.monthName(forDate: calendar.now))", range: .thisMonth)
+        let thisYear = TitledDateRange(title: "\(calendar.yearName(forDate: calendar.now))", range: .thisYear)
         let allTime = TitledDateRange(title: "All", range: .allTime)
-        return [today, thisMonth, thisYear, allTime]
+        return [today, thisWeekRange, thisMonth, thisYear, allTime]
+    }
+    
+    private var thisWeekRange: TitledDateRange {
+        let formatter = DateFormatters.formatter(forType: .shortDate)
+        let dates = calendar.beginEndDaysOfWeek(forDate: calendar.now)
+        let title = "Week (\(formatter.string(from: dates.start)) - \(formatter.string(from: dates.end)))"
+        return TitledDateRange(title: title, range: .thisWeek)
     }
 }

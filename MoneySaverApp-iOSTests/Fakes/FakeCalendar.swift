@@ -19,6 +19,7 @@ class FakeCalendar: CalendarProtocol {
     var yearOfDateToReturn: Int!
     var monthNameToReturn: String!
     var yearNameToReturn: String!
+    var beginEndDaysOfWeekToReturn: (Date, Date)!
     
     var now: Date {
         return nowToReturn
@@ -61,6 +62,6 @@ class FakeCalendar: CalendarProtocol {
     }
     
     func beginEndDaysOfWeek(forDate date: Date) -> (start: Date, end: Date) {
-        fatalError()
+        return beginEndDaysOfWeekToReturn
     }
 }

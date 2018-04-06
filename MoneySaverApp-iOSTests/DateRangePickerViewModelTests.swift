@@ -31,6 +31,7 @@ class DateRangePickerViewModelTests: XCTestCase {
         calendarFake.nowToReturn = Date()
         calendarFake.monthNameToReturn = "April"
         calendarFake.yearNameToReturn = "2018"
+        calendarFake.beginEndDaysOfWeekToReturn = (Date(timeIntervalSince1970: 1523016000), Date(timeIntervalSince1970: 1523102400))
     }
     
     func test_rangesContainToday() {
@@ -48,12 +49,18 @@ class DateRangePickerViewModelTests: XCTestCase {
     func test_rangesContainThisMonth_withCurrentMonthName() {
         let thisMonth = sut.ranges.first { $0.range == .thisMonth }
         XCTAssertNotNil(thisMonth)
-        XCTAssertEqual(thisMonth?.title, "Month - April")
+        XCTAssertEqual(thisMonth?.title, "April")
     }
     
     func test_rangesContainsThisYear_withCurrentYearName() {
         let thisYear = sut.ranges.first { $0.range == .thisYear }
         XCTAssertNotNil(thisYear)
-        XCTAssertEqual(thisYear?.title, "Year - 2018")
+        XCTAssertEqual(thisYear?.title, "2018")
+    }
+    
+    func test_rangesContainThisWeek_withProperDates() {
+        let thisWeek = sut.ranges.first { $0.range == .thisWeek }
+        XCTAssertNotNil(thisWeek)
+        XCTAssertEqual(thisWeek?.title, "Week (06.04.2018 - 07.04.2018)")
     }
 }
