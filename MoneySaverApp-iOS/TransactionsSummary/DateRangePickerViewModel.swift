@@ -1,10 +1,5 @@
 import Foundation
 
-struct TitledDateRange {
-    let title: String
-    let range: DateRange
-}
-
 class DateRangePickerViewModel {
     
     private let calendar: CalendarProtocol
@@ -13,18 +8,18 @@ class DateRangePickerViewModel {
         self.calendar = calendar
     }
     
-    var ranges: [TitledDateRange] {
-        let today = TitledDateRange(title: "Today", range: .today)
-        let thisMonth = TitledDateRange(title: "\(calendar.monthName(forDate: calendar.now))", range: .thisMonth)
-        let thisYear = TitledDateRange(title: "\(calendar.yearName(forDate: calendar.now))", range: .thisYear)
-        let allTime = TitledDateRange(title: "All", range: .allTime)
+    var ranges: [(title: String, range: DateRange)] {
+        let today = ("Today", DateRange.today)
+        let thisMonth = ("\(calendar.monthName(forDate: calendar.now))", DateRange.thisMonth)
+        let thisYear = ("\(calendar.yearName(forDate: calendar.now))", DateRange.thisYear)
+        let allTime = ("All", DateRange.allTime)
         return [today, thisWeekRange, thisMonth, thisYear, allTime]
     }
     
-    private var thisWeekRange: TitledDateRange {
+    private var thisWeekRange: (title: String, range: DateRange) {
         let formatter = DateFormatters.formatter(forType: .shortDate)
         let dates = calendar.beginEndDaysOfWeek(forDate: calendar.now)
         let title = "Week (\(formatter.string(from: dates.start)) - \(formatter.string(from: dates.end)))"
-        return TitledDateRange(title: title, range: .thisWeek)
+        return (title, DateRange.thisWeek)
     }
 }
