@@ -44,5 +44,9 @@ struct ViewModelsAssembler: ContainerAssembly {
         container.register {
             StatsViewModel()
         }
+        
+        container.register {
+            DateRangePickerViewModel(calendar: $0)
+        }
     }
 }

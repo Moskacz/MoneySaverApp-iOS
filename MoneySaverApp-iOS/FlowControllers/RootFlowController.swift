@@ -84,7 +84,30 @@ class RootFlowController: FlowController {
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiateFromStoryboard()
         viewController.viewModel = try? dependencyContainer.resolve()
+        
+        viewController.configureSummaryVC = { viewController in
+            self.configure(summaryVC: viewController)
+        }
+        
         return viewController
+    }
+    
+    private func configure(summaryVC: TransactionsSummaryViewController) {
+        summaryVC.didTapOnDateRangeButton = { _ in
+            self.presentDateRangesPicker()
+        }
+    }
+    
+    private func presentDateRangesPicker() {
+        let viewModel: DateRangePickerViewModel = try! dependencyContainer.resolve()
+        let alertController = UIAlertController(title: "Pick date range",
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        for range in viewModel.ranges {
+            alertController.addAction(UIAlertAction(title: range.title, style: .default, handler: nil))
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
     }
     
     private func budgetViewController() -> BudgetViewController {
