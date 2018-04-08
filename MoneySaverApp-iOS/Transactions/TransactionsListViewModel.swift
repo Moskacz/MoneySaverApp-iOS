@@ -11,6 +11,8 @@ import CoreData
 
 class TransactionsListViewModel {
     
+    var dateRange: DateRange
+    
     private let repository: TransactionsRepository
     private let logger: Logger
     private let calendar: CalendarProtocol
@@ -23,17 +25,20 @@ class TransactionsListViewModel {
     init(repository: TransactionsRepository,
          logger: Logger,
          calendar: CalendarProtocol,
-         timeChangedObserver: TimeChangedObserver) {
+         timeChangedObserver: TimeChangedObserver,
+         dateRange: DateRange) {
         self.repository = repository
         self.logger = logger
         self.calendar = calendar
         self.timeChangedObserver = timeChangedObserver
+        self.dateRange = dateRange
+        
         self.timeChangedObserver.delegate = self
     }
     
     func attach(updater: CollectionUpdater) {
         collectionUpdater = updater
-        createFRC(withUpdater: updater)
+        createFRC()
     }
     
     func sectionsCount() -> Int {
@@ -67,9 +72,10 @@ class TransactionsListViewModel {
     
     // MARK: Private
     
-    private func createFRC(withUpdater updater: CollectionUpdater) {
+    private func createFRC() {
+        guard let updater = collectionUpdater else { return }
         transactionsFRC = repository.allTransactionsFRC
-//        setupPredicate(forDateRange: dateRangeFilter)
+        transactionsFRC?.fetchRequest.predicate = repository.predicate(forDateRange: dateRange)
         collectionUpdateHandler = CoreDataCollectionUpdateHandler(collectionUpdater: updater)
         transactionsFRC?.delegate = collectionUpdateHandler
         fetchData()
@@ -83,10 +89,6 @@ class TransactionsListViewModel {
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }
-    }
-    
-    private func setupPredicate(forDateRange dateRange: DateRange) {
-        transactionsFRC?.fetchRequest.predicate = repository.predicate(forDateRange: dateRange)
     }
 }
 

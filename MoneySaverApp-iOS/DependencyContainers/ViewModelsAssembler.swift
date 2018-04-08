@@ -13,12 +13,13 @@ struct ViewModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         
-        container.register {
-            TransactionsOverviewViewModel(repository: $0,
-                                          logger: $1,
-                                          calendar: $2,
-                                          timeChangedObserver: $3,
-                                          computingService: $4)
+        container.register { (dateRange: DateRange) in
+            TransactionsOverviewViewModel(repository: try container.resolve(),
+                                          logger: try container.resolve(),
+                                          calendar: try container.resolve(),
+                                          timeChangedObserver: try container.resolve(),
+                                          computingService: try container.resolve(),
+                                          dateRange: dateRange)
         }
         
         container.register {

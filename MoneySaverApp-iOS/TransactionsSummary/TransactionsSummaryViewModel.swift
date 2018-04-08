@@ -7,16 +7,20 @@ protocol TransactionsSummaryViewModelDelegate: class {
 class TransactionsSummaryViewModel {
     
     weak var delegate: TransactionsSummaryViewModelDelegate?
+    var dateRange: DateRange
+    
     private(set) var totalAmountText = ""
     private(set) var expensesAmountText = ""
     private(set) var incomesAmountText = ""
-    private(set) var dateRangeButtonText = "Today"
+    private(set) var dateRangeButtonText = ""
     
     private let computingService: TransactionsComputingService
     private var observationTokens = [ObservationToken]()
     
-    init(computingService: TransactionsComputingService) {
+    init(computingService: TransactionsComputingService, dateRange: DateRange) {
         self.computingService = computingService
+        self.dateRange = dateRange
+        self.dateRangeButtonText = dateRange.description
         registerForNotifications()
         setupInitialValues()
     }

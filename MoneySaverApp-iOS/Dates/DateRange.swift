@@ -15,3 +15,16 @@ enum DateRange: String {
     case thisYear
     case allTime
 }
+
+extension DateRange: CustomStringConvertible {
+    
+    var description: String {
+        switch self {
+        case .today: return "Today"
+        case .thisWeek: return "Weekly"
+        case .thisMonth: return "Monthly"
+        case .thisYear: return "Year"
+        case .allTime: return "All"
+        }
+    }
+}

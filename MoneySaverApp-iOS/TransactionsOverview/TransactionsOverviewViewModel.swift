@@ -10,6 +10,26 @@ import Foundation
 
 final class TransactionsOverviewViewModel {
     
+    lazy var listViewModel: TransactionsListViewModel = {
+        return TransactionsListViewModel(repository: repository,
+                                         logger: logger,
+                                         calendar: calendar,
+                                         timeChangedObserver: timeChangedObserver,
+                                         dateRange: dateRange)
+    }()
+    
+    lazy var summaryViewModel: TransactionsSummaryViewModel = {
+        return TransactionsSummaryViewModel(computingService: computingService,
+                                            dateRange: dateRange)
+    }()
+    
+    var dateRange: DateRange {
+        didSet {
+            listViewModel.dateRange = dateRange
+            summaryViewModel.dateRange = dateRange
+        }
+    }
+    
     private let repository: TransactionsRepository
     private let logger: Logger
     private let calendar: CalendarProtocol
@@ -20,22 +40,13 @@ final class TransactionsOverviewViewModel {
          logger: Logger,
          calendar: CalendarProtocol,
          timeChangedObserver: TimeChangedObserver,
-         computingService: TransactionsComputingService) {
+         computingService: TransactionsComputingService,
+         dateRange: DateRange) {
         self.repository = repository
         self.logger = logger
         self.calendar = calendar
         self.timeChangedObserver = timeChangedObserver
         self.computingService = computingService
-    }
-    
-    var listViewModel: TransactionsListViewModel {
-        return TransactionsListViewModel(repository: repository,
-                                         logger: logger,
-                                         calendar: calendar,
-                                         timeChangedObserver: timeChangedObserver)
-    }
-    
-    var summaryViewModel: TransactionsSummaryViewModel {
-        return TransactionsSummaryViewModel(computingService: computingService)
+        self.dateRange = dateRange
     }
 }

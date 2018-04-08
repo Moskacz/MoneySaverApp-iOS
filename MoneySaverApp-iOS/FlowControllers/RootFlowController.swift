@@ -83,7 +83,7 @@ class RootFlowController: FlowController {
     
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiateFromStoryboard()
-        viewController.viewModel = try? dependencyContainer.resolve()
+        viewController.viewModel = try? dependencyContainer.resolve(arguments: DateRange.allTime)
         
         viewController.configureSummaryVC = { viewController in
             self.configure(summaryVC: viewController)
