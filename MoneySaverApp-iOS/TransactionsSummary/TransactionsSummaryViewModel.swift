@@ -7,7 +7,11 @@ protocol TransactionsSummaryViewModelDelegate: class {
 class TransactionsSummaryViewModel {
     
     weak var delegate: TransactionsSummaryViewModelDelegate?
-    var dateRange: DateRange
+    var dateRange: DateRange {
+        didSet {
+            
+        }
+    }
     
     private(set) var totalAmountText = ""
     private(set) var expensesAmountText = ""
@@ -36,7 +40,6 @@ class TransactionsSummaryViewModel {
     private func setupInitialValues() {
         do {
             setupAmountTexts(sum: try computingService.sum())
-        
         } catch {
             print(error.localizedDescription)
         }

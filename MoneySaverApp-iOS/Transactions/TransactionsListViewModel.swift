@@ -11,7 +11,11 @@ import CoreData
 
 class TransactionsListViewModel {
     
-    var dateRange: DateRange
+    var dateRange: DateRange {
+        didSet {
+            createFRC()
+        }
+    }
     
     private let repository: TransactionsRepository
     private let logger: Logger

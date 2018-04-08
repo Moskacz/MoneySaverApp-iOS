@@ -19,6 +19,7 @@ class RootFlowController: FlowController {
     
     private weak var applicationDelegate: AppDelegate?
     private weak var tabBarController: DashboardTabBarController?
+    private weak var transactionsOverviewVC: TransactionsOverviewViewController?
     
     private let storyboard: UIStoryboard
     private let dependencyContainer: DependencyContainer
@@ -83,12 +84,14 @@ class RootFlowController: FlowController {
     
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiateFromStoryboard()
-        viewController.viewModel = try? dependencyContainer.resolve(arguments: DateRange.allTime)
+        let dateRange = flowService?.preferredDateRange ?? .allTime
+        viewController.viewModel = try? dependencyContainer.resolve(arguments: dateRange)
         
         viewController.configureSummaryVC = { viewController in
             self.configure(summaryVC: viewController)
         }
         
+        self.transactionsOverviewVC = viewController
         return viewController
     }
     
@@ -104,7 +107,11 @@ class RootFlowController: FlowController {
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
         for range in viewModel.ranges {
-            alertController.addAction(UIAlertAction(title: range.title, style: .default, handler: nil))
+            let action = UIAlertAction(title: range.title, style: .default) { (_) in
+                self.flowService?.preferredDateRange = range.range
+                self.transactionsOverviewVC?.viewModel?.dateRange = range.range
+            }
+            alertController.addAction(action)
         }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
