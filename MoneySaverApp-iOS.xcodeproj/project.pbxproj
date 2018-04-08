@@ -39,6 +39,7 @@
 		354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354513122076A4EB00909A7F /* DateFormattersTests.swift */; };
 		35451317207A721200909A7F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35451316207A721200909A7F /* UserPreferences.swift */; };
 		35451319207A733600909A7F /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35451318207A733600909A7F /* UserPreferencesTests.swift */; };
+		3545131B207A750400909A7F /* FakeUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545131A207A750400909A7F /* FakeUserPreferences.swift */; };
 		3551A39920069E68001394F2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39820069E68001394F2 /* String+Additions.swift */; };
 		3551A39B20069F90001394F2 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39A20069F90001394F2 /* StringTests.swift */; };
 		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
@@ -213,6 +214,7 @@
 		354513122076A4EB00909A7F /* DateFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattersTests.swift; sourceTree = "<group>"; };
 		35451316207A721200909A7F /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
 		35451318207A733600909A7F /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
+		3545131A207A750400909A7F /* FakeUserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserPreferences.swift; sourceTree = "<group>"; };
 		3551A39820069E68001394F2 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		3551A39A20069F90001394F2 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
@@ -387,6 +389,7 @@
 				35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */,
 				353B9C8E2027775D00990667 /* FakeTransction.swift */,
 				35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */,
+				3545131A207A750400909A7F /* FakeUserPreferences.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -1044,6 +1047,7 @@
 				35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */,
 				35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */,
 				353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */,
+				3545131B207A750400909A7F /* FakeUserPreferences.swift in Sources */,
 				35B8A1E5200D1A5B00EA8C7C /* FakeTimeChangedObserver.swift in Sources */,
 				355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */,
 				350FBC1F200A9596000457EB /* TransactionManagedObjectTests.swift in Sources */,

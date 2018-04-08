@@ -12,12 +12,15 @@ import XCTest
 class RootFlowServiceTests: XCTestCase {
     
     var repositoryFake: FakeTransactionsRepository!
+    var userPreferencesFake: FakeUserPreferences!
     var sut: RootFlowServiceImpl!
     
     override func setUp() {
         super.setUp()
         repositoryFake = FakeTransactionsRepository()
-        sut = RootFlowServiceImpl(repository: repositoryFake)
+        userPreferencesFake = FakeUserPreferences()
+        sut = RootFlowServiceImpl(repository: repositoryFake,
+                                  userPreferences: userPreferencesFake)
     }
     
     override func tearDown() {
@@ -33,4 +36,15 @@ class RootFlowServiceTests: XCTestCase {
         XCTAssertTrue(repositoryFake.addTransactionCalled)
     }
     
+    func test_setDateRange_shouldSetOnUserPreferences() {
+        let value = DateRange.thisWeek
+        sut.preferredDateRange = value
+        XCTAssertEqual(userPreferencesFake.dateRangeStub, value)
+    }
+    
+    func test_getDateRange_shouldGetFromUserPreferences() {
+        let value = DateRange.today
+        userPreferencesFake.dateRangeStub = value
+        XCTAssertEqual(sut.preferredDateRange, value)
+    }
 }

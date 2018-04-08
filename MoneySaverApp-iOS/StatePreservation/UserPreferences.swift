@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UserPreferences {
+protocol UserPreferences: class {
     var dateRange: DateRange { get set }
 }
 

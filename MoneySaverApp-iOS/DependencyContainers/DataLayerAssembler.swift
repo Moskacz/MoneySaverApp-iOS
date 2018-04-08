@@ -33,7 +33,11 @@ struct DataLayerAssembler: ContainerAssembly {
         }
         
         container.register {
-            RootFlowServiceImpl(repository: $0) as RootFlowService
+            RootFlowServiceImpl(repository: $0, userPreferences: $1) as RootFlowService
+        }
+        
+        container.register(.singleton) {
+            UserDefaults.standard as UserPreferences
         }
     }
 }
