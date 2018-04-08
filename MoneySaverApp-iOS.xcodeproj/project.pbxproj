@@ -37,6 +37,8 @@
 		353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8E2027775D00990667 /* FakeTransction.swift */; };
 		35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35411784200BE83F002B7AF6 /* RootFlowService.swift */; };
 		354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354513122076A4EB00909A7F /* DateFormattersTests.swift */; };
+		35451317207A721200909A7F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35451316207A721200909A7F /* UserPreferences.swift */; };
+		35451319207A733600909A7F /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35451318207A733600909A7F /* UserPreferencesTests.swift */; };
 		3551A39920069E68001394F2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39820069E68001394F2 /* String+Additions.swift */; };
 		3551A39B20069F90001394F2 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39A20069F90001394F2 /* StringTests.swift */; };
 		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
@@ -209,6 +211,8 @@
 		353B9C8E2027775D00990667 /* FakeTransction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransction.swift; sourceTree = "<group>"; };
 		35411784200BE83F002B7AF6 /* RootFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowService.swift; sourceTree = "<group>"; };
 		354513122076A4EB00909A7F /* DateFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattersTests.swift; sourceTree = "<group>"; };
+		35451316207A721200909A7F /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		35451318207A733600909A7F /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		3551A39820069E68001394F2 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		3551A39A20069F90001394F2 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
 		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
@@ -603,6 +607,7 @@
 				353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */,
 				35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */,
 				354513122076A4EB00909A7F /* DateFormattersTests.swift */,
+				35451318207A733600909A7F /* UserPreferencesTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -764,6 +769,7 @@
 		35EE9D00200D3B44006D5791 /* StatePreservation */ = {
 			isa = PBXGroup;
 			children = (
+				35451316207A721200909A7F /* UserPreferences.swift */,
 			);
 			path = StatePreservation;
 			sourceTree = "<group>";
@@ -997,6 +1003,7 @@
 				3573A9312002AE3100B615F7 /* DateRange.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				3585EDFA1FDDA08200871941 /* Styles.swift in Sources */,
+				35451317207A721200909A7F /* UserPreferences.swift in Sources */,
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				3514C42D1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
@@ -1057,6 +1064,7 @@
 				35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */,
 				35B8A1EB200D22A900EA8C7C /* FakeFetchedResultsController.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
+				35451319207A733600909A7F /* UserPreferencesTests.swift in Sources */,
 				35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */,
 				35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */,
 			);
