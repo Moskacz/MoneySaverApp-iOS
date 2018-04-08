@@ -16,7 +16,6 @@ class TransactionsListViewModelTests: XCTestCase {
     var calendarFake: FakeCalendar!
     var computingServiceFake: FakeTransactionsComputingService!
     var timeChangedObserver: FakeTimeChangedObserver!
-    var appPreservtionModel: FakeAppPreservationModel!
     var sut: TransactionsListViewModel!
     
     override func setUp() {
@@ -27,11 +26,11 @@ class TransactionsListViewModelTests: XCTestCase {
         calendarFake = FakeCalendar()
         computingServiceFake = FakeTransactionsComputingService()
         timeChangedObserver = FakeTimeChangedObserver()
-        appPreservtionModel = FakeAppPreservationModel()
         sut = TransactionsListViewModel(repository: repositoryFake,
                                         logger: NullLogger(),
                                         calendar: calendarFake,
-                                        timeChangedObserver: timeChangedObserver)
+                                        timeChangedObserver: timeChangedObserver,
+                                        dateRange: .allTime)
     }
     
     override func tearDown() {

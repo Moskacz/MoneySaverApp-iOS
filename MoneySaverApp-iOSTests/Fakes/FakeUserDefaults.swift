@@ -9,21 +9,7 @@
 import Foundation
 @testable import MoneySaverApp_iOS
 
-class FakeUserDefaults: KeyValueStorage {
-    
-    var valuePassed: Any? = nil
-    var valueForKeyToReturn: Any? = nil
-    
-    func value(forKey key: String) -> Any? {
-        return valueForKeyToReturn
-    }
-    
-    func set(_ value: Any?, forKey key: String) {
-        valuePassed = value
-    }
-    
-    func removeObject(forKey key: String) {
-        
-    }
+class FakeUserDefaults {
+
 
 }

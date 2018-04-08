@@ -27,13 +27,5 @@ class UtilsAssebler: ContainerAssembly {
         container.register {
             TimeChangedObserverImpl(notificationCenter: $0) as TimeChangedObserver
         }
-        
-        container.register(.singleton) {
-            AppPreservationModelImpl(storage: $0) as AppPreservationModel
-        }
-        
-        container.register(.singleton) {
-            UserDefaults.standard as KeyValueStorage
-        }
     }
 }
