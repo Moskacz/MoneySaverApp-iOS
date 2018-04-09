@@ -9,7 +9,9 @@ class TransactionsSummaryViewModel {
     weak var delegate: TransactionsSummaryViewModelDelegate?
     var dateRange: DateRange {
         didSet {
-            
+            updateButtonText()
+            updateAmountTexts()
+            delegate?.transactionsSummaryDidUpdateValues(viewModel: self)
         }
     }
     
@@ -20,18 +22,20 @@ class TransactionsSummaryViewModel {
     
     private let computingService: TransactionsComputingService
     private var observationTokens = [ObservationToken]()
+    private var sum: TransactionsCompoundSum?
     
     init(computingService: TransactionsComputingService, dateRange: DateRange) {
         self.computingService = computingService
         self.dateRange = dateRange
-        self.dateRangeButtonText = dateRange.description
+        
         registerForNotifications()
         setupInitialValues()
     }
     
     private func registerForNotifications() {
         let token = computingService.observeTransactionsSumChanged { [unowned self] sum in
-            self.setupAmountTexts(sum: sum)
+            self.sum = sum
+            self.updateAmountTexts()
             self.delegate?.transactionsSummaryDidUpdateValues(viewModel: self)
         }
         observationTokens.append(token)
@@ -39,15 +43,32 @@ class TransactionsSummaryViewModel {
     
     private func setupInitialValues() {
         do {
-            setupAmountTexts(sum: try computingService.sum())
+            updateButtonText()
+            sum = try computingService.sum()
+            updateAmountTexts()
         } catch {
             print(error.localizedDescription)
         }
     }
     
-    private func setupAmountTexts(sum: TransactionsCompoundSum) {
-        totalAmountText = "\(sum.monthly.total())"
-        expensesAmountText = "\(sum.monthly.expenses)"
-        incomesAmountText = "\(sum.monthly.incomes)"
+    private func updateAmountTexts() {
+        let sum = sumForSelectedDateRange ?? TransactionsSum.zero
+        totalAmountText = "\(sum.total())"
+        expensesAmountText = "\(sum.expenses)"
+        incomesAmountText = "\(sum.incomes)"
+    }
+    
+    private var sumForSelectedDateRange: TransactionsSum? {
+        switch dateRange {
+        case .today: return sum?.daily
+        case .thisWeek: return sum?.weekly
+        case .thisMonth: return sum?.monthly
+        case .thisYear: return sum?.yearly
+        case .allTime: return sum?.era
+        }
+    }
+    
+    private func updateButtonText() {
+        dateRangeButtonText = dateRange.description
     }
 }

@@ -28,10 +28,13 @@ protocol TransactionsComputingService {
 struct TransactionsSum {
     let incomes: Decimal
     let expenses: Decimal
-    let dateRange: DateRange
     
     func total() -> Decimal {
         return incomes + expenses
+    }
+    
+    static var zero: TransactionsSum {
+        return TransactionsSum(incomes: 0, expenses: 0)
     }
 }
 
@@ -98,8 +101,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         let incomes = values.filter { $0 > 0 }.reduce(0, +)
         let expenses = values.filter { $0 < 0 }.reduce(0, +)
         return TransactionsSum(incomes: Decimal(incomes),
-                               expenses: Decimal(expenses),
-                               dateRange: dateRange)
+                               expenses: Decimal(expenses))
     }
     
     func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken {
