@@ -10,10 +10,6 @@ import UIKit
 
 class TransactionsListViewController: UIViewController {
     
-    override lazy var tabBarItem: UITabBarItem! = {
-        return UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
-    }()
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

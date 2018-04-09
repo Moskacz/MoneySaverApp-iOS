@@ -25,11 +25,9 @@ class BudgetViewController: UIViewController {
     
     var setupBudgetViewModel: SetupBudgetViewModel?
     
-    override var tabBarItem: UITabBarItem! {
-        get {
-            return UITabBarItem(title: "Budget", image: #imageLiteral(resourceName: "money_bag"), selectedImage: #imageLiteral(resourceName: "money_bag"))
-        }
-        set {}
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tabBarItem = UITabBarItem(title: "Budget", image: #imageLiteral(resourceName: "money_bag"), selectedImage: #imageLiteral(resourceName: "money_bag"))
     }
     
     override func viewDidLoad() {

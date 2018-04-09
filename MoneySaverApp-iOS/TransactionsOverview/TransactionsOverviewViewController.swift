@@ -15,6 +15,11 @@ final class TransactionsOverviewViewController: UIViewController {
     var configureSummaryVC: (TransactionsSummaryViewController) -> Void = { _ in }
     var configureTransactionsListViewController: (TransactionsListViewController) -> Void = { _ in }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let summaryVC = segue.destination as? TransactionsSummaryViewController {

@@ -11,11 +11,12 @@ import ScrollableGraphView
 
 class StatsViewController: UIViewController {
     
-    override lazy var tabBarItem: UITabBarItem! = {
-        return UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
-    }()
-    
     var viewModel: StatsViewModel?
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        tabBarItem = UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
