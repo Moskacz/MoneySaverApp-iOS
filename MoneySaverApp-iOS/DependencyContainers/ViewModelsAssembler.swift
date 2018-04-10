@@ -43,7 +43,7 @@ struct ViewModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            StatsViewModel()
+            StatsViewModel(repository: $0)
         }
         
         container.register {

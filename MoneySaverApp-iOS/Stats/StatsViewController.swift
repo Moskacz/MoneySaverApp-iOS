@@ -18,6 +18,21 @@ class StatsViewController: UIViewController {
         tabBarItem = UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
     }
     
+    override func loadView() {
+        super.loadView()
+        
+        let graphView = ScrollableGraphView(frame: .zero, dataSource: self)
+        graphView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(graphView)
+        graphView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        graphView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        graphView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        graphView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        graphView.tintColor = UIColor.orange
+        
+        graphView.addPlot(plot: BarPlot(identifier: "test"))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -51,6 +66,6 @@ extension StatsViewController: ScrollableGraphViewDataSource {
     }
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
-        return Double(pointIndex)
+        return 50
     }
 }

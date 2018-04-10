@@ -9,5 +9,11 @@ class StatsViewModel {
         }
     }
     
+    private let repository: TransactionsRepository
+    
+    init(repository: TransactionsRepository) {
+        self.repository = repository
+    }
+    
     
 }
