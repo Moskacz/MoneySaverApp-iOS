@@ -62,7 +62,7 @@ extension StatsViewController: ScrollableGraphViewDataSource {
     }
     
     func numberOfPoints() -> Int {
-        return 100
+        return 0
     }
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {

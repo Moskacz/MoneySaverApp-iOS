@@ -15,10 +15,11 @@ protocol TransactionsRepository {
     var fetchRequest: NSFetchRequest<TransactionManagedObject> { get }
     var expensesOnlyPredicate: NSPredicate { get }
     
-    
     func predicate(forDateRange range: DateRange) -> NSPredicate?
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
+    
+    func transactionsPerDay() throws -> [AnyObject]
 }
 
 class TransactionsRepositoryImplementation: TransactionsRepository {
@@ -91,5 +92,22 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     
     func remove(transaction: TransactionManagedObject) {
         context.delete(transaction)
+    }
+    
+    func transactionsPerDay() throws -> [AnyObject] {
+        let request = NSFetchRequest<NSDictionary>.init(entityName: "TransactionManagedObject")
+        
+        let valueExpression = NSExpression(forKeyPath: TransactionManagedObject.KeyPaths.value.rawValue)
+        let sumExpressionDesc = NSExpressionDescription()
+        sumExpressionDesc.expression = NSExpression(forFunction: "sum:", arguments: [valueExpression])
+        sumExpressionDesc.name = "sum"
+        sumExpressionDesc.expressionResultType = .doubleAttributeType
+        
+        request.propertiesToFetch = [TransactionManagedObject.KeyPaths.dayOfEra.rawValue,
+                                    sumExpressionDesc]
+        request.propertiesToGroupBy = [TransactionManagedObject.KeyPaths.dayOfEra.rawValue]
+        request.resultType = .dictionaryResultType
+        
+        return try context.fetch(request)
     }
 }

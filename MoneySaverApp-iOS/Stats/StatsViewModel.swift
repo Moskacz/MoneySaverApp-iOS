@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 class StatsViewModel {
     
@@ -11,9 +12,18 @@ class StatsViewModel {
     
     private let repository: TransactionsRepository
     
+    
     init(repository: TransactionsRepository) {
         self.repository = repository
+        
+        do {
+            let transactions = try self.repository.transactionsPerDay()
+            print(transactions)
+        } catch {
+            
+        }
     }
     
     
 }
+
