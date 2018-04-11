@@ -31,20 +31,20 @@ class ChartsDataProcessorTests: XCTestCase {
         fakeCalendar.nowToReturn = Date()
         fakeCalendar.daysInMonthRangeToReturn = 1...30
         
-        let firstDayExpense = DatedValue(day: 1, value: Decimal(floatLiteral: 50))
-        let secondDayExpense = DatedValue(day: 2, value: Decimal(floatLiteral: 10))
+        let firstDayExpense = DatedValue(date: 1, value: Decimal(floatLiteral: 50))
+        let secondDayExpense = DatedValue(date: 2, value: Decimal(floatLiteral: 10))
         let spendings = sut.spendings(fromMonthlyExpenses: [secondDayExpense, firstDayExpense])
-        XCTAssertEqual(spendings[0].value, -50)
+        XCTAssertEqual(spendings[0].y, -50)
     }
     
     func test_monthlySpendings_dailyExpensesShouldBeSumOfEarlierDays() {
         fakeCalendar.nowToReturn = Date()
         fakeCalendar.daysInMonthRangeToReturn = 1...30
         
-        let firstDayExpense = DatedValue(day: 1, value: Decimal(floatLiteral: 50))
-        let secondDayExpense = DatedValue(day: 2, value: Decimal(floatLiteral: 10))
+        let firstDayExpense = DatedValue(date: 1, value: Decimal(floatLiteral: 50))
+        let secondDayExpense = DatedValue(date: 2, value: Decimal(floatLiteral: 10))
         let spendings = sut.spendings(fromMonthlyExpenses: [firstDayExpense, secondDayExpense])
-        XCTAssertEqual(spendings[1].value, -60)
+        XCTAssertEqual(spendings[1].y, -60)
     }
     
     func test_monthlySpendings_spendingsCountShouldEqualDaysOfMonth() {
@@ -69,7 +69,7 @@ class ChartsDataProcessorTests: XCTestCase {
         fakeCalendar.nowToReturn = Date()
         fakeCalendar.daysInMonthRangeToReturn = 1...10
         let budgetValue = Double(5000)
-        let lastDaySpending = sut.estimatedSpendings(budgetValue: budgetValue).last!.value
+        let lastDaySpending = sut.estimatedSpendings(budgetValue: budgetValue).last!.y
         XCTAssertEqual(lastDaySpending.double, budgetValue)
     }
     
@@ -77,7 +77,7 @@ class ChartsDataProcessorTests: XCTestCase {
         fakeCalendar.nowToReturn = Date()
         fakeCalendar.daysInMonthRangeToReturn = 1...10
         let budgetValue = Double(1000)
-        let firstDaySpending = sut.estimatedSpendings(budgetValue: budgetValue).first!.value
+        let firstDaySpending = sut.estimatedSpendings(budgetValue: budgetValue).first!.y
         XCTAssertTrue(firstDaySpending.double != 0)
         XCTAssertEqual(firstDaySpending.double, 100)
     }

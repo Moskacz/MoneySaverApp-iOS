@@ -76,10 +76,6 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func sum() throws -> TransactionsCompoundSum {
-        let request = repository.fetchRequest
-        request.includesPropertyValues = true
-        let transactions = try repository.context
-        
         return TransactionsCompoundSum(daily: try transactionsSum(forDateRange: .today),
                                        weekly: try transactionsSum(forDateRange: .thisWeek),
                                        monthly: try transactionsSum(forDateRange: .thisMonth),

@@ -11,6 +11,10 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsRepository: TransactionsRepository {
+    func transactionsPerDay() throws -> [AnyObject] {
+        fatalError()
+    }
+    
     var addTransactionCalled = false
     var allTransactionFRCToReturn: NSFetchedResultsController<TransactionManagedObject>!
     

@@ -15,15 +15,6 @@ class StatsViewModel {
     
     init(repository: TransactionsRepository) {
         self.repository = repository
-        
-        do {
-            let transactions = try self.repository.transactionsPerDay()
-            print(transactions)
-        } catch {
-            
-        }
     }
-    
-    
 }
 

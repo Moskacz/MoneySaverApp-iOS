@@ -11,11 +11,12 @@ import XCTest
 
 class StatsViewModelTests: XCTestCase {
     
+    var repositoryFake: FakeTransactionsRepository!
     var sut: StatsViewModel!
     
     override func setUp() {
         super.setUp()
-        sut = StatsViewModel()
+        sut = StatsViewModel(repository: repositoryFake)
     }
     
     override func tearDown() {

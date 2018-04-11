@@ -99,7 +99,7 @@ class BudgetViewModel: NSObject {
         let data = CombinedChartData()
         
         let barEntries = dataProcessor.estimatedSpendings(budgetValue: budgetValue()).map {
-            BarChartDataEntry(x: Double($0.date), y: $0.value.double)
+            BarChartDataEntry(x: Double($0.x), y: $0.y.double)
         }
         let barDataSet = BarChartDataSet(values: barEntries, label: "Estimated spendings")
         barDataSet.colors = [UIColor.appGreen]
@@ -107,7 +107,7 @@ class BudgetViewModel: NSObject {
         data.barData = BarChartData(dataSet: barDataSet)
         
         let lineEntries = dataProcessor.spendings(fromMonthlyExpenses: monthlyExpenses).map {
-            return ChartDataEntry(x: Double($0.date), y: $0.value.double)
+            return ChartDataEntry(x: Double($0.x), y: $0.y.double)
         }
         let lineDataSet = LineChartDataSet(values: lineEntries, label: "Actual spendings")
         lineDataSet.colors = [UIColor.appRed]
