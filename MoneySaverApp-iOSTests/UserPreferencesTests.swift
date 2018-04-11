@@ -12,13 +12,13 @@ import XCTest
 class UserPreferencesTests: XCTestCase {
     
     func test_whenUserSavesDateRange_itShouldBeStored() {
-        let userDef = UserDefaults()
+        let userDef = UserDefaults(suiteName: "unit_test")!
         userDef.dateRange = DateRange.thisMonth
         XCTAssertEqual(userDef.dateRange, DateRange.thisMonth)
     }
     
     func test_whenThereIsNoSavedDateRange_thenAllTimeShouldBeReturned() {
-        let userDef = UserDefaults()
+        let userDef = UserDefaults(suiteName: "unit_test")!
         XCTAssertEqual(userDef.dateRange, DateRange.allTime)
     }
     
