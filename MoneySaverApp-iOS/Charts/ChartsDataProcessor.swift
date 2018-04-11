@@ -8,9 +8,11 @@
 
 import Foundation
 
+
+
 protocol ChartsDataProcessor {
-    func spendings(fromMonthlyExpenses expenses: [DailyValue]) -> [DailyValue]
-    func estimatedSpendings(budgetValue: Double) -> [DailyValue]
+    func spendings(fromMonthlyExpenses expenses: [DatedValue]) -> [DatedValue]
+    func estimatedSpendings(budgetValue: Double) -> [DatedValue]
 }
 
 class ChartsDataProcessorImpl: ChartsDataProcessor {
@@ -21,26 +23,26 @@ class ChartsDataProcessorImpl: ChartsDataProcessor {
         self.calendar = calendar
     }
     
-    func spendings(fromMonthlyExpenses expenses: [DailyValue]) -> [DailyValue] {
+    func spendings(fromMonthlyExpenses expenses: [DatedValue]) -> [DatedValue] {
         let sortedExpeneses = expenses.sorted { (lhs, rhs) -> Bool in
-            return lhs.day < rhs.day
+            return lhs.date < rhs.date
         }
         
         let daysRange = calendar.daysInMonthRange(forDate: calendar.now)
         return daysRange.map { day in
             let value = sortedExpeneses.reduce(0, { (sum, dailyValue) -> Decimal in
-                guard dailyValue.day <= day else { return sum }
+                guard dailyValue.date <= day else { return sum }
                 return sum - dailyValue.value
             })
-            return DailyValue(day: day, value: value)
+            return DatedValue(date: day, value: value)
         }
     }
     
-    func estimatedSpendings(budgetValue: Double) -> [DailyValue] {
+    func estimatedSpendings(budgetValue: Double) -> [DatedValue] {
         let daysRange = calendar.daysInMonthRange(forDate: calendar.now)
         return daysRange.map { day in
             let dailySpending = budgetValue * Double(day)  / Double(daysRange.upperBound)
-            return DailyValue(day: day, value: Decimal(floatLiteral: dailySpending))
+            return DatedValue(date: day, value: Decimal(floatLiteral: dailySpending))
         }
     }
     

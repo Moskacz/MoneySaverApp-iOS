@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 import MMFoundation
 
-struct DailyValue {
+struct DatedValue {
     static let storageKey = "valueStorageKey"
     
-    let day: Int
+    let date: Int
     let value: Decimal
 }
 
@@ -21,8 +21,8 @@ protocol TransactionsComputingService {
     func sum() throws -> TransactionsCompoundSum
     func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken
     
-    func monthlyExpenses() throws -> [DailyValue]
-    func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken
+    func monthlyExpenses() throws -> [DatedValue]
+    func observeMonthlyExpenseChanged(_ callback: @escaping ([DatedValue]) -> Void) -> ObservationToken
 }
 
 struct TransactionsSum {
@@ -76,6 +76,10 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     }
     
     func sum() throws -> TransactionsCompoundSum {
+        let request = repository.fetchRequest
+        request.includesPropertyValues = true
+        let transactions = try repository.context
+        
         return TransactionsCompoundSum(daily: try transactionsSum(forDateRange: .today),
                                        weekly: try transactionsSum(forDateRange: .thisWeek),
                                        monthly: try transactionsSum(forDateRange: .thisMonth),
@@ -114,20 +118,23 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
         return ObservationToken(notificationCenter: notificationCenter, token: token)
     }
     
-    func monthlyExpenses() throws -> [DailyValue] {
+    func monthlyExpenses() throws -> [DatedValue] {
         let request: NSFetchRequest<TransactionManagedObject> = TransactionManagedObject.fetchRequest()
         let predicates = [repository.expensesOnlyPredicate, repository.predicate(forDateRange: .thisMonth)].compactMap { $0 }
         request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        
+        
         let groupedTransactions = try repository.context.fetch(request).filter { $0.date != nil}.grouped { $0.date!.dayOfMonth }
-        return groupedTransactions.map{ (dayOfEra, transactions) -> DailyValue in
+        
+        return groupedTransactions.map{ (dayOfEra, transactions) -> DatedValue in
             let values = transactions.map { $0.value?.doubleValue ?? 0 }
-            return DailyValue(day: Int(dayOfEra), value: Decimal(values.reduce(0, +)))
+            return DatedValue(date: Int(dayOfEra), value: Decimal(values.reduce(0, +)))
         }
     }
     
-    func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken {
+    func observeMonthlyExpenseChanged(_ callback: @escaping ([DatedValue]) -> Void) -> ObservationToken {
         let token = notificationCenter.addObserver(forName: .monthlyExpensesChangedNotification, object: nil, queue: .main, using: { note in
-            guard let values = note.userInfo?[DailyValue.storageKey] as? [DailyValue] else {
+            guard let values = note.userInfo?[DatedValue.storageKey] as? [DatedValue] else {
                 return
             }
             callback(values)
@@ -140,7 +147,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
             let transactionsSum = try sum()
             notificationCenter.post(name: .sumChangedNotification, object: nil, userInfo: [TransactionsCompoundSum.storageKey: transactionsSum])
             let expenses = try monthlyExpenses()
-            notificationCenter.post(name: .monthlyExpensesChangedNotification, object: nil, userInfo: [DailyValue.storageKey: expenses])
+            notificationCenter.post(name: .monthlyExpensesChangedNotification, object: nil, userInfo: [DatedValue.storageKey: expenses])
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }

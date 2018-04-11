@@ -20,11 +20,11 @@ class FakeTransactionsComputingService: TransactionsComputingService {
         fatalError()
     }
     
-    func monthlyExpenses() -> [DailyValue] {
+    func monthlyExpenses() -> [DatedValue] {
         fatalError()
     }
     
-    func observeMonthlyExpenseChanged(_ callback: @escaping ([DailyValue]) -> Void) -> ObservationToken {
+    func observeMonthlyExpenseChanged(_ callback: @escaping ([DatedValue]) -> Void) -> ObservationToken {
         fatalError()
     }
 }

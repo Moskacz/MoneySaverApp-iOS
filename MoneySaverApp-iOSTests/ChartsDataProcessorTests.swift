@@ -31,8 +31,8 @@ class ChartsDataProcessorTests: XCTestCase {
         fakeCalendar.nowToReturn = Date()
         fakeCalendar.daysInMonthRangeToReturn = 1...30
         
-        let firstDayExpense = DailyValue(day: 1, value: Decimal(floatLiteral: 50))
-        let secondDayExpense = DailyValue(day: 2, value: Decimal(floatLiteral: 10))
+        let firstDayExpense = DatedValue(day: 1, value: Decimal(floatLiteral: 50))
+        let secondDayExpense = DatedValue(day: 2, value: Decimal(floatLiteral: 10))
         let spendings = sut.spendings(fromMonthlyExpenses: [secondDayExpense, firstDayExpense])
         XCTAssertEqual(spendings[0].value, -50)
     }
@@ -41,8 +41,8 @@ class ChartsDataProcessorTests: XCTestCase {
         fakeCalendar.nowToReturn = Date()
         fakeCalendar.daysInMonthRangeToReturn = 1...30
         
-        let firstDayExpense = DailyValue(day: 1, value: Decimal(floatLiteral: 50))
-        let secondDayExpense = DailyValue(day: 2, value: Decimal(floatLiteral: 10))
+        let firstDayExpense = DatedValue(day: 1, value: Decimal(floatLiteral: 50))
+        let secondDayExpense = DatedValue(day: 2, value: Decimal(floatLiteral: 10))
         let spendings = sut.spendings(fromMonthlyExpenses: [firstDayExpense, secondDayExpense])
         XCTAssertEqual(spendings[1].value, -60)
     }
