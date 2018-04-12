@@ -19,6 +19,7 @@ protocol TransactionsRepository {
     func addTransaction(data: TransactionData, category: TransactionCategoryManagedObject)
     func remove(transaction: TransactionManagedObject)
     
+    func allTransactions() throws -> [TransactionManagedObject]
     func transactionsPerDay() throws -> [AnyObject]
 }
 
@@ -92,6 +93,12 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     
     func remove(transaction: TransactionManagedObject) {
         context.delete(transaction)
+    }
+    
+    func allTransactions() throws -> [TransactionManagedObject] {
+        let request = fetchRequest
+        request.includesPropertyValues = true
+        return try context.fetch(request)
     }
     
     func transactionsPerDay() throws -> [AnyObject] {

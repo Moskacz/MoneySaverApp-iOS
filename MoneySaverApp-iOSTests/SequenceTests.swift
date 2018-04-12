@@ -24,6 +24,11 @@ class SequenceTests: XCTestCase {
         XCTAssertEqual(grouped[25]!, [person3, person4])
     }
     
+    func test_compoundSum() {
+        
+        
+    }
+    
 }
 
 private struct Person {

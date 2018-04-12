@@ -67,6 +67,7 @@
 		35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */; };
 		35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */; };
 		35816360200560F80013BE33 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581635F200560F80013BE33 /* CalendarTests.swift */; };
+		35832E42207E8A310023521C /* ManagedContextProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35832E41207E8A310023521C /* ManagedContextProtocol.swift */; };
 		3585EDFA1FDDA08200871941 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDF91FDDA08200871941 /* Styles.swift */; };
 		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
@@ -241,6 +242,7 @@
 		35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModel.swift; sourceTree = "<group>"; };
 		35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModelTests.swift; sourceTree = "<group>"; };
 		3581635F200560F80013BE33 /* CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTests.swift; sourceTree = "<group>"; };
+		35832E41207E8A310023521C /* ManagedContextProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedContextProtocol.swift; sourceTree = "<group>"; };
 		3585EDF91FDDA08200871941 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				35C9FF001E8C29BF0092D5E3 /* TransactionManagedObject+CoreDataClass.swift */,
 				35C9FEED1E8C240A0092D5E3 /* CoreDataStack.swift */,
 				35C9FEEF1E8C276A0092D5E3 /* DataModel.xcdatamodeld */,
+				35832E41207E8A310023521C /* ManagedContextProtocol.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -968,6 +971,7 @@
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
 				355DB267201FA83D00F990FD /* CalendarDate+CoreDataClass.swift in Sources */,
 				35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */,
+				35832E42207E8A310023521C /* ManagedContextProtocol.swift in Sources */,
 				35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */,
 				35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */,
 				358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */,

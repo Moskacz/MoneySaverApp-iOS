@@ -22,3 +22,21 @@ extension Sequence {
     }
     
 }
+
+extension Sequence where Element: TransactionProtocol {
+    
+    var compoundSum: TransactionsCompoundSum {
+        for transaction in self {
+            transaction.transactionDate?.dayOfEra
+        }
+        
+        return TransactionsCompoundSum(daily: .zero, weekly: .zero, monthly: .zero, yearly: .zero, era: .zero)
+    }
+    
+    func compoundSum(date: CalendarDateProtocol) -> TransactionsCompoundSum {
+        
+        return TransactionsCompoundSum(daily: .zero, weekly: .zero, monthly: .zero, yearly: .zero, era: .zero)
+    }
+    
+    
+}
