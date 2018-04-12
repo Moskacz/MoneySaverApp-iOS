@@ -53,6 +53,22 @@ class SequenceTests: XCTestCase {
         XCTAssertEqual(compoundSum.era.incomes.double, 30) // both
     }
     
+    func test_transactionsSum() {
+        let transaction1 = FakeTransaction()
+        transaction1.value = NSDecimalNumber(value: 10)
+        
+        let transaction2 = FakeTransaction()
+        transaction2.value = NSDecimalNumber(value: 20)
+        
+        let transaction3 = FakeTransaction()
+        transaction3.value = NSDecimalNumber(value: -50)
+        
+        let sum = [transaction1, transaction2, transaction3].transactionsSum
+        XCTAssertEqual(sum.incomes, Decimal(30))
+        XCTAssertEqual(sum.expenses, Decimal(-50))
+        XCTAssertEqual(sum.total(), Decimal(-20))
+    }
+    
 }
 
 private struct Person {
