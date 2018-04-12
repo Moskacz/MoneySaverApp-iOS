@@ -11,6 +11,10 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsRepository: TransactionsRepository {
+    func allTransactions() throws -> [TransactionManagedObject] {
+        fatalError()
+    }
+    
     func transactionsPerDay() throws -> [AnyObject] {
         fatalError()
     }

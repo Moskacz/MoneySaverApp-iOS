@@ -24,9 +24,33 @@ class SequenceTests: XCTestCase {
         XCTAssertEqual(grouped[25]!, [person3, person4])
     }
     
-    func test_compoundSum() {
+    func test_compoundSum_shouldComputeSumForGivenDate() {
+        let today = FakeCalendarDate()
+        today.dayOfEra = 1
+        today.weekOfEra = 2
+        today.monthOfEra = 3
+        today.year = 2018
         
+        let todayTransaction = FakeTransaction()
+        todayTransaction.transactionDate = today
+        todayTransaction.value = NSDecimalNumber(value: 20)
         
+        let yesterday = FakeCalendarDate()
+        yesterday.dayOfEra = 0
+        yesterday.weekOfEra = 2
+        yesterday.monthOfEra = 3
+        yesterday.year = 2018
+        
+        let yesterdayTransaction = FakeTransaction()
+        yesterdayTransaction.transactionDate = yesterday
+        yesterdayTransaction.value = NSDecimalNumber(value: 10)
+        
+        let compoundSum = [todayTransaction, yesterdayTransaction].compoundSum(date: today)
+        XCTAssertEqual(compoundSum.daily.incomes.double, 20) // only today
+        XCTAssertEqual(compoundSum.weekly.incomes.double, 30) // both
+        XCTAssertEqual(compoundSum.monthly.incomes.double, 30) // both
+        XCTAssertEqual(compoundSum.yearly.incomes.double, 30) // both
+        XCTAssertEqual(compoundSum.era.incomes.double, 30) // both
     }
     
 }

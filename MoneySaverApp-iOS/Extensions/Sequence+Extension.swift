@@ -25,18 +25,38 @@ extension Sequence {
 
 extension Sequence where Element: TransactionProtocol {
     
-    var compoundSum: TransactionsCompoundSum {
-        for transaction in self {
-            transaction.transactionDate?.dayOfEra
+    func compoundSum(date: CalendarDateProtocol) -> TransactionsCompoundSum {
+        var day = [Element]()
+        var week = [Element]()
+        var month = [Element]()
+        var year = [Element]()
+        
+        for element in self {
+            if element.transactionDate?.dayOfEra == date.dayOfEra {
+                day.append(element)
+            }
+            if element.transactionDate?.weekOfEra == date.weekOfEra {
+                week.append(element)
+            }
+            if element.transactionDate?.monthOfEra == date.monthOfEra {
+                month.append(element)
+            }
+            if element.transactionDate?.year == date.year {
+                year.append(element)
+            }
         }
         
-        return TransactionsCompoundSum(daily: .zero, weekly: .zero, monthly: .zero, yearly: .zero, era: .zero)
+        return TransactionsCompoundSum(daily: day.transactionsSum,
+                                       weekly: week.transactionsSum,
+                                       monthly: month.transactionsSum,
+                                       yearly: year.transactionsSum,
+                                       era: self.transactionsSum)
     }
     
-    func compoundSum(date: CalendarDateProtocol) -> TransactionsCompoundSum {
+    var transactionsSum: TransactionsSum {
+        let incomes = map { $0.value?.doubleValue ?? 0 }.filter { $0 > 0 }.reduce(0, +)
+        let expenses = map { $0.value?.doubleValue ?? 0 }.filter { $0 < 0 }.reduce(0, +)
         
-        return TransactionsCompoundSum(daily: .zero, weekly: .zero, monthly: .zero, yearly: .zero, era: .zero)
+        return TransactionsSum(incomes: Decimal(incomes), expenses: Decimal(expenses))
     }
-    
-    
 }
