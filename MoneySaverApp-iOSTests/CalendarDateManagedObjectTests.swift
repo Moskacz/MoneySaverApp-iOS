@@ -25,6 +25,7 @@ class CalendarDateManagedObjectTests: XCTestCase {
                                 timeInterval: 9,
                                 monthOfYear: 10,
                                 monthOfEra: 11)
+        
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let managedObject = CalendarDateManagedObject(context: context)
         managedObject.update(with: date)

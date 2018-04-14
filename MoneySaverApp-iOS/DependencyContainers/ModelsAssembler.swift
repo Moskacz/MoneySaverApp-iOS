@@ -18,9 +18,10 @@ struct ModelsAssembler: ContainerAssembly {
         
         container.register {
             TransactionsComputingServiceImpl(repository: $0,
-                                             notificationCenter: $1,
-                                             logger: $2,
-                                             timeChangedObserver: $3) as TransactionsComputingService
+                                             calendar: $1,
+                                             notificationCenter: $2,
+                                             logger: $3,
+                                             timeChangedObserver: $4) as TransactionsComputingService
         }
         
         container.register {
