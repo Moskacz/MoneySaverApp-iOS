@@ -84,7 +84,7 @@ class CalendarTests: XCTestCase {
     
     func test_fillCalendarDayProperty() {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let calendarDate = CalendarDate(context: context)
+        let calendarDate = CalendarDateManagedObject(context: context)
         calendar.fillPropertiesOf(calendarDate: calendarDate, withDate: testedDate)
         XCTAssertEqual(calendarDate.timeInterval, testedDate.timeIntervalSince1970)
         XCTAssertEqual(calendarDate.dayOfWeek, 3)

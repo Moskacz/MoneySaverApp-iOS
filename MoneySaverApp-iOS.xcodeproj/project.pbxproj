@@ -50,8 +50,6 @@
 		355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */; };
 		355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */; };
 		355509D41F7AC8080007FEF1 /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
-		355DB267201FA83D00F990FD /* CalendarDate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB265201FA83D00F990FD /* CalendarDate+CoreDataClass.swift */; };
-		355DB268201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB266201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift */; };
 		355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB2692020F90200F990FD /* Sequence+Extension.swift */; };
 		355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB26B2020FA3500F990FD /* SequenceTests.swift */; };
 		356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */; };
@@ -136,6 +134,8 @@
 		35E1567820132695004F6A8D /* StatsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E1567720132695004F6A8D /* StatsViewModelTests.swift */; };
 		35E4DD591EC3817300102E3B /* UICollectionView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */; };
 		35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */; };
+		35E70C042082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */; };
+		35E70C052082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */; };
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
@@ -225,8 +225,6 @@
 		355509CE1F7AC1730007FEF1 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerAdditionsTests.swift; sourceTree = "<group>"; };
 		355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowControllerTests.swift; sourceTree = "<group>"; };
-		355DB265201FA83D00F990FD /* CalendarDate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDate+CoreDataClass.swift"; sourceTree = "<group>"; };
-		355DB266201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		355DB2692020F90200F990FD /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
 		355DB26B2020FA3500F990FD /* SequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceTests.swift; sourceTree = "<group>"; };
 		356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +316,8 @@
 		35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Additions.swift"; sourceTree = "<group>"; };
 		35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewUpdater.swift; sourceTree = "<group>"; };
 		35E6F1DE1EC389F1007667BB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDateManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDateManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35EA1A261EB632A70083C57F /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
@@ -691,8 +691,8 @@
 		35C9FEEC1E8C23A90092D5E3 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				355DB265201FA83D00F990FD /* CalendarDate+CoreDataClass.swift */,
-				355DB266201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift */,
+				35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */,
+				35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */,
 				35708BC31FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift */,
 				35708BC41FC95C7F0052ED9E /* BudgetManagedObject+CoreDataProperties.swift */,
 				3514C42A1F9CA0A6003C3044 /* TransactionCategoryManagedObject+CoreDataProperties.swift */,
@@ -969,7 +969,6 @@
 				35CFA2932028CC210028FBA1 /* CalendarDateProtocol.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */,
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
-				355DB267201FA83D00F990FD /* CalendarDate+CoreDataClass.swift in Sources */,
 				35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */,
 				35832E42207E8A310023521C /* ManagedContextProtocol.swift in Sources */,
 				35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */,
@@ -978,13 +977,14 @@
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */,
 				35A023A42024C19200E42FFD /* TransactionGrouping.swift in Sources */,
+				35E70C042082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift in Sources */,
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
 				351005FB206438130090AD43 /* TransactionsSummaryViewController.swift in Sources */,
+				35E70C052082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift in Sources */,
 				355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */,
 				35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
-				355DB268201FA83D00F990FD /* CalendarDate+CoreDataProperties.swift in Sources */,
 				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
