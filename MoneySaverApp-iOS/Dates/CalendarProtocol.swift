@@ -21,6 +21,21 @@ protocol CalendarProtocol {
     func fillPropertiesOf(calendarDate: CalendarDateManagedObject, withDate date: Date)
 }
 
+struct CalendarDate: CalendarDateProtocol {
+    let calendarIdentifier: String?
+    let dayOfEra: Int32
+    let dayOfMonth: Int32
+    let dayOfYear: Int32
+    let era: Int32
+    let weekOfEra: Int32
+    let weekOfMonth: Int32
+    let weekOfYear: Int32
+    let year: Int32
+    let timeInterval: Double
+    let monthOfYear: Int32
+    let monthOfEra: Int32
+}
+
 extension Calendar: CalendarProtocol {
     
     var now: Date {
