@@ -85,7 +85,7 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
             transaction.title = data.title
             transaction.value = data.value as NSDecimalNumber
             let date = CalendarDateManagedObject.createEntity(inContext: self.context)
-            self.calendar.fillPropertiesOf(calendarDate: date, withDate: data.creationDate)
+            date.update(with: self.calendar.nowCalendarDate)
             transaction.date = date
             transaction.category = category
         }

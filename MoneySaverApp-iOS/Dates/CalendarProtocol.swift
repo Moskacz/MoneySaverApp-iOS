@@ -19,7 +19,6 @@ protocol CalendarProtocol {
     func yearName(forDate date: Date) -> String
     func daysInMonthRange(forDate date: Date) -> CountableClosedRange<Int>
     func beginEndDaysOfWeek(forDate date: Date) -> (start: Date, end: Date)
-    func fillPropertiesOf(calendarDate: CalendarDateManagedObject, withDate date: Date)
 }
 
 struct CalendarDate: CalendarDateProtocol {
@@ -100,21 +99,5 @@ extension Calendar: CalendarProtocol {
                               for: date)
         let endDate = startDate.addingTimeInterval(interval-1)
         return (startDate, endDate)
-    }
-    
-    func fillPropertiesOf(calendarDate: CalendarDateManagedObject, withDate date: Date) {
-        calendarDate.calendarIdentifier = identifier.stringIdentifier
-        calendarDate.timeInterval = date.timeIntervalSince1970
-        calendarDate.dayOfWeek = Int32(component(.weekday, from: date))
-        calendarDate.dayOfMonth = Int32(component(.day, from: date))
-        calendarDate.dayOfYear = Int32(ordinality(of: .day, in: .year, for: date) ?? -1)
-        calendarDate.dayOfEra = Int32(dayOfEraOf(date: date))
-        calendarDate.weekOfMonth = Int32(component(.weekOfMonth, from: date))
-        calendarDate.weekOfYear = Int32(component(.weekOfYear, from: date))
-        calendarDate.weekOfEra = Int32(weekOfEraOf(date: date))
-        calendarDate.monthOfYear = Int32(component(.month, from: date))
-        calendarDate.monthOfEra = Int32(ordinality(of: .month, in: .era, for: date) ?? -1)
-        calendarDate.year = Int32(component(.year, from: date))
-        calendarDate.era = Int32(component(.era, from: date))
     }
 }

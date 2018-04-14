@@ -136,6 +136,7 @@
 		35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E4DD5A1EC3832400102E3B /* CollectionViewUpdater.swift */; };
 		35E70C042082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */; };
 		35E70C052082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */; };
+		35E70C0720821C8C001F4808 /* CalendarDateManagedObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C0620821C8C001F4808 /* CalendarDateManagedObjectTests.swift */; };
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
@@ -318,6 +319,7 @@
 		35E6F1DE1EC389F1007667BB /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDateManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDateManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		35E70C0620821C8C001F4808 /* CalendarDateManagedObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateManagedObjectTests.swift; sourceTree = "<group>"; };
 		35EA1A261EB632A70083C57F /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 				35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */,
 				354513122076A4EB00909A7F /* DateFormattersTests.swift */,
 				35451318207A733600909A7F /* UserPreferencesTests.swift */,
+				35E70C0620821C8C001F4808 /* CalendarDateManagedObjectTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -1071,6 +1074,7 @@
 				35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */,
 				35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */,
 				35B8A1EB200D22A900EA8C7C /* FakeFetchedResultsController.swift in Sources */,
+				35E70C0720821C8C001F4808 /* CalendarDateManagedObjectTests.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
 				35451319207A733600909A7F /* UserPreferencesTests.swift in Sources */,
 				35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */,

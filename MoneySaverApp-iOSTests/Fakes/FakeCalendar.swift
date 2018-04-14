@@ -25,6 +25,10 @@ class FakeCalendar: CalendarProtocol {
         return nowToReturn
     }
     
+    var nowCalendarDate: CalendarDate {
+        fatalError()
+    }
+    
     func dayOfEraOf(date: Date) -> Int {
         return dayOfEraOfDateToReturn
     }
@@ -56,10 +60,7 @@ class FakeCalendar: CalendarProtocol {
     func yearName(forDate date: Date) -> String {
         return yearNameToReturn
     }
-    
-    func fillPropertiesOf(calendarDate: CalendarDateManagedObject, withDate date: Date) {
-        fatalError()
-    }
+
     
     func beginEndDaysOfWeek(forDate date: Date) -> (start: Date, end: Date) {
         return beginEndDaysOfWeekToReturn
