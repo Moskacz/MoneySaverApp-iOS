@@ -26,7 +26,7 @@ class StatsViewModelTests: XCTestCase {
     }
     
     func test_availableGroupings() {
-        XCTAssertEqual(sut.availableGroupings, [TransactionGrouping.day, TransactionGrouping.week, TransactionGrouping.month])
+        XCTAssertEqual(sut.availableGroupings, [TransactionsGrouping.day, TransactionsGrouping.week, TransactionsGrouping.month])
     }
     
     func test_selectedGrouping() {
