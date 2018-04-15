@@ -42,14 +42,6 @@ class StatsViewController: UIViewController {
         setupTitleView()
     }
     
-    private func setupTitleView() {
-        guard let model = viewModel else { return }
-        let segmentedControl = UISegmentedControl(items: model.availableGroupings.map { $0.title })
-        segmentedControl.selectedSegmentIndex = model.selectedGrouping
-        segmentedControl.addTarget(self, action: #selector(selectedGroupingChanged(control:)), for: .valueChanged)
-        navigationItem.titleView = segmentedControl
-    }
-    
     @objc private func selectedGroupingChanged(control: UISegmentedControl) {
         viewModel?.selectedGrouping = control.selectedSegmentIndex
     }

@@ -78,7 +78,6 @@
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
 		359BC2901EA27FCA0020E156 /* TransactionsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */; };
 		35A0239E2022394B00E42FFD /* NSManagedObjectContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */; };
-		35A023A42024C19200E42FFD /* TransactionGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023A32024C19200E42FFD /* TransactionGrouping.swift */; };
 		35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023A82024C9CC00E42FFD /* InsetLabel.swift */; };
 		35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023AB2024E59200E42FFD /* SettingsViewController.swift */; };
 		35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA04201E023C009E6111 /* Calendar+Additions.swift */; };
@@ -137,6 +136,7 @@
 		35E70C042082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */; };
 		35E70C052082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */; };
 		35E70C0720821C8C001F4808 /* CalendarDateManagedObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C0620821C8C001F4808 /* CalendarDateManagedObjectTests.swift */; };
+		35E70C092083C873001F4808 /* TransactionsGrouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E70C082083C873001F4808 /* TransactionsGrouping.swift */; };
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
@@ -254,7 +254,6 @@
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsRepository.swift; sourceTree = "<group>"; };
 		35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Additions.swift"; sourceTree = "<group>"; };
-		35A023A32024C19200E42FFD /* TransactionGrouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionGrouping.swift; sourceTree = "<group>"; };
 		35A023A82024C9CC00E42FFD /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		35A023AB2024E59200E42FFD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35A7BA04201E023C009E6111 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
@@ -320,6 +319,7 @@
 		35E70C022082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDateManagedObject+CoreDataClass.swift"; sourceTree = "<group>"; };
 		35E70C032082170F001F4808 /* CalendarDateManagedObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarDateManagedObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		35E70C0620821C8C001F4808 /* CalendarDateManagedObjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateManagedObjectTests.swift; sourceTree = "<group>"; };
+		35E70C082083C873001F4808 /* TransactionsGrouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsGrouping.swift; sourceTree = "<group>"; };
 		35EA1A261EB632A70083C57F /* TransactionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
 		35EA1A281EB632DB0083C57F /* TransactionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModel.swift; sourceTree = "<group>"; };
@@ -674,6 +674,7 @@
 		35C0ECF61FB72C1400589F53 /* Grouping */ = {
 			isa = PBXGroup;
 			children = (
+				35E70C082083C873001F4808 /* TransactionsGrouping.swift */,
 			);
 			path = Grouping;
 			sourceTree = "<group>";
@@ -753,7 +754,6 @@
 			children = (
 				355509CC1F7ABF7E0007FEF1 /* StatsViewController.swift */,
 				35DFB5DC2012903B00F03C93 /* StatsViewModel.swift */,
-				35A023A32024C19200E42FFD /* TransactionGrouping.swift */,
 			);
 			path = Stats;
 			sourceTree = "<group>";
@@ -979,7 +979,6 @@
 				358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */,
 				35C9FEF11E8C276A0092D5E3 /* DataModel.xcdatamodeld in Sources */,
 				35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */,
-				35A023A42024C19200E42FFD /* TransactionGrouping.swift in Sources */,
 				35E70C042082170F001F4808 /* CalendarDateManagedObject+CoreDataClass.swift in Sources */,
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
 				351005FB206438130090AD43 /* TransactionsSummaryViewController.swift in Sources */,
@@ -994,6 +993,7 @@
 				35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
 				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
+				35E70C092083C873001F4808 /* TransactionsGrouping.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
 				355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */,
