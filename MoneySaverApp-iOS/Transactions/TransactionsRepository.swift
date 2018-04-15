@@ -42,12 +42,12 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         request.includesPropertyValues = true
         request.fetchBatchSize = 20
         
-        request.sortDescriptors = [NSSortDescriptor(key: TransactionManagedObject.KeyPaths.dayOfEra.rawValue, ascending: false),
-                                   NSSortDescriptor(key: TransactionManagedObject.KeyPaths.timeInterval.rawValue, ascending: false)]
+        request.sortDescriptors = [NSSortDescriptor(key: TransactionManagedObject.KeyPath.dayOfEra.rawValue, ascending: false),
+                                   NSSortDescriptor(key: TransactionManagedObject.KeyPath.timeInterval.rawValue, ascending: false)]
         
         return NSFetchedResultsController(fetchRequest: request,
                                           managedObjectContext: context,
-                                          sectionNameKeyPath: TransactionManagedObject.KeyPaths.dayOfEra.rawValue,
+                                          sectionNameKeyPath: TransactionManagedObject.KeyPath.dayOfEra.rawValue,
                                           cacheName: nil)
     }
     
@@ -67,13 +67,13 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         let date = calendar.now
         switch range {
         case .today:
-            return NSPredicate(format: "\(TransactionManagedObject.KeyPaths.dayOfEra.rawValue) == \(calendar.dayOfEraOf(date: date))")
+            return NSPredicate(format: "\(TransactionManagedObject.KeyPath.dayOfEra.rawValue) == \(calendar.dayOfEraOf(date: date))")
         case .thisWeek:
-            return NSPredicate(format: "\(TransactionManagedObject.KeyPaths.weekOfEra.rawValue) == \(calendar.weekOfEraOf(date: date))")
+            return NSPredicate(format: "\(TransactionManagedObject.KeyPath.weekOfEra.rawValue) == \(calendar.weekOfEraOf(date: date))")
         case .thisMonth:
-            return NSPredicate(format: "\(TransactionManagedObject.KeyPaths.monthOfEra.rawValue) == \(calendar.monthOfEraOf(date: date))")
+            return NSPredicate(format: "\(TransactionManagedObject.KeyPath.monthOfEra.rawValue) == \(calendar.monthOfEraOf(date: date))")
         case .thisYear:
-            return NSPredicate(format: "\(TransactionManagedObject.KeyPaths.year.rawValue) == \(calendar.yearOf(date: date))")
+            return NSPredicate(format: "\(TransactionManagedObject.KeyPath.year.rawValue) == \(calendar.yearOf(date: date))")
         case .allTime:
             return nil
         }
@@ -104,15 +104,15 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
     func transactionsPerDay() throws -> [AnyObject] {
         let request = NSFetchRequest<NSDictionary>.init(entityName: "TransactionManagedObject")
         
-        let valueExpression = NSExpression(forKeyPath: TransactionManagedObject.KeyPaths.value.rawValue)
+        let valueExpression = NSExpression(forKeyPath: TransactionManagedObject.KeyPath.value.rawValue)
         let sumExpressionDesc = NSExpressionDescription()
         sumExpressionDesc.expression = NSExpression(forFunction: "sum:", arguments: [valueExpression])
         sumExpressionDesc.name = "sum"
         sumExpressionDesc.expressionResultType = .doubleAttributeType
         
-        request.propertiesToFetch = [TransactionManagedObject.KeyPaths.dayOfEra.rawValue,
+        request.propertiesToFetch = [TransactionManagedObject.KeyPath.dayOfEra.rawValue,
                                     sumExpressionDesc]
-        request.propertiesToGroupBy = [TransactionManagedObject.KeyPaths.dayOfEra.rawValue]
+        request.propertiesToGroupBy = [TransactionManagedObject.KeyPath.dayOfEra.rawValue]
         request.resultType = .dictionaryResultType
         
         return try context.fetch(request)
