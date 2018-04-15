@@ -83,7 +83,7 @@ class RootFlowController: FlowController {
     }
     
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
-        let viewController: TransactionsOverviewViewController = storyboard.instantiateFromStoryboard()
+        let viewController: TransactionsOverviewViewController = storyboard.instantiate()
         let dateRange = flowService?.preferredDateRange ?? .allTime
         viewController.viewModel = try? dependencyContainer.resolve(arguments: dateRange)
         
@@ -118,7 +118,7 @@ class RootFlowController: FlowController {
     }
     
     private func budgetViewController() -> BudgetViewController {
-        let viewController: BudgetViewController = storyboard.instantiateFromStoryboard()
+        let viewController: BudgetViewController = storyboard.instantiate()
         viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.editBudgetTapCallback = {
@@ -129,13 +129,13 @@ class RootFlowController: FlowController {
     }
     
     private func statsViewController() -> StatsViewController {
-        let viewController: StatsViewController = storyboard.instantiateFromStoryboard()
+        let viewController: StatsViewController = storyboard.instantiate()
         viewController.viewModel = try? dependencyContainer.resolve()
         return viewController
     }
     
     private func presentTransactionDataViewController() {
-        let viewController: TransactionDataViewController = storyboard.instantiateFromStoryboard()
+        let viewController: TransactionDataViewController = storyboard.instantiate()
         viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.cancelButtonTapCallback = {
@@ -154,7 +154,7 @@ class RootFlowController: FlowController {
     }
     
     private func pushTransactionCategoriesCollection(navigationController: UINavigationController, data: TransactionData) {
-        let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiateFromStoryboard()
+        let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiate()
         viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.categorySelectedCallback = { category in
@@ -166,7 +166,7 @@ class RootFlowController: FlowController {
     }
     
     private func presentSetupBudgetViewController() {
-        let viewController: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
+        let viewController: SetupBudgetViewController = storyboard.instantiate()
         viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.budgetSetCallback = {
@@ -181,7 +181,7 @@ class RootFlowController: FlowController {
     }
     
     private func settingsViewController() -> SettingsViewController {
-        let viewController: SettingsViewController = storyboard.instantiateFromStoryboard()
+        let viewController: SettingsViewController = storyboard.instantiate()
         return viewController
     }
 }

@@ -70,7 +70,7 @@ class BudgetViewController: UIViewController {
     
     private func displaySetupBudgetViewController() {
         guard let storyboard = storyboard else { return }
-        let setupBudgetVC: SetupBudgetViewController = storyboard.instantiateFromStoryboard()
+        let setupBudgetVC: SetupBudgetViewController = storyboard.instantiate()
         setupBudgetVC.viewModel = setupBudgetViewModel
         addViewController(asChild: setupBudgetVC)
     }
