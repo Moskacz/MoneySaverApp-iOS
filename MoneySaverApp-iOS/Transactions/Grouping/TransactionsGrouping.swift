@@ -13,3 +13,14 @@ enum TransactionsGrouping {
     case week
     case month
 }
+
+extension TransactionsGrouping: CustomStringConvertible {
+    
+    var description: String {
+        switch self {
+        case .day: return "Day"
+        case .week: return "Week"
+        case .month: return "Month"
+        }
+    }
+}

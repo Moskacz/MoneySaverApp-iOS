@@ -99,9 +99,25 @@
                     <view key="view" contentMode="scaleToFill" id="Pw2-NB-9ng">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HKO-Jf-Unk">
+                                <rect key="frame" x="127" y="44" width="121" height="29"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" red="0.47852167489413588" green="0.83253869288472859" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="HKO-Jf-Unk" firstAttribute="centerX" secondItem="Pw2-NB-9ng" secondAttribute="centerX" id="wib-fe-QUC"/>
+                            <constraint firstItem="HKO-Jf-Unk" firstAttribute="top" secondItem="lfA-Xb-vSK" secondAttribute="top" constant="24" id="x87-ZD-wkm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lfA-Xb-vSK"/>
                     </view>
+                    <connections>
+                        <outlet property="segmentedControl" destination="HKO-Jf-Unk" id="PP4-bn-zaS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1z-DT-gOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

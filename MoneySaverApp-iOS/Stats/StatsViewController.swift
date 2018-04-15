@@ -13,6 +13,8 @@ class StatsViewController: UIViewController {
     
     var viewModel: StatsViewModel?
     
+    @IBOutlet private weak var segmentedControl: UISegmentedControl?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         tabBarItem = UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
@@ -20,17 +22,6 @@ class StatsViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        
-        let graphView = ScrollableGraphView(frame: .zero, dataSource: self)
-        graphView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(graphView)
-        graphView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        graphView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        graphView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        graphView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        graphView.tintColor = UIColor.orange
-        
-        graphView.addPlot(plot: BarPlot(identifier: "test"))
     }
     
     override func viewDidLoad() {
@@ -39,25 +30,7 @@ class StatsViewController: UIViewController {
     }
     
     private func setup() {
-        
-    }
-    
-    @objc private func selectedGroupingChanged(control: UISegmentedControl) {
-        viewModel?.selectedGrouping = control.selectedSegmentIndex
+        guard let segments = viewModel?.availableGroupings else { return }
     }
 }
 
-extension StatsViewController: ScrollableGraphViewDataSource {
-    
-    func label(atIndex pointIndex: Int) -> String {
-        return "\(pointIndex)"
-    }
-    
-    func numberOfPoints() -> Int {
-        return 0
-    }
-    
-    func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
-        return 50
-    }
-}
