@@ -69,7 +69,7 @@ class RootFlowController: FlowController {
                                     budgetViewController(),
                                     UIViewController(),
                                     statsViewController(),
-                                    SettingsViewController()]
+                                    settingsViewController()]
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = tabBarVC
@@ -178,5 +178,10 @@ class RootFlowController: FlowController {
         }
         
         tabBarController?.present(viewController, animated: animatedTransitions, completion: nil)
+    }
+    
+    private func settingsViewController() -> SettingsViewController {
+        let viewController: SettingsViewController = storyboard.instantiateFromStoryboard()
+        return viewController
     }
 }

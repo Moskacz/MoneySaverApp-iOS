@@ -10,7 +10,8 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
-    override lazy var tabBarItem: UITabBarItem! = {
-        return UITabBarItem(title: "Settings", image: nil, selectedImage: nil)
-    }()
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.tabBarItem = UITabBarItem(title: "Settings", image: nil, selectedImage: nil)
+    }
 }

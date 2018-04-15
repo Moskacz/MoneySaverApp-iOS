@@ -107,6 +107,21 @@
             </objects>
             <point key="canvasLocation" x="1430" y="112"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="b3g-co-K6D">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="z6a-dU-Xy9" customClass="SettingsViewController" customModule="MoneySaverApp_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cnd-PS-VXU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.19236100610000001" green="0.75876376300000004" blue="0.2174642336" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <viewLayoutGuide key="safeArea" id="192-OB-qJg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mdh-5i-g7C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2142" y="112"/>
+        </scene>
         <!--Transaction Data View Controller-->
         <scene sceneID="g3Y-nx-kZn">
             <objects>

@@ -39,7 +39,7 @@ class StatsViewController: UIViewController {
     }
     
     private func setup() {
-        setupTitleView()
+        
     }
     
     @objc private func selectedGroupingChanged(control: UISegmentedControl) {
