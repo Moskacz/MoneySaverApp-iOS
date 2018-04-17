@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMFoundation
 import ScrollableGraphView
 
 class StatsViewController: UIViewController {
@@ -26,11 +27,12 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
+        setupGroupingControl()
     }
     
-    private func setup() {
-        guard let segments = viewModel?.availableGroupings else { return }
+    private func setupGroupingControl() {
+        guard let items = viewModel?.segmentedControlItems else { return }
+        segmentedControl?.items = items
     }
 }
 
