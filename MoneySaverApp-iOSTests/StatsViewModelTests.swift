@@ -17,7 +17,7 @@ class StatsViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         repositoryFake = FakeTransactionsRepository()
-        sut = StatsViewModel(repository: repositoryFake)
+        sut = StatsViewModel(repository: repositoryFake, dataProcessor: FakeChartsDataProcessor())
     }
     
     override func tearDown() {

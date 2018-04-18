@@ -19,6 +19,7 @@
 		3514C42D1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514C42B1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift */; };
 		35163F0C20722472000801FA /* TransactionsOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */; };
 		35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */; };
+		3520ADF32087C47D001C6F1E /* FakeChartsDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3520ADF22087C47D001C6F1E /* FakeChartsDataProcessor.swift */; };
 		35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */; };
 		3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
@@ -196,6 +197,7 @@
 		35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewController.swift; sourceTree = "<group>"; };
 		35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewModel.swift; sourceTree = "<group>"; };
 		351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MoneySaverApp-iOS.entitlements"; sourceTree = "<group>"; };
+		3520ADF22087C47D001C6F1E /* FakeChartsDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeChartsDataProcessor.swift; sourceTree = "<group>"; };
 		35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransactionRepository.swift; sourceTree = "<group>"; };
 		3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryRepository.swift; sourceTree = "<group>"; };
 		352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				353B9C8E2027775D00990667 /* FakeTransction.swift */,
 				35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */,
 				3545131A207A750400909A7F /* FakeUserPreferences.swift */,
+				3520ADF22087C47D001C6F1E /* FakeChartsDataProcessor.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -1050,6 +1053,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3520ADF32087C47D001C6F1E /* FakeChartsDataProcessor.swift in Sources */,
 				355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */,
 				35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */,
 				35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */,

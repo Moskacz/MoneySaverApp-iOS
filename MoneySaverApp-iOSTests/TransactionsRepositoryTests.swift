@@ -11,23 +11,20 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class TransactionsRepositoryTests: XCTestCase {
-    
-    var context: NSManagedObjectContext!
+
     var fakeCaledar: FakeCalendar!
     var sut: TransactionsRepositoryImplementation!
     
     override func setUp() {
         super.setUp()
-        context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         fakeCaledar = FakeCalendar()
-        sut = TransactionsRepositoryImplementation(context: context,
+        sut = TransactionsRepositoryImplementation(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
                                                    logger: NullLogger(),
                                                    calendar: fakeCaledar)
     }
     
     override func tearDown() {
         sut = nil
-        context = nil
         fakeCaledar = nil
         super.tearDown()
     }

@@ -11,13 +11,6 @@ import CoreData
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsRepository: TransactionsRepository {
-    func allTransactions() throws -> [TransactionManagedObject] {
-        fatalError()
-    }
-    
-    func transactionsPerDay() throws -> [AnyObject] {
-        fatalError()
-    }
     
     var addTransactionCalled = false
     var allTransactionFRCToReturn: NSFetchedResultsController<TransactionManagedObject>!
@@ -50,5 +43,11 @@ class FakeTransactionsRepository: TransactionsRepository {
         
     }
     
+    func allTransactions() throws -> [TransactionManagedObject] {
+        fatalError()
+    }
     
+    func groupedTransactions(grouping: TransactionsGrouping) throws -> [DatedValue] {
+        fatalError()
+    }
 }
