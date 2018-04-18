@@ -20,7 +20,7 @@ protocol TransactionsRepository {
     func remove(transaction: TransactionManagedObject)
     
     func allTransactions() throws -> [TransactionManagedObject]
-    func transactionsPerDay() throws -> [AnyObject]
+    func groupedTransactions(grouping: TransactionsGrouping) throws -> [DatedValue]
 }
 
 class TransactionsRepositoryImplementation: TransactionsRepository {
@@ -101,8 +101,8 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         return try context.fetch(request)
     }
     
-    func transactionsPerDay() throws -> [AnyObject] {
-        let request = NSFetchRequest<NSDictionary>.init(entityName: "TransactionManagedObject")
+    func groupedTransactions(grouping: TransactionsGrouping) throws -> [DatedValue] {
+        let request = NSFetchRequest<NSDictionary>.init(entityName: TransactionManagedObject.entityName)
         
         let valueExpression = NSExpression(forKeyPath: TransactionManagedObject.KeyPath.value.rawValue)
         let sumExpressionDesc = NSExpressionDescription()
@@ -111,10 +111,13 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         sumExpressionDesc.expressionResultType = .doubleAttributeType
         
         request.propertiesToFetch = [TransactionManagedObject.KeyPath.dayOfEra.rawValue,
-                                    sumExpressionDesc]
+                                     TransactionManagedObject.KeyPath.weekOfEra.rawValue,
+                                     sumExpressionDesc]
         request.propertiesToGroupBy = [TransactionManagedObject.KeyPath.dayOfEra.rawValue]
         request.resultType = .dictionaryResultType
         
-        return try context.fetch(request)
+        let objects = try context.fetch(request)
+        
+        return []
     }
 }
