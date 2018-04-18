@@ -19,6 +19,7 @@
 		3514C42D1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514C42B1F9CA0A6003C3044 /* TransactionManagedObject+CoreDataProperties.swift */; };
 		35163F0C20722472000801FA /* TransactionsOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */; };
 		35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */; };
+		3520ADEF2087C0C1001C6F1E /* SimpleDatedTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3520ADEE2087C0C1001C6F1E /* SimpleDatedTransaction.swift */; };
 		35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */; };
 		3523249B1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
@@ -196,6 +197,7 @@
 		35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewController.swift; sourceTree = "<group>"; };
 		35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewModel.swift; sourceTree = "<group>"; };
 		351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MoneySaverApp-iOS.entitlements"; sourceTree = "<group>"; };
+		3520ADEE2087C0C1001C6F1E /* SimpleDatedTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDatedTransaction.swift; sourceTree = "<group>"; };
 		35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransactionRepository.swift; sourceTree = "<group>"; };
 		3523249A1F88F7CF007C4FF5 /* TransactionCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryRepository.swift; sourceTree = "<group>"; };
 		352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -646,6 +648,7 @@
 				35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */,
 				358894731E992DE500ACF06C /* TransactionDataViewModel.swift */,
 				359BC28F1EA27FCA0020E156 /* TransactionsRepository.swift */,
+				3520ADEE2087C0C1001C6F1E /* SimpleDatedTransaction.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -995,6 +998,7 @@
 				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
 				35E70C092083C873001F4808 /* TransactionsGrouping.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
+				3520ADEF2087C0C1001C6F1E /* SimpleDatedTransaction.swift in Sources */,
 				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
 				355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */,
 				35708BC51FC95C7F0052ED9E /* BudgetManagedObject+CoreDataClass.swift in Sources */,
