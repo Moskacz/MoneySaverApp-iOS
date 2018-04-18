@@ -12,9 +12,11 @@ class StatsViewModel {
     }
     
     private let repository: TransactionsRepository
+    private let dataProcessor: ChartsDataProcessor
     
-    init(repository: TransactionsRepository) {
+    init(repository: TransactionsRepository, dataProcessor: ChartsDataProcessor) {
         self.repository = repository
+        self.dataProcessor = dataProcessor
     }
     
     var segmentedControlItems: [UISegmentedControl.Item] {
