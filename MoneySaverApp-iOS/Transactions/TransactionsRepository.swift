@@ -111,13 +111,19 @@ class TransactionsRepositoryImplementation: TransactionsRepository {
         sumExpressionDesc.expressionResultType = .doubleAttributeType
         
         request.propertiesToFetch = [TransactionManagedObject.KeyPath.dayOfEra.rawValue,
-                                     TransactionManagedObject.KeyPath.weekOfEra.rawValue,
                                      sumExpressionDesc]
         request.propertiesToGroupBy = [TransactionManagedObject.KeyPath.dayOfEra.rawValue]
         request.resultType = .dictionaryResultType
         
         let objects = try context.fetch(request)
-        
-        return []
+        return objects.compactMap { dict -> DatedValue? in
+            guard
+                let sum = dict["sum"] as? Double,
+                let date = dict[TransactionManagedObject.KeyPath.dayOfEra.rawValue] as? Int else {
+                return nil
+            }
+            
+            return DatedValue(date: date, value: Decimal(sum))
+        }
     }
 }

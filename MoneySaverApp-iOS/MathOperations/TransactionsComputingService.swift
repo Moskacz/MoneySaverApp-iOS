@@ -10,9 +10,7 @@ import Foundation
 import CoreData
 import MMFoundation
 
-
-
-struct DatedValue {
+struct DatedValue: Equatable {
     static let storageKey = "valueStorageKey"
     
     let date: Int

@@ -12,13 +12,15 @@ import CoreData
 
 class TransactionsRepositoryTests: XCTestCase {
 
+    var coreDataStack: InMemoryCoreDataStack!
     var fakeCaledar: FakeCalendar!
     var sut: TransactionsRepositoryImplementation!
     
     override func setUp() {
         super.setUp()
+        coreDataStack = InMemoryCoreDataStack()
         fakeCaledar = FakeCalendar()
-        sut = TransactionsRepositoryImplementation(context: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType),
+        sut = TransactionsRepositoryImplementation(context: coreDataStack.getViewContext(),
                                                    logger: NullLogger(),
                                                    calendar: fakeCaledar)
     }
@@ -67,5 +69,35 @@ class TransactionsRepositoryTests: XCTestCase {
         XCTAssertEqual(predicate?.predicateFormat, "date.year == 2018")
     }
     
+    func test_groupedTransactions_dayGrouping() {
+        let context = coreDataStack.getViewContext()
+        
+        let day1Transaction1 = TransactionManagedObject.createEntity(inContext: context)
+        day1Transaction1.value = NSDecimalNumber(value: 20)
+        day1Transaction1.date = calendarDate(dayOfEra: 1)
+        
+        let day1Transaction2 = TransactionManagedObject.createEntity(inContext: context)
+        day1Transaction2.value = NSDecimalNumber(value: 10)
+        day1Transaction2.date = calendarDate(dayOfEra: 1)
+        
+        let day2Transaction = TransactionManagedObject.createEntity(inContext: context)
+        day2Transaction.value = NSDecimalNumber(value: 123)
+        day2Transaction.date = calendarDate(dayOfEra: 2)
+        
+        let grouped = try! sut.groupedTransactions(grouping: .day)
+        XCTAssertEqual(grouped[0], DatedValue(date: 1, value: 30)) // 20 + 10
+        XCTAssertEqual(grouped[1], DatedValue(date: 2, value: 123))
+    }
+    
+    // MARK: Helpers
+    
+    private func calendarDate(dayOfEra: Int32 = 0, weekOfEra: Int32 = 0, monthOfEra: Int32 = 0) -> CalendarDateManagedObject {
+        let context = coreDataStack.getViewContext()
+        let date = CalendarDateManagedObject.createEntity(inContext: context)
+        date.dayOfEra = dayOfEra
+        date.weekOfEra = weekOfEra
+        date.monthOfEra = monthOfEra
+        return date
+    }
     
 }

@@ -19,7 +19,8 @@ class InMemoryCoreDataStack: CoreDataStack {
         let storeDescription = NSPersistentStoreDescription()
         storeDescription.type = NSInMemoryStoreType
         container.persistentStoreDescriptions = [storeDescription]
-        container.loadPersistentStores { (_, error) in
+        container.loadPersistentStores { (storeDescription, error) in
+            print(storeDescription)
             if let loadingError = error {
                 print(loadingError.localizedDescription)
             }
