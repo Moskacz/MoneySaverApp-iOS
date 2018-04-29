@@ -1,3 +1,6 @@
 [submodule "InternalFrameworks/MMFoundation"]
 	path = InternalFrameworks/MMFoundation
 	url = ../MMFoundation
+[submodule "InternalFrameworks/MoneySaverAppCore"]
+	path = InternalFrameworks/MoneySaverAppCore
+	url = ../MoneySaverAppCore
