@@ -8,6 +8,7 @@
 
 import UIKit
 import Dip
+import MoneySaverAppCore
 
 enum FlowState {
     case transactionsList

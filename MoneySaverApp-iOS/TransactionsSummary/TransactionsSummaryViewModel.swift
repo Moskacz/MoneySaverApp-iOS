@@ -1,4 +1,5 @@
 import Foundation
+import MoneySaverAppCore
 
 protocol TransactionsSummaryViewModelDelegate: class {
     func transactionsSummaryDidUpdateValues(viewModel: TransactionsSummaryViewModel)

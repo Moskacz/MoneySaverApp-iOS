@@ -11,42 +11,12 @@ import CoreData
 import MMFoundation
 import MoneySaverAppCore
 
-struct DatedValue: Equatable {
-    static let storageKey = "valueStorageKey"
-    
-    let date: Int
-    let value: Decimal
-}
-
 protocol TransactionsComputingService {
     func sum() throws -> TransactionsCompoundSum
     func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken
     
     func monthlyExpenses() throws -> [DatedValue]
     func observeMonthlyExpenseChanged(_ callback: @escaping ([DatedValue]) -> Void) -> ObservationToken
-}
-
-struct TransactionsSum {
-    let incomes: Decimal
-    let expenses: Decimal
-    
-    func total() -> Decimal {
-        return incomes + expenses
-    }
-    
-    static var zero: TransactionsSum {
-        return TransactionsSum(incomes: 0, expenses: 0)
-    }
-}
-
-struct TransactionsCompoundSum {
-    static let storageKey = "sumStorageKey"
-    
-    let daily: TransactionsSum
-    let weekly: TransactionsSum
-    let monthly: TransactionsSum
-    let yearly: TransactionsSum
-    let era: TransactionsSum
 }
 
 class TransactionsComputingServiceImpl: TransactionsComputingService {
@@ -86,7 +56,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     func observeTransactionsSumChanged(_ callback: @escaping (TransactionsCompoundSum) -> Void) -> ObservationToken {
         let token = notificationCenter.addObserver(forName: .sumChangedNotification, object: nil, queue: .main, using: { (note) in
-            guard let sum = note.userInfo?[TransactionsCompoundSum.storageKey] as? TransactionsCompoundSum else {
+            guard let sum = note.userInfo?["TransactionsCompoundSum"] as? TransactionsCompoundSum else {
                 return
             }
             callback(sum)
@@ -109,7 +79,7 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     
     func observeMonthlyExpenseChanged(_ callback: @escaping ([DatedValue]) -> Void) -> ObservationToken {
         let token = notificationCenter.addObserver(forName: .monthlyExpensesChangedNotification, object: nil, queue: .main, using: { note in
-            guard let values = note.userInfo?[DatedValue.storageKey] as? [DatedValue] else {
+            guard let values = note.userInfo?["DatedValue"] as? [DatedValue] else {
                 return
             }
             callback(values)
@@ -120,9 +90,9 @@ class TransactionsComputingServiceImpl: TransactionsComputingService {
     private func notifyDelegates() {
         do {
             let transactionsSum = try sum()
-            notificationCenter.post(name: .sumChangedNotification, object: nil, userInfo: [TransactionsCompoundSum.storageKey: transactionsSum])
+            notificationCenter.post(name: .sumChangedNotification, object: nil, userInfo: ["TransactionsCompoundSum": transactionsSum])
             let expenses = try monthlyExpenses()
-            notificationCenter.post(name: .monthlyExpensesChangedNotification, object: nil, userInfo: [DatedValue.storageKey: expenses])
+            notificationCenter.post(name: .monthlyExpensesChangedNotification, object: nil, userInfo: ["DatedValue": expenses])
         } catch {
             logger.log(withLevel: .error, message: error.localizedDescription)
         }

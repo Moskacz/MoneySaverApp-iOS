@@ -8,6 +8,7 @@
 
 import UIKit
 import MMFoundation
+import MoneySaverAppCore
 
 protocol TransactionCellViewModel {
     func titleText() -> String?

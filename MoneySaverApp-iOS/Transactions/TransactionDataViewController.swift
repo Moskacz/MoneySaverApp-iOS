@@ -8,12 +8,7 @@
 
 import UIKit
 import MMFoundation
-
-struct TransactionData {
-    let title: String
-    let value: Decimal
-    let creationDate: Date
-}
+import MoneySaverAppCore
 
 enum TransactionValueSign: Int {
     case minus

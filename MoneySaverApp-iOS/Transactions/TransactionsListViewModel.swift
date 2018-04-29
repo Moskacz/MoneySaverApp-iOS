@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MoneySaverAppCore
 
 class TransactionsListViewModel {
     

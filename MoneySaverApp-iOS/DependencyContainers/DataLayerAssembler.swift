@@ -8,12 +8,13 @@
 
 import Foundation
 import Dip
+import MoneySaverAppCore
 
 struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register(.singleton) {
-            CoreDataStackImplementation(logger: $0, notificationCenter: $1) as CoreDataStack
+            CoreDataStackImplementation()
         }
         
         container.register(.singleton) {

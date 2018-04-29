@@ -8,6 +8,7 @@
 
 import Foundation
 import Dip
+import MoneySaverAppCore
 
 class UtilsAssebler: ContainerAssembly {
     

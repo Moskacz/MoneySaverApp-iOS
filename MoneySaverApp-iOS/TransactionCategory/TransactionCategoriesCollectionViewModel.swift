@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MoneySaverAppCore
 
 class TransactionCategoriesCollectionViewModel {
     
@@ -53,6 +54,7 @@ class TransactionCategoriesCollectionViewModel {
         guard let object = categoriesFRC?.fetchedObjects?[path.row] else {
             fatalError("should not be called")
         }
+        
         return TransactionCategoryViewModelImpl(category: object)
     }
     

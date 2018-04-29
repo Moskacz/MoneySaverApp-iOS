@@ -17,7 +17,6 @@
 		3514C4291F9B9A55003C3044 /* TransactionCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3514C4281F9B9A55003C3044 /* TransactionCategoryViewModel.swift */; };
 		35163F0C20722472000801FA /* TransactionsOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */; };
 		35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */; };
-		3520ADF32087C47D001C6F1E /* FakeChartsDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3520ADF22087C47D001C6F1E /* FakeChartsDataProcessor.swift */; };
 		3520ADF62087C519001C6F1E /* InMemoryCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3520ADF52087C519001C6F1E /* InMemoryCoreDataStack.swift */; };
 		35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */; };
 		352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */; };
@@ -30,14 +29,10 @@
 		352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03151E92C44B001B99CB /* ModelsAssembler.swift */; };
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
 		352D29A3206AD13900B91E07 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D29A2206AD13900B91E07 /* Gradients.swift */; };
-		353B9C89202770FB00990667 /* TransactionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C88202770FB00990667 /* TransactionProtocol.swift */; };
-		353B9C8B202771FC00990667 /* TransactionCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */; };
 		353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */; };
 		353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8E2027775D00990667 /* FakeTransction.swift */; };
 		35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35411784200BE83F002B7AF6 /* RootFlowService.swift */; };
 		354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354513122076A4EB00909A7F /* DateFormattersTests.swift */; };
-		35451317207A721200909A7F /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35451316207A721200909A7F /* UserPreferences.swift */; };
-		35451319207A733600909A7F /* UserPreferencesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35451318207A733600909A7F /* UserPreferencesTests.swift */; };
 		3545131B207A750400909A7F /* FakeUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545131A207A750400909A7F /* FakeUserPreferences.swift */; };
 		3551A39920069E68001394F2 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39820069E68001394F2 /* String+Additions.swift */; };
 		3551A39B20069F90001394F2 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3551A39A20069F90001394F2 /* StringTests.swift */; };
@@ -49,15 +44,11 @@
 		355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */; };
 		355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */; };
 		355509D41F7AC8080007FEF1 /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 352B03091E92BD0A001B99CB /* Dip.framework */; };
-		355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB2692020F90200F990FD /* Sequence+Extension.swift */; };
-		355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355DB26B2020FA3500F990FD /* SequenceTests.swift */; };
 		356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */; };
 		356D0EAE1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */; };
 		356D0EB11F8C00E700378362 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EB01F8C00E700378362 /* Errors.swift */; };
-		35708BBA1FC605C30052ED9E /* ChartsDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BB91FC605C30052ED9E /* ChartsDataProcessor.swift */; };
 		35708BBC1FC958110052ED9E /* SetupBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */; };
 		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
-		3573A9312002AE3100B615F7 /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3573A9302002AE3100B615F7 /* DateRange.swift */; };
 		35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */; };
 		35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */; };
 		35816360200560F80013BE33 /* CalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3581635F200560F80013BE33 /* CalendarTests.swift */; };
@@ -67,11 +58,9 @@
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
 		359784B71FD70D5200140DCA /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; };
-		3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */; };
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
 		35A0239E2022394B00E42FFD /* NSManagedObjectContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */; };
-		35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023A82024C9CC00E42FFD /* InsetLabel.swift */; };
 		35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023AB2024E59200E42FFD /* SettingsViewController.swift */; };
 		35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA04201E023C009E6111 /* Calendar+Additions.swift */; };
 		35AC4C97206E6C7100872615 /* TransactionsComputingServiceNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AC4C96206E6C7100872615 /* TransactionsComputingServiceNotifications.swift */; };
@@ -80,7 +69,6 @@
 		35B296DA1F7EBEF9004A3E32 /* CardStylePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */; };
 		35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */; };
 		35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */; };
-		35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B35ACE1EC8BFBB007E3A53 /* Logger.swift */; };
 		35B540541FDD6D1200B27F9F /* MMFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35B8A1DD200D161100EA8C7C /* RootFlowServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1DC200D161100EA8C7C /* RootFlowServiceTests.swift */; };
 		35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1E0200D18AD00EA8C7C /* TransactionsListViewModelTests.swift */; };
@@ -107,15 +95,11 @@
 		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
 		35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */; };
 		35CFA2912028C7C90028FBA1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2902028C7C90028FBA1 /* Palette.swift */; };
-		35CFA2932028CC210028FBA1 /* CalendarDateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2922028CC210028FBA1 /* CalendarDateProtocol.swift */; };
 		35CFA2952028CD790028FBA1 /* FakeCalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
-		35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
 		35DEBBE32011249000EA1556 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35DEBBE02011249000EA1556 /* Default-568h@2x.png */; };
 		35DEF6C32095C52E00869559 /* MoneySaverAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DEF6BC2095C47600869559 /* MoneySaverAppCore.framework */; };
-		35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */; };
-		35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B47200A015700AD2926 /* CalendarProtocol.swift */; };
 		35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */; };
 		35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */; };
 		35DFB5DD2012903B00F03C93 /* StatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DFB5DC2012903B00F03C93 /* StatsViewModel.swift */; };
@@ -209,7 +193,6 @@
 		35163F0B20722472000801FA /* TransactionsOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewController.swift; sourceTree = "<group>"; };
 		35163F0D2072249A000801FA /* TransactionsOverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsOverviewViewModel.swift; sourceTree = "<group>"; };
 		351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MoneySaverApp-iOS.entitlements"; sourceTree = "<group>"; };
-		3520ADF22087C47D001C6F1E /* FakeChartsDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeChartsDataProcessor.swift; sourceTree = "<group>"; };
 		3520ADF52087C519001C6F1E /* InMemoryCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryCoreDataStack.swift; sourceTree = "<group>"; };
 		35214FF41F9E670C006503C5 /* FakeTransactionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransactionRepository.swift; sourceTree = "<group>"; };
 		352324A21F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -222,14 +205,10 @@
 		352B03151E92C44B001B99CB /* ModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAssembler.swift; sourceTree = "<group>"; };
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
 		352D29A2206AD13900B91E07 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
-		353B9C88202770FB00990667 /* TransactionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionProtocol.swift; sourceTree = "<group>"; };
-		353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryProtocol.swift; sourceTree = "<group>"; };
 		353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModelTests.swift; sourceTree = "<group>"; };
 		353B9C8E2027775D00990667 /* FakeTransction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransction.swift; sourceTree = "<group>"; };
 		35411784200BE83F002B7AF6 /* RootFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowService.swift; sourceTree = "<group>"; };
 		354513122076A4EB00909A7F /* DateFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattersTests.swift; sourceTree = "<group>"; };
-		35451316207A721200909A7F /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
-		35451318207A733600909A7F /* UserPreferencesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferencesTests.swift; sourceTree = "<group>"; };
 		3545131A207A750400909A7F /* FakeUserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserPreferences.swift; sourceTree = "<group>"; };
 		3551A39820069E68001394F2 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		3551A39A20069F90001394F2 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
@@ -240,15 +219,11 @@
 		355509CE1F7AC1730007FEF1 /* UIViewController+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Additions.swift"; sourceTree = "<group>"; };
 		355509D01F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerAdditionsTests.swift; sourceTree = "<group>"; };
 		355509D21F7AC6070007FEF1 /* RootFlowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowControllerTests.swift; sourceTree = "<group>"; };
-		355DB2692020F90200F990FD /* Sequence+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Extension.swift"; sourceTree = "<group>"; };
-		355DB26B2020FA3500F990FD /* SequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceTests.swift; sourceTree = "<group>"; };
 		356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewModel.swift; sourceTree = "<group>"; };
 		356D0EB01F8C00E700378362 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		35708BB91FC605C30052ED9E /* ChartsDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDataProcessor.swift; sourceTree = "<group>"; };
 		35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewController.swift; sourceTree = "<group>"; };
 		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
-		3573A9302002AE3100B615F7 /* DateRange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
 		35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModel.swift; sourceTree = "<group>"; };
 		35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModelTests.swift; sourceTree = "<group>"; };
 		3581635F200560F80013BE33 /* CalendarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTests.swift; sourceTree = "<group>"; };
@@ -258,11 +233,9 @@
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
 		359784AE1FD70D3E00140DCA /* MMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMFoundation.xcodeproj; path = InternalFrameworks/MMFoundation/MMFoundation.xcodeproj; sourceTree = "<group>"; };
-		3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Additions.swift"; sourceTree = "<group>"; };
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Additions.swift"; sourceTree = "<group>"; };
-		35A023A82024C9CC00E42FFD /* InsetLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetLabel.swift; sourceTree = "<group>"; };
 		35A023AB2024E59200E42FFD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35A7BA04201E023C009E6111 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
 		35AC4C96206E6C7100872615 /* TransactionsComputingServiceNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsComputingServiceNotifications.swift; sourceTree = "<group>"; };
@@ -271,7 +244,6 @@
 		35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardStylePresentationController.swift; sourceTree = "<group>"; };
 		35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Additions.swift"; sourceTree = "<group>"; };
 		35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilsAssembler.swift; sourceTree = "<group>"; };
-		35B35ACE1EC8BFBB007E3A53 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		35B5CAC71E883D5500D1990E /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		35B5CAC91E883D6200D1990E /* MoneySaverFoundationiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MoneySaverFoundationiOS.framework; path = Carthage/Build/iOS/MoneySaverFoundationiOS.framework; sourceTree = "<group>"; };
 		35B8A1DC200D161100EA8C7C /* RootFlowServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowServiceTests.swift; sourceTree = "<group>"; };
@@ -304,15 +276,11 @@
 		35C9FEF21E8C279D0092D5E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		35CFA2902028C7C90028FBA1 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
-		35CFA2922028CC210028FBA1 /* CalendarDateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateProtocol.swift; sourceTree = "<group>"; };
 		35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendarDate.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
-		35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarButtonProvider.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		35DEBBE02011249000EA1556 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		35DEF6B22095C47600869559 /* MoneySaverAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoneySaverAppCore.xcodeproj; path = InternalFrameworks/MoneySaverAppCore/MoneySaverAppCore.xcodeproj; sourceTree = "<group>"; };
-		35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsDataProcessorTests.swift; sourceTree = "<group>"; };
-		35DF1B47200A015700AD2926 /* CalendarProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarProtocol.swift; sourceTree = "<group>"; };
 		35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendar.swift; sourceTree = "<group>"; };
 		35DF3AAD1F8D3BA800141F5B /* TransactionDataViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModelTests.swift; sourceTree = "<group>"; };
 		35DFB5DC2012903B00F03C93 /* StatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewModel.swift; sourceTree = "<group>"; };
@@ -405,7 +373,6 @@
 				353B9C8E2027775D00990667 /* FakeTransction.swift */,
 				35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */,
 				3545131A207A750400909A7F /* FakeUserPreferences.swift */,
-				3520ADF22087C47D001C6F1E /* FakeChartsDataProcessor.swift */,
 			);
 			path = Fakes;
 			sourceTree = "<group>";
@@ -423,16 +390,6 @@
 				35B35ACB1EC8BF7A007E3A53 /* UtilsAssembler.swift */,
 			);
 			path = DependencyContainers;
-			sourceTree = "<group>";
-		};
-		353B9C85202770ED00990667 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				353B9C88202770FB00990667 /* TransactionProtocol.swift */,
-				353B9C8A202771FC00990667 /* TransactionCategoryProtocol.swift */,
-				35CFA2922028CC210028FBA1 /* CalendarDateProtocol.swift */,
-			);
-			path = Domain;
 			sourceTree = "<group>";
 		};
 		353DF8551F84011700EF6F70 /* TransactionCategory */ = {
@@ -454,14 +411,6 @@
 				356D0EB01F8C00E700378362 /* Errors.swift */,
 			);
 			path = Errors;
-			sourceTree = "<group>";
-		};
-		35708BB81FC605B20052ED9E /* Charts */ = {
-			isa = PBXGroup;
-			children = (
-				35708BB91FC605C30052ED9E /* ChartsDataProcessor.swift */,
-			);
-			path = Charts;
 			sourceTree = "<group>";
 		};
 		3585EDF61FDDA07000871941 /* Styles */ = {
@@ -494,7 +443,6 @@
 		35A023A72024C9B600E42FFD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				35A023A82024C9CC00E42FFD /* InsetLabel.swift */,
 				350D55B4206FD47F00BB2F3B /* UILabel+Extensions.swift */,
 			);
 			path = Views;
@@ -523,14 +471,6 @@
 				35B296D91F7EBEF9004A3E32 /* CardStylePresentationController.swift */,
 			);
 			path = PresentationControllers;
-			sourceTree = "<group>";
-		};
-		35B35ACD1EC8BFAD007E3A53 /* Logging */ = {
-			isa = PBXGroup;
-			children = (
-				35B35ACE1EC8BFBB007E3A53 /* Logger.swift */,
-			);
-			path = Logging;
 			sourceTree = "<group>";
 		};
 		35B8D0711EC766B400A96C00 /* MathOperations */ = {
@@ -570,23 +510,18 @@
 				35163F0820722452000801FA /* TransactionsOverview */,
 				35AC4C9A206E70AB00872615 /* Notifications */,
 				351005F9206438000090AD43 /* TransactionsSummary */,
-				353B9C85202770ED00990667 /* Domain */,
 				35A023AA2024E58300E42FFD /* Settings */,
 				35DFB5D92012900C00F03C93 /* Stats */,
-				35EE9D00200D3B44006D5791 /* StatePreservation */,
 				3585EDF61FDDA07000871941 /* Styles */,
-				35708BB81FC605B20052ED9E /* Charts */,
 				35C853921FBCC84300A7E479 /* Budget */,
 				35D7C4121FAC9C0F0052BAD6 /* Dates */,
 				356D0EAF1F8C00BB00378362 /* Errors */,
 				353DF8551F84011700EF6F70 /* TransactionCategory */,
 				35B296D61F7EBEC5004A3E32 /* PresentationControllers */,
-				35B35ACD1EC8BFAD007E3A53 /* Logging */,
 				35B8D0711EC766B400A96C00 /* MathOperations */,
 				35D740081EB8AF140028DD92 /* Dashboard */,
 				35D740051EB8AECB0028DD92 /* Commons */,
 				351897E11EB71F7B002B6A86 /* MoneySaverApp-iOS.entitlements */,
-				35EA1A2C1EB636DF0083C57F /* Brand */,
 				35D1DE721EA1221800284EA0 /* TableView */,
 				350F0F5F1E9564C8002ED5D7 /* FlowControllers */,
 				352B030C1E92BDB9001B99CB /* DependencyContainers */,
@@ -616,17 +551,14 @@
 				35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */,
 				3581635F200560F80013BE33 /* CalendarTests.swift */,
 				3551A39A20069F90001394F2 /* StringTests.swift */,
-				35DF1B412009275900AD2926 /* ChartsDataProcessorTests.swift */,
 				350FBC1E200A9596000457EB /* TransactionManagedObjectTests.swift */,
 				35129ED0200B5A1400B7A566 /* TransactionsRepositoryTests.swift */,
 				35B8A1DC200D161100EA8C7C /* RootFlowServiceTests.swift */,
 				35B8A1E0200D18AD00EA8C7C /* TransactionsListViewModelTests.swift */,
 				35E1567720132695004F6A8D /* StatsViewModelTests.swift */,
-				355DB26B2020FA3500F990FD /* SequenceTests.swift */,
 				353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */,
 				35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */,
 				354513122076A4EB00909A7F /* DateFormattersTests.swift */,
-				35451318207A733600909A7F /* UserPreferencesTests.swift */,
 				35E70C0620821C8C001F4808 /* CalendarDateManagedObjectTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
@@ -669,14 +601,12 @@
 				35E4DD581EC3817300102E3B /* UICollectionView+Additions.swift */,
 				355509CE1F7AC1730007FEF1 /* UIViewController+Additions.swift */,
 				35B296DB1F7EC423004A3E32 /* UIView+Additions.swift */,
-				3599F5DC1F84053B00A39659 /* NSManagedObject+Additions.swift */,
 				359A31381FB249C4000DA85F /* Character+Additions.swift */,
 				359A313A1FB4F754000DA85F /* UIColor+Additions.swift */,
 				35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */,
 				35C1BBEE1FFE6B7000C77B72 /* UIScrollView+Additions.swift */,
 				3551A39820069E68001394F2 /* String+Additions.swift */,
 				35A7BA04201E023C009E6111 /* Calendar+Additions.swift */,
-				355DB2692020F90200F990FD /* Sequence+Extension.swift */,
 				35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */,
 			);
 			path = Extensions;
@@ -715,7 +645,6 @@
 			isa = PBXGroup;
 			children = (
 				35A023A72024C9B600E42FFD /* Views */,
-				35D740061EB8AEEA0028DD92 /* BarButtonProvider.swift */,
 				3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */,
 			);
 			path = Commons;
@@ -733,8 +662,6 @@
 			isa = PBXGroup;
 			children = (
 				35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */,
-				3573A9302002AE3100B615F7 /* DateRange.swift */,
-				35DF1B47200A015700AD2926 /* CalendarProtocol.swift */,
 			);
 			path = Dates;
 			sourceTree = "<group>";
@@ -767,21 +694,6 @@
 				35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		35EA1A2C1EB636DF0083C57F /* Brand */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Brand;
-			sourceTree = "<group>";
-		};
-		35EE9D00200D3B44006D5791 /* StatePreservation */ = {
-			isa = PBXGroup;
-			children = (
-				35451316207A721200909A7F /* UserPreferences.swift */,
-			);
-			path = StatePreservation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -983,14 +895,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35708BBA1FC605C30052ED9E /* ChartsDataProcessor.swift in Sources */,
 				352D29A3206AD13900B91E07 /* Gradients.swift in Sources */,
 				359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */,
 				352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */,
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,
 				3551A39920069E68001394F2 /* String+Additions.swift in Sources */,
 				35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */,
-				3599F5DD1F84053B00A39659 /* NSManagedObject+Additions.swift in Sources */,
 				35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */,
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
 				352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */,
@@ -999,12 +909,9 @@
 				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
 				359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */,
-				353B9C8B202771FC00990667 /* TransactionCategoryProtocol.swift in Sources */,
 				35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */,
-				35CFA2932028CC210028FBA1 /* CalendarDateProtocol.swift in Sources */,
 				35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */,
 				355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */,
-				35A023A92024C9CC00E42FFD /* InsetLabel.swift in Sources */,
 				35163F0E2072249A000801FA /* TransactionsOverviewViewModel.swift in Sources */,
 				35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */,
 				358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */,
@@ -1012,7 +919,6 @@
 				35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */,
 				351005FB206438130090AD43 /* TransactionsSummaryViewController.swift in Sources */,
 				355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */,
-				35DF1B48200A015700AD2926 /* CalendarProtocol.swift in Sources */,
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
@@ -1024,7 +930,6 @@
 				35E70C092083C873001F4808 /* TransactionsGrouping.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
-				355DB26A2020F90200F990FD /* Sequence+Extension.swift in Sources */,
 				35AC4C9C206E70C000872615 /* ObservationToken.swift in Sources */,
 				350D55B5206FD47F00BB2F3B /* UILabel+Extensions.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
@@ -1035,23 +940,18 @@
 				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,
 				3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */,
 				35CFA2912028C7C90028FBA1 /* Palette.swift in Sources */,
-				3573A9312002AE3100B615F7 /* DateRange.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				3585EDFA1FDDA08200871941 /* Styles.swift in Sources */,
-				35451317207A721200909A7F /* UserPreferences.swift in Sources */,
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 				358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */,
-				35B35ACF1EC8BFBB007E3A53 /* Logger.swift in Sources */,
 				35AC4C97206E6C7100872615 /* TransactionsComputingServiceNotifications.swift in Sources */,
 				35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */,
-				353B9C89202770FB00990667 /* TransactionProtocol.swift in Sources */,
 				3514C4291F9B9A55003C3044 /* TransactionCategoryViewModel.swift in Sources */,
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
 				35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */,
 				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
-				35D740071EB8AEEA0028DD92 /* BarButtonProvider.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,
 				356D0EAE1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift in Sources */,
@@ -1070,14 +970,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3520ADF32087C47D001C6F1E /* FakeChartsDataProcessor.swift in Sources */,
 				355509D11F7AC4410007FEF1 /* UIViewControllerAdditionsTests.swift in Sources */,
 				35B8A1E1200D18AD00EA8C7C /* TransactionsListViewModelTests.swift in Sources */,
-				35DF1B422009275900AD2926 /* ChartsDataProcessorTests.swift in Sources */,
 				353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */,
 				3545131B207A750400909A7F /* FakeUserPreferences.swift in Sources */,
 				35B8A1E5200D1A5B00EA8C7C /* FakeTimeChangedObserver.swift in Sources */,
-				355DB26C2020FA3500F990FD /* SequenceTests.swift in Sources */,
 				350FBC1F200A9596000457EB /* TransactionManagedObjectTests.swift in Sources */,
 				35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */,
 				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
@@ -1098,7 +995,6 @@
 				3520ADF62087C519001C6F1E /* InMemoryCoreDataStack.swift in Sources */,
 				35E70C0720821C8C001F4808 /* CalendarDateManagedObjectTests.swift in Sources */,
 				35C853961FBCD1F400A7E479 /* WeakHoldersCollectionTests.swift in Sources */,
-				35451319207A733600909A7F /* UserPreferencesTests.swift in Sources */,
 				35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */,
 				35214FF51F9E670C006503C5 /* FakeTransactionRepository.swift in Sources */,
 			);

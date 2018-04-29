@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MoneySaverAppCore
 
 protocol RootFlowService {
     func addTransaction(withData data: TransactionData, category: TransactionCategoryManagedObject)

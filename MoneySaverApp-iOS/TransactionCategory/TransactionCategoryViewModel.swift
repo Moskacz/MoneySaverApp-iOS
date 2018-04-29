@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 
 protocol TransactionCategoryViewModel {
     func transactionName() -> String?
