@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import MMFoundation
+import MoneySaverAppCore
 
 struct DatedValue: Equatable {
     static let storageKey = "valueStorageKey"

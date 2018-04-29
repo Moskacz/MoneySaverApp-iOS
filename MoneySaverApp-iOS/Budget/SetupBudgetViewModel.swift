@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MoneySaverAppCore
 
 enum SetupBudgetError: Error {
     case incorrectAmount

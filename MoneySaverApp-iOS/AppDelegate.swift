@@ -8,6 +8,7 @@
 
 import UIKit
 import Dip
+import MoneySaverAppCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MoneySaverAppCore
 
 final class TransactionsOverviewViewModel {
     

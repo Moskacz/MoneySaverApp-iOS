@@ -1,6 +1,7 @@
 import Foundation
 import CoreData
 import MMFoundation
+import MoneySaverAppCore
 
 class StatsViewModel {
     

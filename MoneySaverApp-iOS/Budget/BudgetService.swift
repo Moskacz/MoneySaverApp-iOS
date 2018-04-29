@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MoneySaverAppCore
 
 protocol BudgetService {
     func budgetFRC() -> NSFetchedResultsController<BudgetManagedObject>

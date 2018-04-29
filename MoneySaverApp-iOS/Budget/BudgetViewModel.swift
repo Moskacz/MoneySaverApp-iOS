@@ -9,6 +9,7 @@
 import Foundation
 import Charts
 import CoreData
+import MoneySaverAppCore
 
 protocol BudgetViewModelDelegate: class {
     func budget(setUp: Bool)

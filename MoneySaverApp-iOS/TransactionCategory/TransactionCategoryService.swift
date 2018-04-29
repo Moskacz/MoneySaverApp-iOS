@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MoneySaverAppCore
 
 protocol TransactionCategoryService {
     func allEntitiesFRC() -> NSFetchedResultsController<TransactionCategoryManagedObject>
