@@ -14,7 +14,7 @@ struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         container.register(.singleton) {
-            CoreDataStackImplementation()
+            CoreDataStackImplementation() as CoreDataStack
         }
         
         container.register(.singleton) {
