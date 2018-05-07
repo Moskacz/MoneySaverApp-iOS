@@ -14,39 +14,50 @@ import MoneySaverAppCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var dependencyContainer: DependencyContainer?
     var rootFlowController: RootFlowController?
-    var logger: Logger?
+    var coreDataStack: CoreDataStack?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let diContainer = DependencyContainer.createContainer()
-        let coreDataStack: CoreDataStack = try! diContainer.resolve()
+        let stack: CoreDataStack = try! diContainer.resolve()
         diContainer.register {
-            coreDataStack.getViewContext()
+            stack.getViewContext()
         }
         
         rootFlowController = RootFlowController(applicationDelegate: self,
                                                 storyboard: UIStoryboard.getMain(),
                                                 dependencyContainer: diContainer)
         rootFlowController?.startFlow()
-        dependencyContainer = diContainer
-        
+        coreDataStack = stack
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {}
 
-    func applicationDidEnterBackground(_ application: UIApplication) {}
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        saveCoreData()
+    }
 
     func applicationWillEnterForeground(_ application: UIApplication) {}
 
     func applicationDidBecomeActive(_ application: UIApplication) {}
 
-    func applicationWillTerminate(_ application: UIApplication) {}
+    func applicationWillTerminate(_ application: UIApplication) {
+        saveCoreData()
+    }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         rootFlowController?.setup(flowState: .transactionData)
         completionHandler(true)
+    }
+    
+    private func saveCoreData() {
+        do {
+            try coreDataStack?.save()
+        } catch {
+            print(error)
+        }
     }
 
 }
