@@ -13,8 +13,10 @@ import MoneySaverAppCore
 struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        container.register(.singleton) {
-            CoreDataStackImplementation() as CoreDataStack
+
+        container.register(.singleton) { () -> CoreDataStack in
+            let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppGroup.group.identifier)?.appendingPathComponent("Database.sqlite")
+            return CoreDataStackImplementation(storeURL: storeURL!)
         }
         
         container.register(.singleton) {
