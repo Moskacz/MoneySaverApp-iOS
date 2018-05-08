@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import MoneySaverAppCore
 @testable import MoneySaverApp_iOS
 
 class StatsViewModelTests: XCTestCase {

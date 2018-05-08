@@ -7,7 +7,7 @@
 //
 
 import UIKit
-@testable import MoneySaverApp_iOS
+import MoneySaverAppCore
 
 class FakeTransaction: TransactionProtocol {
     var title: String? = nil

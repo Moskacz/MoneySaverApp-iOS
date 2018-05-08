@@ -7,7 +7,7 @@
 //
 
 import Foundation
-@testable import MoneySaverApp_iOS
+import MoneySaverAppCore
 
 class FakeCalendarDate: CalendarDateProtocol {
     var calendarIdentifier: String? = nil

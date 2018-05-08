@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-@testable import MoneySaverApp_iOS
+import MoneySaverAppCore
 
 class InMemoryCoreDataStack: CoreDataStack {
     
@@ -29,10 +29,9 @@ class InMemoryCoreDataStack: CoreDataStack {
         self.container = container
     }
     
-    
-    func loadStores() {}
-    
     func getViewContext() -> NSManagedObjectContext {
         return container.viewContext
     }
+    
+    func save() throws {}
 }

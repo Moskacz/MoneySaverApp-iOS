@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MoneySaverApp_iOS
+import MoneySaverAppCore
 
 class StringTests: XCTestCase {
     

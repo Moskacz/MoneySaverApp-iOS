@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-@testable import MoneySaverApp_iOS
+import MoneySaverAppCore
 
 class FakeTransactionsRepository: TransactionsRepository {
     

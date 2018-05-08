@@ -8,6 +8,7 @@
 
 import XCTest
 import Dip
+import MoneySaverAppCore
 @testable import MoneySaverApp_iOS
 
 class RootFlowControllerTests: XCTestCase {

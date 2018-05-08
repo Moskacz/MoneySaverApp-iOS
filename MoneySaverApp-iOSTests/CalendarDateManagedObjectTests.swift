@@ -8,6 +8,7 @@
 
 import XCTest
 import CoreData
+import MoneySaverAppCore
 @testable import MoneySaverApp_iOS
 
 class CalendarDateManagedObjectTests: XCTestCase {

@@ -8,6 +8,7 @@
 
 import Foundation
 import MMFoundation
+import MoneySaverAppCore
 @testable import MoneySaverApp_iOS
 
 class FakeTransactionsComputingService: TransactionsComputingService {
