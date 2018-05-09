@@ -18,13 +18,6 @@ enum DashboardTab {
 class DashboardTabBarController: UITabBarController {
     
     var centerButtonTapCallback = {}
-
-    
-    override var viewControllers: [UIViewController]? {
-        didSet {
-            setupTabBar()
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,40 +33,6 @@ class DashboardTabBarController: UITabBarController {
         case .stats:
             selectedIndex = 3
         }
-    }
-    
-    // MARK: UITabBar
-    
-    private func setupTabBar() {
-        setupTabBarAppearance()
-        addTabBrCenterButton()
-    }
-    
-    private func setupTabBarAppearance() {
-        tabBar.tintColor = UIColor.appOrange
-    }
-    
-    private func addTabBrCenterButton() {
-        let button = GradientButton()
-        button.gradient = Gradients.activeElement
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 35)
-        button.setTitle("+", for: .normal)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-        button.addBottomShadow()
-        button.backgroundColor = UIColor.appOrange
-        let buttonSize = CGFloat(60)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        button.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        button.layer.cornerRadius = buttonSize * 0.5
-        tabBar.addSubview(button)
-        button.centerXAnchor.constraint(equalTo: tabBar.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: tabBar.topAnchor, constant: buttonSize * 0.2).isActive = true
-        button.addTarget(self, action: #selector(centerButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc private func centerButtonTapped() {
-        centerButtonTapCallback()
     }
 }
 
