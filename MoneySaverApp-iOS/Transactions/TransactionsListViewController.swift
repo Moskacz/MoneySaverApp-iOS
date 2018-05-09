@@ -33,7 +33,7 @@ class TransactionsListViewController: UIViewController {
         let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
         tableView?.separatorColor = UIColor.clear
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
-        tableView?.rowHeight = 83
+        tableView?.rowHeight = 87
         tableView?.tableFooterView = UIView()
     }
     
@@ -66,15 +66,9 @@ extension TransactionsListViewController: UITableViewDataSource {
         guard let model = viewModel, editingStyle == .delete else { return }
         model.deleteTransaction(atPath: indexPath)
     }
-}
-
-extension TransactionsListViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.textColor = UIColor.white
-        label.text = viewModel?.title(forSection: section)
-        label.backgroundColor = UIColor.appBlack
-        return label
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel?.title(forSection: section)
     }
+    
 }

@@ -50,7 +50,6 @@ class DashboardTabBarController: UITabBarController {
     
     private func setupTabBarAppearance() {
         tabBar.tintColor = UIColor.appOrange
-        tabBar.barTintColor = #colorLiteral(red: 0.3266741037, green: 0.3266741037, blue: 0.3266741037, alpha: 1)
     }
     
     private func addTabBrCenterButton() {
