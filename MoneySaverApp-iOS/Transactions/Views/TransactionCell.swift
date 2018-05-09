@@ -31,4 +31,6 @@ class TransactionCell: UITableViewCell {
         dateLabel?.text = viewModel.dateText()
         indicatorView?.gradient = viewModel.indicatorGradient()
     }
+    
+
 }

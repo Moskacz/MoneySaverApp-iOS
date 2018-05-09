@@ -64,7 +64,7 @@ class RootFlowController: FlowController {
     }
     
     private func setupRootFlowController() {
-        let tabBarVC = DashboardTabBarController()
+        let tabBarVC: DashboardTabBarController = storyboard.instantiate()
         
         tabBarVC.viewControllers = [transactionsOverviewViewController(),
                                     budgetViewController(),

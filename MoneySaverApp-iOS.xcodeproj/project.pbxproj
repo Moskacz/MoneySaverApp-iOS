@@ -33,6 +33,7 @@
 		35411785200BE83F002B7AF6 /* RootFlowService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35411784200BE83F002B7AF6 /* RootFlowService.swift */; };
 		354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354513122076A4EB00909A7F /* DateFormattersTests.swift */; };
 		3545131B207A750400909A7F /* FakeUserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545131A207A750400909A7F /* FakeUserPreferences.swift */; };
+		354E4B9820A379FA009A8311 /* DashboardTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354E4B9720A379FA009A8311 /* DashboardTabBar.swift */; };
 		355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C61F7831F20007FEF1 /* SynchronizationService.swift */; };
 		355509C91F7832830007FEF1 /* TransactionsCloudKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */; };
 		355509CB1F7ABF1B0007FEF1 /* BudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */; };
@@ -204,6 +205,7 @@
 		35411784200BE83F002B7AF6 /* RootFlowService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowService.swift; sourceTree = "<group>"; };
 		354513122076A4EB00909A7F /* DateFormattersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormattersTests.swift; sourceTree = "<group>"; };
 		3545131A207A750400909A7F /* FakeUserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserPreferences.swift; sourceTree = "<group>"; };
+		354E4B9720A379FA009A8311 /* DashboardTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTabBar.swift; sourceTree = "<group>"; };
 		355509C61F7831F20007FEF1 /* SynchronizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizationService.swift; sourceTree = "<group>"; };
 		355509C81F7832830007FEF1 /* TransactionsCloudKitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsCloudKitClient.swift; sourceTree = "<group>"; };
 		355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewController.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */,
+				354E4B9720A379FA009A8311 /* DashboardTabBar.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -883,6 +886,7 @@
 				355509CD1F7ABF7E0007FEF1 /* StatsViewController.swift in Sources */,
 				3528D3B6206E68A0009A19E2 /* TransactionsSummaryViewModel.swift in Sources */,
 				350F0F651E95664B002ED5D7 /* UIStoryboard+Additions.swift in Sources */,
+				354E4B9820A379FA009A8311 /* DashboardTabBar.swift in Sources */,
 				352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */,
 				359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */,
 				35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */,

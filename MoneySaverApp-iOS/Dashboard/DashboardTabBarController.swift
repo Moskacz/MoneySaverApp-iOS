@@ -18,6 +18,7 @@ enum DashboardTab {
 class DashboardTabBarController: UITabBarController {
     
     var centerButtonTapCallback = {}
+
     
     override var viewControllers: [UIViewController]? {
         didSet {
