@@ -11,7 +11,7 @@ import MMFoundation
 
 class DashboardTabBar: UITabBar {
     
-    var button: UIButton?
+    private(set) var centerButton: UIButton?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,19 +43,13 @@ class DashboardTabBar: UITabBar {
         addSubview(button)
         button.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: topAnchor, constant: buttonSize * 0.2).isActive = true
-        button.addTarget(self, action: #selector(centerButtonTapped), for: .touchUpInside)
-        self.button = button
-    }
-    
-    @objc private func centerButtonTapped() {
-        print("tapped")
-//        centerButtonTapCallback()
+        self.centerButton = button
     }
     
     // MARK: Responder chain
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        guard let button = button, button.frame.contains(point) else {
+        guard let button = centerButton, button.frame.contains(point) else {
             return super.hitTest(point, with: event)
         }
         return button

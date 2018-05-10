@@ -22,6 +22,7 @@ class DashboardTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        setupTabBar()
     }
     
     func select(tab: DashboardTab) {
@@ -33,6 +34,15 @@ class DashboardTabBarController: UITabBarController {
         case .stats:
             selectedIndex = 3
         }
+    }
+    
+    private func setupTabBar() {
+        let tabBar = self.tabBar as! DashboardTabBar
+        tabBar.centerButton?.addTarget(self, action: #selector(centerTabBarButtonTapped), for: .touchUpInside)
+    }
+    
+    @IBAction func centerTabBarButtonTapped() {
+        centerButtonTapCallback()
     }
 }
 
