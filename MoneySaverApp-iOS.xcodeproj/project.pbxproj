@@ -26,7 +26,6 @@
 		352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03131E92C087001B99CB /* DataLayerAssembler.swift */; };
 		352B03161E92C44B001B99CB /* ModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03151E92C44B001B99CB /* ModelsAssembler.swift */; };
 		352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */; };
-		352D29A3206AD13900B91E07 /* Gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352D29A2206AD13900B91E07 /* Gradients.swift */; };
 		353A944C20A0DB8700B94A72 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353A944B20A0DB8700B94A72 /* AppGroup.swift */; };
 		353B9C8D2027774F00990667 /* TransactionCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */; };
 		353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353B9C8E2027775D00990667 /* FakeTransction.swift */; };
@@ -49,7 +48,6 @@
 		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
 		35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */; };
 		35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */; };
-		3585EDFA1FDDA08200871941 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDF91FDDA08200871941 /* Styles.swift */; };
 		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
@@ -57,6 +55,7 @@
 		359784B71FD70D5200140DCA /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; };
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
+		359F703A20A837AF00C9A694 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359F703920A837AF00C9A694 /* Theme.swift */; };
 		35A0239E2022394B00E42FFD /* NSManagedObjectContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */; };
 		35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023AB2024E59200E42FFD /* SettingsViewController.swift */; };
 		35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA04201E023C009E6111 /* Calendar+Additions.swift */; };
@@ -91,7 +90,6 @@
 		35C8539C1FBCDAA600A7E479 /* Decimal+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */; };
 		35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C9FEF21E8C279D0092D5E3 /* CoreData.framework */; };
 		35CCD5061FAE3A3B00BD308E /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */; };
-		35CFA2912028C7C90028FBA1 /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2902028C7C90028FBA1 /* Palette.swift */; };
 		35CFA2952028CD790028FBA1 /* FakeCalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
@@ -198,7 +196,6 @@
 		352B03131E92C087001B99CB /* DataLayerAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLayerAssembler.swift; sourceTree = "<group>"; };
 		352B03151E92C44B001B99CB /* ModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelsAssembler.swift; sourceTree = "<group>"; };
 		352B03171E92C4DA001B99CB /* ViewModelsAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelsAssembler.swift; sourceTree = "<group>"; };
-		352D29A2206AD13900B91E07 /* Gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradients.swift; sourceTree = "<group>"; };
 		353A944B20A0DB8700B94A72 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
 		353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCellViewModelTests.swift; sourceTree = "<group>"; };
 		353B9C8E2027775D00990667 /* FakeTransction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTransction.swift; sourceTree = "<group>"; };
@@ -220,7 +217,6 @@
 		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
 		35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModel.swift; sourceTree = "<group>"; };
 		35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModelTests.swift; sourceTree = "<group>"; };
-		3585EDF91FDDA08200871941 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
@@ -228,6 +224,7 @@
 		359784AE1FD70D3E00140DCA /* MMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMFoundation.xcodeproj; path = InternalFrameworks/MMFoundation/MMFoundation.xcodeproj; sourceTree = "<group>"; };
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
+		359F703920A837AF00C9A694 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Additions.swift"; sourceTree = "<group>"; };
 		35A023AB2024E59200E42FFD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35A7BA04201E023C009E6111 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
@@ -268,7 +265,6 @@
 		35C8539B1FBCDAA600A7E479 /* Decimal+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Additions.swift"; sourceTree = "<group>"; };
 		35C9FEF21E8C279D0092D5E3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		35CCD5051FAE3A3B00BD308E /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
-		35CFA2902028C7C90028FBA1 /* Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendarDate.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
@@ -400,9 +396,6 @@
 		3585EDF61FDDA07000871941 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				3585EDF91FDDA08200871941 /* Styles.swift */,
-				35CFA2902028C7C90028FBA1 /* Palette.swift */,
-				352D29A2206AD13900B91E07 /* Gradients.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -422,6 +415,14 @@
 				359784B61FD70D3E00140DCA /* MMFoundationTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		359F703820A837A300C9A694 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				359F703920A837AF00C9A694 /* Theme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		35A023A72024C9B600E42FFD /* Views */ = {
@@ -491,6 +492,7 @@
 		35BB971C1E7F085F003DBA41 /* MoneySaverApp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				359F703820A837A300C9A694 /* Theme */,
 				35163F0820722452000801FA /* TransactionsOverview */,
 				35AC4C9A206E70AB00872615 /* Notifications */,
 				351005F9206438000090AD43 /* TransactionsSummary */,
@@ -858,11 +860,13 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Dip.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ScrollableGraphView.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Chameleon.framework",
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Dip.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Charts.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ScrollableGraphView.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Chameleon.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -875,7 +879,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				352D29A3206AD13900B91E07 /* Gradients.swift in Sources */,
 				359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */,
 				352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */,
 				35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */,
@@ -902,6 +905,7 @@
 				352B03121E92BF63001B99CB /* NetworkingLayerAssembler.swift in Sources */,
 				352B03101E92BF20001B99CB /* ContainerAssembly.swift in Sources */,
 				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
+				359F703A20A837AF00C9A694 /* Theme.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
 				35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */,
@@ -919,9 +923,7 @@
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
 				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,
 				3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */,
-				35CFA2912028C7C90028FBA1 /* Palette.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
-				3585EDFA1FDDA08200871941 /* Styles.swift in Sources */,
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 				358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */,

@@ -24,17 +24,17 @@ class DashboardTabBar: UITabBar {
     }
     
     private func setupTabBarAppearance() {
-        tintColor = UIColor.appOrange
+        tintColor = AppColor.activeElement.value
     }
     
     private func addTabBrCenterButton() {
         let button = GradientButton()
-        button.gradient = Gradients.activeElement
+        button.gradient = AppGradient.activeElement.value
         button.titleLabel?.font = UIFont.systemFont(ofSize: 35)
         button.setTitle("+", for: .normal)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
         button.addBottomShadow()
-        button.backgroundColor = UIColor.appOrange
+        button.backgroundColor = AppColor.activeElement.value
         let buttonSize = CGFloat(60)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true

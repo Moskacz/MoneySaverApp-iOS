@@ -43,9 +43,9 @@ class TransactionCellViewModelImplementation: TransactionCellViewModel {
     func indicatorGradient() -> Gradient? {
         let value = transaction.value?.doubleValue ?? 0
         if value >= 0 {
-            return Gradients.positiveValueTransaction
+            return AppGradient.positiveValueTransaction.value
         } else {
-            return Gradients.negativeValueTransaction
+            return AppGradient.negativeValueTransaction.value
         }
     }
     

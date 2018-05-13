@@ -20,10 +20,11 @@ extension UIView {
 // MARK: Error state
 extension UIView {
     func displayAsIncorrect() {
+        let backgroundColor = self.backgroundColor
         UIView.animate(withDuration: 0.5, delay: 0.0, options: [.autoreverse], animations: {
-            self.backgroundColor = UIColor.appRed
+            self.backgroundColor = AppColor.redDark.value
         }, completion: { (_) in
-            self.backgroundColor = UIColor.white
+            self.backgroundColor = backgroundColor
         })
     }
 }

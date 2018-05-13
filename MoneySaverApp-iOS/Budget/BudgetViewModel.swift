@@ -83,7 +83,7 @@ class BudgetViewModel: NSObject {
         let leftSum = max(budgetValue() + expenses.double, 0)
         let leftMoneyEntry = PieChartDataEntry(value: leftSum, label: "Left")
         let dataSet = PieChartDataSet(values: [spentMoneyEntry, leftMoneyEntry], label: nil)
-        dataSet.colors = [UIColor.appRed, UIColor.appGreen]
+        dataSet.colors = [AppColor.red.value, AppColor.green.value]
         return PieChartData(dataSet: dataSet)
     }
     
@@ -103,7 +103,7 @@ class BudgetViewModel: NSObject {
             BarChartDataEntry(x: Double($0.x), y: $0.y.double)
         }
         let barDataSet = BarChartDataSet(values: barEntries, label: "Estimated spendings")
-        barDataSet.colors = [UIColor.appGreen]
+        barDataSet.colors = [AppColor.green.value]
         barDataSet.drawValuesEnabled = false
         data.barData = BarChartData(dataSet: barDataSet)
         
@@ -111,7 +111,7 @@ class BudgetViewModel: NSObject {
             return ChartDataEntry(x: Double($0.x), y: $0.y.double)
         }
         let lineDataSet = LineChartDataSet(values: lineEntries, label: "Actual spendings")
-        lineDataSet.colors = [UIColor.appRed]
+        lineDataSet.colors = [AppColor.red.value]
         lineDataSet.mode = .linear
         lineDataSet.lineWidth = 5
         lineDataSet.drawCirclesEnabled = false
