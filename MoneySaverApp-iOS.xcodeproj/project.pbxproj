@@ -56,6 +56,7 @@
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
 		359F703A20A837AF00C9A694 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359F703920A837AF00C9A694 /* Theme.swift */; };
+		359F703C20A83F0A00C9A694 /* Chameleon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359F703B20A83F0A00C9A694 /* Chameleon.framework */; };
 		35A0239E2022394B00E42FFD /* NSManagedObjectContext+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */; };
 		35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A023AB2024E59200E42FFD /* SettingsViewController.swift */; };
 		35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A7BA04201E023C009E6111 /* Calendar+Additions.swift */; };
@@ -225,6 +226,7 @@
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		359F703920A837AF00C9A694 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		359F703B20A83F0A00C9A694 /* Chameleon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Chameleon.framework; path = Carthage/Build/iOS/Chameleon.framework; sourceTree = "<group>"; };
 		35A0239D2022394B00E42FFD /* NSManagedObjectContext+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext+Additions.swift"; sourceTree = "<group>"; };
 		35A023AB2024E59200E42FFD /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		35A7BA04201E023C009E6111 /* Calendar+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Additions.swift"; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */,
 				352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */,
 				35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */,
+				359F703C20A83F0A00C9A694 /* Chameleon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +551,7 @@
 		35BB973D1E7F0D76003DBA41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				359F703B20A83F0A00C9A694 /* Chameleon.framework */,
 				35EB3D071F7195BD00BCB79C /* CloudKit.framework */,
 				35E6F1DE1EC389F1007667BB /* RxCocoa.framework */,
 				352B03091E92BD0A001B99CB /* Dip.framework */,
