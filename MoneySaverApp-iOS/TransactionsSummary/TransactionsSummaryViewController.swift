@@ -31,8 +31,8 @@ class TransactionsSummaryViewController: UIViewController {
     }
     
     private func setupAppearance() {
-        gradientView.gradient = AppGradient.summaryView.value
-        dateRangeButton?.gradient = AppGradient.activeElement.value
+        gradientView.update(with: AppGradient.summaryView.value)
+        dateRangeButton?.update(with: AppGradient.activeElement.value)
         dateRangeButton?.addBottomShadow()
     }
     

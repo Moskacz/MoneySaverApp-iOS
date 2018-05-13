@@ -29,7 +29,7 @@ class TransactionCell: UITableViewCell {
         amoutLabel?.text = viewModel.titleText()
         descriptionLabel?.text = viewModel.descriptionText()
         dateLabel?.text = viewModel.dateText()
-        indicatorView?.gradient = viewModel.indicatorGradient()
+        indicatorView?.update(with: viewModel.indicatorGradient())
     }
     
 
