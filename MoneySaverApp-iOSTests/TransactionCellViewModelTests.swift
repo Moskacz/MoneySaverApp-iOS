@@ -29,14 +29,14 @@ class TransactionCellViewModelTests: XCTestCase {
         let transaction = FakeTransaction()
         transaction.value = NSDecimalNumber(value: 100)
         let sut = TransactionCellViewModelImplementation(transaction: transaction)
-        XCTAssertEqual(sut.indicatorGradient(), Gradients.positiveValueTransaction)
+        XCTAssertEqual(sut.indicatorGradient(), AppGradient.positiveValueTransaction.value)
     }
     
     func test_indicatorColor_whenExpense_thenShouldBeAppGreen() {
         let transaction = FakeTransaction()
         transaction.value = NSDecimalNumber(value: -100)
         let sut = TransactionCellViewModelImplementation(transaction: transaction)
-        XCTAssertEqual(sut.indicatorGradient(), Gradients.negativeValueTransaction)
+        XCTAssertEqual(sut.indicatorGradient(), AppGradient.negativeValueTransaction.value)
     }
     
     func test_dateText_shouldHaveTimeOnly() {
