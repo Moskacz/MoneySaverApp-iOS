@@ -13,6 +13,7 @@ class TransactionCell: UITableViewCell {
     
     @IBOutlet private weak var dividerViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var containerView: UIView?
+    @IBOutlet private weak var iconImageViewContainer: GradientView?
     @IBOutlet private weak var iconImageView: UIImageView?
     @IBOutlet private weak var amoutLabel: UILabel?
     @IBOutlet private weak var descriptionLabel: UILabel?
@@ -22,6 +23,7 @@ class TransactionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         dividerViewHeightConstraint?.constant = 1.0/UIScreen.main.scale
+        iconImageViewContainer?.update(with: AppGradient.main.value)
     }
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
@@ -32,5 +34,11 @@ class TransactionCell: UITableViewCell {
         indicatorView?.update(with: viewModel.indicatorGradient())
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if let view = iconImageViewContainer {
+            view.layer.cornerRadius = view.bounds.width * 0.5
+        }
+    }
 
 }

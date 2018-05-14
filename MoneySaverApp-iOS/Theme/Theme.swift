@@ -39,6 +39,7 @@ enum AppGradient {
     case positiveValueTransaction
     case negativeValueTransaction
     case summaryView
+    case main
     
     var value: Gradient {
         switch self {
@@ -54,6 +55,8 @@ enum AppGradient {
             return Gradient(colors: [AppColor.red.value, AppColor.redDark.value], direction: .skewRight)
         case .summaryView:
             return Gradient(colors: [AppColor.main.value, AppColor.mainDark.value], direction: .skewLeft)
+        case .main:
+            return Gradient(colors: [AppColor.main.value, AppColor.mainDark.value], direction: .skewRight)
         }
     }
 }
