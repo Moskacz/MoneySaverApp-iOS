@@ -74,7 +74,6 @@
 		35B8A1E7200D201B00EA8C7C /* FakeCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1E6200D201B00EA8C7C /* FakeCollectionUpdater.swift */; };
 		35B8A1EB200D22A900EA8C7C /* FakeFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1EA200D22A900EA8C7C /* FakeFetchedResultsController.swift */; };
 		35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */; };
-		35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1831F923CB00059A1CC /* TransactionCategoryView.swift */; };
 		35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */; };
 		35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */; };
 		35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB971D1E7F085F003DBA41 /* AppDelegate.swift */; };
@@ -245,7 +244,6 @@
 		35B8A1E6200D201B00EA8C7C /* FakeCollectionUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCollectionUpdater.swift; sourceTree = "<group>"; };
 		35B8A1EA200D22A900EA8C7C /* FakeFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeFetchedResultsController.swift; sourceTree = "<group>"; };
 		35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryService.swift; sourceTree = "<group>"; };
-		35B8C1831F923CB00059A1CC /* TransactionCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryView.swift; sourceTree = "<group>"; };
 		35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsComputingService.swift; sourceTree = "<group>"; };
 		35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetService.swift; sourceTree = "<group>"; };
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -382,7 +380,6 @@
 				356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */,
 				356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */,
 				35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */,
-				35B8C1831F923CB00059A1CC /* TransactionCategoryView.swift */,
 				3514C4281F9B9A55003C3044 /* TransactionCategoryViewModel.swift */,
 			);
 			path = TransactionCategory;
@@ -925,7 +922,6 @@
 				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
 				35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */,
 				358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */,
-				35B8C1841F923CB00059A1CC /* TransactionCategoryView.swift in Sources */,
 				3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */,
 				355509C71F7831F20007FEF1 /* SynchronizationService.swift in Sources */,
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,

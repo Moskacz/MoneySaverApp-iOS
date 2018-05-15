@@ -10,10 +10,10 @@ import UIKit
 
 class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet private weak var transactionCategoryView: TransactionCategoryView?
+    
     
     func update(withViewModel viewModel: TransactionCategoryViewModel) {
-        transactionCategoryView?.update(withViewModel: viewModel)
+//        transactionCategoryView?.update(withViewModel: viewModel)
     }
 }
 
