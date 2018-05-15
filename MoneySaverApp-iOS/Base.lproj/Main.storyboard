@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -328,20 +329,42 @@
                                     <rect key="frame" x="0.0" y="0.0" width="109" height="94"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc6-aA-wVZ" customClass="TransactionCategoryView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="109" height="94"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Category title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugl-NY-tPf">
+                                            <rect key="frame" x="0.0" y="77" width="109" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rx8-bc-YBP">
+                                            <rect key="frame" x="20" y="0.0" width="69" height="69"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tIp-8D-qX7">
+                                                    <rect key="frame" x="16" y="16" width="37" height="37"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="tIp-8D-qX7" secondAttribute="trailing" constant="16" id="C7k-2X-4SY"/>
+                                                <constraint firstItem="tIp-8D-qX7" firstAttribute="leading" secondItem="rx8-bc-YBP" secondAttribute="leading" constant="16" id="OTc-2i-tG3"/>
+                                                <constraint firstItem="tIp-8D-qX7" firstAttribute="top" secondItem="rx8-bc-YBP" secondAttribute="top" constant="16" id="eLJ-Hj-Fdm"/>
+                                                <constraint firstAttribute="bottom" secondItem="tIp-8D-qX7" secondAttribute="bottom" constant="16" id="pRv-z1-rO1"/>
+                                                <constraint firstAttribute="width" secondItem="rx8-bc-YBP" secondAttribute="height" id="x1q-lP-Mlo"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="xc6-aA-wVZ" firstAttribute="top" secondItem="6ka-Ic-Hl1" secondAttribute="top" id="fv8-cG-9yK"/>
-                                    <constraint firstAttribute="trailing" secondItem="xc6-aA-wVZ" secondAttribute="trailing" id="gbc-xL-3KU"/>
-                                    <constraint firstItem="xc6-aA-wVZ" firstAttribute="leading" secondItem="6ka-Ic-Hl1" secondAttribute="leading" id="ncN-xC-hag"/>
-                                    <constraint firstAttribute="bottom" secondItem="xc6-aA-wVZ" secondAttribute="bottom" id="ozK-w3-GXG"/>
+                                    <constraint firstItem="ugl-NY-tPf" firstAttribute="top" secondItem="rx8-bc-YBP" secondAttribute="bottom" constant="8" id="AEl-cX-23b"/>
+                                    <constraint firstAttribute="bottom" secondItem="ugl-NY-tPf" secondAttribute="bottom" id="BnZ-Rw-xex"/>
+                                    <constraint firstItem="rx8-bc-YBP" firstAttribute="top" secondItem="6ka-Ic-Hl1" secondAttribute="top" id="JNP-lh-2te"/>
+                                    <constraint firstItem="ugl-NY-tPf" firstAttribute="leading" secondItem="6ka-Ic-Hl1" secondAttribute="leading" id="MC3-Xs-s57"/>
+                                    <constraint firstItem="rx8-bc-YBP" firstAttribute="centerX" secondItem="6ka-Ic-Hl1" secondAttribute="centerX" id="aBC-Ka-yJY"/>
+                                    <constraint firstAttribute="trailing" secondItem="ugl-NY-tPf" secondAttribute="trailing" id="mue-Qt-nSU"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="transactionCategoryView" destination="xc6-aA-wVZ" id="xdH-No-2C2"/>
+                                    <outlet property="imageBackgroundView" destination="rx8-bc-YBP" id="JGj-Ov-Nds"/>
+                                    <outlet property="imageView" destination="tIp-8D-qX7" id="irz-Ja-t0p"/>
+                                    <outlet property="titleLabel" destination="ugl-NY-tPf" id="Way-kN-QKg"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

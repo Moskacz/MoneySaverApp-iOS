@@ -10,10 +10,23 @@ import UIKit
 
 class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet private weak var titleLabel: UILabel?
+    @IBOutlet private weak var imageBackgroundView: UIView?
+    @IBOutlet private weak var imageView: UIImageView?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        imageBackgroundView?.backgroundColor = AppColor.main.value
+    }
     
     func update(withViewModel viewModel: TransactionCategoryViewModel) {
-//        transactionCategoryView?.update(withViewModel: viewModel)
+        titleLabel?.text = viewModel.transactionName
+        imageView?.image = viewModel.transactionIcon
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageBackgroundView?.makeLayerRound()
     }
 }
 

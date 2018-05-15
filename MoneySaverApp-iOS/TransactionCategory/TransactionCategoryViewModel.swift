@@ -10,8 +10,8 @@ import UIKit
 import MoneySaverAppCore
 
 protocol TransactionCategoryViewModel {
-    func transactionName() -> String?
-    func transactionIcon() -> UIImage?
+    var transactionName: String? { get }
+    var transactionIcon: UIImage? { get }
 }
 
 class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
@@ -22,18 +22,11 @@ class TransactionCategoryViewModelImpl: TransactionCategoryViewModel {
         self.category = category
     }
     
-    func transactionName() -> String? {
+    var transactionName: String? {
         return category.name
     }
     
-    func transactionIcon() -> UIImage? {
+    var transactionIcon: UIImage? {
         return category.image
-    }
-}
-
-class TransactionCategorySimpleViewModelImpl: TransactionCategoryViewModelImpl {
-    
-    override func transactionName() -> String? {
-        return nil
     }
 }
