@@ -149,6 +149,7 @@ class RootFlowController: FlowController {
         }
         
         let navControlloer = UINavigationController(rootViewController: viewController)
+        navControlloer.navigationBar.tintColor = AppColor.activeElement.value
         navControlloer.modalPresentationStyle = .custom
         navControlloer.transitioningDelegate = presentationManager
         tabBarController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
