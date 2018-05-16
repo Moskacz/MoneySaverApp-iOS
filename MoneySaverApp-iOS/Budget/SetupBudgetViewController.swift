@@ -24,6 +24,16 @@ class SetupBudgetViewController: UIViewController {
         closeButton?.isHidden = !isPresented
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+    
+    private func setup() {
+        confirmButton?.backgroundColor = AppColor.activeElement.value
+        closeButton?.backgroundColor = AppColor.activeElement.value
+    }
+    
     // MARK: UI Actions
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
