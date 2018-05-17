@@ -49,6 +49,8 @@
 		35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */; };
 		35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */; };
 		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
+		3587F20120ADF31300DC8C89 /* TransactionTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587F20020ADF31300DC8C89 /* TransactionTypePickerView.swift */; };
+		3587F20920ADF33A00DC8C89 /* TransactionTypePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3587F20820ADF33A00DC8C89 /* TransactionTypePickerView.xib */; };
 		358894741E992DE500ACF06C /* TransactionDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894731E992DE500ACF06C /* TransactionDataViewModel.swift */; };
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
@@ -218,6 +220,8 @@
 		35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModel.swift; sourceTree = "<group>"; };
 		35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModelTests.swift; sourceTree = "<group>"; };
 		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
+		3587F20020ADF31300DC8C89 /* TransactionTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerView.swift; sourceTree = "<group>"; };
+		3587F20820ADF33A00DC8C89 /* TransactionTypePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTypePickerView.xib; sourceTree = "<group>"; };
 		358894731E992DE500ACF06C /* TransactionDataViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDataViewModel.swift; sourceTree = "<group>"; };
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
@@ -675,6 +679,8 @@
 				35EA1A261EB632A70083C57F /* TransactionCell.swift */,
 				35EA1A281EB632DB0083C57F /* TransactionCell.xib */,
 				35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */,
+				3587F20020ADF31300DC8C89 /* TransactionTypePickerView.swift */,
+				3587F20820ADF33A00DC8C89 /* TransactionTypePickerView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -835,6 +841,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35BB97281E7F0860003DBA41 /* LaunchScreen.storyboard in Resources */,
+				3587F20920ADF33A00DC8C89 /* TransactionTypePickerView.xib in Resources */,
 				35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */,
 				35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */,
 				35DEBBE32011249000EA1556 /* Default-568h@2x.png in Resources */,
@@ -908,6 +915,7 @@
 				35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */,
 				359F703A20A837AF00C9A694 /* Theme.swift in Sources */,
 				352B03141E92C087001B99CB /* DataLayerAssembler.swift in Sources */,
+				3587F20120ADF31300DC8C89 /* TransactionTypePickerView.swift in Sources */,
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
 				35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,

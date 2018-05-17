@@ -78,6 +78,7 @@ class TransactionDataViewController: UIViewController {
         datePicker?.alpha = 0
         
         titleTextField?.delegate = self
+        valueTextField?.inputAccessoryView = TransactionTypePickerView.makeView()
     }
     
     private func setupInitialData() {

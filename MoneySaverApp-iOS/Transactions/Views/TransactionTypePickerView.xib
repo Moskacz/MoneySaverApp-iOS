@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TransactionTypePickerView" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="456" height="48"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeE-dQ-Ouz">
+                    <rect key="frame" x="244" y="8" width="180" height="32"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYx-1V-FXg">
+                            <rect key="frame" x="8" y="8" width="164" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.4231500164" blue="0.41794321109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="iYx-1V-FXg" secondAttribute="bottom" constant="8" id="Zjq-Ph-G4F"/>
+                        <constraint firstItem="iYx-1V-FXg" firstAttribute="leading" secondItem="DeE-dQ-Ouz" secondAttribute="leading" constant="8" id="tWB-1M-trR"/>
+                        <constraint firstAttribute="trailing" secondItem="iYx-1V-FXg" secondAttribute="trailing" constant="8" id="u4b-DX-nJ6"/>
+                        <constraint firstItem="iYx-1V-FXg" firstAttribute="top" secondItem="DeE-dQ-Ouz" secondAttribute="top" constant="8" id="zbf-uN-TFL"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="Hl5-TJ-63O" appends="YES" id="bni-IB-ad0"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSA-zm-SYd">
+                    <rect key="frame" x="32" y="8" width="180" height="32"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZQ-bq-U2Z">
+                            <rect key="frame" x="8" y="8" width="164" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.19236100610000001" green="0.75876376300000004" blue="0.2174642336" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="xZQ-bq-U2Z" firstAttribute="top" secondItem="vSA-zm-SYd" secondAttribute="top" constant="8" id="CZ3-1o-XoU"/>
+                        <constraint firstAttribute="trailing" secondItem="xZQ-bq-U2Z" secondAttribute="trailing" constant="8" id="FA3-Be-Bix"/>
+                        <constraint firstAttribute="bottom" secondItem="xZQ-bq-U2Z" secondAttribute="bottom" constant="8" id="ISG-SU-0Tc"/>
+                        <constraint firstItem="xZQ-bq-U2Z" firstAttribute="leading" secondItem="vSA-zm-SYd" secondAttribute="leading" constant="8" id="gT3-ut-krY"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="tct-Am-9yQ" appends="YES" id="KSr-Ll-pLL"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DeE-dQ-Ouz" secondAttribute="bottom" constant="8" id="2xN-uG-VeR"/>
+                <constraint firstItem="DeE-dQ-Ouz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="5Fo-6a-yg2"/>
+                <constraint firstItem="vSA-zm-SYd" firstAttribute="width" secondItem="DeE-dQ-Ouz" secondAttribute="width" id="8Hl-Qr-qaV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vSA-zm-SYd" secondAttribute="bottom" constant="8" id="LNt-hL-jCG"/>
+                <constraint firstItem="DeE-dQ-Ouz" firstAttribute="leading" secondItem="vSA-zm-SYd" secondAttribute="trailing" constant="32" id="YER-cO-pZ3"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DeE-dQ-Ouz" secondAttribute="trailing" constant="32" id="hMD-aq-lgW"/>
+                <constraint firstItem="vSA-zm-SYd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="j1R-wz-9uj"/>
+                <constraint firstItem="vSA-zm-SYd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="tWu-I0-p2I"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="expenseContainer" destination="DeE-dQ-Ouz" id="xW2-Yj-z13"/>
+                <outlet property="incomeContainer" destination="vSA-zm-SYd" id="rds-2O-R3Y"/>
+            </connections>
+            <point key="canvasLocation" x="74" y="363"/>
+        </view>
+        <tapGestureRecognizer id="tct-Am-9yQ">
+            <connections>
+                <action selector="incomeTypeTapped:" destination="iN0-l3-epB" id="wXc-vL-KTn"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="Hl5-TJ-63O">
+            <connections>
+                <action selector="expenseTapped:" destination="iN0-l3-epB" id="aIY-rz-xfF"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
