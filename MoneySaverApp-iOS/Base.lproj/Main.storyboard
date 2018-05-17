@@ -172,8 +172,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJT-tv-2rK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-dI-fI8">
-                                        <rect key="frame" x="16" y="50" width="343" height="453"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-dI-fI8">
+                                        <rect key="frame" x="16" y="50" width="343" height="421"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uCs-7g-mTq">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
@@ -196,7 +196,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="HsP-4M-Yvu">
-                                                <rect key="frame" x="0.0" y="90" width="343" height="66"/>
+                                                <rect key="frame" x="0.0" y="74" width="343" height="66"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ido-ha-XGJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="17"/>
@@ -204,37 +204,19 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-qw-R69">
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-lG-S22">
                                                         <rect key="frame" x="0.0" y="21" width="343" height="45"/>
-                                                        <subviews>
-                                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HeW-it-5JI">
-                                                                <rect key="frame" x="0.0" y="0.0" width="90" height="46"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="90" id="3fx-IP-nNU"/>
-                                                                </constraints>
-                                                                <segments>
-                                                                    <segment title="-"/>
-                                                                    <segment title="+"/>
-                                                                </segments>
-                                                                <connections>
-                                                                    <action selector="transactionValueSignChanged:" destination="ze7-cu-UEi" eventType="valueChanged" id="WAE-SV-d8e"/>
-                                                                </connections>
-                                                            </segmentedControl>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NtE-lG-S22">
-                                                                <rect key="frame" x="106" y="0.0" width="237" height="45"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="45" id="47O-Gj-xXk"/>
-                                                                </constraints>
-                                                                <nil key="textColor"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                            </textField>
-                                                        </subviews>
-                                                    </stackView>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="47O-Gj-xXk"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    </textField>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="bcQ-oT-EJM">
-                                                <rect key="frame" x="0.0" y="180" width="343" height="273"/>
+                                                <rect key="frame" x="0.0" y="148" width="343" height="273"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tcp-Z7-kha">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="17"/>
@@ -306,7 +288,6 @@
                         <outlet property="datePicker" destination="NXZ-bw-5e3" id="Z2E-aO-jw6"/>
                         <outlet property="scrollView" destination="fJT-tv-2rK" id="3lH-dF-DS9"/>
                         <outlet property="titleTextField" destination="OYE-GU-6dh" id="QXV-Cn-yPA"/>
-                        <outlet property="valueSignSegmentedControl" destination="HeW-it-5JI" id="8EW-3W-eLF"/>
                         <outlet property="valueTextField" destination="NtE-lG-S22" id="PlH-oo-L3d"/>
                     </connections>
                 </viewController>

@@ -29,7 +29,6 @@ class TransactionDataViewController: UIViewController {
     @IBOutlet private weak var scrollView: UIScrollView?
     @IBOutlet private weak var titleTextField: UITextField?
     @IBOutlet private weak var valueTextField: UITextField?
-    @IBOutlet private weak var valueSignSegmentedControl: UISegmentedControl?
     @IBOutlet private weak var currentDateLabel: UILabel?
     @IBOutlet private weak var currentDateChevron: UIImageView?
     @IBOutlet private weak var datePicker: UIDatePicker?
@@ -63,7 +62,7 @@ class TransactionDataViewController: UIViewController {
     
     private func setupViews() {
         title = "New transaction"
-        valueSignSegmentedControl?.tintColor = AppColor.activeElement.value
+    
         let nextButton = UIBarButtonItem(title: "Add",
                                          style: .done,
                                          target: self,
@@ -82,11 +81,8 @@ class TransactionDataViewController: UIViewController {
     }
     
     private func setupInitialData() {
-        guard
-            let model = viewModel,
-            let selectedSignIndex = valueSignSegmentedControl?.selectedSegmentIndex,
-            let sign = TransactionValueSign(rawValue: selectedSignIndex) else { return }
-        setupValueField(withSign: sign)
+        guard let model = viewModel else { return }
+        setupValueField(withSign: TransactionValueSign.minus)
         datePicker?.date = model.transactionDate
         setup(transactionDate: model.transactionDate)
     }
@@ -198,3 +194,5 @@ extension TransactionDataViewController: UITextFieldDelegate {
         return true
     }
 }
+
+
