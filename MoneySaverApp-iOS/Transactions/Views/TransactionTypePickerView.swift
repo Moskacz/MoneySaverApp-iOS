@@ -19,6 +19,7 @@ protocol TransactionTypePickerViewDelegate: class {
 
 final class TransactionTypePickerView: UIView {
     
+    weak var delegate: TransactionTypePickerViewDelegate?
     @IBOutlet private weak var incomeContainer: UIView?
     @IBOutlet private weak var expenseContainer: UIView?
     
@@ -43,10 +44,10 @@ final class TransactionTypePickerView: UIView {
     
     // MARK: UIAction
     @IBAction func incomeTypeTapped(_ sender: UITapGestureRecognizer) {
-        
+        delegate?.transactionType(picker: self, didSelect: .income)
     }
     
     @IBAction func expenseTapped(_ sender: UITapGestureRecognizer) {
-        
+        delegate?.transactionType(picker: self, didSelect: .expense)
     }
 }

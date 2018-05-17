@@ -14,6 +14,13 @@ enum TransactionValueSign: Int {
     case minus
     case plus
     
+    init(transactionType: TransactionType) {
+        switch transactionType {
+        case .income: self = .plus
+        case .expense: self = .minus
+        }
+    }
+    
     func charRepresentation() -> Character? {
         switch self {
         case .plus:
@@ -77,7 +84,9 @@ class TransactionDataViewController: UIViewController {
         datePicker?.alpha = 0
         
         titleTextField?.delegate = self
-        valueTextField?.inputAccessoryView = TransactionTypePickerView.makeView()
+        let typePickerView = TransactionTypePickerView.makeView()
+        typePickerView.delegate = self
+        valueTextField?.inputAccessoryView = typePickerView
     }
     
     private func setupInitialData() {
@@ -127,11 +136,6 @@ class TransactionDataViewController: UIViewController {
     }
     
     // MARK: Transaction value sign
-    
-    @IBAction func transactionValueSignChanged(_ sender: UISegmentedControl) {
-        guard let sign = TransactionValueSign(rawValue: sender.selectedSegmentIndex) else { return }
-        setupValueField(withSign: sign)
-    }
     
     private func setupValueField(withSign sign: TransactionValueSign) {
         removeCurrentValueSign()
@@ -195,4 +199,8 @@ extension TransactionDataViewController: UITextFieldDelegate {
     }
 }
 
-
+extension TransactionDataViewController: TransactionTypePickerViewDelegate {
+    func transactionType(picker: TransactionTypePickerView, didSelect type: TransactionType) {
+        setupValueField(withSign: TransactionValueSign(transactionType: type))
+    }
+}

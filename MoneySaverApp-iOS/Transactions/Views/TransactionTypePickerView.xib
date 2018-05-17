@@ -70,7 +70,7 @@
                     </connections>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DeE-dQ-Ouz" secondAttribute="bottom" constant="8" id="2xN-uG-VeR"/>
                 <constraint firstItem="DeE-dQ-Ouz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="5Fo-6a-yg2"/>
