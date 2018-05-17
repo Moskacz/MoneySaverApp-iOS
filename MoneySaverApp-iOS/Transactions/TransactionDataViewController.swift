@@ -62,6 +62,7 @@ class TransactionDataViewController: UIViewController {
     }
     
     private func setupViews() {
+        title = "New transaction"
         valueSignSegmentedControl?.tintColor = AppColor.activeElement.value
         let nextButton = UIBarButtonItem(title: "Add",
                                          style: .done,

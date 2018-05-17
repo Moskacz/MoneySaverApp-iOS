@@ -161,11 +161,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJz-Rd-jEy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0xs-6C-6xQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJT-tv-2rK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-dI-fI8">
-                                        <rect key="frame" x="16" y="16" width="343" height="453"/>
+                                        <rect key="frame" x="16" y="50" width="343" height="453"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="uCs-7g-mTq">
                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="66"/>
@@ -274,17 +282,21 @@
                                     <constraint firstItem="Yxp-dI-fI8" firstAttribute="leading" secondItem="fJT-tv-2rK" secondAttribute="leading" constant="16" id="Ijf-G0-SkV"/>
                                     <constraint firstAttribute="bottom" secondItem="Yxp-dI-fI8" secondAttribute="bottom" id="cX2-RR-jUw"/>
                                     <constraint firstAttribute="trailing" secondItem="Yxp-dI-fI8" secondAttribute="trailing" constant="16" id="hLE-ix-BP5"/>
-                                    <constraint firstItem="Yxp-dI-fI8" firstAttribute="top" secondItem="fJT-tv-2rK" secondAttribute="top" constant="16" id="heI-Aa-hkn"/>
+                                    <constraint firstItem="Yxp-dI-fI8" firstAttribute="top" secondItem="fJT-tv-2rK" secondAttribute="top" constant="50" id="heI-Aa-hkn"/>
                                     <constraint firstItem="Yxp-dI-fI8" firstAttribute="width" secondItem="fJT-tv-2rK" secondAttribute="width" constant="-32" id="mqu-uF-eZd"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="fJT-tv-2rK" firstAttribute="leading" secondItem="X2P-eZ-UOH" secondAttribute="leading" id="H3z-a6-7EU"/>
                             <constraint firstItem="X2P-eZ-UOH" firstAttribute="bottom" secondItem="fJT-tv-2rK" secondAttribute="bottom" id="IKb-oE-Ejn"/>
                             <constraint firstItem="X2P-eZ-UOH" firstAttribute="trailing" secondItem="fJT-tv-2rK" secondAttribute="trailing" id="JxG-me-eG9"/>
+                            <constraint firstItem="lJz-Rd-jEy" firstAttribute="trailing" secondItem="X2P-eZ-UOH" secondAttribute="trailing" id="Pxx-ia-xAW"/>
+                            <constraint firstItem="lJz-Rd-jEy" firstAttribute="leading" secondItem="X2P-eZ-UOH" secondAttribute="leading" id="Xma-tr-qFK"/>
+                            <constraint firstItem="lJz-Rd-jEy" firstAttribute="bottom" secondItem="X2P-eZ-UOH" secondAttribute="bottom" id="g5j-eE-mMT"/>
                             <constraint firstItem="fJT-tv-2rK" firstAttribute="top" secondItem="MYE-Sh-Lu0" secondAttribute="top" id="saD-un-BO0"/>
+                            <constraint firstItem="lJz-Rd-jEy" firstAttribute="top" secondItem="MYE-Sh-Lu0" secondAttribute="top" id="z7m-uJ-Y9Q"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="X2P-eZ-UOH"/>
                     </view>
