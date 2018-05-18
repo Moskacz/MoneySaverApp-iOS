@@ -248,6 +248,7 @@
                                                     </stackView>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-bw-5e3">
                                                         <rect key="frame" x="0.0" y="57" width="343" height="216"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <date key="date" timeIntervalSinceReferenceDate="532089526.11995">
                                                             <!--2017-11-11 10:38:46 +0000-->
                                                         </date>

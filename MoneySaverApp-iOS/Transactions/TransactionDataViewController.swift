@@ -185,7 +185,6 @@ class TransactionDataViewController: UIViewController {
                 picker.isHidden = false
                 picker.alpha = 1
                 self.currentDateChevron?.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
-                self.scrollView?.scrollToBottom(animated: true)
             })
         } else {
             picker.alpha = 0
