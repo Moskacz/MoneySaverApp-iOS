@@ -15,91 +15,74 @@
             <rect key="frame" x="0.0" y="0.0" width="456" height="48"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeE-dQ-Ouz">
-                    <rect key="frame" x="244" y="8" width="180" height="32"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expense" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYx-1V-FXg">
-                            <rect key="frame" x="8" y="8" width="164" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="0.4231500164" blue="0.41794321109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="iYx-1V-FXg" secondAttribute="bottom" constant="8" id="Zjq-Ph-G4F"/>
-                        <constraint firstItem="iYx-1V-FXg" firstAttribute="leading" secondItem="DeE-dQ-Ouz" secondAttribute="leading" constant="8" id="tWB-1M-trR"/>
-                        <constraint firstAttribute="trailing" secondItem="iYx-1V-FXg" secondAttribute="trailing" constant="8" id="u4b-DX-nJ6"/>
-                        <constraint firstItem="iYx-1V-FXg" firstAttribute="top" secondItem="DeE-dQ-Ouz" secondAttribute="top" constant="8" id="zbf-uN-TFL"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="Hl5-TJ-63O" appends="YES" id="bni-IB-ad0"/>
-                    </connections>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSA-zm-SYd">
-                    <rect key="frame" x="32" y="8" width="180" height="32"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZQ-bq-U2Z">
-                            <rect key="frame" x="8" y="8" width="164" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.19236100610000001" green="0.75876376300000004" blue="0.2174642336" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                    <gestureRecognizers/>
-                    <constraints>
-                        <constraint firstItem="xZQ-bq-U2Z" firstAttribute="top" secondItem="vSA-zm-SYd" secondAttribute="top" constant="8" id="CZ3-1o-XoU"/>
-                        <constraint firstAttribute="trailing" secondItem="xZQ-bq-U2Z" secondAttribute="trailing" constant="8" id="FA3-Be-Bix"/>
-                        <constraint firstAttribute="bottom" secondItem="xZQ-bq-U2Z" secondAttribute="bottom" constant="8" id="ISG-SU-0Tc"/>
-                        <constraint firstItem="xZQ-bq-U2Z" firstAttribute="leading" secondItem="vSA-zm-SYd" secondAttribute="leading" constant="8" id="gT3-ut-krY"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                            <integer key="value" value="4"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="tct-Am-9yQ" appends="YES" id="KSr-Ll-pLL"/>
-                    </connections>
-                </view>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6y-dv-noX">
+                    <rect key="frame" x="0.0" y="0.0" width="456" height="48"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="C8b-Ms-slP">
+                        <rect key="frame" x="0.0" y="0.0" width="456" height="48"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hy-d2-k4v">
+                                <rect key="frame" x="32" y="8" width="180" height="32"/>
+                                <color key="backgroundColor" red="0.31672879549999999" green="0.80381719559999998" blue="0.19774479249999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Income">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="incomeButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="cJc-n4-6iZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVj-Lv-nfD">
+                                <rect key="frame" x="244" y="9.5" width="180" height="29"/>
+                                <color key="backgroundColor" red="1" green="0.4231500164" blue="0.41794321109999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Expense">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="expenseButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="4Z5-U7-Gob"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BVj-Lv-nfD" firstAttribute="width" secondItem="0Hy-d2-k4v" secondAttribute="width" id="16Q-BP-VtO"/>
+                            <constraint firstItem="BVj-Lv-nfD" firstAttribute="leading" secondItem="0Hy-d2-k4v" secondAttribute="trailing" constant="32" id="Sdf-Hm-ZFP"/>
+                            <constraint firstItem="0Hy-d2-k4v" firstAttribute="top" secondItem="C8b-Ms-slP" secondAttribute="top" constant="8" id="WXU-se-aFZ"/>
+                            <constraint firstItem="BVj-Lv-nfD" firstAttribute="centerY" secondItem="0Hy-d2-k4v" secondAttribute="centerY" id="dUK-8q-xTu"/>
+                            <constraint firstAttribute="trailing" secondItem="BVj-Lv-nfD" secondAttribute="trailing" constant="32" id="mUF-KF-ZbW"/>
+                            <constraint firstAttribute="bottom" secondItem="0Hy-d2-k4v" secondAttribute="bottom" constant="8" id="oKH-Qm-Zt5"/>
+                            <constraint firstItem="0Hy-d2-k4v" firstAttribute="leading" secondItem="C8b-Ms-slP" secondAttribute="leading" constant="32" id="yZe-qe-WWS"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DeE-dQ-Ouz" secondAttribute="bottom" constant="8" id="2xN-uG-VeR"/>
-                <constraint firstItem="DeE-dQ-Ouz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="5Fo-6a-yg2"/>
-                <constraint firstItem="vSA-zm-SYd" firstAttribute="width" secondItem="DeE-dQ-Ouz" secondAttribute="width" id="8Hl-Qr-qaV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="vSA-zm-SYd" secondAttribute="bottom" constant="8" id="LNt-hL-jCG"/>
-                <constraint firstItem="DeE-dQ-Ouz" firstAttribute="leading" secondItem="vSA-zm-SYd" secondAttribute="trailing" constant="32" id="YER-cO-pZ3"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DeE-dQ-Ouz" secondAttribute="trailing" constant="32" id="hMD-aq-lgW"/>
-                <constraint firstItem="vSA-zm-SYd" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="j1R-wz-9uj"/>
-                <constraint firstItem="vSA-zm-SYd" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="8" id="tWu-I0-p2I"/>
+                <constraint firstItem="b6y-dv-noX" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="FGQ-ar-R0R"/>
+                <constraint firstItem="b6y-dv-noX" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="d30-pb-VC5"/>
+                <constraint firstItem="b6y-dv-noX" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="dEW-XD-uVl"/>
+                <constraint firstItem="b6y-dv-noX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="v6b-U9-0uE"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="expenseContainer" destination="DeE-dQ-Ouz" id="xW2-Yj-z13"/>
-                <outlet property="incomeContainer" destination="vSA-zm-SYd" id="rds-2O-R3Y"/>
+                <outlet property="expenseButton" destination="BVj-Lv-nfD" id="2c4-fJ-Ywg"/>
+                <outlet property="incomeButton" destination="0Hy-d2-k4v" id="RDT-7G-2Fp"/>
             </connections>
             <point key="canvasLocation" x="74" y="363"/>
         </view>
-        <tapGestureRecognizer id="tct-Am-9yQ">
-            <connections>
-                <action selector="incomeTypeTapped:" destination="iN0-l3-epB" id="wXc-vL-KTn"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="Hl5-TJ-63O">
-            <connections>
-                <action selector="expenseTapped:" destination="iN0-l3-epB" id="aIY-rz-xfF"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

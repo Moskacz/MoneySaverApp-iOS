@@ -20,10 +20,8 @@ protocol TransactionTypePickerViewDelegate: class {
 final class TransactionTypePickerView: UIView {
     
     weak var delegate: TransactionTypePickerViewDelegate?
-    @IBOutlet private weak var incomeContainer: UIView?
-    @IBOutlet private weak var expenseContainer: UIView?
-    
-    private let availableTypes = [TransactionType.income, TransactionType.expense]
+    @IBOutlet weak var incomeButton: UIButton?
+    @IBOutlet weak var expenseButton: UIButton?
     
     static func makeView() -> TransactionTypePickerView {
         let views = Bundle.main.loadNibNamed("TransactionTypePickerView", owner: nil, options: nil)
@@ -38,16 +36,17 @@ final class TransactionTypePickerView: UIView {
     }
     
     private func setupAppearance() {
-        incomeContainer?.backgroundColor = AppColor.green.value
-        expenseContainer?.backgroundColor = AppColor.red.value
+        incomeButton?.backgroundColor = AppColor.green.value
+        expenseButton?.backgroundColor = AppColor.red.value
     }
     
     // MARK: UIAction
-    @IBAction func incomeTypeTapped(_ sender: UITapGestureRecognizer) {
+    
+    @IBAction func incomeButtonTapped(_ sender: UIButton) {
         delegate?.transactionType(picker: self, didSelect: .income)
     }
     
-    @IBAction func expenseTapped(_ sender: UITapGestureRecognizer) {
+    @IBAction func expenseButtonTapped(_ sender: UIButton) {
         delegate?.transactionType(picker: self, didSelect: .expense)
     }
 }
