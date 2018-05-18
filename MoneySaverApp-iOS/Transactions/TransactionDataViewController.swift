@@ -39,7 +39,9 @@ class TransactionDataViewController: UIViewController {
     @IBOutlet private weak var currentDateLabel: UILabel?
     @IBOutlet private weak var currentDateChevron: UIImageView?
     @IBOutlet private weak var datePicker: UIDatePicker?
+    
     private var keyboardObserver: KeyboardAppearObserver?
+    private let availableTypes = [TransactionType.income, TransactionType.expense]
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
@@ -69,7 +71,13 @@ class TransactionDataViewController: UIViewController {
     
     private func setupViews() {
         title = "New transaction"
+        setupNavigationItems()
+        datePicker?.isHidden = true
+        datePicker?.alpha = 0
+        setupTextFields()
+    }
     
+    private func setupNavigationItems() {
         let nextButton = UIBarButtonItem(title: "Add",
                                          style: .done,
                                          target: self,
@@ -80,12 +88,13 @@ class TransactionDataViewController: UIViewController {
                                            target: self,
                                            action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
-        datePicker?.isHidden = true
-        datePicker?.alpha = 0
-        
+    }
+    
+    private func setupTextFields() {
         titleTextField?.delegate = self
         let typePickerView = TransactionTypePickerView.makeView()
         typePickerView.delegate = self
+        typePickerView.selectedType = availableTypes[0]
         valueTextField?.inputAccessoryView = typePickerView
     }
     
