@@ -21,8 +21,7 @@ class BudgetViewModel: NSObject {
     
     private let computingService: TransactionsComputingService
     private let dataProcessor: ChartsDataProcessor
-    let budgetRepository: BudgetRepository
-    private let service: BudgetService
+    private let budgetRepository: BudgetRepository
     private var observationTokens = [ObservationToken]()
     
     private var frc: NSFetchedResultsController<BudgetManagedObject>?
@@ -30,12 +29,10 @@ class BudgetViewModel: NSObject {
     
     init(computingService: TransactionsComputingService,
          dataProcessor: ChartsDataProcessor,
-         budgetRepository: BudgetRepository,
-         service: BudgetService) {
+         budgetRepository: BudgetRepository) {
         self.computingService = computingService
         self.dataProcessor = dataProcessor
         self.budgetRepository = budgetRepository
-        self.service = service
         super.init()
         
         fetchCurrentBudget()
@@ -55,7 +52,7 @@ class BudgetViewModel: NSObject {
     }
     
     private func fetchCurrentBudget() {
-        frc = service.budgetFRC()
+        frc = budgetRepository.makeEntitiesFRC()
         frc?.delegate = self
         try? frc?.performFetch()
     }

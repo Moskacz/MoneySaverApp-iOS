@@ -23,9 +23,5 @@ struct ModelsAssembler: ContainerAssembly {
                                              logger: $3,
                                              timeChangedObserver: $4) as TransactionsComputingService
         }
-        
-        container.register {
-            BudgetServiceImpl(repository: $0) as BudgetService
-        }
     }
 }

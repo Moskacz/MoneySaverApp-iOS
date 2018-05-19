@@ -77,7 +77,6 @@
 		35B8A1EB200D22A900EA8C7C /* FakeFetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8A1EA200D22A900EA8C7C /* FakeFetchedResultsController.swift */; };
 		35B8C1821F8FF5180059A1CC /* TransactionCategoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */; };
 		35B8D0731EC766D400A96C00 /* TransactionsComputingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */; };
-		35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */; };
 		35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB971D1E7F085F003DBA41 /* AppDelegate.swift */; };
 		35BB97231E7F0860003DBA41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97211E7F0860003DBA41 /* Main.storyboard */; };
 		35BB97251E7F0860003DBA41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35BB97241E7F0860003DBA41 /* Assets.xcassets */; };
@@ -96,6 +95,7 @@
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
 		35DD653A20B0995600909AA4 /* TransactionTypePickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD653920B0995600909AA4 /* TransactionTypePickerViewTests.swift */; };
+		35DD654220B09BAC00909AA4 /* BudgetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD654120B09BAC00909AA4 /* BudgetViewModelTests.swift */; };
 		35DEBBE32011249000EA1556 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35DEBBE02011249000EA1556 /* Default-568h@2x.png */; };
 		35DEF6C32095C52E00869559 /* MoneySaverAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DEF6BC2095C47600869559 /* MoneySaverAppCore.framework */; };
 		35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */; };
@@ -250,7 +250,6 @@
 		35B8A1EA200D22A900EA8C7C /* FakeFetchedResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeFetchedResultsController.swift; sourceTree = "<group>"; };
 		35B8C1811F8FF5180059A1CC /* TransactionCategoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoryService.swift; sourceTree = "<group>"; };
 		35B8D0721EC766D400A96C00 /* TransactionsComputingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsComputingService.swift; sourceTree = "<group>"; };
-		35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetService.swift; sourceTree = "<group>"; };
 		35BB971A1E7F085F003DBA41 /* MoneySaverApp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MoneySaverApp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		35BB971D1E7F085F003DBA41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35BB97221E7F0860003DBA41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -274,6 +273,7 @@
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
 		35DD653920B0995600909AA4 /* TransactionTypePickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerViewTests.swift; sourceTree = "<group>"; };
+		35DD654120B09BAC00909AA4 /* BudgetViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetViewModelTests.swift; sourceTree = "<group>"; };
 		35DEBBE02011249000EA1556 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		35DEF6B22095C47600869559 /* MoneySaverAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoneySaverAppCore.xcodeproj; path = InternalFrameworks/MoneySaverAppCore/MoneySaverAppCore.xcodeproj; sourceTree = "<group>"; };
 		35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendar.swift; sourceTree = "<group>"; };
@@ -548,6 +548,7 @@
 				35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */,
 				354513122076A4EB00909A7F /* DateFormattersTests.swift */,
 				35DD653920B0995600909AA4 /* TransactionTypePickerViewTests.swift */,
+				35DD654120B09BAC00909AA4 /* BudgetViewModelTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -615,7 +616,6 @@
 				35C853991FBCD89800A7E479 /* BudgetViewModel.swift */,
 				35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */,
 				35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */,
-				35B908AA1FD2FD3E00F4D49F /* BudgetService.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -922,7 +922,6 @@
 				356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */,
 				35C1BBEF1FFE6B7000C77B72 /* UIScrollView+Additions.swift in Sources */,
 				355509CF1F7AC1730007FEF1 /* UIViewController+Additions.swift in Sources */,
-				35B908AB1FD2FD3E00F4D49F /* BudgetService.swift in Sources */,
 				35E70C092083C873001F4808 /* TransactionsGrouping.swift in Sources */,
 				35C09DE21E8976EE00095FE2 /* TransactionsListViewModel.swift in Sources */,
 				35C8539A1FBCD89800A7E479 /* BudgetViewModel.swift in Sources */,
@@ -979,6 +978,7 @@
 				354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */,
 				35DF3AAE1F8D3BA800141F5B /* TransactionDataViewModelTests.swift in Sources */,
 				35129ED1200B5A1400B7A566 /* TransactionsRepositoryTests.swift in Sources */,
+				35DD654220B09BAC00909AA4 /* BudgetViewModelTests.swift in Sources */,
 				35E1567820132695004F6A8D /* StatsViewModelTests.swift in Sources */,
 				35CFA2952028CD790028FBA1 /* FakeCalendarDate.swift in Sources */,
 				35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */,
