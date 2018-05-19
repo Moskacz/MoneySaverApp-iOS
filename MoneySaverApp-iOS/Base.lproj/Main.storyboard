@@ -73,39 +73,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="yoT-UC-WxC">
-                                <rect key="frame" x="8" y="28" width="359" height="631"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-X8-nyH" customClass="PieChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="359" height="315.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWS-3K-xkh" customClass="CombinedChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="315.5" width="359" height="315.5"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kWY-X8-nyH" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="68" width="359" height="287.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </stackView>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aWS-3K-xkh" customClass="CombinedChartView" customModule="Charts">
+                                <rect key="frame" x="8" y="363.5" width="359" height="287.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7wt-Og-Sj7">
+                                <rect key="frame" x="329" y="36" width="30" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="eAW-1t-ZUq"/>
+                                </constraints>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editBudgetTapped:" destination="Heo-ED-jna" eventType="touchUpInside" id="mCG-5m-mYM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LGe-DS-nCM" firstAttribute="trailing" secondItem="yoT-UC-WxC" secondAttribute="trailing" constant="8" id="BVP-W1-uL0"/>
-                            <constraint firstItem="yoT-UC-WxC" firstAttribute="leading" secondItem="LGe-DS-nCM" secondAttribute="leading" constant="8" id="Giw-EO-JMT"/>
-                            <constraint firstItem="yoT-UC-WxC" firstAttribute="top" secondItem="LGe-DS-nCM" secondAttribute="top" constant="8" id="LlE-it-ObG"/>
-                            <constraint firstItem="LGe-DS-nCM" firstAttribute="bottom" secondItem="yoT-UC-WxC" secondAttribute="bottom" constant="8" id="fq7-7A-4ww"/>
+                            <constraint firstItem="7wt-Og-Sj7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="LGe-DS-nCM" secondAttribute="leading" constant="16" id="7c9-4c-XZQ"/>
+                            <constraint firstItem="LGe-DS-nCM" firstAttribute="bottom" secondItem="aWS-3K-xkh" secondAttribute="bottom" constant="16" id="BJw-mh-MAE"/>
+                            <constraint firstItem="kWY-X8-nyH" firstAttribute="top" secondItem="7wt-Og-Sj7" secondAttribute="bottom" id="GaC-4U-ddE"/>
+                            <constraint firstItem="LGe-DS-nCM" firstAttribute="trailing" secondItem="7wt-Og-Sj7" secondAttribute="trailing" constant="16" id="Gca-JS-FGz"/>
+                            <constraint firstItem="LGe-DS-nCM" firstAttribute="trailing" secondItem="kWY-X8-nyH" secondAttribute="trailing" constant="8" id="Kjv-5a-2r3"/>
+                            <constraint firstItem="aWS-3K-xkh" firstAttribute="top" secondItem="kWY-X8-nyH" secondAttribute="bottom" constant="8" id="aH9-Ih-zIV"/>
+                            <constraint firstItem="LGe-DS-nCM" firstAttribute="trailing" secondItem="aWS-3K-xkh" secondAttribute="trailing" constant="8" id="dvu-9K-PcL"/>
+                            <constraint firstItem="aWS-3K-xkh" firstAttribute="height" secondItem="kWY-X8-nyH" secondAttribute="height" id="hHe-fz-XgY"/>
+                            <constraint firstItem="7wt-Og-Sj7" firstAttribute="top" secondItem="LGe-DS-nCM" secondAttribute="top" constant="16" id="kYQ-D0-2EX"/>
+                            <constraint firstItem="kWY-X8-nyH" firstAttribute="leading" secondItem="LGe-DS-nCM" secondAttribute="leading" constant="8" id="rIm-7E-Pxs"/>
+                            <constraint firstItem="aWS-3K-xkh" firstAttribute="leading" secondItem="LGe-DS-nCM" secondAttribute="leading" constant="8" id="yQs-Pu-58k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LGe-DS-nCM"/>
                     </view>
                     <connections>
                         <outlet property="combinedChart" destination="aWS-3K-xkh" id="5eI-Ac-qs7"/>
                         <outlet property="pieChart" destination="kWY-X8-nyH" id="0fm-l4-z1r"/>
-                        <outlet property="stackView" destination="yoT-UC-WxC" id="8sS-1N-mlK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ifx-eI-JqQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="697" y="112"/>
+            <point key="canvasLocation" x="696.79999999999995" y="111.99400299850076"/>
         </scene>
         <!--Stats View Controller-->
         <scene sceneID="w4n-yi-Kzf">

@@ -13,7 +13,6 @@ class BudgetViewController: UIViewController {
     
     var editBudgetTapCallback = {}
     
-    @IBOutlet private weak var stackView: UIStackView?
     @IBOutlet private weak var pieChart: PieChartView?
     @IBOutlet private weak var combinedChart: CombinedChartView?
     
@@ -37,7 +36,6 @@ class BudgetViewController: UIViewController {
         guard let model = viewModel else { return }
         if model.isBudgetSetUp() {
             setupCharts()
-            addEditButton()
         } else {
             displaySetupBudgetViewController()
         }
@@ -49,19 +47,6 @@ class BudgetViewController: UIViewController {
         pieChart?.notifyDataSetChanged()
         combinedChart?.data = viewModel?.combinedChartData()
         combinedChart?.notifyDataSetChanged()
-    }
-    
-    override func willTransition(to newCollection: UITraitCollection,
-                                 with coordinator: UIViewControllerTransitionCoordinator) {
-        super.willTransition(to: newCollection, with: coordinator)
-        coordinator.animate(alongsideTransition: { [weak self] (_) in
-            switch newCollection.verticalSizeClass {
-            case .compact, .unspecified:
-                self?.stackView?.axis = .horizontal
-            case .regular:
-                self?.stackView?.axis = .vertical
-            }
-        }, completion: nil)
     }
     
     // MARK: SetupBudgetViewController
@@ -79,12 +64,7 @@ class BudgetViewController: UIViewController {
     
     // MARK: Edit budget
     
-    private func addEditButton() {
-        let button = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editButtonTapped))
-        navigationItem.rightBarButtonItem = button
-    }
-    
-    @objc private func editButtonTapped() {
+    @IBAction func editBudgetTapped(_ sender: UIButton) {
         editBudgetTapCallback()
     }
 }
@@ -94,7 +74,6 @@ extension BudgetViewController: BudgetViewModelDelegate {
     func budget(setUp: Bool) {
         guard setUp else { return }
         setupCharts()
-        addEditButton()
         removeChildViewControllers()
     }
     
