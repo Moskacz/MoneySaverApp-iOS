@@ -95,6 +95,7 @@
 		35CFA2952028CD790028FBA1 /* FakeCalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */; };
 		35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */; };
 		35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */; };
+		35DD653A20B0995600909AA4 /* TransactionTypePickerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DD653920B0995600909AA4 /* TransactionTypePickerViewTests.swift */; };
 		35DEBBE32011249000EA1556 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35DEBBE02011249000EA1556 /* Default-568h@2x.png */; };
 		35DEF6C32095C52E00869559 /* MoneySaverAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35DEF6BC2095C47600869559 /* MoneySaverAppCore.framework */; };
 		35DF1B4A200A03DB00AD2926 /* FakeCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */; };
@@ -272,6 +273,7 @@
 		35CFA2942028CD790028FBA1 /* FakeCalendarDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendarDate.swift; sourceTree = "<group>"; };
 		35D1DE7D1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCollectionUpdater.swift; sourceTree = "<group>"; };
 		35D740091EB8AF240028DD92 /* DashboardTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardTabBarController.swift; sourceTree = "<group>"; };
+		35DD653920B0995600909AA4 /* TransactionTypePickerViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerViewTests.swift; sourceTree = "<group>"; };
 		35DEBBE02011249000EA1556 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		35DEF6B22095C47600869559 /* MoneySaverAppCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MoneySaverAppCore.xcodeproj; path = InternalFrameworks/MoneySaverAppCore/MoneySaverAppCore.xcodeproj; sourceTree = "<group>"; };
 		35DF1B49200A03DA00AD2926 /* FakeCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeCalendar.swift; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 				353B9C8C2027774F00990667 /* TransactionCellViewModelTests.swift */,
 				35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */,
 				354513122076A4EB00909A7F /* DateFormattersTests.swift */,
+				35DD653920B0995600909AA4 /* TransactionTypePickerViewTests.swift */,
 			);
 			path = "MoneySaverApp-iOSTests";
 			sourceTree = "<group>";
@@ -970,6 +973,7 @@
 				355509D31F7AC6070007FEF1 /* RootFlowControllerTests.swift in Sources */,
 				35B8A1DD200D161100EA8C7C /* RootFlowServiceTests.swift in Sources */,
 				35B8A1E7200D201B00EA8C7C /* FakeCollectionUpdater.swift in Sources */,
+				35DD653A20B0995600909AA4 /* TransactionTypePickerViewTests.swift in Sources */,
 				35B8A1E3200D193D00EA8C7C /* FakeTransactionsComputingService.swift in Sources */,
 				353B9C8F2027775D00990667 /* FakeTransction.swift in Sources */,
 				354513132076A4EB00909A7F /* DateFormattersTests.swift in Sources */,
