@@ -8,31 +8,31 @@
 
 import XCTest
 @testable import MoneySaverApp_iOS
+import MoneySaverAppCore
 
 class BudgetViewModelTests: XCTestCase {
     
     var sut: BudgetViewModel!
+    var repository: FakeBudgetRepository!
+    var computingService: FakeTransactionsComputingService!
+    var dataProcessor: FakeChartsDataProcessor!
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        repository = FakeBudgetRepository()
+        computingService = FakeTransactionsComputingService()
+        dataProcessor = FakeChartsDataProcessor()
+        sut = BudgetViewModel(computingService: computingService,
+                              dataProcessor: dataProcessor,
+                              budgetRepository: repository)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        repository = nil
+        computingService = nil
+        dataProcessor = nil
         super.tearDown()
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
+
 }
