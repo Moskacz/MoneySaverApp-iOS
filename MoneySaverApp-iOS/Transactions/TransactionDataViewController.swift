@@ -41,7 +41,7 @@ class TransactionDataViewController: UIViewController {
     @IBOutlet private weak var datePicker: UIDatePicker?
     
     private var keyboardObserver: KeyboardAppearObserver?
-    private let availableTypes = [TransactionType.income, TransactionType.expense]
+    private let initialTransactionType = TransactionType.expense
     
     var dataEnteredCallback: (TransactionData) -> Void = { _ in }
     var cancelButtonTapCallback: () -> Void = {}
@@ -94,13 +94,13 @@ class TransactionDataViewController: UIViewController {
         titleTextField?.delegate = self
         let typePickerView = TransactionTypePickerView.makeView()
         typePickerView.delegate = self
-        typePickerView.selectedType = availableTypes[0]
+        typePickerView.selectedType = initialTransactionType
         valueTextField?.inputAccessoryView = typePickerView
     }
     
     private func setupInitialData() {
         guard let model = viewModel else { return }
-        setupValueField(withSign: TransactionValueSign.minus)
+        setupValueField(withSign: TransactionValueSign(transactionType: initialTransactionType))
         datePicker?.date = model.transactionDate
         setup(transactionDate: model.transactionDate)
     }
