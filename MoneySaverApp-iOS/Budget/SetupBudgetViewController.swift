@@ -11,6 +11,7 @@ import UIKit
 
 class SetupBudgetViewController: UIViewController {
     
+    
     var viewModel: SetupBudgetViewModel?
     var budgetSetCallback = {}
     var closeButtonCallback = {}

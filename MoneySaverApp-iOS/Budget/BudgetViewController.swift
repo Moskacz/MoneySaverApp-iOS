@@ -23,8 +23,6 @@ class BudgetViewController: UIViewController {
         }
     }
     
-    var setupBudgetViewModel: SetupBudgetViewModel?
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         tabBarItem = UITabBarItem(title: "Budget", image: #imageLiteral(resourceName: "money_bag"), selectedImage: #imageLiteral(resourceName: "money_bag"))
@@ -71,7 +69,7 @@ class BudgetViewController: UIViewController {
     private func displaySetupBudgetViewController() {
         guard let storyboard = storyboard else { return }
         let setupBudgetVC: SetupBudgetViewController = storyboard.instantiate()
-        setupBudgetVC.viewModel = setupBudgetViewModel
+        setupBudgetVC.viewModel = viewModel?.makeSetupBudgetViewModel()
         addViewController(asChild: setupBudgetVC)
     }
     

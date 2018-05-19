@@ -125,6 +125,12 @@ class BudgetViewModel: NSObject {
         guard let budget = frc?.fetchedObjects?.first?.value else { return 0 }
         return budget.doubleValue
     }
+    
+    // MARK: Setup budget
+    
+    func makeSetupBudgetViewModel() -> SetupBudgetViewModel {
+        return SetupBudgetViewModel(budgetRepository: budgetRepository)
+    }
 }
 
 extension BudgetViewModel: NSFetchedResultsControllerDelegate {
