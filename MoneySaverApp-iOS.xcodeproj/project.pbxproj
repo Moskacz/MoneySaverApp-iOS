@@ -108,6 +108,7 @@
 		35EA1A271EB632A70083C57F /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A261EB632A70083C57F /* TransactionCell.swift */; };
 		35EA1A291EB632DB0083C57F /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 35EA1A281EB632DB0083C57F /* TransactionCell.xib */; };
 		35EA1A2B1EB633DF0083C57F /* TransactionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EA1A2A1EB633DF0083C57F /* TransactionCellViewModel.swift */; };
+		35EA4A9520B1747E0092ABE1 /* MoneySaverAppCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 35DEF6BC2095C47600869559 /* MoneySaverAppCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB3D071F7195BD00BCB79C /* CloudKit.framework */; };
 		35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */; };
 		35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */; };
@@ -172,6 +173,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				35EA4A9520B1747E0092ABE1 /* MoneySaverAppCore.framework in CopyFiles */,
 				35B540541FDD6D1200B27F9F /* MMFoundation.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
