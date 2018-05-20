@@ -34,7 +34,7 @@ class TransactionDataViewModel {
         guard let value = transactionValue else {
             throw TransactionDataFormError.missingValue
         }
-        guard let decimalValue = Decimal(string: value) else {
+        guard let decimalValue = Decimal(string: value), !decimalValue.isNaN, !decimalValue.isZero else {
             throw TransactionDataFormError.invalidValue
         }
         
