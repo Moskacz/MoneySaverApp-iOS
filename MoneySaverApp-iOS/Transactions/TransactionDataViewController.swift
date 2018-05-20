@@ -185,6 +185,9 @@ class TransactionDataViewController: UIViewController {
                 picker.isHidden = false
                 picker.alpha = 1
                 self.currentDateChevron?.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+            }, completion: { _ in
+                let rect = picker.convert(picker.frame, to: self.scrollView)
+                self.scrollView?.scrollRectToVisible(rect, animated: true)
             })
         } else {
             picker.alpha = 0
