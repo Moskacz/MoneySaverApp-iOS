@@ -182,8 +182,11 @@ class RootFlowController: FlowController {
         tabBarController?.present(viewController, animated: animatedTransitions, completion: nil)
     }
     
-    private func settingsViewController() -> SettingsViewController {
+    private func settingsViewController() -> UIViewController {
         let viewController: SettingsViewController = storyboard.instantiate()
-        return viewController
+        let navController = UINavigationController(rootViewController: viewController)
+        navController.navigationBar.prefersLargeTitles = true
+        navController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
+        return navController
     }
 }
