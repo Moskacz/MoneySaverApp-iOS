@@ -8,13 +8,16 @@
 
 import UIKit
 import MMFoundation
-import ScrollableGraphView
+import Charts
 
 class StatsViewController: UIViewController {
     
     var viewModel: StatsViewModel?
     
     @IBOutlet private weak var segmentedControl: UISegmentedControl?
+    @IBOutlet private weak var expensesPerTimeChart: BarChartView?
+    @IBOutlet private weak var incomesPerTimeChart: BarChartView?
+    @IBOutlet private weak var expensesPerCategory: BarChartView?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

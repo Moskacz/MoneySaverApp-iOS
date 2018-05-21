@@ -134,6 +134,42 @@
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAU-6e-yJ7">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KP4-zH-vCA" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="8" width="359" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="2Nr-uK-Ian"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pk-N6-18E" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="216" width="359" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="f9A-wV-XcS"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uBd-YJ-QCr" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="8" y="424" width="359" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="J0r-jP-jj0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="uBd-YJ-QCr" firstAttribute="top" secondItem="7pk-N6-18E" secondAttribute="bottom" constant="8" id="3Bp-mK-rCX"/>
+                                    <constraint firstItem="7pk-N6-18E" firstAttribute="top" secondItem="KP4-zH-vCA" secondAttribute="bottom" constant="8" id="9K0-5Y-PIe"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBd-YJ-QCr" secondAttribute="trailing" constant="8" id="Rgh-M3-k09"/>
+                                    <constraint firstAttribute="trailing" secondItem="KP4-zH-vCA" secondAttribute="trailing" constant="8" id="SD8-b0-OXy"/>
+                                    <constraint firstItem="KP4-zH-vCA" firstAttribute="top" secondItem="pAU-6e-yJ7" secondAttribute="top" constant="8" id="WvT-yT-duL"/>
+                                    <constraint firstAttribute="trailing" secondItem="7pk-N6-18E" secondAttribute="trailing" constant="8" id="fUX-YI-od9"/>
+                                    <constraint firstItem="uBd-YJ-QCr" firstAttribute="leading" secondItem="pAU-6e-yJ7" secondAttribute="leading" constant="8" id="lSp-l5-DFT"/>
+                                    <constraint firstItem="KP4-zH-vCA" firstAttribute="width" secondItem="pAU-6e-yJ7" secondAttribute="width" constant="-16" id="n0u-z2-GTc"/>
+                                    <constraint firstItem="KP4-zH-vCA" firstAttribute="leading" secondItem="pAU-6e-yJ7" secondAttribute="leading" constant="8" id="pTc-0c-Ttw"/>
+                                    <constraint firstAttribute="bottom" secondItem="uBd-YJ-QCr" secondAttribute="bottom" constant="8" id="ww7-xH-zDX"/>
+                                    <constraint firstItem="7pk-N6-18E" firstAttribute="leading" secondItem="pAU-6e-yJ7" secondAttribute="leading" constant="8" id="ydb-Md-t6n"/>
+                                </constraints>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -149,6 +185,9 @@
                         <viewLayoutGuide key="safeArea" id="lfA-Xb-vSK"/>
                     </view>
                     <connections>
+                        <outlet property="expensesPerCategory" destination="uBd-YJ-QCr" id="lxf-VB-Efe"/>
+                        <outlet property="expensesPerTimeChart" destination="KP4-zH-vCA" id="6mN-74-7Rf"/>
+                        <outlet property="incomesPerTimeChart" destination="7pk-N6-18E" id="w7F-K9-GaN"/>
                         <outlet property="segmentedControl" destination="HKO-Jf-Unk" id="PP4-bn-zaS"/>
                     </connections>
                 </viewController>
