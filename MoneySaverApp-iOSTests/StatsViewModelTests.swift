@@ -13,12 +13,17 @@ import MoneySaverAppCore
 class StatsViewModelTests: XCTestCase {
     
     var repositoryFake: FakeTransactionsRepository!
+    var userPreferences: FakeUserPreferences!
     var sut: StatsViewModel!
     
     override func setUp() {
         super.setUp()
         repositoryFake = FakeTransactionsRepository()
-        sut = StatsViewModel(repository: repositoryFake, dataProcessor: FakeChartsDataProcessor())
+        userPreferences = FakeUserPreferences()
+        userPreferences.statsGrouping = .month
+        sut = StatsViewModel(repository: repositoryFake,
+                             dataProcessor: FakeChartsDataProcessor(),
+                             userPreferences: userPreferences)
     }
     
     override func tearDown() {
@@ -30,7 +35,16 @@ class StatsViewModelTests: XCTestCase {
         XCTAssertEqual(sut.availableGroupings, [TransactionsGrouping.day, TransactionsGrouping.week, TransactionsGrouping.month])
     }
     
-    func test_selectedGrouping() {
-        XCTAssertEqual(sut.selectedGrouping, 2)
+    func test_afterInitSelectedGroupingIndex_shouldBeCorrectlySet() {
+        userPreferences.statsGrouping = .day
+        sut = StatsViewModel(repository: repositoryFake,
+                             dataProcessor: FakeChartsDataProcessor(),
+                             userPreferences: userPreferences)
+        XCTAssertEqual(sut.selectedSegmentIndex, 0)
+    }
+    
+    func test_whenSelectedSegmentIndexIsChanged_thenCorrespondingGroupingShouldBeSavedAsPreferredOne() {
+        sut.selectedSegmentIndex = 1
+        XCTAssertEqual(userPreferences.statsGrouping, .week)
     }
 }

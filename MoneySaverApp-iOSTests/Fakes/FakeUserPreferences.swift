@@ -11,8 +11,8 @@ import MoneySaverAppCore
 
 class FakeUserPreferences: UserPreferences {
     
-    var dateRangeStub: DateRange!
-    var statsGroupingStub: TransactionsGrouping!
+    private var dateRangeStub: DateRange!
+    private var statsGroupingStub: TransactionsGrouping!
     
     var dateRange: DateRange {
         get { return dateRangeStub }

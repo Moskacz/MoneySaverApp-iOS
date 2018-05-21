@@ -30,9 +30,16 @@ class StatsViewController: UIViewController {
     }
     
     private func setupGroupingControl() {
-        guard let items = viewModel?.segmentedControlItems else { return }
-        segmentedControl?.items = items
+        guard let viewModel = viewModel else { return }
+        segmentedControl?.items = viewModel.segmentedControlItems
+        segmentedControl?.selectedSegmentIndex = viewModel.selectedSegmentIndex
         segmentedControl?.tintColor = AppColor.activeElement.value
+    }
+    
+    // MARK: UI actions
+    
+    @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
+        viewModel?.selectedSegmentIndex = sender.selectedSegmentIndex
     }
 }
 

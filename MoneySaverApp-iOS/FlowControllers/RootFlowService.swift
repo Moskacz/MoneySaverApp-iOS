@@ -32,5 +32,4 @@ class RootFlowServiceImpl: RootFlowService {
         get { return userPreferences.dateRange }
         set { userPreferences.dateRange = newValue }
     }
-    
 }

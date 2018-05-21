@@ -43,7 +43,7 @@ struct ViewModelsAssembler: ContainerAssembly {
         }
         
         container.register {
-            StatsViewModel(repository: $0, dataProcessor: $1)
+            StatsViewModel(repository: $0, dataProcessor: $1, userPreferences: $2)
         }
         
         container.register {

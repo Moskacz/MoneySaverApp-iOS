@@ -131,6 +131,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="sgP-KY-TrS" eventType="valueChanged" id="8Y1-TB-mZ4"/>
+                                </connections>
                             </segmentedControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pAU-6e-yJ7">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>

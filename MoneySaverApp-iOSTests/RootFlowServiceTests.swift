@@ -40,12 +40,12 @@ class RootFlowServiceTests: XCTestCase {
     func test_setDateRange_shouldSetOnUserPreferences() {
         let value = DateRange.thisWeek
         sut.preferredDateRange = value
-        XCTAssertEqual(userPreferencesFake.dateRangeStub, value)
+        XCTAssertEqual(userPreferencesFake.dateRange, value)
     }
     
     func test_getDateRange_shouldGetFromUserPreferences() {
         let value = DateRange.today
-        userPreferencesFake.dateRangeStub = value
+        userPreferencesFake.dateRange = value
         XCTAssertEqual(sut.preferredDateRange, value)
     }
 }

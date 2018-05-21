@@ -6,18 +6,24 @@ import MoneySaverAppCore
 class StatsViewModel {
     
     var availableGroupings: [TransactionsGrouping] = [.day, .week, .month]
-    var selectedGrouping: Int = 2 {
+    var selectedSegmentIndex: Int {
         didSet {
-            print(availableGroupings[selectedGrouping])
+            let selectedGrouping = availableGroupings[selectedSegmentIndex]
+            userPreferences.statsGrouping = selectedGrouping
         }
     }
     
     private let repository: TransactionsRepository
     private let dataProcessor: ChartsDataProcessor
+    private let userPreferences: UserPreferences
     
-    init(repository: TransactionsRepository, dataProcessor: ChartsDataProcessor) {
+    init(repository: TransactionsRepository,
+         dataProcessor: ChartsDataProcessor,
+         userPreferences: UserPreferences) {
         self.repository = repository
         self.dataProcessor = dataProcessor
+        self.userPreferences = userPreferences
+        self.selectedSegmentIndex = self.availableGroupings.index(of: userPreferences.statsGrouping)!
     }
     
     var segmentedControlItems: [UISegmentedControl.Item] {
