@@ -21,10 +21,6 @@ class StatsViewController: UIViewController {
         tabBarItem = UITabBarItem(title: "Stats", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
     }
     
-    override func loadView() {
-        super.loadView()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGroupingControl()
@@ -33,6 +29,7 @@ class StatsViewController: UIViewController {
     private func setupGroupingControl() {
         guard let items = viewModel?.segmentedControlItems else { return }
         segmentedControl?.items = items
+        segmentedControl?.tintColor = AppColor.activeElement.value
     }
 }
 
