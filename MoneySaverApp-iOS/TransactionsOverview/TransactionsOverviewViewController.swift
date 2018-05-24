@@ -17,22 +17,20 @@ final class TransactionsOverviewViewController: UIViewController {
     
     
     private let SUMMARY_VIEW_HEIGHT = CGFloat(200)
-    @IBOutlet private weak var summaryViewHeightConstraint: NSLayoutConstraint?
-    @IBOutlet private weak var listTopConstraint: NSLayoutConstraint?
+    
+    @IBOutlet private weak var summaryViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var summaryViewContainer: UIView!
+    @IBOutlet private weak var listTopConstraint: NSLayoutConstraint!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        summaryViewHeightConstraint?.constant = SUMMARY_VIEW_HEIGHT
-        listTopConstraint?.constant = SUMMARY_VIEW_HEIGHT
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func loadView() {
+        super.loadView()
+        summaryViewHeightConstraint.constant = SUMMARY_VIEW_HEIGHT
+        listTopConstraint.constant = SUMMARY_VIEW_HEIGHT
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,6 +49,11 @@ final class TransactionsOverviewViewController: UIViewController {
 extension TransactionsOverviewViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset.y)
+        let offset = -scrollView.contentOffset.y
+        let summaryViewHeight = max(SUMMARY_VIEW_HEIGHT + offset, SUMMARY_VIEW_HEIGHT)
+        if fabs(summaryViewHeightConstraint.constant - summaryViewHeight) > 1 {
+            summaryViewHeightConstraint.constant = max(SUMMARY_VIEW_HEIGHT + offset, SUMMARY_VIEW_HEIGHT)
+            view.setNeedsLayout()
+        }
     }
 }
