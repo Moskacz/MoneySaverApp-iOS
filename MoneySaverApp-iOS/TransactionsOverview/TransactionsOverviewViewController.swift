@@ -15,6 +15,7 @@ final class TransactionsOverviewViewController: UIViewController {
     var configureSummaryVC: (TransactionsSummaryViewController) -> Void = { _ in }
     var configureTransactionsListViewController: (TransactionsListViewController) -> Void = { _ in }
     
+    
     private let SUMMARY_VIEW_HEIGHT = CGFloat(200)
     @IBOutlet private weak var summaryViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var listTopConstraint: NSLayoutConstraint?
@@ -41,6 +42,15 @@ final class TransactionsOverviewViewController: UIViewController {
             configureSummaryVC(summaryVC)
         } else if let listVC = segue.destination as? TransactionsListViewController {
             listVC.viewModel = viewModel?.listViewModel
+            listVC.externalScrollViewDelegate = self
+            configureTransactionsListViewController(listVC)
         }
+    }
+}
+
+extension TransactionsOverviewViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
     }
 }

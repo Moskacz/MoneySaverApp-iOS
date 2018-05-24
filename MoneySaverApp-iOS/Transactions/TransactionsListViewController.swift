@@ -15,8 +15,9 @@ class TransactionsListViewController: UIViewController {
     }
     
     var viewModel: TransactionsListViewModel?
+    weak var externalScrollViewDelegate: UIScrollViewDelegate?
     
-    @IBOutlet private weak var tableView: UITableView?
+    @IBOutlet weak var tableView: UITableView?
     private let transactionCellIdentifier = "kTransactionCellIdentifier"
     
     override func viewDidLoad() {
@@ -70,5 +71,10 @@ extension TransactionsListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return viewModel?.title(forSection: section)
     }
-    
+}
+
+extension TransactionsListViewController: UITableViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        externalScrollViewDelegate?.scrollViewDidScroll?(scrollView)
+    }
 }
