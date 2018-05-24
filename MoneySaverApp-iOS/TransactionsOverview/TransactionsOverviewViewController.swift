@@ -15,9 +15,23 @@ final class TransactionsOverviewViewController: UIViewController {
     var configureSummaryVC: (TransactionsSummaryViewController) -> Void = { _ in }
     var configureTransactionsListViewController: (TransactionsListViewController) -> Void = { _ in }
     
+    private let SUMMARY_VIEW_HEIGHT = CGFloat(200)
+    @IBOutlet private weak var summaryViewHeightConstraint: NSLayoutConstraint?
+    @IBOutlet private weak var listTopConstraint: NSLayoutConstraint?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         tabBarItem = UITabBarItem(title: "Transactions", image: #imageLiteral(resourceName: "transactions_notes"), selectedImage: #imageLiteral(resourceName: "transactions_notes"))
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        summaryViewHeightConstraint?.constant = SUMMARY_VIEW_HEIGHT
+        listTopConstraint?.constant = SUMMARY_VIEW_HEIGHT
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

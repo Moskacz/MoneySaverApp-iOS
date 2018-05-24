@@ -55,11 +55,15 @@
                             <constraint firstItem="S93-Un-Jlv" firstAttribute="leading" secondItem="FVZ-RA-5hs" secondAttribute="leading" id="Ob9-KX-KeU"/>
                             <constraint firstItem="S93-Un-Jlv" firstAttribute="top" secondItem="PlB-rg-wKm" secondAttribute="top" id="aDC-4h-LlR"/>
                             <constraint firstItem="h3q-9b-wA9" firstAttribute="leading" secondItem="FVZ-RA-5hs" secondAttribute="leading" id="c2u-F0-FPi"/>
-                            <constraint firstItem="h3q-9b-wA9" firstAttribute="top" secondItem="S93-Un-Jlv" secondAttribute="bottom" id="qsG-8M-GDO"/>
+                            <constraint firstItem="h3q-9b-wA9" firstAttribute="top" secondItem="PlB-rg-wKm" secondAttribute="top" constant="200" id="hJd-SY-B86"/>
                             <constraint firstItem="S93-Un-Jlv" firstAttribute="trailing" secondItem="FVZ-RA-5hs" secondAttribute="trailing" id="siz-fo-KPY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FVZ-RA-5hs"/>
                     </view>
+                    <connections>
+                        <outlet property="listTopConstraint" destination="hJd-SY-B86" id="Yry-6w-STx"/>
+                        <outlet property="summaryViewHeightConstraint" destination="0zy-cN-QcY" id="iSD-Rs-GOF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hL9-mn-QUr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
