@@ -56,6 +56,7 @@
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
 		359784B71FD70D5200140DCA /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; };
 		3599F70620BDE43B007CE44D /* TransactionDataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F70520BDE43A007CE44D /* TransactionDataNavigationController.swift */; };
+		3599F70F20BDE682007CE44D /* HorizontalShiftTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F70E20BDE682007CE44D /* HorizontalShiftTransitioning.swift */; };
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
 		359F703A20A837AF00C9A694 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359F703920A837AF00C9A694 /* Theme.swift */; };
@@ -230,6 +231,7 @@
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
 		359784AE1FD70D3E00140DCA /* MMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMFoundation.xcodeproj; path = InternalFrameworks/MMFoundation/MMFoundation.xcodeproj; sourceTree = "<group>"; };
 		3599F70520BDE43A007CE44D /* TransactionDataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataNavigationController.swift; sourceTree = "<group>"; };
+		3599F70E20BDE682007CE44D /* HorizontalShiftTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalShiftTransitioning.swift; sourceTree = "<group>"; };
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		359F703920A837AF00C9A694 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -423,6 +425,14 @@
 				359784B61FD70D3E00140DCA /* MMFoundationTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3599F70D20BDE63D007CE44D /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3599F70E20BDE682007CE44D /* HorizontalShiftTransitioning.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		359F703820A837A300C9A694 /* Theme */ = {
@@ -626,6 +636,7 @@
 		35D740051EB8AECB0028DD92 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				3599F70D20BDE63D007CE44D /* Animation */,
 				35A023A72024C9B600E42FFD /* Views */,
 				3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */,
 				353A944B20A0DB8700B94A72 /* AppGroup.swift */,
@@ -921,6 +932,7 @@
 				35AC4C9C206E70C000872615 /* ObservationToken.swift in Sources */,
 				350D55B5206FD47F00BB2F3B /* UILabel+Extensions.swift in Sources */,
 				35BB971E1E7F085F003DBA41 /* AppDelegate.swift in Sources */,
+				3599F70F20BDE682007CE44D /* HorizontalShiftTransitioning.swift in Sources */,
 				35E4DD5B1EC3832400102E3B /* CollectionViewUpdater.swift in Sources */,
 				35D7400A1EB8AF240028DD92 /* DashboardTabBarController.swift in Sources */,
 				35A023AC2024E59200E42FFD /* SettingsViewController.swift in Sources */,
