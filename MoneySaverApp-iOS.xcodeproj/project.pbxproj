@@ -55,6 +55,7 @@
 		358894771E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */; };
 		358894791E994A1C00ACF06C /* MappersAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358894781E994A1C00ACF06C /* MappersAssembler.swift */; };
 		359784B71FD70D5200140DCA /* MMFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359784B41FD70D3E00140DCA /* MMFoundation.framework */; };
+		3599F70620BDE43B007CE44D /* TransactionDataNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3599F70520BDE43A007CE44D /* TransactionDataNavigationController.swift */; };
 		359A31391FB249C4000DA85F /* Character+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A31381FB249C4000DA85F /* Character+Additions.swift */; };
 		359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359A313A1FB4F754000DA85F /* UIColor+Additions.swift */; };
 		359F703A20A837AF00C9A694 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359F703920A837AF00C9A694 /* Theme.swift */; };
@@ -228,6 +229,7 @@
 		358894761E99459500ACF06C /* AddTransactionFormDataToJSONMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTransactionFormDataToJSONMapper.swift; sourceTree = "<group>"; };
 		358894781E994A1C00ACF06C /* MappersAssembler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappersAssembler.swift; sourceTree = "<group>"; };
 		359784AE1FD70D3E00140DCA /* MMFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MMFoundation.xcodeproj; path = InternalFrameworks/MMFoundation/MMFoundation.xcodeproj; sourceTree = "<group>"; };
+		3599F70520BDE43A007CE44D /* TransactionDataNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDataNavigationController.swift; sourceTree = "<group>"; };
 		359A31381FB249C4000DA85F /* Character+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Character+Additions.swift"; sourceTree = "<group>"; };
 		359A313A1FB4F754000DA85F /* UIColor+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Additions.swift"; sourceTree = "<group>"; };
 		359F703920A837AF00C9A694 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -578,6 +580,7 @@
 				35C09DE11E8976EE00095FE2 /* TransactionsListViewModel.swift */,
 				35C09DEC1E89802900095FE2 /* TransactionDataViewController.swift */,
 				358894731E992DE500ACF06C /* TransactionDataViewModel.swift */,
+				3599F70520BDE43A007CE44D /* TransactionDataNavigationController.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -933,6 +936,7 @@
 				352B030E1E92BE13001B99CB /* DependencyContainerConfigurator.swift in Sources */,
 				35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */,
 				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
+				3599F70620BDE43B007CE44D /* TransactionDataNavigationController.swift in Sources */,
 				35D1DE7E1EA12A3B00284EA0 /* TableViewCollectionUpdater.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
 				35B35ACC1EC8BF7A007E3A53 /* UtilsAssembler.swift in Sources */,

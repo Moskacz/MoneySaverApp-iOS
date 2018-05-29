@@ -148,8 +148,7 @@ class RootFlowController: FlowController {
             self.pushTransactionCategoriesCollection(navigationController: navController, data: data)
         }
         
-        let navControlloer = UINavigationController(rootViewController: viewController)
-        navControlloer.navigationBar.tintColor = AppColor.activeElement.value
+        let navControlloer = TransactionDataNavigationController(rootViewController: viewController)
         navControlloer.modalPresentationStyle = .custom
         navControlloer.transitioningDelegate = presentationManager
         tabBarController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
