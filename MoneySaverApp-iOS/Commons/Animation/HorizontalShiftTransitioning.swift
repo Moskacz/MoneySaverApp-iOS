@@ -14,38 +14,46 @@ final class HorizontalShiftTransitioning: NSObject, UIViewControllerAnimatedTran
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        switch navigationOperation {
-        case .push:
-            pushViewController(using: transitionContext)
-        case .pop:
-            popViewController(using: transitionContext)
-        default:
-            break
-        }
-    }
-    
-    private func pushViewController(using transitionContext: UIViewControllerContextTransitioning) {
         guard
             let destinationView = transitionContext.view(forKey: .to),
             let destinationViewController = transitionContext.viewController(forKey: .to) else { return }
+        
         let containerView = transitionContext.containerView
         
         containerView.addSubview(destinationView)
-        let destinationViewInitialFrame = containerView.frame.offsetBy(dx: containerView.bounds.width, dy: 0)
-        let destinationViewFinalFrame = transitionContext.finalFrame(for: destinationViewController)
-        
-        destinationView.frame = destinationViewInitialFrame
+        destinationView.frame = destinationViewInitialFrame(transitionContext: transitionContext)
         
         let originView = transitionContext.view(forKey: .from)
-        let originViewFinalFrame = containerView.frame.offsetBy(dx: -containerView.bounds.width, dy: 0)
         
-        UIView.animate(withDuration: transitionDuration, animations: {
-            destinationView.frame = destinationViewFinalFrame
-            originView?.frame = originViewFinalFrame
+        UIView.animate(withDuration: transitionDuration, delay: 0, options: .curveEaseInOut, animations: {
+            destinationView.frame = transitionContext.finalFrame(for: destinationViewController)
+            originView?.frame = self.originViewInitialFrame(transitionContext: transitionContext)
         }, completion: { didComplete in
             transitionContext.completeTransition(didComplete)
         })
     }
     
-    private func popViewController(using transitionContext: UIViewControllerContextTransitioning) {}
+    private func destinationViewInitialFrame(transitionContext: UIViewControllerContextTransitioning) -> CGRect {
+        let containerView = transitionContext.containerView
+        switch navigationOperation {
+        case .push:
+            return containerView.frame.offsetBy(dx: containerView.bounds.width , dy: 0)
+        case .pop:
+            return containerView.frame.offsetBy(dx: -containerView.bounds.width , dy: 0)
+        default:
+            return containerView.frame
+        }
+    }
+    
+    private func originViewInitialFrame(transitionContext: UIViewControllerContextTransitioning) -> CGRect {
+        let containerView = transitionContext.containerView
+        switch navigationOperation {
+        case .push:
+            return containerView.frame.offsetBy(dx: -containerView.bounds.width , dy: 0)
+        case .pop:
+            return containerView.frame.offsetBy(dx: containerView.bounds.width , dy: 0)
+        default:
+            return containerView.frame
+        }
+    }
 }
