@@ -21,6 +21,7 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView?.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
         bindViewModel()
     }
     
