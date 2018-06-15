@@ -5,7 +5,7 @@ import MoneySaverAppCore
 
 class StatsViewModel {
     
-    var availableGroupings: [TransactionsGrouping] = [.day, .week, .month]
+    var availableGroupings: [TransactionsGrouping] = [.dayOfEra, .weekOfEra, .monthOfEra]
     var selectedSegmentIndex: Int {
         didSet {
             let selectedGrouping = availableGroupings[selectedSegmentIndex]
