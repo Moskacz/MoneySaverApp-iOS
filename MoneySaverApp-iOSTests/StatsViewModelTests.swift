@@ -20,7 +20,7 @@ class StatsViewModelTests: XCTestCase {
         super.setUp()
         repositoryFake = FakeTransactionsRepository()
         userPreferences = FakeUserPreferences()
-        userPreferences.statsGrouping = .month
+        userPreferences.statsGrouping = .monthOfEra
         sut = StatsViewModel(repository: repositoryFake,
                              dataProcessor: FakeChartsDataProcessor(),
                              userPreferences: userPreferences)
@@ -32,11 +32,13 @@ class StatsViewModelTests: XCTestCase {
     }
     
     func test_availableGroupings() {
-        XCTAssertEqual(sut.availableGroupings, [TransactionsGrouping.day, TransactionsGrouping.week, TransactionsGrouping.month])
+        XCTAssertEqual(sut.availableGroupings, [TransactionsGrouping.dayOfEra,
+                                                TransactionsGrouping.weekOfEra,
+                                                TransactionsGrouping.monthOfEra])
     }
     
     func test_afterInitSelectedGroupingIndex_shouldBeCorrectlySet() {
-        userPreferences.statsGrouping = .day
+        userPreferences.statsGrouping = .dayOfEra
         sut = StatsViewModel(repository: repositoryFake,
                              dataProcessor: FakeChartsDataProcessor(),
                              userPreferences: userPreferences)
@@ -45,6 +47,6 @@ class StatsViewModelTests: XCTestCase {
     
     func test_whenSelectedSegmentIndexIsChanged_thenCorrespondingGroupingShouldBeSavedAsPreferredOne() {
         sut.selectedSegmentIndex = 1
-        XCTAssertEqual(userPreferences.statsGrouping, .week)
+        XCTAssertEqual(userPreferences.statsGrouping, .weekOfEra)
     }
 }

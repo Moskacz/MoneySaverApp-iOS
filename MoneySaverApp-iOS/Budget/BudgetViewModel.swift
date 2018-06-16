@@ -20,7 +20,7 @@ protocol BudgetViewModelDelegate: class {
 class BudgetViewModel: NSObject {
     
     private let computingService: TransactionsComputingService
-    private let dataProcessor: ChartsDataProcessor
+    private let dataProcessor: BudgetChartsDataProcessor
     private let budgetRepository: BudgetRepository
     private var observationTokens = [ObservationToken]()
     
@@ -28,7 +28,7 @@ class BudgetViewModel: NSObject {
     weak var delegate: BudgetViewModelDelegate?
     
     init(computingService: TransactionsComputingService,
-         dataProcessor: ChartsDataProcessor,
+         dataProcessor: BudgetChartsDataProcessor,
          budgetRepository: BudgetRepository) {
         self.computingService = computingService
         self.dataProcessor = dataProcessor

@@ -14,11 +14,11 @@ class StatsViewModel {
     }
     
     private let repository: TransactionsRepository
-    private let dataProcessor: ChartsDataProcessor
+    private let dataProcessor: StatsChartsDataProcessor
     private let userPreferences: UserPreferences
     
     init(repository: TransactionsRepository,
-         dataProcessor: ChartsDataProcessor,
+         dataProcessor: StatsChartsDataProcessor,
          userPreferences: UserPreferences) {
         self.repository = repository
         self.dataProcessor = dataProcessor

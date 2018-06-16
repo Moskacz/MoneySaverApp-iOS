@@ -29,6 +29,10 @@ class FakeCalendar: CalendarProtocol {
         fatalError()
     }
     
+    func calendarDate(from date: Date) -> CalendarDate {
+        fatalError()
+    }
+    
     func dayOfEraOf(date: Date) -> Int {
         return dayOfEraOfDateToReturn
     }
