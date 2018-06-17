@@ -26,9 +26,9 @@ class StatsViewModel {
         self.selectedSegmentIndex = self.availableGroupings.index(of: userPreferences.statsGrouping)!
     }
     
-    var segmentedControlItems: [UISegmentedControl.Item] {
+    var segmentedControlItems: [SegmentedControlItem] {
         return availableGroupings.map {
-            UISegmentedControl.Item.text($0.description)
+            SegmentedControlItem.text($0.description)
         }
     }
 }
