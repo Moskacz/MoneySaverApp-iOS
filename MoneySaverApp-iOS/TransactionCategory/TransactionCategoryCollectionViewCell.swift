@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 
 class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     
