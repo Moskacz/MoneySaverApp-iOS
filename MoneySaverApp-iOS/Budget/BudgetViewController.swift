@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 import Charts
 
 class BudgetViewController: UIViewController {

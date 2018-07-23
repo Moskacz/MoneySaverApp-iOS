@@ -14,15 +14,6 @@ struct ViewModelsAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
         
-        container.register { (dateRange: DateRange) in
-            TransactionsOverviewViewModel(repository: try container.resolve(),
-                                          logger: try container.resolve(),
-                                          calendar: try container.resolve(),
-                                          timeChangedObserver: try container.resolve(),
-                                          computingService: try container.resolve(),
-                                          dateRange: dateRange)
-        }
-        
         container.register {
             TransactionDataViewModel()
         }
@@ -30,20 +21,6 @@ struct ViewModelsAssembler: ContainerAssembly {
         container.register {
             TransactionCategoriesCollectionViewModel(service: $0,
                                                      logger: $1)
-        }
-        
-        container.register {
-            BudgetViewModel(computingService: $0,
-                            dataProcessor: $1,
-                            budgetRepository: $2)
-        }
-        
-        container.register {
-            SetupBudgetViewModel(budgetRepository: $0)
-        }
-        
-        container.register {
-            StatsViewModel(repository: $0, dataProcessor: $1, userPreferences: $2)
         }
         
         container.register {

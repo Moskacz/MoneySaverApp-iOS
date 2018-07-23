@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MMFoundation
+import MoneySaverAppCore
 
 class TransactionsSummaryViewController: UIViewController {
     

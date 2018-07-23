@@ -15,12 +15,6 @@ enum SetupBudgetError: Error {
 
 class SetupBudgetViewModel {
     
-    private let budgetRepository: BudgetRepository
-    
-    init(budgetRepository: BudgetRepository) {
-        self.budgetRepository = budgetRepository
-    }
-    
     var providedBudgetAmount: String? = nil
     
     func saveBudget() throws {
@@ -33,6 +27,6 @@ class SetupBudgetViewModel {
             throw SetupBudgetError.incorrectAmount
         }
         
-        budgetRepository.saveBudget(withValue: amount)
+//        budgetRepository.saveBudget(withValue: amount)
     }
 }

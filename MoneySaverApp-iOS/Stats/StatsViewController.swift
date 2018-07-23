@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MMFoundation
+import MoneySaverAppCore
 import Charts
 
 class StatsViewController: UIViewController {
@@ -31,15 +31,15 @@ class StatsViewController: UIViewController {
     
     private func setupGroupingControl() {
         guard let viewModel = viewModel else { return }
-        segmentedControl?.items = viewModel.segmentedControlItems
-        segmentedControl?.selectedSegmentIndex = viewModel.selectedSegmentIndex
+        segmentedControl?.items = viewModel.groupingItems
+        segmentedControl?.selectedSegmentIndex = viewModel.selectedGroupingIntex
         segmentedControl?.tintColor = AppColor.activeElement.value
     }
     
     // MARK: UI actions
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
-        viewModel?.selectedSegmentIndex = sender.selectedSegmentIndex
+        viewModel?.selectedGroupingIntex = sender.selectedSegmentIndex
     }
 }
 

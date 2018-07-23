@@ -96,6 +96,7 @@
 		35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35EB3D071F7195BD00BCB79C /* CloudKit.framework */; };
 		35EE9D06200D3C4E006D5791 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */; };
 		35FB7E1A1FFFE352001929DF /* TimeChangedObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */; };
+		35FF6E3621065A4F004FBC87 /* MoneySaverAppCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35227EF32105069600B72F3D /* MoneySaverAppCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -249,6 +250,7 @@
 		35EE9D05200D3C4E006D5791 /* FakeUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDefaults.swift; sourceTree = "<group>"; };
 		35F011D51E8D7B03006A2BC2 /* Cleanse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cleanse.framework; path = Carthage/Build/iOS/Cleanse.framework; sourceTree = "<group>"; };
 		35FB7E191FFFE352001929DF /* TimeChangedObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeChangedObserverTests.swift; sourceTree = "<group>"; };
+		35FF6E3721065A63004FBC87 /* MMFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MMFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35FF6E3621065A4F004FBC87 /* MoneySaverAppCore.framework in Frameworks */,
 				35C9FEF31E8C279D0092D5E3 /* CoreData.framework in Frameworks */,
 				352B030A1E92BD0A001B99CB /* Dip.framework in Frameworks */,
 				35EB3D081F7195BD00BCB79C /* CloudKit.framework in Frameworks */,
@@ -482,6 +485,7 @@
 		35BB973D1E7F0D76003DBA41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				35FF6E3721065A63004FBC87 /* MMFoundation.framework */,
 				359F703B20A83F0A00C9A694 /* Chameleon.framework */,
 				35EB3D071F7195BD00BCB79C /* CloudKit.framework */,
 				35E6F1DE1EC389F1007667BB /* RxCocoa.framework */,
