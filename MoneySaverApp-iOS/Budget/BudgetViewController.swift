@@ -30,37 +30,7 @@ class BudgetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-    }
-    
-    private func setupViews() {
-        guard let model = viewModel else { return }
-        if model.isBudgetSetUp() {
-            setupCharts()
-        } else {
-            displaySetupBudgetViewController()
-        }
-    }
-    
-    private func setupCharts() {
         pieChart?.holeColor = UIColor.clear
-        pieChart?.data = viewModel?.pieChartData()
-        pieChart?.notifyDataSetChanged()
-        combinedChart?.data = viewModel?.combinedChartData()
-        combinedChart?.notifyDataSetChanged()
-    }
-    
-    // MARK: SetupBudgetViewController
-    
-    private func displaySetupBudgetViewController() {
-        guard let storyboard = storyboard else { return }
-        let setupBudgetVC: SetupBudgetViewController = storyboard.instantiate()
-        setupBudgetVC.viewModel = viewModel?.makeSetupBudgetViewModel()
-        addViewController(asChild: setupBudgetVC)
-    }
-    
-    private func removeSetupBudgetViewController() {
-        removeChildViewControllers()
     }
     
     // MARK: Edit budget
@@ -72,18 +42,12 @@ class BudgetViewController: UIViewController {
 
 extension BudgetViewController: BudgetViewModelDelegate {
     
-    func budget(setUp: Bool) {
-        guard setUp else { return }
-        setupCharts()
-        removeChildViewControllers()
-    }
-    
-    func pieChartDataUpdated(_ data: PieChartData) {
+    func budget(viewModel: BudgetViewModel, didUpdateBudget data: PieChartData) {
         pieChart?.data = data
         pieChart?.notifyDataSetChanged()
     }
     
-    func combinedChartDataUpdated(_ data: CombinedChartData) {
+    func budget(viewModel: BudgetViewModel, didUpdateSpendings data: CombinedChartData) {
         combinedChart?.data = data
         combinedChart?.notifyDataSetChanged()
     }
