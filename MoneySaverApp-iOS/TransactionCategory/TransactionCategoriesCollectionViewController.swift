@@ -27,7 +27,6 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     
     private func bindViewModel() {
         guard let model = viewModel, let collection = collectionView else { return }
-        model.attach(updater: CollectionViewUpdater(collectionView: collection))
         model.loadData()
     }
     

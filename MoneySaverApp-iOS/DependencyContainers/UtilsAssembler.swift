@@ -22,14 +22,6 @@ class UtilsAssebler: ContainerAssembly {
         }
         
         container.register {
-            try container.resolve() as ChartsDataProcessor as BudgetChartsDataProcessor
-        }
-        
-        container.register {
-            try container.resolve() as ChartsDataProcessor as StatsChartsDataProcessor
-        }
-        
-        container.register {
             Calendar.current as CalendarProtocol
         }
         

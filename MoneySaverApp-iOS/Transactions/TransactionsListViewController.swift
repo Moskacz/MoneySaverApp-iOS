@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 
 class TransactionsListViewController: UIViewController {
     
@@ -27,7 +28,6 @@ class TransactionsListViewController: UIViewController {
     
     private func setup() {
         setupViews()
-        bindViewModel()
     }
     
     private func setupViews() {
@@ -36,40 +36,6 @@ class TransactionsListViewController: UIViewController {
         tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.rowHeight = 92
         tableView?.tableFooterView = UIView()
-    }
-    
-    private func bindViewModel() {
-        viewModel?.attach(updater: TableViewCollectionUpdater(tableView: tableView))
-    }
-}
-
-extension TransactionsListViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel?.sectionsCount() ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.transactionsCount(inSection:  section) ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let model = viewModel else { fatalError() }
-        let cell: TransactionCell = tableView.dequeueTypedCell(withIdentifier: transactionCellIdentifier)
-        let cellViewModel = model.transactionCellViewModel(atPath: indexPath)
-        cell.update(withViewModel: cellViewModel)
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCellEditingStyle,
-                   forRowAt indexPath: IndexPath) {
-        guard let model = viewModel, editingStyle == .delete else { return }
-        model.deleteTransaction(atPath: indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return viewModel?.title(forSection: section)
     }
 }
 

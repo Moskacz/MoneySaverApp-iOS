@@ -20,23 +20,11 @@ struct DataLayerAssembler: ContainerAssembly {
         }
         
         container.register(.singleton) {
-            TransactionsRepositoryImplementation(context: $0, logger: $1, calendar: $2) as TransactionsRepository
-        }
-        
-        container.register(.singleton) {
             TransactionCategoryRepositoryImpl(context: $0, logger: $1) as TransactionCategoryRepository
         }
         
         container.register(.singleton) {
             TransactionCategoryServiceImpl(repository: $0) as TransactionCategoryService
-        }
-        
-        container.register(.singleton) {
-            BudgetRepositoryImpl(context: $0, logger: $1) as BudgetRepository
-        }
-        
-        container.register {
-            RootFlowServiceImpl(repository: $0, userPreferences: $1) as RootFlowService
         }
         
         container.register(.singleton) {

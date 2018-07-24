@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 
 enum TransactionType {
     case income

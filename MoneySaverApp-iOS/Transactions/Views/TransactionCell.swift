@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 import MMFoundation
 
 class TransactionCell: UITableViewCell {
@@ -27,11 +28,11 @@ class TransactionCell: UITableViewCell {
     }
     
     func update(withViewModel viewModel: TransactionCellViewModel) {
-        iconImageView?.image = viewModel.categoryIcon()
-        amoutLabel?.text = viewModel.titleText()
-        descriptionLabel?.text = viewModel.descriptionText()
-        dateLabel?.text = viewModel.dateText()
-        indicatorView?.update(with: viewModel.indicatorGradient())
+        iconImageView?.image = viewModel.categoryIcon
+        amoutLabel?.text = viewModel.titleText
+        descriptionLabel?.text = viewModel.descriptionText
+        dateLabel?.text = viewModel.dateText
+        indicatorView?.update(with: viewModel.indicatorGradient)
     }
     
     override func layoutSubviews() {

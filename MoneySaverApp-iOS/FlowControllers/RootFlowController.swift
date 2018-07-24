@@ -86,7 +86,6 @@ class RootFlowController: FlowController {
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiate()
         let dateRange = flowService?.preferredDateRange ?? .allTime
-        viewController.viewModel = try? dependencyContainer.resolve(arguments: dateRange)
         
         viewController.configureSummaryVC = { viewController in
             self.configure(summaryVC: viewController)
@@ -110,7 +109,6 @@ class RootFlowController: FlowController {
         for range in viewModel.ranges {
             let action = UIAlertAction(title: range.title, style: .default) { (_) in
                 self.flowService?.preferredDateRange = range.range
-                self.transactionsOverviewVC?.viewModel?.dateRange = range.range
             }
             alertController.addAction(action)
         }

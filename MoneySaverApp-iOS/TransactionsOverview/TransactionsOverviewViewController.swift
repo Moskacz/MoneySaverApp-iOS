@@ -7,14 +7,12 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 
 final class TransactionsOverviewViewController: UIViewController {
     
-    var viewModel: TransactionsOverviewViewModel?
-    
     var configureSummaryVC: (TransactionsSummaryViewController) -> Void = { _ in }
     var configureTransactionsListViewController: (TransactionsListViewController) -> Void = { _ in }
-    
     
     private let SUMMARY_VIEW_HEIGHT = CGFloat(200)
     
@@ -36,10 +34,8 @@ final class TransactionsOverviewViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         if let summaryVC = segue.destination as? TransactionsSummaryViewController {
-            summaryVC.viewModel = viewModel?.summaryViewModel
             configureSummaryVC(summaryVC)
         } else if let listVC = segue.destination as? TransactionsListViewController {
-            listVC.viewModel = viewModel?.listViewModel
             listVC.externalScrollViewDelegate = self
             configureTransactionsListViewController(listVC)
         }

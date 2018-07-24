@@ -1,4 +1,5 @@
 import UIKit
+import MoneySaverAppCore
 
 final class TransactionDataNavigationController: UINavigationController {
     

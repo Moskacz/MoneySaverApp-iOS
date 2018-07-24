@@ -16,16 +16,13 @@ protocol RootFlowService {
 
 class RootFlowServiceImpl: RootFlowService {
     
-    private let repository: TransactionsRepository
     private let userPreferences: UserPreferences
     
-    init(repository: TransactionsRepository, userPreferences: UserPreferences) {
-        self.repository = repository
+    init(userPreferences: UserPreferences) {
         self.userPreferences = userPreferences
     }
     
     func addTransaction(withData data: TransactionData, category: TransactionCategoryManagedObject) {
-        repository.addTransaction(data: data, category: category)
     }
     
     var preferredDateRange: DateRange {

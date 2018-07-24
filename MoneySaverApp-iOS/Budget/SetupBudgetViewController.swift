@@ -8,9 +8,9 @@
 //
 
 import UIKit
+import MoneySaverAppCore
 
 class SetupBudgetViewController: UIViewController {
-    
     
     var viewModel: SetupBudgetViewModel?
     var budgetSetCallback = {}
