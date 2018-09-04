@@ -10,7 +10,7 @@ import UIKit
 import MoneySaverAppCore
 import MMFoundation
 
-class TransactionCell: UITableViewCell {
+class TransactionTableViewCell: UITableViewCell, Reusable {
     
     @IBOutlet private weak var dividerViewHeightConstraint: NSLayoutConstraint?
     @IBOutlet private weak var containerView: UIView?
@@ -27,19 +27,33 @@ class TransactionCell: UITableViewCell {
         iconImageViewContainer?.update(with: AppGradient.main.value)
     }
     
-    func update(withViewModel viewModel: TransactionCellViewModel) {
-        iconImageView?.image = viewModel.categoryIcon
-        amoutLabel?.text = viewModel.titleText
-        descriptionLabel?.text = viewModel.descriptionText
-        dateLabel?.text = viewModel.dateText
-        indicatorView?.update(with: viewModel.indicatorGradient)
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         if let view = iconImageViewContainer {
             view.layer.cornerRadius = view.bounds.width * 0.5
         }
     }
+}
 
+extension TransactionTableViewCell: TransactionCell {
+    
+    func set(icon: Image?) {
+        iconImageView?.image = icon
+    }
+    
+    func set(amount: String?) {
+        amoutLabel?.text = amount
+    }
+    
+    func set(title: String?) {
+        descriptionLabel?.text = title
+    }
+    
+    func set(date: String?) {
+        dateLabel?.text = date
+    }
+    
+    func set(indicator: Gradient?) {
+        indicatorView?.update(with: indicator)
+    }
 }
