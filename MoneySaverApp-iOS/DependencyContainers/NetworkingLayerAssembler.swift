@@ -12,8 +12,6 @@ import Dip
 struct NetworkingLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-        container.register {
-            TransactionsCloudKitServerInterface() as TransactionsServerInterface
-        }
+    
     }
 }
