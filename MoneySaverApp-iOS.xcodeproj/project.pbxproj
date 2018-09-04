@@ -41,7 +41,6 @@
 		356D0EAE1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */; };
 		356D0EB11F8C00E700378362 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EB01F8C00E700378362 /* Errors.swift */; };
 		35708BBC1FC958110052ED9E /* SetupBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */; };
-		35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */; };
 		35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */; };
 		35757FA92075444400FDAEC0 /* DateRangePickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */; };
 		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
@@ -182,7 +181,6 @@
 		356D0EAD1F8BF83800378362 /* TransactionCategoriesCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewModel.swift; sourceTree = "<group>"; };
 		356D0EB01F8C00E700378362 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewController.swift; sourceTree = "<group>"; };
-		35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewModel.swift; sourceTree = "<group>"; };
 		35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModel.swift; sourceTree = "<group>"; };
 		35757FA82075444400FDAEC0 /* DateRangePickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModelTests.swift; sourceTree = "<group>"; };
 		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
@@ -517,7 +515,6 @@
 			children = (
 				355509CA1F7ABF1B0007FEF1 /* BudgetViewController.swift */,
 				35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */,
-				35708BC71FC97F750052ED9E /* SetupBudgetViewModel.swift */,
 			);
 			path = Budget;
 			sourceTree = "<group>";
@@ -755,7 +752,6 @@
 			files = (
 				359A313B1FB4F754000DA85F /* UIColor+Additions.swift in Sources */,
 				352324A31F8A8A77007C4FF5 /* TransactionCategoryCollectionViewCell.swift in Sources */,
-				35708BC81FC97F750052ED9E /* SetupBudgetViewModel.swift in Sources */,
 				35A7BA05201E023C009E6111 /* Calendar+Additions.swift in Sources */,
 				35C09DEB1E897ABC00095FE2 /* UITableView+Additions.swift in Sources */,
 				352B03181E92C4DA001B99CB /* ViewModelsAssembler.swift in Sources */,

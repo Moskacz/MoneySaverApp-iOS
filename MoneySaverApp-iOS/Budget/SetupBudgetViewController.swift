@@ -40,8 +40,7 @@ class SetupBudgetViewController: UIViewController {
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
         guard let model = viewModel else { return }
         do {
-            passDataToViewModel()
-            try model.saveBudget()
+            try model.saveBudget(amountText: budgetTextField?.text)
             budgetSetCallback()
         } catch {
             handle(error: error)
@@ -50,10 +49,6 @@ class SetupBudgetViewController: UIViewController {
     
     @IBAction func closeButtonTapped(_ sender: UIButton) {
         closeButtonCallback()
-    }
-    
-    private func passDataToViewModel() {
-        viewModel?.providedBudgetAmount = budgetTextField?.text
     }
     
     private func handle(error: Error) {
