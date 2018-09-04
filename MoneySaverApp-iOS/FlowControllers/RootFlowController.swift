@@ -85,7 +85,6 @@ class RootFlowController: FlowController {
     
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiate()
-        let dateRange = flowService?.preferredDateRange ?? .allTime
         
         viewController.configureSummaryVC = { viewController in
             self.configure(summaryVC: viewController)
