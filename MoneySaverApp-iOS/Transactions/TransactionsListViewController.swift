@@ -15,7 +15,7 @@ class TransactionsListViewController: UIViewController {
         return .lightContent
     }
     
-    var viewModel: TransactionsListViewModel?
+    var viewModel: TransactionsListViewModel!
     weak var externalScrollViewDelegate: UIScrollViewDelegate?
     
     @IBOutlet weak var tableView: UITableView?
@@ -31,11 +31,37 @@ class TransactionsListViewController: UIViewController {
     }
     
     private func setupViews() {
-        let cellNib = UINib(nibName: "TransactionCell", bundle: nil)
+        tableView?.register(cell: TransactionTableViewCell.self)
         tableView?.separatorColor = UIColor.clear
-        tableView?.register(cellNib, forCellReuseIdentifier: transactionCellIdentifier)
         tableView?.rowHeight = 92
         tableView?.tableFooterView = UIView()
+    }
+}
+
+extension TransactionsListViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsIn(section: section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: TransactionTableViewCell = tableView.dequeue()
+        
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        viewModel?.commitDeletionOfTransactionAt(indexPath: indexPath)
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return viewModel?.titleFor(section: section)
     }
 }
 
