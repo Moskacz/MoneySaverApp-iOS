@@ -15,7 +15,7 @@ class TransactionsListViewController: UIViewController {
         return .lightContent
     }
     
-    var viewModel: TransactionsListViewModel!
+    var coordinator: TransactionsListCoordinator!
     weak var externalScrollViewDelegate: UIScrollViewDelegate?
     
     @IBOutlet weak var tableView: UITableView?
@@ -41,11 +41,11 @@ class TransactionsListViewController: UIViewController {
 extension TransactionsListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.numberOfSections
+        return coordinator.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRowsIn(section: section)
+        return coordinator.numberOfRowsIn(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,11 +57,11 @@ extension TransactionsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        viewModel?.commitDeletionOfTransactionAt(indexPath: indexPath)
+        coordinator.markTransactionForDeletion(indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return viewModel?.titleFor(section: section)
+        return coordinator?.titleFor(section: section)
     }
 }
 
