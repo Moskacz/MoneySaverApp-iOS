@@ -12,7 +12,7 @@ import MMFoundation
 
 class TransactionsSummaryViewController: UIViewController {
     
-    var viewModel: TransactionsSummaryViewModel?
+    var coordinator: TransactionsSummaryCoordinator!
     var didTapOnDateRangeButton: (UIButton) -> Void = { _ in }
     
     @IBOutlet private weak var expensesLabel: UILabel?
@@ -26,9 +26,8 @@ class TransactionsSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel?.delegate = self
         setupAppearance()
-        setupDisplayedData(animated: false)
+        coordinator.display = self
     }
     
     private func setupAppearance() {
@@ -36,21 +35,26 @@ class TransactionsSummaryViewController: UIViewController {
         dateRangeButton?.backgroundColor = AppColor.activeElement.value
     }
     
-    private func setupDisplayedData(animated: Bool) {
-        expensesLabel?.set(text: viewModel?.expensesAmountText, animated: animated)
-        incomesLabel?.set(text: viewModel?.incomesAmountText, animated: animated)
-        totalLabel?.set(text: viewModel?.totalAmountText, animated: animated)
-        dateRangeButton?.setTitle(viewModel?.dateRangeButtonText, for: .normal)
-    }
-    
     @IBAction func dataRangeButtonTapped(_ sender: UIButton) {
         didTapOnDateRangeButton(sender)
     }
 }
 
-extension TransactionsSummaryViewController: TransactionsSummaryViewModelDelegate {
+extension TransactionsSummaryViewController: TransactionsSummaryDisplaying {
     
-    func transactionsSummaryDidUpdateValues(viewModel: TransactionsSummaryViewModel) {
-        setupDisplayedData(animated: true)
+    func set(incomesText: String?) {
+        incomesLabel?.text = incomesText
+    }
+    
+    func set(expenseText: String?) {
+        expensesLabel?.text = expenseText
+    }
+    
+    func set(totalAmountString: String?) {
+        totalLabel?.text = totalAmountString
+    }
+    
+    func set(dateRangeTitle: String?) {
+        dateRangeButton?.setTitle(dateRangeTitle, for: .normal)
     }
 }
