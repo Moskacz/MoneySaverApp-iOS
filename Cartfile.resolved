@@ -1,4 +1,2 @@
-github "AliSoftware/Dip" "5464f00bad3520b139cf7639a69a427a1c47bfc7"
-github "ViccAlexander/Chameleon" "2.2.0"
-github "danielgindi/Charts" "v3.1.1"
-github "philackm/ScrollableGraphView" "4.0.4"
+github "AliSoftware/Dip" "54e1db22326227eea9c005a1b3a7de91805feba2"
+github "danielgindi/Charts" "v3.2.0"

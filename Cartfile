@@ -1,4 +1,2 @@
 github "AliSoftware/Dip" "master"
-github "danielgindi/Charts" ~> 3.0.4
-github "philackm/ScrollableGraphView"
-github "ViccAlexander/Chameleon"
+github "danielgindi/Charts" == 3.2.0
