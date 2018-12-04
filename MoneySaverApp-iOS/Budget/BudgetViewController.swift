@@ -12,16 +12,10 @@ import Charts
 
 class BudgetViewController: UIViewController {
     
-    var editBudgetTapCallback = {}
+    var presenter: BudgetPresenterProtocol!
     
     @IBOutlet private weak var pieChart: PieChartView?
     @IBOutlet private weak var combinedChart: CombinedChartView?
-    
-    var viewModel: BudgetViewModel? {
-        didSet {
-            viewModel?.delegate = self
-        }
-    }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,24 +24,28 @@ class BudgetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.loadData()
         pieChart?.holeColor = UIColor.clear
     }
     
     // MARK: Edit budget
     
     @IBAction func editBudgetTapped(_ sender: UIButton) {
-        editBudgetTapCallback()
+        presenter.requestBudgetAmountEdit()
     }
 }
 
-extension BudgetViewController: BudgetViewModelDelegate {
+extension BudgetViewController: BudgetUIProtocol {
+    func showBudgetNotSetup() {
+        
+    }
     
-    func budget(viewModel: BudgetViewModel, didUpdateBudget data: PieChartData) {
+    func showBudgetPieChart(with data: PieChartData) {
         pieChart?.data = data
         pieChart?.notifyDataSetChanged()
     }
     
-    func budget(viewModel: BudgetViewModel, didUpdateSpendings data: CombinedChartData) {
+    func showSpendingsChart(with data: CombinedChartData) {
         combinedChart?.data = data
         combinedChart?.notifyDataSetChanged()
     }

@@ -117,18 +117,13 @@ class RootFlowController: FlowController {
     
     private func budgetViewController() -> BudgetViewController {
         let viewController: BudgetViewController = storyboard.instantiate()
-        viewController.viewModel = try? dependencyContainer.resolve()
-        
-        viewController.editBudgetTapCallback = {
-            self.presentSetupBudgetViewController()
-        }
-        
+        viewController.presenter = Factory.budgetPresenter(routing: self, userInterface: viewController)
         return viewController
     }
     
     private func statsViewController() -> StatsViewController {
         let viewController: StatsViewController = storyboard.instantiate()
-        viewController.viewModel = try? dependencyContainer.resolve()
+        viewController.presenter = Factory.statsPresenter(userInterface: viewController)
         return viewController
     }
     
@@ -184,5 +179,11 @@ class RootFlowController: FlowController {
         navController.navigationBar.prefersLargeTitles = true
         navController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
         return navController
+    }
+}
+
+extension RootFlowController: BudgetRoutingProtocol {
+    func presentBudgetAmountEditor(presenter: BudgetPresenterProtocol) {
+        presentSetupBudgetViewController()
     }
 }
