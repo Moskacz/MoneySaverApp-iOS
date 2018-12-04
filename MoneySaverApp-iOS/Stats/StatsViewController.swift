@@ -9,10 +9,11 @@
 import UIKit
 import MoneySaverAppCore
 import Charts
+import MMFoundation
 
 class StatsViewController: UIViewController {
     
-    var viewModel: StatsViewModel?
+    var presenter: StatsPresenterProtocol!
     
     @IBOutlet private weak var segmentedControl: UISegmentedControl?
     @IBOutlet private weak var expensesPerTimeChart: BarChartView?
@@ -26,20 +27,38 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGroupingControl()
-    }
-    
-    private func setupGroupingControl() {
-        guard let viewModel = viewModel else { return }
-        segmentedControl?.items = viewModel.groupingItems
-        segmentedControl?.selectedSegmentIndex = viewModel.selectedGroupingIntex
-        segmentedControl?.tintColor = AppColor.activeElement.value
+        presenter.start()
     }
     
     // MARK: UI actions
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
-        viewModel?.selectedGroupingIntex = sender.selectedSegmentIndex
+        presenter.selectedGroupingIndex = sender.selectedSegmentIndex
+    }
+}
+
+extension StatsViewController: StatsUIProtocol {
+    
+    func setGrouping(items: [SegmentedControlItem]) {
+        segmentedControl?.items = items
+    }
+    
+    func selectGrouping(index: Int) {
+        segmentedControl?.selectedSegmentIndex = index
+    }
+    
+    func showExpenses(data: BarChartData) {
+        expensesPerTimeChart?.data = data
+        expensesPerTimeChart?.notifyDataSetChanged()
+    }
+    
+    func showIncomes(data: BarChartData) {
+        incomesPerTimeChart?.data = data
+        incomesPerTimeChart?.notifyDataSetChanged()
+    }
+    
+    func showCategoryExpenses(data: PieChartData) {
+        
     }
 }
 
