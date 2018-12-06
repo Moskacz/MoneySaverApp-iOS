@@ -12,9 +12,7 @@ import MoneySaverAppCore
 
 class SetupBudgetViewController: UIViewController {
     
-    var viewModel: SetupBudgetViewModel?
-    var budgetSetCallback = {}
-    var closeButtonCallback = {}
+    var presenter: SetupBudgetPresenterProtocol!
     
     @IBOutlet private weak var budgetTextField: UITextField?
     @IBOutlet private weak var confirmButton: UIButton?
@@ -38,25 +36,17 @@ class SetupBudgetViewController: UIViewController {
     // MARK: UI Actions
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
-        guard let model = viewModel else { return }
-        do {
-            try model.saveBudget(amountText: budgetTextField?.text)
-            budgetSetCallback()
-        } catch {
-            handle(error: error)
-        }
+        presenter.save(budget: budgetTextField?.text)
     }
     
     @IBAction func closeButtonTapped(_ sender: UIButton) {
-        closeButtonCallback()
+        presenter.closeViewClicked()
     }
-    
-    private func handle(error: Error) {
-        guard let formError = error as? SetupBudgetError else { return }
-        switch formError {
-        case .incorrectAmount:
-            budgetTextField?.displayAsIncorrect()
-        }
-    }
+}
 
+extension SetupBudgetViewController: SetupBudgetUI {
+    
+    func display(error: SetupBudgetError) {
+        budgetTextField?.displayAsIncorrect()
+    }
 }

@@ -95,24 +95,7 @@ class RootFlowController: FlowController {
     }
     
     private func configure(summaryVC: TransactionsSummaryViewController) {
-        summaryVC.didTapOnDateRangeButton = { _ in
-            self.presentDateRangesPicker()
-        }
-    }
-    
-    private func presentDateRangesPicker() {
-        let viewModel: DateRangePickerViewModel = try! dependencyContainer.resolve()
-        let alertController = UIAlertController(title: "Pick date range",
-                                                message: nil,
-                                                preferredStyle: .actionSheet)
-        for range in viewModel.ranges {
-            let action = UIAlertAction(title: range.title, style: .default) { (_) in
-                self.flowService?.preferredDateRange = range.range
-            }
-            alertController.addAction(action)
-        }
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
+        summaryVC.presenter = Factory.transactionsSummaryPresenter(display: summaryVC, router: self)
     }
     
     private func budgetViewController() -> BudgetViewController {
@@ -158,21 +141,6 @@ class RootFlowController: FlowController {
         navigationController.pushViewController(viewController, animated: animatedTransitions)
     }
     
-    private func presentSetupBudgetViewController() {
-        let viewController: SetupBudgetViewController = storyboard.instantiate()
-        viewController.viewModel = try? dependencyContainer.resolve()
-        
-        viewController.budgetSetCallback = {
-            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
-        }
-        
-        viewController.closeButtonCallback = {
-            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
-        }
-        
-        tabBarController?.present(viewController, animated: animatedTransitions, completion: nil)
-    }
-    
     private func settingsViewController() -> UIViewController {
         let viewController: SettingsViewController = storyboard.instantiate()
         let navController = UINavigationController(rootViewController: viewController)
@@ -183,7 +151,31 @@ class RootFlowController: FlowController {
 }
 
 extension RootFlowController: BudgetRoutingProtocol {
-    func presentBudgetAmountEditor(presenter: BudgetPresenterProtocol) {
-        presentSetupBudgetViewController()
+    
+    func presentBudgetAmountEditor() {
+        let viewController: SetupBudgetViewController = storyboard.instantiate()
+        viewController.presenter = Factory.setupBudgetPresenter(routing: self, userInterface: viewController)
+        tabBarController?.present(viewController, animated: animatedTransitions, completion: nil)
+    }
+
+    func dismissBudgetAmountEditor() {
+        tabBarController?.dismiss(animated: animatedTransitions, completion: nil)
+    }
+}
+
+extension RootFlowController: TransactionsSummaryRoutingProtocol {
+    func presentDateRangePicker() {
+        let viewModel: DateRangePickerViewModel = try! dependencyContainer.resolve()
+        let alertController = UIAlertController(title: "Pick date range",
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        for range in viewModel.ranges {
+            let action = UIAlertAction(title: range.title, style: .default) { (_) in
+                self.flowService?.preferredDateRange = range.range
+            }
+            alertController.addAction(action)
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
     }
 }

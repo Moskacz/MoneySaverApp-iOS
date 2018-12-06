@@ -13,22 +13,5 @@ import MoneySaverAppCore
 struct DataLayerAssembler: ContainerAssembly {
     
     func assembly(container: DependencyContainer) {
-
-        container.register(.singleton) { () -> CoreDataStack in
-            let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppGroup.group.identifier)?.appendingPathComponent("Database.sqlite")
-            return CoreDataStackImplementation(storeURL: storeURL!)
-        }
-        
-        container.register(.singleton) {
-            TransactionCategoryRepositoryImpl(context: $0, logger: $1) as TransactionCategoryRepository
-        }
-        
-        container.register(.singleton) {
-            TransactionCategoryServiceImpl(repository: $0) as TransactionCategoryService
-        }
-        
-        container.register(.singleton) {
-            UserDefaults.standard as UserPreferences
-        }
     }
 }

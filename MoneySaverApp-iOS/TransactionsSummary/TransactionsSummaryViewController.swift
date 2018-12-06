@@ -12,8 +12,7 @@ import MMFoundation
 
 class TransactionsSummaryViewController: UIViewController {
     
-    var coordinator: TransactionsSummaryCoordinator!
-    var didTapOnDateRangeButton: (UIButton) -> Void = { _ in }
+    var presenter: TransactionsSummaryPresenterProtocol!
     
     @IBOutlet private weak var expensesLabel: UILabel?
     @IBOutlet private weak var incomesLabel: UILabel?
@@ -27,7 +26,6 @@ class TransactionsSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
-        coordinator.display = self
     }
     
     private func setupAppearance() {
@@ -36,11 +34,11 @@ class TransactionsSummaryViewController: UIViewController {
     }
     
     @IBAction func dataRangeButtonTapped(_ sender: UIButton) {
-        didTapOnDateRangeButton(sender)
+        presenter!.dateRangeButtonTapped()
     }
 }
 
-extension TransactionsSummaryViewController: TransactionsSummaryDisplaying {
+extension TransactionsSummaryViewController: TransactionsSummaryUI {
     
     func set(incomesText: String?) {
         incomesLabel?.text = incomesText
