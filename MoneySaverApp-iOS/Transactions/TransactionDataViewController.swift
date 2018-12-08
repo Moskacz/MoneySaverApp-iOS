@@ -43,9 +43,7 @@ class TransactionDataViewController: UIViewController {
     private var keyboardObserver: KeyboardAppearObserver?
     private let initialTransactionType = TransactionType.expense
     
-    var dataEnteredCallback: (TransactionData) -> Void = { _ in }
-    var cancelButtonTapCallback: () -> Void = {}
-    var viewModel: TransactionDataViewModel?
+    var presenter: TransactionDataPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +59,7 @@ class TransactionDataViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        currentResponder?.resignFirstResponder()
+        view.endEditing(true)
     }
     
     private func setupKeyboardObserver() {
@@ -99,49 +97,17 @@ class TransactionDataViewController: UIViewController {
     }
     
     private func setupInitialData() {
-        guard let model = viewModel else { return }
         setupValueField(withSign: TransactionValueSign(transactionType: initialTransactionType))
-        datePicker?.date = model.transactionDate
-        setup(transactionDate: model.transactionDate)
-    }
-    
-    private func setup(transactionDate date: Date) {
-        currentDateLabel?.text = viewModel?.formatted(date: date)
-        viewModel?.transactionDate = date
     }
     
     @objc func nextButtonTapped() {
-        guard let model = viewModel else { return }
-        passDataToViewModel()
-        do {
-            let data = try model.data()
-            dataEnteredCallback(data)
-        } catch {
-            handle(error: error)
-        }
+        presenter.transactionTitle = titleTextField?.text
+        presenter.transactionAmount = valueTextField?.text
+        presenter.nextTapped()
     }
     
     @objc func cancelButtonTapped() {
-        cancelButtonTapCallback()
-    }
-    
-    private func passDataToViewModel() {
-        viewModel?.transactionTitle = titleTextField?.text
-        viewModel?.transactionValue = valueTextField?.text
-    }
-    
-    private func handle(error: Error) {
-        guard let formError = error as? TransactionDataFormError else { return }
-        handle(error: formError)
-    }
-    
-    private func handle(error: TransactionDataFormError) {
-        switch error {
-        case .missingTitle:
-            titleTextField?.displayAsIncorrect()
-        case .missingValue, .invalidValue:
-            valueTextField?.displayAsIncorrect()
-        }
+        presenter.cancelTapped()
     }
     
     // MARK: Transaction value sign
@@ -164,10 +130,6 @@ class TransactionDataViewController: UIViewController {
         valueTextField?.text = text
     }
     
-    private var currentResponder: UIResponder? {
-        return [titleTextField, valueTextField].compactMap { $0 }.first { $0.isFirstResponder }
-    }
-    
     // MARK: Transaction date
     
     @IBAction func currentDateTapped(_ sender: UITapGestureRecognizer) {
@@ -175,7 +137,7 @@ class TransactionDataViewController: UIViewController {
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
-        setup(transactionDate: sender.date)
+        presenter.transactionDate = sender.date
     }
     
     private func toggleDatePickerVisibility() {
@@ -213,5 +175,33 @@ extension TransactionDataViewController: UITextFieldDelegate {
 extension TransactionDataViewController: TransactionTypePickerViewDelegate {
     func transactionType(picker: TransactionTypePickerView, didSelect type: TransactionType) {
         setupValueField(withSign: TransactionValueSign(transactionType: type))
+    }
+}
+
+extension TransactionDataViewController: TransactionDataUI {
+    
+    func set(title: String?) {
+        titleTextField?.text = title
+    }
+    
+    func set(amount: String?) {
+        valueTextField?.text = amount
+    }
+    
+    func set(date: String?) {
+        currentDateLabel?.text = date
+    }
+    
+    func pick(date: Date) {
+        datePicker?.date = date
+    }
+    
+    func display(error: TransactionDataViewError) {
+        if error.contains(.missingValue) || error.contains(.invalidValue) {
+            valueTextField?.displayAsIncorrect()
+        }
+        if error.contains(.missingTitle) {
+            titleTextField?.displayAsIncorrect()
+        }
     }
 }

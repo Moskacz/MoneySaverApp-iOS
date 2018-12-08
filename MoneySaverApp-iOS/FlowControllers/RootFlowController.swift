@@ -112,16 +112,8 @@ class RootFlowController: FlowController {
     
     private func presentTransactionDataViewController() {
         let viewController: TransactionDataViewController = storyboard.instantiate()
-        viewController.viewModel = try? dependencyContainer.resolve()
-        
-        viewController.cancelButtonTapCallback = {
-            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
-        }
-        
-        viewController.dataEnteredCallback = { [unowned viewController] (data: TransactionData) in
-            guard let navController = viewController.navigationController else { return }
-            self.pushTransactionCategoriesCollection(navigationController: navController, data: data)
-        }
+        viewController.presenter = Factory.transactionDataPresenter(userInterface: viewController,
+                                                                    router: self)
         
         let navControlloer = TransactionDataNavigationController(rootViewController: viewController)
         navControlloer.modalPresentationStyle = .custom
@@ -134,7 +126,6 @@ class RootFlowController: FlowController {
         viewController.viewModel = try? dependencyContainer.resolve()
         
         viewController.categorySelectedCallback = { category in
-            self.flowService?.addTransaction(withData: data, category: category)
             self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
         }
         
@@ -171,11 +162,19 @@ extension RootFlowController: TransactionsSummaryRoutingProtocol {
                                                 preferredStyle: .actionSheet)
         for range in viewModel.ranges {
             let action = UIAlertAction(title: range.title, style: .default) { (_) in
-                self.flowService?.preferredDateRange = range.range
+                #warning("handle change of date range here")
             }
             alertController.addAction(action)
         }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
     }
+}
+
+extension RootFlowController: TransactionDataRouting {
+
+    func showTransactionCategoriesPicker(transactionData: TransactionData) {
+        
+    }
+    
 }

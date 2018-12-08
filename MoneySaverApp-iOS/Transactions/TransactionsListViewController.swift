@@ -15,7 +15,7 @@ class TransactionsListViewController: UIViewController {
         return .lightContent
     }
     
-    var coordinator: TransactionsListCoordinator!
+    var presenter: TransactionsListPresenterProtocol!
     weak var externalScrollViewDelegate: UIScrollViewDelegate?
     
     @IBOutlet weak var tableView: UITableView?
@@ -24,6 +24,7 @@ class TransactionsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        presenter.start()
     }
     
     private func setup() {
@@ -41,27 +42,33 @@ class TransactionsListViewController: UIViewController {
 extension TransactionsListViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return coordinator.numberOfSections
+        return presenter.sectionsCount
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coordinator.numberOfRowsIn(section: section)
+        return presenter.itemsCount(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TransactionTableViewCell = tableView.dequeue()
+        let item = presenter.item(at: indexPath)
         
+        cell.set(title: item.titleText)
+        cell.set(amount: item.descriptionText)
+        cell.set(icon: item.categoryIcon)
+        cell.set(date: item.dateText)
+        cell.set(indicator: item.indicatorGradient)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         guard editingStyle == .delete else { return }
-        coordinator.markTransactionForDeletion(indexPath: indexPath)
+        presenter.deleteItem(at: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        return coordinator?.titleFor(section: section)
+        return presenter.title(for: section)
     }
 }
 
