@@ -7,7 +7,6 @@
 //
 
 import XCTest
-import Dip
 import MoneySaverAppCore
 @testable import MoneySaverApp_iOS
 
@@ -21,8 +20,7 @@ class RootFlowControllerTests: XCTestCase {
         appDelegate = AppDelegate()
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         sut = RootFlowController(applicationDelegate: appDelegate,
-                                 storyboard: storyboard,
-                                 dependencyContainer: DependencyContainer.createContainer())
+                                 storyboard: storyboard)
     }
     
     override func tearDown() {

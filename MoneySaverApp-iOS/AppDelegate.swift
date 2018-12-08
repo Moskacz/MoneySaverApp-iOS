@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Dip
 import MoneySaverAppCore
 
 @UIApplicationMain
@@ -15,21 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var rootFlowController: RootFlowController?
-    var coreDataStack: CoreDataStack?
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let diContainer = DependencyContainer.createContainer()
-        let stack: CoreDataStack = try! diContainer.resolve()
-        diContainer.register {
-            stack.getViewContext()
-        }
         
         rootFlowController = RootFlowController(applicationDelegate: self,
-                                                storyboard: UIStoryboard.getMain(),
-                                                dependencyContainer: diContainer)
+                                                storyboard: UIStoryboard.getMain())
         rootFlowController?.startFlow()
-        coreDataStack = stack
         return true
     }
 
@@ -54,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func saveCoreData() {
         do {
-            try coreDataStack?.save()
+//            try coreDataStack?.save()
         } catch {
             print(error)
         }

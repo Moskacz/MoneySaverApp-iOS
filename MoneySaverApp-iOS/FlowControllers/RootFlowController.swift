@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Dip
 import MoneySaverAppCore
 
 enum FlowState {
@@ -23,21 +22,14 @@ class RootFlowController: FlowController {
     private weak var transactionsOverviewVC: TransactionsOverviewViewController?
     
     private let storyboard: UIStoryboard
-    private let dependencyContainer: DependencyContainer
     private let presentationManager = CardStylePresentationManager()
     
     var animatedTransitions: Bool = true
-    
-    private lazy var flowService: RootFlowService? = {
-       return try? self.dependencyContainer.resolve()
-    }()
-    
+
     init(applicationDelegate: AppDelegate?,
-         storyboard: UIStoryboard,
-         dependencyContainer: DependencyContainer) {
+         storyboard: UIStoryboard) {
         self.applicationDelegate = applicationDelegate
         self.storyboard = storyboard
-        self.dependencyContainer = dependencyContainer
     }
     
     func startFlow() {
@@ -152,16 +144,16 @@ extension RootFlowController: BudgetRoutingProtocol {
 
 extension RootFlowController: TransactionsSummaryRoutingProtocol {
     func presentDateRangePicker() {
-        let viewModel: DateRangePickerViewModel = try! dependencyContainer.resolve()
+//        let viewModel: DateRangePickerViewModel = try! dependencyContainer.resolve()
         let alertController = UIAlertController(title: "Pick date range",
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
-        for range in viewModel.ranges {
-            let action = UIAlertAction(title: range.title, style: .default) { (_) in
-                #warning("handle change of date range here")
-            }
-            alertController.addAction(action)
-        }
+//        for range in viewModel.ranges {
+//            let action = UIAlertAction(title: range.title, style: .default) { (_) in
+//                #warning("handle change of date range here")
+//            }
+//            alertController.addAction(action)
+//        }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
     }
