@@ -123,11 +123,7 @@ class RootFlowController: FlowController {
     
     private func pushTransactionCategoriesCollection(navigationController: UINavigationController, data: TransactionData) {
         let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiate()
-        viewController.viewModel = try? dependencyContainer.resolve()
-        
-        viewController.categorySelectedCallback = { category in
-            self.tabBarController?.dismiss(animated: self.animatedTransitions, completion: nil)
-        }
+        viewController.presenter = Factory.categoriesListPresenter(userInterface: viewController, router: self)
         
         navigationController.pushViewController(viewController, animated: animatedTransitions)
     }
@@ -177,4 +173,10 @@ extension RootFlowController: TransactionDataRouting {
         
     }
     
+}
+
+extension RootFlowController: TransactionCategoriesListRouting {
+    func categorySelected(_ transactionCategory: TransactionCategoryProtocol) {
+        
+    }
 }

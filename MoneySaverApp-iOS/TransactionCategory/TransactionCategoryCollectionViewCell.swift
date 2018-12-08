@@ -20,9 +20,8 @@ class TransactionCategoryCollectionViewCell: UICollectionViewCell {
         imageBackgroundView?.backgroundColor = AppColor.main.value
     }
     
-    func update(withViewModel viewModel: TransactionCategoryViewModel) {
-        titleLabel?.text = viewModel.transactionName
-        imageView?.image = viewModel.transactionIcon
+    func update(with item: TransactionCategoryItemProtocol) {
+        
     }
     
     override func layoutSubviews() {

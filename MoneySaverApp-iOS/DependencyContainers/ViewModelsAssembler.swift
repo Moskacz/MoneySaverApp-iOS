@@ -15,15 +15,6 @@ struct ViewModelsAssembler: ContainerAssembly {
     func assembly(container: DependencyContainer) {
         
         container.register {
-            TransactionDataViewModel()
-        }
-        
-        container.register {
-            TransactionCategoriesCollectionViewModel(service: $0,
-                                                     logger: $1)
-        }
-        
-        container.register {
             DateRangePickerViewModel(calendar: $0)
         }
     }

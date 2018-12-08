@@ -11,23 +11,11 @@ import MoneySaverAppCore
 
 class TransactionCategoriesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    var viewModel: TransactionCategoriesCollectionViewModel? {
-        didSet {
-            bindViewModel()
-        }
-    }
-    
-    var categorySelectedCallback: ((TransactionCategoryManagedObject) -> Void) = { _ in }
+    var presenter: TransactionCategoriesPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-        bindViewModel()
-    }
-    
-    private func bindViewModel() {
-        guard let model = viewModel, let collection = collectionView else { return }
-        model.loadData()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -39,14 +27,13 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
-        guard let model = viewModel else { return 0 }
-        return model.numberOfItems()
+        return presenter.numberOfCategories
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let model = viewModel else { fatalError("should not happen") }
         let cell: TransactionCategoryCollectionViewCell = collectionView.dequeueCell(forIndexPath: indexPath)
-        cell.update(withViewModel: model.itemCellViewModel(forIndexPath: indexPath))
+        let item = presenter.categoryItem(at: indexPath)
+        cell.update(with: item)
         return cell
     }
     
@@ -58,8 +45,12 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let model = viewModel else { return }
-        categorySelectedCallback(model.category(at: indexPath))
+        presenter.selectItem(at: indexPath)
     }
-    
+}
+
+extension TransactionCategoriesCollectionViewController: TransactionCategoriesCollectionUIProtocol {
+    func reloadList() {
+        collectionView?.reloadData()
+    }
 }
