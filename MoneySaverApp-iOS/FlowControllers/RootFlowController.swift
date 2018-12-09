@@ -143,17 +143,19 @@ extension RootFlowController: BudgetRoutingProtocol {
 }
 
 extension RootFlowController: TransactionsSummaryRoutingProtocol {
-    func presentDateRangePicker() {
-//        let viewModel: DateRangePickerViewModel = try! dependencyContainer.resolve()
+
+    func presentDateRangePicker(presenter: DateRangePickerPresenterProtocol) {
+        let actions = presenter.items.map { item -> UIAlertAction in
+            let action = UIAlertAction(title: item.title, style: .default, handler: { action in
+                presenter.select(item: item)
+            })
+            return action
+        }
+        
         let alertController = UIAlertController(title: "Pick date range",
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
-//        for range in viewModel.ranges {
-//            let action = UIAlertAction(title: range.title, style: .default) { (_) in
-//                #warning("handle change of date range here")
-//            }
-//            alertController.addAction(action)
-//        }
+        actions.forEach { alertController.addAction($0) }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
     }

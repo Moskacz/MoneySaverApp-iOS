@@ -26,7 +26,6 @@
 		356D0EAC1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */; };
 		356D0EB11F8C00E700378362 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356D0EB01F8C00E700378362 /* Errors.swift */; };
 		35708BBC1FC958110052ED9E /* SetupBudgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */; };
-		35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */; };
 		3585EDFC1FDDA50400871941 /* NotificationHandlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */; };
 		3587F20120ADF31300DC8C89 /* TransactionTypePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3587F20020ADF31300DC8C89 /* TransactionTypePickerView.swift */; };
 		3587F20920ADF33A00DC8C89 /* TransactionTypePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3587F20820ADF33A00DC8C89 /* TransactionTypePickerView.xib */; };
@@ -135,7 +134,6 @@
 		356D0EAB1F8BF75800378362 /* TransactionCategoriesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCategoriesCollectionViewController.swift; sourceTree = "<group>"; };
 		356D0EB01F8C00E700378362 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		35708BBB1FC958110052ED9E /* SetupBudgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupBudgetViewController.swift; sourceTree = "<group>"; };
-		35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateRangePickerViewModel.swift; sourceTree = "<group>"; };
 		3585EDFB1FDDA50400871941 /* NotificationHandlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandlers.swift; sourceTree = "<group>"; };
 		3587F20020ADF31300DC8C89 /* TransactionTypePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerView.swift; sourceTree = "<group>"; };
 		3587F20820ADF33A00DC8C89 /* TransactionTypePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTypePickerView.xib; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 			isa = PBXGroup;
 			children = (
 				351005FA206438130090AD43 /* TransactionsSummaryViewController.swift */,
-				35757FA42075441A00FDAEC0 /* DateRangePickerViewModel.swift */,
 			);
 			path = TransactionsSummary;
 			sourceTree = "<group>";
@@ -676,7 +673,6 @@
 				35B296DC1F7EC423004A3E32 /* UIView+Additions.swift in Sources */,
 				35C09DE01E89766900095FE2 /* TransactionsListViewController.swift in Sources */,
 				35C09DED1E89802900095FE2 /* TransactionDataViewController.swift in Sources */,
-				35757FA52075441A00FDAEC0 /* DateRangePickerViewModel.swift in Sources */,
 				350F0F611E9564F3002ED5D7 /* FlowController.swift in Sources */,
 				3599F70620BDE43B007CE44D /* TransactionDataNavigationController.swift in Sources */,
 				350F0F631E956578002ED5D7 /* RootFlowController.swift in Sources */,
