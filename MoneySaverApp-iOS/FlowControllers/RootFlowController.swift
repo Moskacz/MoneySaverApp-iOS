@@ -22,7 +22,7 @@ class RootFlowController: FlowController {
     private weak var transactionsOverviewVC: TransactionsOverviewViewController?
     
     private let storyboard: UIStoryboard
-    private let presentationManager = CardStylePresentationManager()
+    
     
     var animatedTransitions: Bool = true
 
@@ -51,7 +51,7 @@ class RootFlowController: FlowController {
             tabBarController?.select(tab: .budget)
         case .transactionData:
             tabBarController?.select(tab: .transactionsList)
-            presentTransactionDataViewController()
+            continueWithTransactionDataFlow()
         }
     }
     
@@ -71,7 +71,7 @@ class RootFlowController: FlowController {
         self.tabBarController = tabBarVC
         
         tabBarVC.centerButtonTapCallback = {
-            self.presentTransactionDataViewController()
+            self.continueWithTransactionDataFlow()
         }
     }
     
@@ -102,30 +102,18 @@ class RootFlowController: FlowController {
         return viewController
     }
     
-    private func presentTransactionDataViewController() {
-        let viewController: TransactionDataViewController = storyboard.instantiate()
-        viewController.presenter = Factory.transactionDataPresenter(userInterface: viewController,
-                                                                    router: self)
-        
-        let navControlloer = TransactionDataNavigationController(rootViewController: viewController)
-        navControlloer.modalPresentationStyle = .custom
-        navControlloer.transitioningDelegate = presentationManager
-        tabBarController?.present(navControlloer, animated: self.animatedTransitions, completion: nil)
-    }
-    
-    private func pushTransactionCategoriesCollection(navigationController: UINavigationController, data: TransactionData) {
-        let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiate()
-        viewController.presenter = Factory.categoriesListPresenter(userInterface: viewController, router: self)
-        
-        navigationController.pushViewController(viewController, animated: animatedTransitions)
-    }
-    
     private func settingsViewController() -> UIViewController {
         let viewController: SettingsViewController = storyboard.instantiate()
         let navController = UINavigationController(rootViewController: viewController)
         navController.navigationBar.prefersLargeTitles = true
         navController.tabBarItem = UITabBarItem(title: "Settings", image: #imageLiteral(resourceName: "stats"), selectedImage: #imageLiteral(resourceName: "stats"))
         return navController
+    }
+    
+    private func continueWithTransactionDataFlow() {
+        let flowController = TransactionDataFlowController(tabBarVC: tabBarController!,
+                                                          storyboard: storyboard)
+        flowController.startFlow()
     }
 }
 
@@ -158,19 +146,5 @@ extension RootFlowController: TransactionsSummaryRoutingProtocol {
         actions.forEach { alertController.addAction($0) }
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         tabBarController?.present(alertController, animated: animatedTransitions, completion: nil)
-    }
-}
-
-extension RootFlowController: TransactionDataRouting {
-
-    func showTransactionCategoriesPicker(transactionData: TransactionData) {
-        
-    }
-    
-}
-
-extension RootFlowController: TransactionCategoriesListRouting {
-    func categorySelected(_ transactionCategory: TransactionCategoryProtocol) {
-        
     }
 }
