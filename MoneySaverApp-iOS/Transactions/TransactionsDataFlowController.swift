@@ -46,6 +46,10 @@ extension TransactionDataFlowController: TransactionDataRouting {
                                                                    router: self)
         navController!.pushViewController(viewController, animated: animatedTransitions)
     }
+    
+    func closeView() {
+        tabBarVC.dismiss(animated: animatedTransitions, completion: nil)
+    }
 }
 
 extension TransactionDataFlowController: TransactionCategoriesListRouting {

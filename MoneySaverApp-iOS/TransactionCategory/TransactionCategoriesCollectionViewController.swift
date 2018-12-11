@@ -16,6 +16,7 @@ class TransactionCategoriesCollectionViewController: UICollectionViewController,
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        presenter.start()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

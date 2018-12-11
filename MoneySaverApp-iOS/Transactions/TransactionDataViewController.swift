@@ -50,6 +50,7 @@ class TransactionDataViewController: UIViewController {
         setupKeyboardObserver()
         setupViews()
         setupInitialData()
+        presenter.start()
     }
     
     override func viewWillAppear(_ animated: Bool) {
