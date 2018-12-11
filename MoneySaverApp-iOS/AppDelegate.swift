@@ -17,39 +17,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        configureFactory()
         rootFlowController = RootFlowController(applicationDelegate: self,
                                                 storyboard: UIStoryboard.getMain())
         rootFlowController?.startFlow()
         return true
     }
+    
+    private func configureFactory() {
+        let storeURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: AppGroup.group.identifier)!.appendingPathComponent("Database.sqlite")
+        Factory.databaseURL = storeURL
+    }
 
     func applicationWillResignActive(_ application: UIApplication) {}
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        saveCoreData()
-    }
 
     func applicationWillEnterForeground(_ application: UIApplication) {}
 
     func applicationDidBecomeActive(_ application: UIApplication) {}
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        saveCoreData()
-    }
     
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         rootFlowController?.setup(flowState: .transactionData)
         completionHandler(true)
     }
-    
-    private func saveCoreData() {
-        do {
-//            try coreDataStack?.save()
-        } catch {
-            print(error)
-        }
-    }
-
 }
 

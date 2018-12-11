@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MMFoundation
 import MoneySaverAppCore
 
 class TransactionsListViewController: UIViewController {
@@ -25,6 +26,7 @@ class TransactionsListViewController: UIViewController {
         super.viewDidLoad()
         setup()
         presenter.start()
+        tableView?.reloadData()
     }
     
     private func setup() {
@@ -75,5 +77,27 @@ extension TransactionsListViewController: UITableViewDataSource {
 extension TransactionsListViewController: UITableViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         externalScrollViewDelegate?.scrollViewDidScroll?(scrollView)
+    }
+}
+
+extension TransactionsListViewController: TransactionsListUI {
+    
+    func displayNoData() {
+        #warning("implement")
+    }
+}
+
+extension TransactionsListViewController: ResultsControllerDelegate {
+    
+    func resultsControllerWillChangeContent() {
+        tableView?.resultsControllerWillChangeContent()
+    }
+    
+    func resultsControllerDid(change: ResultChangeType) {
+        tableView?.resultsControllerDid(change: change)
+    }
+    
+    func resultsControllerDidChangeContent() {
+        tableView?.resultsControllerDidChangeContent()
     }
 }

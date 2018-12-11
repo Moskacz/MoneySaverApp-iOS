@@ -41,7 +41,9 @@ extension TransactionDataFlowController: TransactionDataRouting {
     
     func showTransactionCategoriesPicker(transactionData: TransactionData) {
         let viewController: TransactionCategoriesCollectionViewController = storyboard.instantiate()
-        viewController.presenter = Factory.categoriesListPresenter(userInterface: viewController, router: self)
+        viewController.presenter = Factory.categoriesListPresenter(transactionData: transactionData,
+                                                                   userInterface: viewController,
+                                                                   router: self)
         navController!.pushViewController(viewController, animated: animatedTransitions)
     }
 }
@@ -49,7 +51,7 @@ extension TransactionDataFlowController: TransactionDataRouting {
 extension TransactionDataFlowController: TransactionCategoriesListRouting {
     
     func flowEnded() {
-        
+        tabBarVC.dismiss(animated: animatedTransitions, completion: nil)
     }
 }
 

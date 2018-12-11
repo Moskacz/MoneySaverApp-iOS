@@ -78,16 +78,16 @@ class RootFlowController: FlowController {
     private func transactionsOverviewViewController() -> TransactionsOverviewViewController {
         let viewController: TransactionsOverviewViewController = storyboard.instantiate()
         
-        viewController.configureSummaryVC = { viewController in
-            self.configure(summaryVC: viewController)
+        viewController.configureTransactionsListViewController = { vc in
+            vc.presenter = Factory.transactionsListPresenter(display: vc)
+        }
+        
+        viewController.configureSummaryVC = { [unowned self] vc in
+            vc.presenter = Factory.transactionsSummaryPresenter(display: vc, router: self)
         }
         
         self.transactionsOverviewVC = viewController
         return viewController
-    }
-    
-    private func configure(summaryVC: TransactionsSummaryViewController) {
-        summaryVC.presenter = Factory.transactionsSummaryPresenter(display: summaryVC, router: self)
     }
     
     private func budgetViewController() -> BudgetViewController {
