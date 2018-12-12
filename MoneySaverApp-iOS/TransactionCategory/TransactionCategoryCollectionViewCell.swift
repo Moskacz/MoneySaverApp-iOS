@@ -21,7 +21,8 @@ class TransactionCategoryCollectionViewCell: UICollectionViewCell {
     }
     
     func update(with item: TransactionCategoryItemProtocol) {
-        
+        titleLabel?.text = item.name
+        imageView?.image = item.icon
     }
     
     override func layoutSubviews() {
