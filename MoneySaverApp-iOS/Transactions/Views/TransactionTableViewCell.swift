@@ -13,7 +13,6 @@ import MMFoundation
 class TransactionTableViewCell: UITableViewCell, Reusable {
     
     @IBOutlet private weak var dividerViewHeightConstraint: NSLayoutConstraint?
-    @IBOutlet private weak var containerView: UIView?
     @IBOutlet private weak var iconImageViewContainer: GradientView?
     @IBOutlet private weak var iconImageView: UIImageView?
     @IBOutlet private weak var amoutLabel: UILabel?

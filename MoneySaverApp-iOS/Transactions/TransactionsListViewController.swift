@@ -69,7 +69,7 @@ extension TransactionsListViewController: UITableViewDataSource {
         presenter.deleteItem(at: indexPath)
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return presenter.title(for: section)
     }
 }

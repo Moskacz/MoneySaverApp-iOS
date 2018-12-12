@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="PIR-9w-rNQ" customClass="TransactionCell" customModule="MoneySaverApp_iOS" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="PIR-9w-rNQ" customClass="TransactionTableViewCell" customModule="MoneySaverApp_iOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="461" height="128"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PIR-9w-rNQ" id="C23-If-It5">
@@ -22,35 +22,35 @@
                         <rect key="frame" x="8" y="23" width="445" height="82"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3BJ-eM-Rvi">
-                                <rect key="frame" x="15" y="41" width="414" height="1"/>
+                                <rect key="frame" x="15" y="40.5" width="414" height="1"/>
                                 <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="D4D-fl-EIu"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U9E-YN-uwB">
-                                <rect key="frame" x="12" y="8" width="425" height="25"/>
+                                <rect key="frame" x="12" y="8" width="425" height="24.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-300$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Htw-99-xOr">
-                                        <rect key="frame" x="0.0" y="0.0" width="364.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364.5" height="24.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Clothes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZiU-Ig-VDs">
-                                        <rect key="frame" x="364.5" y="0.0" width="60.5" height="25"/>
+                                        <rect key="frame" x="364.5" y="0.0" width="60.5" height="24.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTW-Ht-HMY">
-                                <rect key="frame" x="12" y="48" width="425" height="30"/>
+                                <rect key="frame" x="12" y="47.5" width="425" height="30.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZTE-xH-GKn" customClass="GradientView" customModule="MMFoundation">
-                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="30.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="erJ-iB-kkz">
-                                                <rect key="frame" x="4" y="4" width="22" height="22"/>
+                                                <rect key="frame" x="4" y="4" width="22.5" height="22.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="erJ-iB-kkz" secondAttribute="height" id="zOz-pU-TD0"/>
                                                 </constraints>
@@ -65,7 +65,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:34:15 PM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLJ-qm-MJ0">
-                                        <rect key="frame" x="30" y="0.0" width="395" height="30"/>
+                                        <rect key="frame" x="30.5" y="0.0" width="394.5" height="30.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -113,14 +113,12 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="amoutLabel" destination="Htw-99-xOr" id="fYu-T8-RFp"/>
-                <outlet property="containerView" destination="YMH-se-hfS" id="b9K-0c-BYn"/>
-                <outlet property="dateLabel" destination="vLJ-qm-MJ0" id="XfO-c6-6nP"/>
-                <outlet property="descriptionLabel" destination="ZiU-Ig-VDs" id="ADc-N7-DK2"/>
-                <outlet property="dividerViewHeightConstraint" destination="D4D-fl-EIu" id="cOQ-y5-l4e"/>
-                <outlet property="iconImageView" destination="erJ-iB-kkz" id="rB6-LI-8tQ"/>
-                <outlet property="iconImageViewContainer" destination="ZTE-xH-GKn" id="4LO-BF-Dyg"/>
-                <outlet property="indicatorView" destination="rkf-dw-Tm7" id="u8n-ZI-0Zq"/>
+                <outlet property="amoutLabel" destination="Htw-99-xOr" id="4lA-B4-6Rw"/>
+                <outlet property="dateLabel" destination="vLJ-qm-MJ0" id="LEy-vi-Vne"/>
+                <outlet property="descriptionLabel" destination="ZiU-Ig-VDs" id="Ple-yW-qgX"/>
+                <outlet property="dividerViewHeightConstraint" destination="D4D-fl-EIu" id="vey-IC-25c"/>
+                <outlet property="iconImageView" destination="erJ-iB-kkz" id="lZM-ka-gKM"/>
+                <outlet property="iconImageViewContainer" destination="ZTE-xH-GKn" id="SY0-BR-1v9"/>
             </connections>
             <point key="canvasLocation" x="-184.5" y="-162"/>
         </tableViewCell>
