@@ -26,6 +26,7 @@ class TransactionsSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAppearance()
+        presenter.start()
     }
     
     private func setupAppearance() {
