@@ -85,6 +85,10 @@ extension TransactionsListViewController: TransactionsListUI {
     func displayNoData() {
         #warning("implement")
     }
+    
+    func reloadList() {
+        tableView?.reloadData()
+    }
 }
 
 extension TransactionsListViewController: ResultsControllerDelegate {
