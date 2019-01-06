@@ -42,6 +42,7 @@ class StatsViewController: UIViewController {
             $0.rightAxis.enabled = false
             $0.leftAxis.drawGridLinesEnabled = false
             $0.xAxis.drawGridLinesEnabled = false
+            $0.xAxis.labelPosition = .bottom
         }
     }
     
