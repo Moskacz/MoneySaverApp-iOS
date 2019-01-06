@@ -16,8 +16,8 @@ class StatsViewController: UIViewController {
     var presenter: StatsPresenterProtocol!
     
     @IBOutlet private weak var segmentedControl: UISegmentedControl?
-    @IBOutlet private weak var expensesPerTimeChart: BarChartView?
-    @IBOutlet private weak var incomesPerTimeChart: BarChartView?
+    @IBOutlet private weak var expensesPerTimeChart: BarChartView!
+    @IBOutlet private weak var incomesPerTimeChart: BarChartView!
     @IBOutlet private weak var expensesPerCategory: BarChartView?
     
     required init?(coder aDecoder: NSCoder) {
@@ -27,7 +27,22 @@ class StatsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCharts()
         presenter.start()
+    }
+    
+    private func configureCharts() {
+        [expensesPerTimeChart!, incomesPerTimeChart!].forEach {
+            $0.highlightFullBarEnabled = false
+            $0.scaleXEnabled = false
+            $0.scaleYEnabled = false
+            $0.drawValueAboveBarEnabled = true
+            $0.drawGridBackgroundEnabled = false
+            $0.drawBordersEnabled = false
+            $0.rightAxis.enabled = false
+            $0.leftAxis.drawGridLinesEnabled = false
+            $0.xAxis.drawGridLinesEnabled = false
+        }
     }
     
     // MARK: UI actions
