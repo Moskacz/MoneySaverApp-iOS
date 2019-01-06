@@ -64,17 +64,27 @@ extension StatsViewController: StatsUIProtocol {
     }
     
     func showExpenses(data: BarChartData) {
-        expensesPerTimeChart?.data = data
-        expensesPerTimeChart?.notifyDataSetChanged()
+        expensesPerTimeChart.data = data
+        expensesPerTimeChart.notifyDataSetChanged()
+        configureAxes(chartView: expensesPerTimeChart)
     }
     
     func showIncomes(data: BarChartData) {
-        incomesPerTimeChart?.data = data
-        incomesPerTimeChart?.notifyDataSetChanged()
+        incomesPerTimeChart.data = data
+        incomesPerTimeChart.notifyDataSetChanged()
+        configureAxes(chartView: incomesPerTimeChart)
     }
     
     func showCategoryExpenses(data: PieChartData) {
         
+    }
+    
+    private func configureAxes(chartView: BarChartView) {
+        let xAxis = chartView.xAxis
+        xAxis.resetCustomAxisMin()
+        xAxis.resetCustomAxisMax()
+        xAxis.axisMinimum -= 1
+        xAxis.axisMaximum += 1
     }
 }
 
