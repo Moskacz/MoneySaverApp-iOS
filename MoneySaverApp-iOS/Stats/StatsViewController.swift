@@ -43,6 +43,7 @@ class StatsViewController: UIViewController {
             $0.leftAxis.drawGridLinesEnabled = false
             $0.xAxis.drawGridLinesEnabled = false
             $0.xAxis.labelPosition = .bottom
+            $0.xAxis.valueFormatter = presenter.chartsDateFormatter
         }
     }
     
@@ -85,6 +86,7 @@ extension StatsViewController: StatsUIProtocol {
         xAxis.resetCustomAxisMax()
         xAxis.axisMinimum -= 1
         xAxis.axisMaximum += 1
+        
     }
 }
 
